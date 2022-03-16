@@ -1,0 +1,23 @@
+<style id="style">
+  .form-hidden {
+     display: none;
+  }
+  .float_100 {
+    float: left;
+    width: 100%;
+  }
+  .width_300 {
+    width: 300px;
+  }
+  .left {
+    float:left;
+  }
+  .custom_button {
+    font-size: 1rem !important;
+    padding: .375rem .75rem !important;
+    margin-left: 5px !important;
+  }
+  .margin_bottom_15 {
+    margin-bottom: 15px;
+  }
+</style>

@@ -1,0 +1,24 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # - gem install rubygems-update
+        # - update_rubygems
+        # - gem update --system
+        # - ruby -v
+        # - gem install bundler
+        # - gem update --system 3.3.3
+        # - bundle install --redownload
+        # - bundle update
+        - bundle install
+        - ruby -v
+    build:
+      commands:
+        - bundle exec jekyll b
+  artifacts:
+    baseDirectory: _site
+    files:
+      - "**/*"
+  cache:
+    paths: []
