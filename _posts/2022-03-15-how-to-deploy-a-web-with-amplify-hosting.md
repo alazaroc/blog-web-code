@@ -3,7 +3,7 @@ layout: post
 title: How to deploy a web with Amplify Hosting
 date: 2022-03-15 21:13 +0100
 last_modified_at:
-description: I use Amplify hosting to deploy my blog and in this post I'll explain how to do it step by step. The source code is public, so you can also do that if you want to
+description: I use Amplify hosting to deploy my blog and in this post I will explain how to do it step by step. The source code is public, so you can also do it if you want to
 category: How-to
 tags:
 - amplify

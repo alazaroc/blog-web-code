@@ -3,7 +3,7 @@ layout: post
 title: The technology behind this blog
 date: 2022-03-02 21:49 +0100
 last_modified_at:
-description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it. Do you want to know what I decided?
+description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it. Want to know what I decided?
 category: Serverless
 tags:
 - amplify
@@ -21,7 +21,9 @@ sitemap: true
 For the blog I have 2 different GitHub projects:
 
 - **Frontend**: Static website generated with Jekyll and deployed with AWS Amplify
+  - Code [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
 - **Backend**: AWS resources deployed with CDK using the TypeScript language
+  - Code [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
 
 ## Technology Approach
 
@@ -184,7 +186,7 @@ Price information by services used:
 > The domain name purchase on Route53 is annual and is paid in the month of purchase, but for simplicity I split it into each month. Also, the invoice category is NOT Route53 but "Registrar", "Global Region" and "Amazon Registrar DomainRegistration".
 {: .prompt-info }
 
-> Use **Route53** for Register Domain is not the cheapest option. I payed $12 instead of around $0.9 for the first year with GoDaddy, but it's worth it (to me)
+> Use **Route53** for Register Domain is not the cheapest option. I payed $12 instead of around $1 for the first year with GoDaddy, but it's worth it (to me)
 {: .prompt-tip }
 
 ## Next steps about blog technology
