@@ -3,8 +3,10 @@ layout: post
 title: How to deploy infrastructure with CDK
 date: 2022-03-16 19:28 +0100
 last_modified_at:
-description: I use CDK to deploy the infrastructure of my blog and in this post I will explain how cdk works, a basic example of cdk with TypeScript and also I will share my source code so you can review it if you want
-category: How-to
+description: Do you want to know how to deploy infrastructure with CDK and review my cdk project used in this blog?
+category:
+- How-to
+- IaC
 tags:
 - cdk
 - cloudformation
@@ -18,37 +20,51 @@ sitemap: true
 
 ## TLDR
 
-I will explain the basics of CDK in practice: how cdk works and how to deploy a cdk project.
+I will explain the basics of CDK in practice: how cdk works and how to deploy a cdk project from scratch.
 
-Also, I will share with you the source code of my cdk project which I use to create the infrastructure of my blog.
+In addition, I will share the source code of my cdk project used to create the infrastructure of my blog.
 
-## What is CDK
+## Introduction
 
-> *[CDK](https://aws.amazon.com/cdk/){:target="_blank"} is an open-source software development framework to define your cloud application resources using familiar programming languages.*
->
-> *AWS CDK provisions your resources in a safe, repeatable manner through AWS <kbd>CloudFormation</kbd>, but also is available (in alpha phase) a CDK for **Terraform** [cdktf](https://github.com/hashicorp/terraform-cdk){:target="_blank"} and a CDK for **Kubernetes** [cdk8s](https://cdk8s.io/){:target="_blank"}. To find all of these CDKs in one place, check out [Construct Hub](https://constructs.dev/){:target="_blank"}, a place to discover and share construct libraries published by the open-source community, AWS, and partners.*
+This section contains:
 
-> To me, with a developer background, CloudFormation is complex and CDK fills the gap and allows me to use a programming language to create the infrastructure in an easy way, it's wonderful.
+- What is CDK
+- How CDK works
+- Prerequisites
+
+### What is CDK
+
+[CDK](https://aws.amazon.com/cdk/){:target="_blank"} is an open-source software development framework to define your cloud application resources using familiar programming languages (TypeScript, JavaScript, Python, Java, C#/.Net, and Go)
+
+AWS CDK provisions your resources in a safe, repeatable manner through AWS <kbd>CloudFormation</kbd>.
+
+> To me, with a developer background, CloudFormation is complex and CDK fills the gap because it allows me to use a programming language to create the infrastructure easily, it's wonderful.
 {: .prompt-info }
 
-## How CDK works
+### How CDK works
 
-The CDK `app` generates a `cloudformation template`, which will be deployed as a stack in the `AWS CloudFormation` service and will generate `resources` in the AWS account.
+To interact with CDK apps you will need the AWS CDK Toolkit (command-line tool).
+
+**In a nutshell:**
+
+1. <kbd>Add code</kbd>: Add the desired AWS resources in the `app` code with your preferred programming language.
+2. <kbd>Transform the code into a CloudFormation template</kbd>: Run the `cdk synth` command from the AWS CDK Toolkit to generate the `CloudFormation template` from the `app` code.
+3. <kbd>Deploy the infrastructure</kbd>: Run the `cdk deploy` command from the AWS CDK Toolkit to `create a new stack on the CloudFormation service`, which will deploy the `AWS resources` to the configured AWS account.
 
 ![how-cdk-works](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-aws-img.png)
 
-CDK commands you need to know:
+AWS CDK Toolkit commands you need to know:
 
 | Command: Function   |
 | ---   |
 | `cdk init`: Creates a new CDK project in the current directory from a specified template  |
-| `cdk bootstrap`: Deploys the CDK Toolkit stack. It must be executed once per region to allow cdk to create the resources it needs to run |
+| `cdk bootstrap`: Deploys the CDK Toolkit stack. It must be executed once per environment (account and region) to allow cdk to create the resources it needs to run |
 | `cdk synthesize` / `cdk synth`: Synthesizes and prints the CloudFormation template for the specified stack(s)   |
 | `cdk diff`: Compares the specified local stack with the deployed stack  |
 | `cdk deploy`: Deploys the specified stack(s)   |
 | `cdk destroy`: Destroys the specified stack(s)    |
 
-## Prerequisites
+### Prerequisites
 
 - AWS CLI
   - [how to install it](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html){:target="_blank"}
@@ -57,14 +73,22 @@ CDK commands you need to know:
   - [official website](https://nodejs.org/en/){:target="_blank"}
 - IDE for your programming language
   - VSCode
-  - ...
+  - Others
 - AWS CDK Toolkit
   - `npm install -g aws-cdk`
   - `cdk version`
 - `cdk bootstrap`
-  - You must execute it once per region to allow cdk to create the resources it needs to run
+  - You must execute it once per environment (account and region) to allow cdk to create the resources it needs to run
 
-## How to create and deploy a basic cdk application
+## How to deploy infrastructure with CDK
+
+This section contains:
+
+- How to create and deploy a basic cdk application
+- Clean up
+- Make changes to the default cdk application and deploy it
+
+### How to create and deploy a basic cdk application
 
 I have chosen <kbd>TypeScript</kbd> as my programming language.
 
@@ -87,33 +111,42 @@ cdk deploy --require-approval never
 
 And that's all, we have deployed one topic and one queue in our AWS Account...
 
-> NOTE: When you execute `cdk deploy` also is executed `cdk synth` to generate the CloudFormation template, so you could want to avoid execute `cdk synth` before `cdk deploy`.
+> NOTE: What about the generation of the CloudFormation template in the `synth` phase? We have executed only the `deploy` command...
+>
+> When you execute `cdk deploy` behind the scenes also...
+>
+> - is executed `cdk synth` to generate the CloudFormation template (so you could want to avoid execute `cdk synth` before `cdk deploy`)
+> - and our assets code and the CloudFormation template are deployed to the S3 bucket provisioned when `cdk bootstrap` was executed
 ![cdk-deploy-in-progress](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-deploy-in-progress.png)
 ![cdk-deploy](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-deploy.png)
 {: .prompt-info }
 
-## Cleanup
+### Clean up
 
-Let's destroy the stack. I know this section maybe should be at the end, but where's the fun in that? We are playing and we need to try different things
+Let's destroy the stack. I know this section maybe should be at the end, but where's the fun in that? We are playing and we need to try different things.
+
+> If you try to do something different and on your own, you will learn faster!
+{: .prompt-tip }
 
 ``` console
-# Delete the cloudformation stack (so it will delete all resources related)
+# Delete the CloudFormation stack (so it will delete all resources related)
 cdk destroy --force
 ```
 
 ![cdk-destroy](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-destroy.png)
 
-> You have to know how to destroy a stack... so remember to do it at the end if you are playing with cdk...
-{: .prompt-tip }
+You have to know how to destroy a stack, so remember to do it at the end if you are playing with cdk...
 
-## Make changes to the default cdk application and deploy it
+### Make changes to the default cdk application and deploy it
 
-Maybe we want to check which will be deployed before to do it?
+Perhaps we want to check what is to be deployed before we deploy it?
 
-It makes sense to me...
+It makes sense to me.
 
 ``` console
-# It will print to the console (in yaml format) and generate in the `cdk.out` folder (in json format) the cloudformation template of the code
+# Synthesizes the CloudFormation template for the specified stack(s)
+# In the console, the template will be printed in yaml format
+# In the "cdk.out" folder, the template will be in json format
 cdk synth
 ```
 
@@ -121,15 +154,18 @@ cdk synth
 
 ![cdk-synth-code](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-synth-code.png)
 
-And what about compare the local code with the deployed stack in the AWS account?
+What if we compare the local code with the stack deployed in the AWS account?
 
 ``` console
 cdk diff
 ```
 
+> NOTE: `cdk diff` needs to connect to the AWS Account to check the CloudFormation stack against your local resources.
+{: .prompt-info }
+
 ![cdk-diff](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-diff.png)
 
-We can see all the new resources which will be created:
+We can see all the new resources that will be created:
 
 - [+] AWS::SQS::Queue
 - [+] AWS::SQS::QueuePolicy
@@ -145,7 +181,7 @@ We deploy it again:
 cdk deploy --require-approval never
 ```
 
-And we execute again the diff command to view the differences between local code and deployed stack:
+And we run the diff command again to see the differences between the local code and the deployed stack:
 
 ``` console
 cdk diff
@@ -153,11 +189,11 @@ cdk diff
 
 ![cdk-diff-no-changes](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-diff-no-changes.png)
 
-Now we will update the cdk code to generate some differences. First, we need to open the project with our IDE (you can do it with a notepad as well but...)
+Now le's update the cdk code to generate some differences. First of all, we have to open the project with our IDE (you can also do it with a notepad but...)
 
 ![cdk-code](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-code.png)
 
-This file contains the 2 AWS resources of my example, a queue (red) and a topic (yellow). I could add a new service but for simplicity I will remove the topic (lines 15 to 17) and execute the cdk diff again.
+This file contains the 2 AWS resources of my example, a queue (red) and a topic (yellow). I could add a new service but for simplicity, I will remove the topic (lines 15 to 17) and run the cdk diff again.
 
 ![cdk-code-2](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-code-2.png)
 
@@ -167,20 +203,28 @@ cdk diff
 
 ![cdk-diff-delete-topic](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-diff-delete-topic.png)
 
-We can see that we have deleted the topic in the code, and when we execute the diff command cdk finds the changes and shows them to us.
+We can see that we have deleted the topic in the code, and when we run the diff command cdk finds the changes and shows them to us.
 
-> And that's all, remember destroy your stack and keep playing!
-{: .prompt-warning }
+And that's all, keep practicing and learning!
+
+> Remember to destroy your stack when you are done playing
+{: .prompt-danger }
 
 ## Bonus: My cdk blog code
 
-I don't know why I put `bonus` on the title... it's just my code and if you think that I could improve something please tell me!
+The source code is available [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}.
 
-The source code is available [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
+If you review it and think it can be improved, please let me know.
+
+## Next steps
+
+- If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}.
+- Next post: How to add CI/CD to my CDK project?
+- Comment this post
 
 ## Comment this post
 
-> I have temporarily added the comments section to the post here. In the future I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
+> I have temporarily added the comments section to the post here. In the future, I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
 {: .prompt-info }
 
 {% include comment-form.html %}

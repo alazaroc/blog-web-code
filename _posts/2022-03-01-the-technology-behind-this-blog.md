@@ -3,43 +3,46 @@ layout: post
 title: The technology behind this blog
 date: 2022-03-02 21:49 +0100
 last_modified_at:
-description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it. Want to know what I decided?
-category: Serverless
+description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it until I felt comfortable with the solution. Want to know more?
+category: General
 tags:
 - amplify
 - cdk
 - github
+- serverless
 published: true
 pin: true
 featured_post: true
 comments: false
 sitemap: true
+mermaid: true
 ---
 
 ## TLDR
 
-For the blog I have 2 different GitHub projects:
+My technology approach is:
 
-- **Frontend**: Static website generated with Jekyll and deployed with AWS Amplify
-  - Code [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
-- **Backend**: AWS resources deployed with CDK using the TypeScript language
-  - Code [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
-
-## Technology Approach
-
-- Use of **AWS resources** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step the blog itself must use AWS resources. However, as a good rule there is an exception
-  > <kbd>GitHub</kbd> is used as **code repository** because I want to share my code publicly *soon*
+- Use of **AWS resources** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
+  > <kbd>GitHub</kbd> is used as **code repository** because I want to share my code easily in a public way
   {: .prompt-danger }
 - Serverless architecture
+- Apply the separation of concerns design principle to frontend and backend:
+  - **Frontend**: Static website generated with Jekyll and deployed with AWS Amplify
+    - Code [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
+  - **Backend**: AWS resources deployed with CDK using the TypeScript language
+    - Code [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
 
 ## Frontend
 
 I have included the following in this section:
 
-- How I created the blog
-- How I deployed the blog
+- Decision 1: Technology to create the blog
+- Decision 2: Technology to deploy the blog
+- Demo: How to deploy it
 
-### How I created the blog
+I could add much more details but I want to keep it short.
+
+### Technology to create the blog
 
 First of all, I needed to choose how to create the blog, and nowadays there are a lot of options to do it in a serverless way:
 
@@ -53,7 +56,7 @@ Since I wanted to **keep it simple**, I used a **static site generator.** I must
 > I am a big fan of the KISS design principle!
 {: .prompt-info }
 
-### How I deployed the blog
+### Technology to deploy the blog
 
 After choosing Jekyll as my static site generator, I needed to know how to deploy it on AWS and, of course, there are many options to do it on AWS:
 
@@ -93,55 +96,91 @@ As you can see, this solution is awesome if you want that AWS manage for you the
 > However, this is too "automagic" for me and I am here to practice/play and show you the results... so **in a future I'd like to migrate Amplify to custom solution** to have more control and more services to play with (S3, CloudFront, AWS Certificate Manager, Developer Tools)... a lot of fun is waiting for me!
 {: .prompt-danger }
 
+### How to deploy it
+
+I wrote it in another post: [How to deploy a web with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}
+
 ## Backend
 
 I have included the following in this section:
 
-- What I have created
-- How I deployed the infrastructure
+- Decision 1: What resources to create
+- Decision 2: Technology to deploy infrastructure
+- Demo: How to deploy infrastructure
 
-### What I have created
+### What resources to create
 
 No backend is necessary for the blog to work. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, mail subscriptions or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your own solutions.
 
 I don't want to use external plugins if I can do it "just the same" myself in AWS and practice/play with new services in the process
 
-At this moment, using backend services behind the scenes, I have already implemented the following:
+After creating my empty blog I thought that it would be a good idea to implement the following:
 
-- Forms
-- Mail Subscription
-- Comments
+- Forms (contact form)
+- Mail Subscription (to send updates of the blog)
+- Add comments to each post (register it and show it)
 
-This is the architecture diagram:
+Now, I have a basic implementation of this points but I will improve it in a future.
+
+This is the architecture diagram of the AWS resources created:
 
 ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/backend-architecture-400x353.png)
 *Backend Architecture Diagram*
 
-> The backend can also be integrated with the frontend with `Amplify Studio`, but I am not interested in doing it that way.
+> The backend can also be integrated with the frontend with `Amplify Studio`, but I am not interested in doing it that way. I want separation of concerns and manage both independently.
 {: .prompt-info }
 
 #### Forms
 
 - Used here: [Contact form](/about/#contact){:target="_blank"}
 - External option easy to integrate: ~~Google Forms~~.
-- Custom AWS solution: API Gateway -> Lambda -> SES -> mail
+- Custom AWS solution:
+
+  ``` mermaid
+    flowchart LR
+    A(Contact form) --> B(API Gateway)
+    B --> C(Lambda)
+    C --> D(SES)
+    D --> E(My email)  
+  ```
 
 #### Mail Subscription
 
 - Used here: [Mail subscription](/about/#the-blog){:target="_blank"}
 - External option easy to integrate: ~~Mailchimp~~
-- Custom AWS solution: API Gateway -> Lambda -> DynamoDB
+- Custom AWS solution:
+
+  ``` mermaid
+    flowchart LR
+    A(Mail subscription form) --> B(API Gateway)
+    B --> C(Lambda)
+    C --> D(DynamoDB)
+  ```
+
+> At this moment, I only store the subscription information and if I want to send emails I have to do manually. However, in the future, I will automate it and I will add the option to unsubscribe (to the sent mail)
+{: .prompt-warning }
 
 #### Comments
 
 - Used here: [Comment](#comment-this-post){:target="_blank"}
 - External option easy to integrate: ~~Disqus~~
-- Custom AWS solution (in progress): API Gateway -> Lambda -> DynamoDB
-  - At this moment I only store the comments of each post in a DynamoDB table and in the future I will show all validated comments in the posts
+- Custom AWS solution
 
-### How I deployed the infrastructure
+  ``` mermaid
+    flowchart LR
+    A(Mail subscription form) --> B(API Gateway)
+    B --> C(Lambda)
+    C --> D(DynamoDB)
+  ```
 
-I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript to create the backend services.
+> At this moment I only store the comments of each post in a DynamoDB table and in the future I will show all validated comments in the posts
+{: .prompt-warning }
+
+### Technology to deploy infrastructure
+
+Hostly, I did not evaluate other options, since I knew which one to choose.
+
+I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript programming language to create the backend services.
 
 > What is CDK? (Explained by AWS)
 >
@@ -149,8 +188,12 @@ I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript to create the backe
 >
 > *AWS CDK provisions your resources in a safe, repeatable manner through AWS **CloudFormation**, but also is available (in alpha phase) a CDK for **Terraform** [cdktf](https://github.com/hashicorp/terraform-cdk){:target="_blank"} and a CDK for **Kubernetes** [cdk8s](https://cdk8s.io/){:target="_blank"}. To find all of these CDKs in one place, check out [Construct Hub](https://constructs.dev/){:target="_blank"}, a place to discover and share construct libraries published by the open-source community, AWS, and partners.*
 
-> To me, with a developer background, CloudFormation is complex and CDK fills the gap and allows me to use a programming language to create the infrastructure in an easy way, it's wonderful.
+> To me, with a developer background, CloudFormation is complex and CDK fills the gap because it allows me to use a programming language to create the infrastructure easily, it's wonderful.
 {: .prompt-info }
+
+### How to deploy infrastructure
+
+I wrote it in another post: [How to deploy infrastructure with CDK](/posts/how-to-deploy-infrastructure-with-cdk/){:target="_blank"}
 
 ## Price estimation of the blog
 
@@ -186,7 +229,7 @@ Price information by services used:
 > The domain name purchase on Route53 is annual and is paid in the month of purchase, but for simplicity I split it into each month. Also, the invoice category is NOT Route53 but "Registrar", "Global Region" and "Amazon Registrar DomainRegistration".
 {: .prompt-info }
 
-> Use **Route53** for Register Domain is not the cheapest option. I payed $12 instead of around $1 for the first year with GoDaddy, but it's worth it (to me)
+> Use **Route53** for Register Domain is not the cheapest option. I paid $12 instead of around $1 for the first year with GoDaddy, but it's worth it (to me)
 {: .prompt-tip }
 
 ## Next steps about blog technology
@@ -200,7 +243,7 @@ I have many next steps identified, but I'll put here the ones related to the con
 
 ## Comment this post
 
-> I have temporarily added the comments section to the post here. In the future I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
+> I have temporarily added the comments section to the post here. In the future, I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
 {: .prompt-info }
 
 {% include comment-form.html %}

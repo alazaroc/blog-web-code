@@ -3,11 +3,14 @@ layout: post
 title: How to deploy a web with Amplify Hosting
 date: 2022-03-15 21:13 +0100
 last_modified_at:
-description: I use Amplify hosting to deploy my blog and in this post I will explain how to do it step by step. The source code is public, so you can also do it if you want to
-category: How-to
+description: I use Amplify hosting to deploy my blog and in this post, I will explain how to do it step by step. The source code is public, so you can also do it if you want to
+category:
+- How-to
+- AWS-console
 tags:
 - amplify
 - route53
+- github
 published: true
 pin: false
 featured_post: false
@@ -17,11 +20,11 @@ sitemap: true
 
 ## TLDR
 
-This is a practical use case where I will explain the step by step of how I deployed the infrastructure of my blog using Amplify Hosting.
+This is a practical use case where I will explain step by step how I deployed my blog using Amplify Hosting. I will use the AWS Console to do it.
 
-The source code is available [here](https://github.com/alazaroc/blog-web/){:target="_blank"}.
+The source code of my blog (web) is available [here](https://github.com/alazaroc/blog-web/){:target="_blank"}.
 
-## What is Amplify
+## Introduction
 
 > *[AWS Amplify](https://aws.amazon.com/amplify/){:target="_blank"} is a set of purpose-built tools and features that enables frontend web and mobile developers to quickly and easily build full-stack applications on AWS.*
 >
@@ -33,22 +36,22 @@ The source code is available [here](https://github.com/alazaroc/blog-web/){:targ
 > AWS Amplify is the fastest and easiest way to develop and deploy reliable and scalable mobile/web applications on AWS
 {: .prompt-tip }
 
-## How to deploy an amplify web
+## How to deploy a web with Amplify
 
 1. We need to have our code ready to be deployed in a supported repository.
    - Supported repositories: GitHub, Bitbucket, GitLab and AWS CodeCommit.
    - Another option is to deploy manually with drag and drop, Amazon S3 or any URL.
 2. In AWS Console, enter to AWS Amplify service and choose `Amplify Hosting`
-   - a) If you don't have any amplify resource, this screen appears and you should click <kbd>Get Started</kbd>
+   - a) If you don't have any amplify resource, this screen appears and you have to click on <kbd>Get Started</kbd>
     ![amplify1.1](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-1.1-new.png){:class="border"}
     and then choose <kbd>Amplify Hosting</kbd>
     ![amplify1.2](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-1.2-new.png){:class="border"}
-   - b) If you already have an Amplify resource click <kbd>New app</kbd> and <kbd>Host web app</kbd>
+   - b) If you already have an Amplify resource click on <kbd>New app</kbd> and <kbd>Host web app</kbd>
     ![amplify2](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-2.png){:class="border"}
 3. Configure Amplify Hosting
-   - The fist step to set up Amplify Hosting is to connect your repository. In my case I chose <kbd>GitHub</kbd>
+   - The first step to set up Amplify Hosting is to connect your repository. In my case I chose <kbd>GitHub</kbd>
     ![amplify3](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-3.png){:class="border"}
-   - Add repository branch: choose your repository and branch
+   - Add repository branch: choose your repository and your branch
     ![amplify4](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-4.png){:class="border"}
    - Configure build settings: Advanced settings are optional, allow you reference your build image, add environment variables and override default installed packages
     ![amplify5](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-5.png){:class="border"}
@@ -64,36 +67,42 @@ The source code is available [here](https://github.com/alazaroc/blog-web/){:targ
   
 ## How to associate my web with my domain name
 
-We can also set up our own Domain Name to our deployed website with Amplify Hosting easily.
+We can also set up our Domain Name to our deployed website with Amplify Hosting easily.
 
 To register the domain name I used <kbd>Amazon Route53</kbd>.
-> Use **Route53** is not the cheapest option (e.g. I payed $12 to register the new domain with Route53 instead of $1 the first year with GoDaddy), but it's worth it (to me)
+> Use **Route53** is not the cheapest option (e.g. I paid $12 to register the new domain with Route53 instead of $1 the first year with GoDaddy), but it's worth it (to me)
 {: .prompt-tip }
 
-In the lateral menu click to <kbd>Domain management</kbd> and then <kbd>Add domain</kbd>.
+In the side menu, click <kbd>Domain management</kbd>, and then click <kbd>Add domain</kbd>.
+
 ![amplify10](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-10-domain.png){:class="border"}
 
-Choose your Domain and click <kbd>Save</kbd>. Like I register my domain with Route53, it appears in the text field when I click it.
+Choose your Domain and click on <kbd>Save</kbd>. As I register my domain with Route53, it appears in the text field when I click on it.
+
 ![amplify11](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-11.png){:class="border"}
 
 Now you can choose the branch, the subdomains and the check of automatic redirect from http to https, and click <kbd>Save</kbd>.
+
 ![amplify12](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-12.png){:class="border"}
 
-It may take several minutes to complete. First you need to create the SSL certificate, then configure the SSL and finally activate it.
+It may take several minutes to complete. First, you need to create the SSL certificate, then configure the SSL and finally activate it.
+
 ![amplify13](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-13.png){:class="border"}
 ![amplify14](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-14.png){:class="border"}
 
 If we access the main page we can see that the URL has changed.
+
 ![amplify15](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-15-web-2.png){:class="border"}
 
-We can access now with our domain name
+We can now access with our domain name:
+
 ![amplify16](/assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/amplify-16-web-2.png){:class="border"}
 
-That's all!
+That's it, quick and easy!
 
 ## Comment this post
 
-> I have temporarily added the comments section to the post here. In the future I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
+> I have temporarily added the comments section to the post here. In the future, I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
 {: .prompt-info }
 
 {% include comment-form.html %}

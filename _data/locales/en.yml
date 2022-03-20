@@ -42,7 +42,7 @@ copyright:
     under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
 
 # meta: Powered by :PLATFORM.
-meta: Deployed using AWS resources.
+meta: Deployed with AWS resources.
 
 not_found:
   statment: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
