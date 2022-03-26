@@ -219,7 +219,7 @@ If you review it and think it can be improved, please let me know.
 ## Next steps
 
 - If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}.
-- Next post: How to add CI/CD to my CDK project?
+- Next post: [How to add CI/CD to my CDK project](/posts/how-to-deploy-infrastructure-with-cdk/){:target="_blank"}
 - Comment this post
 
 ## Comment this post
