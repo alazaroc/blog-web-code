@@ -51,7 +51,7 @@ First of all, I needed to choose how to create the blog, and nowadays there are 
 - Static Site Generator (SSG): Gatsby, Next.js, Nuxt.js, Hugo, Jekyll, Hexo
 - Progressive Web Apps (PWA): React, Angular, Vue.js, Preact, PWABuilder
 
-Since I wanted to **keep it simple**, I used a **static site generator.** I must admit I hesitated with Hugo, Jekyll and Hexo, all three options were good for me and although I liked Hugo for its fast build times and execution performance, I finally decided on <kbd>Jekyl</kbd> just because the theme I used ([Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/){:target="_blank"}) I liked more visually than the other options and I didn't want to have to customize it too much.
+Since I wanted to **keep it simple**, I used a **static site generator.** I must admit I hesitated with Hugo, Jekyll, and Hexo, all three options were good for me and although I liked Hugo for its fast build times and execution performance, I finally decided on <kbd>Jekyl</kbd> just because the theme I used ([Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/){:target="_blank"}) I liked more visually than the other options and I didn't want to have to customize it too much.
 
 > I am a big fan of the KISS design principle!
 {: .prompt-info }
@@ -60,7 +60,7 @@ Since I wanted to **keep it simple**, I used a **static site generator.** I must
 
 After choosing Jekyll as my static site generator, I needed to know how to deploy it on AWS and, of course, there are many options to do it on AWS:
 
-- EC2 + RDS (i.e. traditional blog with Wordpress / Ghost + Gatsby / ...)
+- EC2 + RDS (i.e. traditional blog with WordPress / Ghost + Gatsby / ...)
 - LightSail (by the way, [an interesting article comparing LightSail with EC2](https://aws.amazon.com/premiumsupport/knowledge-center/lightsail-differences-from-ec2/){:target="_blank"})
 - Container solutions (ECS/EKS)
 - AWS ElasticBeanstalk
@@ -81,7 +81,7 @@ But like I want it serverless and simple, I've leveraged <kbd>AWS Amplify</kbd> 
 > AWS Amplify is the fastest and easiest way to develop and deploy reliable and scalable mobile/web applications on AWS
 {: .prompt-tip }
 
-I used **Amplify Hosting** for the following reasons (there are more, but the following are the important to me):
+I used **Amplify Hosting** for the following reasons (there are more, but the following are important to me):
 
 - Serverless (uses S3 and CloudFront behind the scenes)
 - Integrates with my existing code in GitHub
@@ -93,12 +93,14 @@ I used **Amplify Hosting** for the following reasons (there are more, but the fo
 
 As you can see, this solution is awesome if you want that AWS manage for you the CI/CD, web, cache, certificate of your domain...
 
-> However, this is too "automagic" for me and I am here to practice/play and show you the results... so **in a future I'd like to migrate Amplify to custom solution** to have more control and more services to play with (S3, CloudFront, AWS Certificate Manager, Developer Tools)... a lot of fun is waiting for me!
+> However, this is too "automagic" for me and I am here to practice/play and show you the results... so **in the future I'd like to migrate Amplify to a custom solution** to have more control and more services to play with (S3, CloudFront, AWS Certificate Manager, Developer Tools)... a lot of fun is waiting for me!
 {: .prompt-danger }
 
 ### How to deploy it
 
-I wrote it in another post: [How to deploy a web with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}
+I wrote it in this post: [How to deploy a web with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}
+
+And I complemented it with this one: [How to add CI/CD to my CDK project](https://www.playingaws.com/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 
 ## Backend
 
@@ -110,7 +112,7 @@ I have included the following in this section:
 
 ### What resources to create
 
-No backend is necessary for the blog to work. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, mail subscriptions or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your own solutions.
+No backend is necessary for the blog to work. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, mail subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your own solutions.
 
 I don't want to use external plugins if I can do it "just the same" myself in AWS and practice/play with new services in the process
 
@@ -120,7 +122,7 @@ After creating my empty blog I thought that it would be a good idea to implement
 - Mail Subscription (to send updates of the blog)
 - Add comments to each post (register it and show it)
 
-Now, I have a basic implementation of this points but I will improve it in a future.
+Now, I have a basic implementation of these points but I will improve it in the future.
 
 This is the architecture diagram of the AWS resources created:
 
@@ -157,7 +159,7 @@ This is the architecture diagram of the AWS resources created:
     C --> D(DynamoDB)
   ```
 
-> At this moment, I only store the subscription information and if I want to send emails I have to do manually. However, in the future, I will automate it and I will add the option to unsubscribe (to the sent mail)
+> At this moment, I only store the subscription information and if I want to send emails I have to do it manually. However, in the future, I will automate it and I will add the option to unsubscribe (to the sent mail)
 {: .prompt-warning }
 
 #### Comments
@@ -178,7 +180,7 @@ This is the architecture diagram of the AWS resources created:
 
 ### Technology to deploy infrastructure
 
-Hostly, I did not evaluate other options, since I knew which one to choose.
+Honestly, I did not evaluate other options, since I knew which one to choose.
 
 I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript programming language to create the backend services.
 
@@ -226,7 +228,7 @@ Price information by services used:
 
 **TOTAL 1.5$ per month**. Taxes are NOT included.
 
-> The domain name purchase on Route53 is annual and is paid in the month of purchase, but for simplicity I split it into each month. Also, the invoice category is NOT Route53 but "Registrar", "Global Region" and "Amazon Registrar DomainRegistration".
+> The domain name purchase on Route53 is annual and is paid in the month of purchase, but for simplicity, I split it into each month. Also, the invoice category is NOT Route53 but "Registrar", "Global Region", and "Amazon Registrar DomainRegistration".
 {: .prompt-info }
 
 > Use **Route53** for Register Domain is not the cheapest option. I paid $12 instead of around $1 for the first year with GoDaddy, but it's worth it (to me)
