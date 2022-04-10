@@ -7,6 +7,7 @@ description: SAM (Serverless Application Model) is an open-source framework that
 category: 
 - How-to
 - Serverless
+- IaC
 tags: 
 - sam
 - cloudformation

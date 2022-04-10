@@ -25,7 +25,7 @@ I will try to keep it short and simple: I am a Cloud & Software Architect **spec
   - I just want to keep learning, share knowledge and make it publicly accessible
 - The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}.
 
-> To me, "play with AWS" means <kbd>PRACTICE</kbd>, experiment trying something new and <kbd>keep learning</kbd>... so <https://www.playingaws.com>
+> To me, "**play with AWS**" means <kbd>PRACTICE</kbd>, experiment trying something new and <kbd>keep learning</kbd>, so my domain is `playingaws`.
 {: .prompt-info }
 
 ## Contact

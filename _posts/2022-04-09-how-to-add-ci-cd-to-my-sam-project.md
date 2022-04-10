@@ -23,7 +23,7 @@ sitemap: true
 
 ## Introduction
 
-> This is the second article of SAM. [In this other article](https://www.playingaws.com/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"} I had explained how to create serverless applications with SAM, and there I explained all the basic SAM information, so you may need to review it before this.
+> This is the second article of SAM. [In this other article](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"} I had explained how to create serverless applications with SAM, and there I explained all the basic SAM information, so you may need to review it before this.
 {: .prompt-warning }
 
 Here we will add CI/CD to our SAM application through the pipeline integration of the AWS SAM CLI.

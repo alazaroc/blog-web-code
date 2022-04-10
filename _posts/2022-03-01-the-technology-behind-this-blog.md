@@ -100,7 +100,7 @@ As you can see, this solution is awesome if you want that AWS manage for you the
 
 I wrote it in this post: [How to deploy a web with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}
 
-And I complemented it with this one: [How to add CI/CD to my CDK project](https://www.playingaws.com/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
+And I complemented it with this one: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 
 ## Backend
 
@@ -195,7 +195,7 @@ I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript programming languag
 
 ### How to deploy infrastructure
 
-I wrote it in another post: [How to deploy infrastructure with CDK](/posts/how-to-deploy-infrastructure-with-cdk/){:target="_blank"}
+I wrote it in another post: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
 
 ## Price estimation of the blog
 

@@ -16,5 +16,5 @@ vendor
 node_modules
 package-lock.json
 
-# TODO - errors in Amplify
+# errors in Amplify
 Gemfile.lock

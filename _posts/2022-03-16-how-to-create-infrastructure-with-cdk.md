@@ -1,9 +1,9 @@
 ---
 layout: post
-title: How to deploy infrastructure with CDK
+title: How to create infrastructure with CDK
 date: 2022-03-16 19:28 +0100
 last_modified_at:
-description: Do you want to know how to deploy infrastructure with CDK and review my cdk project used in this blog?
+description: Do you want to know how to create infrastructure with CDK and review my cdk project used in this blog?
 category:
 - How-to
 - IaC
@@ -51,7 +51,7 @@ To interact with CDK apps you will need the AWS CDK Toolkit (command-line tool).
 2. <kbd>Transform the code into a CloudFormation template</kbd>: Run the `cdk synth` command from the AWS CDK Toolkit to generate the `CloudFormation template` from the `app` code.
 3. <kbd>Deploy the infrastructure</kbd>: Run the `cdk deploy` command from the AWS CDK Toolkit to `create a new stack on the CloudFormation service`, which will deploy the `AWS resources` to the configured AWS account.
 
-![how-cdk-works](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-aws-img.png)
+![how-cdk-works](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-aws-img.png)
 
 AWS CDK Toolkit commands you need to know:
 
@@ -80,7 +80,7 @@ AWS CDK Toolkit commands you need to know:
 - `cdk bootstrap`
   - You must execute it once per environment (account and region) to allow cdk to create the resources it needs to run
 
-## How to deploy infrastructure with CDK
+## How to create infrastructure with CDK
 
 This section contains:
 
@@ -117,8 +117,8 @@ And that's all, we have deployed one topic and one queue in our AWS Account...
 >
 > - is executed `cdk synth` to generate the CloudFormation template (so you could want to avoid execute `cdk synth` before `cdk deploy`)
 > - and our assets code and the CloudFormation template are deployed to the S3 bucket provisioned when `cdk bootstrap` was executed
-![cdk-deploy-in-progress](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-deploy-in-progress.png)
-![cdk-deploy](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-deploy.png)
+![cdk-deploy-in-progress](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-deploy-in-progress.png)
+![cdk-deploy](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-deploy.png)
 {: .prompt-info }
 
 ### Clean up
@@ -133,7 +133,7 @@ Let's destroy the stack. I know this section maybe should be at the end, but whe
 cdk destroy --force
 ```
 
-![cdk-destroy](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-destroy.png)
+![cdk-destroy](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-destroy.png)
 
 You have to know how to destroy a stack, so remember to do it at the end if you are playing with cdk...
 
@@ -150,9 +150,9 @@ It makes sense to me.
 cdk synth
 ```
 
-![cdk-synth-console](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-synth-console.png)
+![cdk-synth-console](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-synth-console.png)
 
-![cdk-synth-code](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-synth-code.png)
+![cdk-synth-code](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-synth-code.png)
 
 What if we compare the local code with the stack deployed in the AWS account?
 
@@ -163,7 +163,7 @@ cdk diff
 > NOTE: `cdk diff` needs to connect to the AWS Account to check the CloudFormation stack against your local resources.
 {: .prompt-info }
 
-![cdk-diff](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-diff.png)
+![cdk-diff](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-diff.png)
 
 We can see all the new resources that will be created:
 
@@ -187,21 +187,21 @@ And we run the diff command again to see the differences between the local code 
 cdk diff
 ```
 
-![cdk-diff-no-changes](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-diff-no-changes.png)
+![cdk-diff-no-changes](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-diff-no-changes.png)
 
 Now le's update the cdk code to generate some differences. First of all, we have to open the project with our IDE (you can also do it with a notepad but...)
 
-![cdk-code](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-code.png)
+![cdk-code](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-code.png)
 
 This file contains the 2 AWS resources of my example, a queue (red) and a topic (yellow). I could add a new service but for simplicity, I will remove the topic (lines 15 to 17) and run the cdk diff again.
 
-![cdk-code-2](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-code-2.png)
+![cdk-code-2](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-code-2.png)
 
 ``` console
 cdk diff
 ```
 
-![cdk-diff-delete-topic](/assets/img/posts/2022-03-16-how-to-deploy-infrastructure-with-cdk/cdk-diff-delete-topic.png)
+![cdk-diff-delete-topic](/assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/cdk-diff-delete-topic.png)
 
 We can see that we have deleted the topic in the code, and when we run the diff command cdk finds the changes and shows them to us.
 
@@ -219,7 +219,7 @@ If you review it and think it can be improved, please let me know.
 ## Next steps
 
 - If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}.
-- Next post: [How to add CI/CD to my CDK project](/posts/how-to-deploy-infrastructure-with-cdk/){:target="_blank"}
+- Next post: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 - Comment this post
 
 ## Comment this post

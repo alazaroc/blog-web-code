@@ -10,6 +10,7 @@ category:
 - IaC
 tags:
 - cdk
+- cicd
 - codepipeline
 - codebuild
 published: true
@@ -36,7 +37,7 @@ I want to implement the simplest solution, with the KISS principle in mind, and 
 
 Explanation: In a cdk deployment, I don't need to run the `cdk synth` command and manage the generated artifacts, so the simplest solution is to run the `cdk deploy` command directly.
 
-> If you need more information about it, I wrote a related post: [How to deploy infrastructure with CDK](/posts/how-to-deploy-infrastructure-with-cdk/){:target="_blank"}.
+> If you need more information about it, I wrote a related post: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}.
 {: .prompt-info }
 
 However, upon investigation the AWS recommendation to deploy a CI/CD pipeline of CDK projects is something similar to the following:
@@ -416,7 +417,7 @@ When you deploy it will create the CodePipeline project and execute the 2 steps 
 > We changed the `cdk synth` by `cdk deploy` and also added the necessary permissions.
 {: .prompt-info }
 
-And since we have added the appropiate permissions, it doesn't fail.
+And since we have added the appropriate permissions, it doesn't fail.
 
 ![cdk-codepipeline-5](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-5.png){:class="border"}
 
