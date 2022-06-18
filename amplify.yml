@@ -3,19 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
-        # - gem install rubygems-update
-        # - update_rubygems
-        # - gem update --system
+        # New version 5.2.1 of jekyll theme requires ruby > 2.5, and default ruby is 2.4, so I have to update it
         # - ruby -v
-        # - gem install bundler
-        # - gem update --system 3.3.3
-        # - bundle install --redownload
-        # - bundle update
-        - bundle install
-        - ruby -v
+        # - rvm list rubies
+        # - rvm remove 2.4.6
+        # - rvm list rubies
+        - rvm 2.6.3 --default
+        # - ruby -v
+        - bundle
     build:
       commands:
-        - bundle exec jekyll b
+        - JEKYLL_ENV=production bundle exec jekyll b # Send data to google analytics
   artifacts:
     baseDirectory: _site
     files:

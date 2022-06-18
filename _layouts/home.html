@@ -23,7 +23,6 @@ layout: page
   {% assign pinned_num = 0 %}
 {% endif %}
 
-
 <!-- Get default posts -->
 
 {% assign default_beg = offset | minus: pinned.size %}
@@ -54,20 +53,17 @@ layout: page
       <p>
         <!-- {% include no-linenos.html content=post.content %}
         {{ content | markdownify | strip_html | truncate: 200 | escape }} -->
+        <!-- IMPORTANT: custom -->
         {{ post.description }}
       </p>
     </div>
 
     <div class="post-meta text-muted d-flex">
-
       <div class="mr-auto">
+
         <!-- posted date -->
         <i class="far fa-calendar fa-fw"></i>
-        {% include timeago.html date=post.date tooltip=true capitalize=true %}
-
-        <!-- time to read -->
-        <i class="far fa-clock fa-fw"></i>
-        {% include read-time.html content=post.content %}
+        {% include datetime.html date=post.date %}
 
         <!-- categories -->
         {% if post.categories.size > 0 %}
@@ -79,6 +75,7 @@ layout: page
           {% endfor %}
           </span>
         {% endif %}
+
       </div>
 
       {% if post.pin %}
