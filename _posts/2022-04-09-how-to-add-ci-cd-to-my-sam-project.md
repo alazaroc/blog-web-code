@@ -424,7 +424,7 @@ We can see in the CodePipeline flow all steps created:
 
 - **Source**: integrated with GitHub as we indicated before
 - **UpdatePipeline**: the pipeline can update itself
-- **BuildAndPackage**: the SAM application is build, package and uploaded (with AWS CodeBuild service)
+- **BuildAndPackage**: the SAM application is built, packaged, and uploaded (with AWS CodeBuild service)
 - **DeployTest**: the SAM application is deployed (with AWS CodeBuild service)
 
 ![sam-pipeline-error-execution](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-execution.png){:class="border"}
@@ -440,7 +440,7 @@ The cause of the error was that the **connection between GitHub and AWS must be 
 > In addition, you could store a copy of the CodeStarConnectionArn from the output of the sam deploy command, because you will need it if you want to use AWS CodePipeline with another branch than main.
 {: .prompt-warning }
 
-By accessing the Settings/Connections in the Developer Tools, you can validate that the connection is pending to approval:
+By accessing the Settings/Connections in the Developer Tools, you can validate that the connection is pending approval:
 
 ![sam-pipeline-connection](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-connection.png){:class="border"}
 
@@ -469,7 +469,7 @@ To do this, we have to update the <kbd>codepipeline.yaml</kbd> file with the nec
 - comment all the `UpdatePipeline` step code
 - uncomment all the `UnitTest` step code
 
-And after that, commit the changes and push it to the repository:
+And after that, commit the changes and push them to the repository:
 
 ![sam-codepipeline-update-steps](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-codepipeline-update-steps.png){:class="border"}
 
@@ -576,15 +576,15 @@ And the pipeline will be updated:
 
 ![sam-pipeline-simplified](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-simplified.png){:class="border"}
 
-### Summary of current state
+### Summary of the current state
 
 After all changes that we did:
 
 - Now, we have 3 steps in our CodePipeline:
   - **Source**: integrated with GitHub as we indicated before
-  - **BuildAndPackage**: the SAM application is build, package and uploaded (with AWS CodeBuild service)
+  - **BuildAndPackage**: the SAM application is built, packaged, and uploaded (with AWS CodeBuild service)
   - **DeployTest**: the SAM application is deployed (with AWS CodeBuild service)
-- To summary the current state:
+- To summarize the current state:
   - If we change the SAM application and update the code in our GitHub repository, the pipeline will update the resources in our AWS account.
   - If we want to update the pipeline itself, we have to update the specific pipeline files in our SAM application, and then run manually the command `sam deploy -t codepipeline.yaml --stack-name sam-app-pipeline --capabilities=CAPABILITY_IAM`.
 

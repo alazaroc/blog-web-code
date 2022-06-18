@@ -28,14 +28,14 @@ Security Hub enables you to understand your overall security posture via a **con
 - CIS AWS Foundations Benchmark
 - PCI DSS
 
-> Enable this service is a MUST and a quick win to improve your security posture. Just for enabling some Security standards you will receive security alerts (findings).
+> Enabling this service is a MUST and a quick win to improve your security posture. Just by enabling some security rules you will receive security alerts (findings).
 {: .prompt-tip }
 
 ---
 
 ### How it works
 
-To maintain a **complete view** of your security posture in AWS, you need to **integrate multiple tools and services** including
+To maintain a **complete view** of your security posture on AWS, you need to **integrate multiple tools and services** including
 
 - Threat detections from <kbd>Amazon GuardDuty</kbd>,
 - vulnerabilities scan from <kbd>Amazon Inspector</kbd>,
@@ -53,11 +53,11 @@ To maintain a **complete view** of your security posture in AWS, you need to **i
 
 ### Getting started
 
-Getting started with Security Hub requires just a few clicks from the Management Console to begin aggregating findings and conducting security checks.
+To start using AWS Security Hub, it only takes a few clicks from the Management Console to start adding findings and performing security checks.
 
 ![security-hub-1](/assets/img/posts/2022-06-04-aws-security-hub-deep-dive/security-hub-1.png){:class="border"}
 
-As you can view in the image, you have to enable AWS Config. You could download
+As you can see in the image, you only need to check the Security Standard you want to enable and then enable de service. Additionally, you can download a CloudFormation template to deploy it as StackSet.
 
 ![security-hub-2](/assets/img/posts/2022-06-04-aws-security-hub-deep-dive/security-hub-2.png){:class="border"}
 
@@ -89,7 +89,7 @@ Finding ingestions for Security Hub security checks is free.
 | First 10,000 | Free             |
 | 10,001 +     | $0.00003/finding |
 
-Inside the Security Hub service, in the usage tab of Settings, you can find your monthly estimation:
+Within the Security Hub service, under the Settings usage tab, you can find your monthly estimate:
 
 ![cost-estimation](/assets/img/posts/2022-06-04-aws-security-hub-deep-dive/security-hub-cost-estimation.png){:class="border"}
 
@@ -133,7 +133,7 @@ You also can show your AWS Security Hub findings in a view of data to enable dec
 > When you enable a standard, all the controls for that standard are enabled by default. You can then disable and enable specific controls within an enabled standard.
 {: .prompt-info }
 
-However, there are several reasons you may choose to disable controls:
+There are several reasons why you may choose to disable the controls:
 
 - Controls for unused services
 - Controls using global resources
@@ -157,7 +157,7 @@ This is the fastest way to disable one control, with the CLI:
 aws securityhub update-standards-control --standards-control-arn "arn:aws:securityhub:eu-west-1:1234567890:control/aws-foundational-security-best-practices/v/1.0.0/GuardDuty.1" --control-status "DISABLED" --disabled-reason "testing functionality"
 ```
 
-In the following links you will have more information about how to do it deeply, how to do it in a multi-account environment (several options), and more information relevant!
+In the following links, you will find more information on how to do it in-depth, how to do it in a multi-account environment (several options), and more relevant information!
 
 - [How to disable controls](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable-controls.html){:target="_blank"}
 - [How to disable in a multi account environment](https://aws.amazon.com/blogs/security/disabling-security-hub-controls-in-a-multi-account-environment/){:target="_blank"}

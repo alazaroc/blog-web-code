@@ -3,7 +3,7 @@ layout: post
 title: 'How to create serverless applications with CDK and SAM'
 date: 2022-04-25 20:45 +0200
 last_modified_at:
-description: CDK and SAM can be used together to create serverless applications. You will use CDK to define and create your AWS resources and you will use SAM to test Lambda, API Gateway and DynamodDB resources.
+description: CDK and SAM can be used together to create serverless applications. You will use CDK to define and create your AWS resources, and you will use SAM to test Lambda, API Gateway and DynamodDB resources.
 category:
 - How-to
 - Serverless
@@ -38,14 +38,14 @@ Creating serverless resources from the AWS Console is quick and easy, but as you
 > - `CDK / Pulumi`: add a level of abstraction and allow you to define the infrastructure with modern programming languages
 {: .prompt-tip }
 
-In this article we will review the approach to combining both **CDK + SAM**.
+In this article, we will review the approach to combining both **CDK + SAM**.
 
 > By the way, CDK + SAM is my preferred approach: you get the best of the 2 options!
 {: .prompt-info }
 
 ## CDK vs SAM
 
-In the following articles you will find the basics of CDK and SAM.
+In the following articles, you will find the basics of CDK and SAM.
 
 - CDK basics: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
 - SAM basics: [How to create serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
@@ -78,7 +78,7 @@ From Jan 6, 2022, [AWS announced](https://aws.amazon.com/about-aws/whats-new/202
 
 So... we will use a new CDK project to show the CDK + SAM.
 
-The source code is available [here](https://github.com/alazaroc/aws-cdk-simple-webservice){:target="_blank"}. This repository has several cdk projects but first we will use the <kbd>v1-simple</kbd>
+The source code is available [here](https://github.com/alazaroc/aws-cdk-simple-webservice){:target="_blank"}. This repository has several CDK projects but first, we will use the <kbd>v1-simple</kbd>
 
 ![simple-webservice-v1](/assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/simple-webservice-v1.png){:class="border"}
 
@@ -243,7 +243,7 @@ You may want to test your Lambda function locally instead of connecting to your 
 
 #### Download the DynamoDB docker image
 
-The first step is to download the DynamoDB docker image.
+The first step is to download the DynamoDB Docker image.
 
 ``` console
 > docker pull amazon/dynamodb-local
@@ -257,7 +257,7 @@ Status: Downloaded newer image for amazon/dynamodb-local:latest
 docker.io/amazon/dynamodb-local:latest
 ```
 
-#### Run the DynamoDB docker image locally
+#### Run the DynamoDB Docker image locally
 
 Now we have to run the locally downloaded docker image.
 
@@ -278,7 +278,7 @@ CorsParams: *
 > This command will not persist data in the local DynamoDB.
 {: .prompt-warning }
 
-#### Create local DynamoDB table
+#### Create a local DynamoDB table
 
 We are going to create a <kbd>table</kbd> with the name `hits`, with a <kbd>partitionKey</kbd> with the name `path` and the `String` type.
 
@@ -395,7 +395,7 @@ REPORT RequestId: eaf85e61-e9a2-4b49-9953-d247f9794fb8 Init Duration: 0.48 ms Du
 {"statusCode":200,"headers":{"Content-Type":"text/html"},"body":"You have connected with the Lambda and store the data in the DynamoDB table!"}
 ```
 
-If we scan the table again, we can review that in "/test" element will be a new `hits` column and `2` value:
+If we scan the table again, we can review that in "/test" element will be a new `hits` column and `2` values:
 
 ```console
 > aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000

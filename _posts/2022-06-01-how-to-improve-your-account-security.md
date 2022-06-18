@@ -8,6 +8,7 @@ category:
 - Security
 tags:
 - security
+- getting started
 published: true
 pin: false
 featured_post: false
@@ -17,7 +18,7 @@ sitemap: true
 
 ## TLDR
 
-You already have one or multiple AWS accounts and you want to improve your security approach, the Well Architected Framework (security pillar) contains a lot of information [as my previous post](/posts/getting-started-with-aws-security/){:target="_blank"}, and maybe you don't know where to start.
+You already have one or multiple AWS accounts and you want to improve your security approach, the Well-Architected Framework (security pillar) contains a lot of information [as my previous post](/posts/getting-started-with-aws-security/){:target="_blank"}, and maybe you don't know where to start.
 
 I will share with you two resources to do it:
 
@@ -38,7 +39,7 @@ This model is **updated monthly** by AWS. The official documentation is located 
 
 #### Security Frameworks
 
-There are multiple frameworks that help you design the construction of a plan to provide security to your loads in the cloud.
+Multiple frameworks help you design the construction of a plan to provide security to your loads in the cloud.
 
 - [Well Architected Framework](https://aws.amazon.com/architecture/well-architected/){:target="_blank"}
 - [NIST CyberSecurity Framework](https://aws.amazon.com/compliance/nist/){:target="_blank"}
@@ -75,7 +76,7 @@ Quick Wins are the first thing to focus on, controls that you could implement in
 
 ### Phase 2. Foundational
 
-The controls and recommendations that may take some more effort to implement, but are very important.
+The controls and recommendations may take some more effort to implement but are very important.
 
 | Level  | Recommendation |
 |---|---|
@@ -105,7 +106,7 @@ There are some controls and recommendations that allow us to manage security in 
 
 ### Phase 4. Optimized
 
-And finally there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle** the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security, or large organizations with very demanding requirements.
+And finally, there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle** the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security, or large organizations with very demanding requirements.
 
 | Level  | Recommendation |
 |---|---|
@@ -149,7 +150,7 @@ The original article was written in the AWS blog [here](https://aws.amazon.com/b
    - The permissions on the bucket should prevent deletion of the logs, and they should also be encrypted at rest. Review [how to use AWS to visualize AWS CloudTrail logs](https://docs.aws.amazon.com/athena/latest/ug/cloudtrail-logs.html){:target="_blank"}
 7. **Validate IAM roles**
    - Use AWS IAM Access Analyzer
-8. **Take actions on findings**
+8. **Take action on findings**
    - Turn on [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html){:target="_blank"}, [Amazon GuardDuty](https://aws.amazon.com/guardduty/){:target="_blank"}, and [AWS Identity and Access Management Access Analyzer](https://aws.amazon.com/iam/features/analyze-access/){:target="_blank"}.
    - You also need to take action when you see findings
 9. **Rotate keys**
