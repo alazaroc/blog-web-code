@@ -14,6 +14,8 @@ pin: false
 featured_post: false
 comments: false
 sitemap: true
+img_path: /assets/img/posts/2022-05-28-getting-started-with-aws-security/
+---
 ---
 
 ## TLDR
@@ -44,7 +46,7 @@ Security in the cloud is composed of six areas:
 5. Data protection
 6. Incident response
 
-![well-architected-tools](/assets/img/posts/2022-05-28-getting-started-with-aws-security/well-architected-tools.png){:class="border"}
+![well-architected-tools](well-architected-tools.png){:class="border"}
 
 ### 1. Security Foundations
 
@@ -82,7 +84,7 @@ Where the security epics frame the overall security strategy, these Well-Archite
 > Security and Compliance is a shared responsibility between AWS and the customer.
 {: .prompt-info }
 
-![shared-responsibility-model](/assets/img/posts/2022-05-28-getting-started-with-aws-security/shared-responsability-model.png){:class="border"}
+![shared-responsibility-model](shared-responsability-model.png){:class="border"}
 
 More detailed information [here](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/shared-responsibility.html){:target="_blank"}.
 
@@ -288,7 +290,7 @@ Best practices:
   - Additionally, you can use VPN connectivity into your VPC from an external network to facilitate encryption of traffic. Third-party solutions are available in the AWS Marketplace if you have special requirements.
 - **Authenticate network communications**: Using network protocols (TLS/IPsec) that support authentication allows for trust to be established between the parties adding encryption to reduce the risk of communications being altered or intercepted.
 - **Automate detection of unintended data access**: Use tools such as
-  - <kbd>Amazon GuardDuty</kbd> automatically detect suspicious activity or attempts to move data outside of defined boundaries.
+  - <kbd>Amazon GuardDuty</kbd> automatically detects suspicious activity or attempts to move data outside of defined boundaries.
   - <kbd>Amazon VPC Flow Logs</kbd> to capture network traffic information can be used with <kbd>Amazon EventBridge</kbd> to trigger the detection of abnormal connections–both successful and denied.
   - <kbd>S3 Access Analyzer</kbd> can help assess what data is accessible to who in your S3 buckets.
 - **Secure data from between VPC or on-premises locations**: You can use <kbd>AWS PrivateLink</kbd> to create a secure and private network connection between Amazon Virtual Private Cloud (Amazon VPC) or on-premises connectivity to services hosted in AWS.

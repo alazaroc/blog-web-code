@@ -14,6 +14,8 @@ pin: false
 featured_post: false
 comments: false
 sitemap: true
+img_path: /assets/img/posts/2022-06-01-how-to-improve-your-account-security/
+---
 ---
 
 ## TLDR
@@ -53,11 +55,11 @@ Multiple frameworks help you design the construction of a plan to provide securi
 > All Quick Win recommendations can be implemented in less than a week.
 {: .prompt-info }
 
-![quick-wins](/assets/img/posts/2022-06-01-how-to-improve-your-account-security/quick-wins.png){:class="border"}
+![quick-wins](quick-wins.png){:class="border"}
 
 #### Evolutive path
 
-![evolution-path](/assets/img/posts/2022-06-01-how-to-improve-your-account-security/evolution-path.png){:class="border"}
+![evolution-path](evolution-path.png){:class="border"}
 
 ### Phase 1. Quick Wins
 
@@ -126,7 +128,7 @@ This is the complete maturity model with all the phases through all the epics.
 > I recommend you access to the [original page](https://maturitymodel.security.aws.dev/en/model/){:target="_blank"} to view the linkable table in the original site.
 {: .prompt-tip }
 
-![complete-maturity-level](/assets/img/posts/2022-06-01-how-to-improve-your-account-security/complete-maturity-level.png)
+![complete-maturity-level](complete-maturity-level.png)
 
 ## Top 10 recommendations
 

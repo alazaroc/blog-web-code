@@ -18,6 +18,8 @@ pin: false
 featured_post: false
 comments: false
 sitemap: true
+img_path: /assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/
+---
 ---
 
 ## TLDR
@@ -28,12 +30,12 @@ I want **to add automation** to my deployment process and integrate it with the 
 
 I will show you 2 different approaches:
 
-- **Create the pipeline with AWS Console**: helps to understand how the services involved work
-- **Create the pipeline with IaC (CDK)**: best practice, always automate everything. So in this case yes, I want also automate the creation of the application automation deployment!
+- **Create the pipeline with the AWS Console**: helps to understand how the services involved work
+- **Create the pipeline with IaC (CDK)**: best practice, always automate everything. So in this case yes, I also want to automate the creation of the application automation deployment!
 
 I want to implement the simplest solution, with the KISS principle in mind, and for this reason, my architecture diagram is as follows:
 
-![solution-1](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/architecture-diagrams/solution-1.png){:class="border"}
+![solution-1](architecture-diagrams/solution-1.png){:class="border"}
 
 Explanation: In a cdk deployment, I don't need to run the `cdk synth` command and manage the generated artifacts, so the simplest solution is to run the `cdk deploy` command directly.
 
@@ -42,7 +44,7 @@ Explanation: In a cdk deployment, I don't need to run the `cdk synth` command an
 
 However, upon investigation the AWS recommendation to deploy a CI/CD pipeline of CDK projects is something similar to the following:
 
-![solution-2](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/architecture-diagrams/solution-2.png){:class="border"}
+![solution-2](architecture-diagrams/solution-2.png){:class="border"}
 
 I will explain it in detail in this post.
 
@@ -60,7 +62,7 @@ Depending on where you look, there will be a different number of phases in the S
 
 For this article we will explain what means CI/CD over 4 phases of the software release process: source, build, test and production (deployment):
 
-![software-release-process](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/software-release-process.png){:class="border"}
+![software-release-process](software-release-process.png){:class="border"}
 
 **CI/CD** refers to Continuous Integration and Continuous Delivery and it introduces automation and monitoring to the complete SDLC.
 
@@ -79,7 +81,7 @@ For this article we will explain what means CI/CD over 4 phases of the software 
   - Improve developer productivity
   - Improve code quality
   - Deliver updates faster
-- The point of continuous delivery is not to apply every change to production immediately, but to ensure that every change is ready to go to production
+- The point of continuous delivery is not to apply every change to production immediately but to ensure that every change is ready to go to production
 
 **Continuous deployment (CD)**, revisions are deployed to a production environment automatically without explicit approval from a developer, making the entire software release process automated.
 
@@ -97,7 +99,7 @@ As we want to create a new Pipeline, we must access to <kbd>CodePipeline</kbd> s
 
 Step 1 in CodePipeline is to choose the pipeline settings. We have to create a new service role (or use an existing one).
 
-![codepipeline1](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-1.png){:class="border" :width="20"}
+![codepipeline1](console/codepipeline-1.png){:class="border" :width="20"}
 
 Step 2 is to add the source of the stage choosing the source provider. I have my code repository on GitHub so I choose GitHub (version 2) but you could choose a different one.
 
@@ -107,41 +109,41 @@ Step 2 is to add the source of the stage choosing the source provider. I have my
 > - **version 2 (recommended)** which uses a connection with GitHub Apps to access your repository
 {: .prompt-tip }
 
-![codepipeline2](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-2.png){:class="border"}
+![codepipeline2](console/codepipeline-2.png){:class="border"}
 
 > If you choose GitHub version 2, the next step is to **create a new connection** to GitHub and if you don't have any GitHub App created you need to create a new one, so you should click on <kbd>Install new app</kbd>.
 >
-> ![codepipeline3](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-3.png){:class="border"}
+> ![codepipeline3](console/codepipeline-3.png){:class="border"}
 >
 > You have to choose whether to create the connection for all repositories or only th selected ones, and click <kbd>Install</kbd>.
 >
-> ![codepipeline4](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-4.png){:class="border"}
+> ![codepipeline4](console/codepipeline-4.png){:class="border"}
 >
 > The GitHub connection is ready to use and you will be redirected to Step 2 of the creation of the CodePipeline.
 {: .prompt-info }
 
-Now you can choose your repository and your branch and click to <kbd>Next</kbd>.
+Now you can choose your repository and your branch and click on <kbd>Next</kbd>.
 
-![codepipeline5](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-5.png){:class="border"}
+![codepipeline5](console/codepipeline-5.png){:class="border"}
 
 Step 3 is to add the build stage, and you should select <kbd>AWS CodeBuild</kbd> because we want to use this service to add custom commands.
 
-![codepipeline6](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-6-build.png){:class="border"}
+![codepipeline6](console/codepipeline-6-build.png){:class="border"}
 
 After that, select the region, a project name, and a single build and click to <kbd>Next</kbd>.
 
-![codepipeline7](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-7-build.png){:class="border"}
+![codepipeline7](console/codepipeline-7-build.png){:class="border"}
 
 > With this specific configuration, it will fail, do you know why?
 {: .prompt-danger }
 
 Step 4 is to add the deploy stage. Here are all the available options but we <kbd>skip</kbd> this step because we don't need it.
 
-![codepipeline8](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-8-deploy.png){:class="border"}
+![codepipeline8](console/codepipeline-8-deploy.png){:class="border"}
 
 Now the CodePipeline is ready to be created and a review page is displayed. Confirm and create the CodePipeline.
 
-![codepipeline9](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-9.png){:class="border"}
+![codepipeline9](console/codepipeline-9.png){:class="border"}
 
 It is done. We have created the CodePipeline and added it 2 stages:
 
@@ -150,34 +152,34 @@ It is done. We have created the CodePipeline and added it 2 stages:
 
 First execution...
 
-![codepipeline10](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-10.png){:class="border"}
+![codepipeline10](console/codepipeline-10.png){:class="border"}
 
 As you can see the execution had failed!
 
 Do you know what caused the error? Let's investigate it...
 
-If you click into the `execution ID` link, You are redirected to the pipeline execution summary and you can see the error message `Project cannot be found` in CodeBuild.
+If you click on the `execution` ID` link, You are redirected to the pipeline execution summary and you can see the error message `Project cannot be found` in CodeBuild.
 
-![codepipeline11](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-11.png){:class="border"}
+![codepipeline11](console/codepipeline-11.png){:class="border"}
 
 Also, you can click on the <kbd>AWS CodeBuild</kbd> action name and you will be redirected to CodeBuild service... where you will receive the same error information: "Resource not available".
 
-![codepipeline12](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-12.png){:class="border"}
+![codepipeline12](console/codepipeline-12.png){:class="border"}
 
 > Yes, there is no CodeBuild project created in the pipeline, we just add a name of a created CodeBuild resource (and this resource doesn't exist because **nobody has created it**).
 {: .prompt-warning }
 
 To fix it, you need to <kbd>edit the Pipeline</kbd> and <kbd>edit the Build stage</kbd> to create a new CodeBuild project.
 
-![codepipeline15](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-15.png){:class="border"}
+![codepipeline15](console/codepipeline-15.png){:class="border"}
 
-![codepipeline16](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-16.png){:class="border"}
+![codepipeline16](console/codepipeline-16.png){:class="border"}
 
 A new window will be opened, the Build stage will be editable and you need to click on the <kbd>Create project</kbd> button.
 
-![codepipeline17](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-17.png){:class="border"}
+![codepipeline17](console/codepipeline-17.png){:class="border"}
 
-You can create the build project choosing the following:
+You can create the build project by choosing the following:
 
 - Operating System: `Amazon Linux 2`
 - Runtime(s): `Standard`
@@ -204,9 +206,9 @@ You can create the build project choosing the following:
 
 When you have finished filling in all fields, click <kbd>Continue to CodePipeline</kbd>.
 
-![codepipeline18](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-18-create-codebuild.png){:class="border"}
+![codepipeline18](console/codepipeline-18-create-codebuild.png){:class="border"}
 
-![codepipeline19](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-19.png){:class="border"}
+![codepipeline19](console/codepipeline-19.png){:class="border"}
 
 > Again, with this configuration the execution will fail. Do you know why?
 {: .prompt-danger }
@@ -215,11 +217,11 @@ You can now go back to the CodePipeline and force the execution again by clickin
 
 And, as expected, it fails again.
 
-![codepipeline14-error2](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-14-error.png){:class="border"}
+![codepipeline14-error2](console/codepipeline-14-error.png){:class="border"}
 
 This time we will review the **CloudWatch logs** generated for this run to look for errors.
 
-![codepipeline21](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-21.png){:class="border"}
+![codepipeline21](console/codepipeline-21.png){:class="border"}
 
 You can see that the **CodeBuild role** is trying to assume the CDK role to perform the cdk commands, and of course, we didn't specify any permissions to the new role so it can't assume any roles.
 
@@ -228,28 +230,28 @@ You can see that the **CodeBuild role** is trying to assume the CDK role to perf
 
 Therefore, you need to update the CodeBuild role to add the assumed permission to cdk roles. To do this, create new permission (new inline policy).
 
-![codepipeline22](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-22-edit-role.png){:class="border"}
+![codepipeline22](console/codepipeline-22-edit-role.png){:class="border"}
 
 You must to add the Action `sts:AssumeRole` and the Resources of the 4 CDK roles created in the bootstrap.
 
-![codepipeline23](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-23.png){:class="border"}
+![codepipeline23](console/codepipeline-23.png){:class="border"}
 
-![codepipeline24](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-24.png){:class="border"}
+![codepipeline24](console/codepipeline-24.png){:class="border"}
 
 When is created, you can review that the new permission has been added to the CodeBuild role.
 
-![codepipeline25](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-25.png){:class="border"}
+![codepipeline25](console/codepipeline-25.png){:class="border"}
 
 If you come back to the CodePipeline service and you execute it again, it will succeed!
 
-![codepipeline26](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-26.png){:class="border"}
+![codepipeline26](console/codepipeline-26.png){:class="border"}
 
 > Now, if you make any changes in your repository, **the pipeline will be automatically executed** and your infrastructure will be updated executing the `cdk deploy` command of the CDK Toolkit inside of the CodeBuild service.
 {: .prompt-note }
 
 If you want, you can check the logs in **CloudWatch** service to verify that the execution of the `cdk deploy` command went as we expected:
 
-![codepipeline27](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-27.png){:class="border"}
+![codepipeline27](console/codepipeline-27.png){:class="border"}
 
 ### Improve: Use a Buildspec file inside the code
 
@@ -257,23 +259,23 @@ You have done a lot of manual work, and the first improvement you can **automate
 
 You need to update in the CodeBuild project the buildspec configuration of the project, choose `Use a buildspec file` and click to <kbd>Update buildspec</kbd>.
 
-Now **when the pipeline runs it will look for the buildspec file inside the code** (in the root folder). You are configured the CodeBuild service but you don't have the buildspec.yml file added to your code yet.
+Now **when the pipeline runs it will look for the buildspec file inside the code** (in the root folder). You have configured the CodeBuild service but you don't have the buildspec.yml file added to your code yet.
 
 Next, you must to add the buildspec.yml file with the same content you provided in the online editor to update the build commands in the code. [More information about buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage){:target="_blank"}
 
-In the following image you can see the VSCode IDE and the new <kbd>buildspec.yml</kbd> file file with the same content as before.
+In the following image, you can see the VSCode IDE and the new <kbd>buildspec.yml</kbd> file with the same content as before.
 
-![codepipeline29](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-29.png){:class="border"}
+![codepipeline29](console/codepipeline-29.png){:class="border"}
 
 ### Test it: automatic execution of the pipeline when a commit is done
 
 If you commit the new file to your repository (buildspec.yml)
 
-![codepipeline30](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-30.png){:class="border"}
+![codepipeline30](console/codepipeline-30.png){:class="border"}
 
 The **pipeline runs automatically** as expected
 
-![codepipeline31](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/console/codepipeline-31.png){:class="border"}
+![codepipeline31](console/codepipeline-31.png){:class="border"}
 
 ## CodePipeline for CDK with IaC
 
@@ -293,7 +295,7 @@ To do this, I will add a CodePipeline resource to my CDK project of the blog.
 
 This is the code to add the CodePipeline resource with 2 stages:
 
-- source with GitHub v2 (with a connection)
+- Source with GitHub v2 (with a connection)
 - Build phase (`cdk synth`)
 
 > CDK pipelines will generate CodeBuild projects for each **ShellStep** you use
@@ -323,14 +325,14 @@ const pipeline = new CodePipeline(this, codePipelineName, {
 
 If you run the `cdk deploy` command, as you can see the pipeline is created and automatically runs.
 
-![cdk-codepipeline-1](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-1.png){:class="border"}
+![cdk-codepipeline-1](iac/cdk-codepipeline-1.png){:class="border"}
 
-![cdk-codepipeline-2](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-2.png){:class="border"}
+![cdk-codepipeline-2](iac/cdk-codepipeline-2.png){:class="border"}
 
 > But wait a minute, we have three stages? A new one `SelfMutate` appears. Well, let's wait to finish...
 {: .prompt-warning }
 
-![cdk-codepipeline-3](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-3.png){:class="border"}
+![cdk-codepipeline-3](iac/cdk-codepipeline-3.png){:class="border"}
 
 > PipelineNotFoundException? What happened here? We waited for the pipeline to finish executing and the pipeline no longer exists!
 {: .prompt-danger }
@@ -360,9 +362,9 @@ selfMutation: false,
 
 And if you run the `cdk deploy` command again, the pipeline will be updated:
 
-![cdk-codepipeline-4](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-4.png){:class="border"}
+![cdk-codepipeline-4](iac/cdk-codepipeline-4.png){:class="border"}
 
-Now, there are only 2 stages in the CodePipeline, the <kbd>Source</kbd> and the <kbd>Build</kbd>, the 2 that we have configured and it works perfectly.
+Now, there are only 2 stages in the CodePipeline, the <kbd>Source</kbd> and the <kbd>Build</kbd>, the 2 that we have configured and work perfectly.
 
 ### CDK Deploy
 
@@ -419,7 +421,7 @@ When you deploy it will create the CodePipeline project and execute the 2 steps 
 
 And since we have added the appropriate permissions, it doesn't fail.
 
-![cdk-codepipeline-5](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-5.png){:class="border"}
+![cdk-codepipeline-5](iac/cdk-codepipeline-5.png){:class="border"}
 
 ### Recommended deployment of CodePipeline to CDK projects
 
@@ -430,7 +432,7 @@ I will use [this other example of CodePipeline for CDK](https://github.com/alaza
 
 This is the final diagram of what we will build (with the cdk code):
 
-![cdk-pipeline-diagram](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-pipeline-diagram.png){:class="border"}
+![cdk-pipeline-diagram](iac/cdk-pipeline-diagram.png){:class="border"}
 
 > If you want to create the Pipeline of the CDK project you will need to include at least two stacks: one for the pipeline and one or more for the infrastructure that will be deployed with the pipeline.
 {: .prompt-info }
@@ -499,7 +501,7 @@ export class MyPipelineStack extends Stack {
 
 We have to **commit** all the above changes, **and** after that **deploy** it.
 
-![cdk-codepipeline-7](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-7.png){:class="border"}
+![cdk-codepipeline-7](iac/cdk-codepipeline-7.png){:class="border"}
 
 It will create:
 
@@ -508,15 +510,15 @@ It will create:
 
 First, the pipeline stack is created, and then, when the CodePipeline is executed, the second stack which contains all the other resources is created.
 
-![cdk-codepipeline-6](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-6.png){:class="border"}
+![cdk-codepipeline-6](iac/cdk-codepipeline-6.png){:class="border"}
 
-![cdk-codepipeline-8](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/iac/cdk-codepipeline-8.png){:class="border"}
+![cdk-codepipeline-8](iac/cdk-codepipeline-8.png){:class="border"}
 
 That is all, we have automation in our deployment process!
 
 So as you can see, using CDK's CodePipeline constructor, the following is created:
 
-![solution-2](/assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/architecture-diagrams/solution-2.png){:class="border"}
+![solution-2](architecture-diagrams/solution-2.png){:class="border"}
 
 ## Comment this post
 

@@ -17,6 +17,8 @@ pin: true
 featured_post: true 
 comments: false
 sitemap: true
+img_path: /assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/
+---
 ---
 
 ## TLDR
@@ -80,7 +82,7 @@ So... we will use a new CDK project to show the CDK + SAM.
 
 The source code is available [here](https://github.com/alazaroc/aws-cdk-simple-webservice){:target="_blank"}. This repository has several CDK projects but first, we will use the <kbd>v1-simple</kbd>
 
-![simple-webservice-v1](/assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/simple-webservice-v1.png){:class="border"}
+![simple-webservice-v1](simple-webservice-v1.png){:class="border"}
 
 ### Prepare to test
 
@@ -162,7 +164,7 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 > You can access `http://127.0.0.1:3000/` to connect with your Lambda Function
 {: .prompt-info }
 
-![testing api-gateway-from-web-v1](/assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/testing api-gateway-from-web-v1.png){:class="border"}
+![testing api-gateway-from-web-v1](testing api-gateway-from-web-v1.png){:class="border"}
 
 If you review your previous console, it will be updated when you accessed your API Gateway:
 
@@ -200,7 +202,7 @@ We will update our Lambda Function to store the data in a DynamoDB table, so we 
 > This code is based on the pattern defined in the web [cdkpatterns](https://cdkpatterns.com/patterns/filter/?by=Lambda){:target="_blank"} as the [simple webservice](https://github.com/cdk-patterns/serverless/blob/main/the-simple-webservice/README.md){:target="_blank"}.
 {: .prompt-info }
 
-![simple-webservice-v2](/assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/simple-webservice-v2.png){:class="border"}
+![simple-webservice-v2](simple-webservice-v2.png){:class="border"}
 
 ### Case 1: Testing cloud DynamoDB
 
@@ -432,7 +434,7 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 2022-04-25 19:53:01  * Running on http://127.0.0.1:3000/ (Press CTRL+C to quit)
 ```
 
-![testing api-gateway-from-web-v2](/assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/testing api-gateway-from-web-v2.png){:class="border"}
+![testing api-gateway-from-web-v2](testing api-gateway-from-web-v2.png){:class="border"}
 
 ## Comment this post
 

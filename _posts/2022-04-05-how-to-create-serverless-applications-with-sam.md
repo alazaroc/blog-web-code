@@ -18,6 +18,8 @@ pin: false
 featured_post: false
 comments: false
 sitemap: true
+img_path: /assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/
+---
 ---
 
 ## Introduction
@@ -255,7 +257,7 @@ Cloning from https://github.com/aws/aws-sam-cli-app-templates (process may take 
 
 This is the basic application that has been created (only with one lambda function for easy understanding):
 
-![sam-code-basic](/assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/sam-code-basic.png){:class="border"}
+![sam-code-basic](sam-code-basic.png){:class="border"}
 
 Note that we have 4 of the 5 files that we reviewed before:
 
@@ -376,7 +378,7 @@ Commands you can use next
 
 These are the new files of our SAM project:
 
-![sam-build-files](/assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/sam-build-files.png){:class="border"}
+![sam-build-files](sam-build-files.png){:class="border"}
 
 ### Step 5: Deploy manually your application with the CLI
 
@@ -478,7 +480,7 @@ Successfully created/updated stack - sam-app in eu-west-1
 
 Remember that the executed command will create the `samconfig.toml` file in our project to save the deployment configuration and be able to repeat it without configuration.
 
-![sam-deploy-guided-3](/assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/sam-deploy-guided-3.png){:class="border"}
+![sam-deploy-guided-3](sam-deploy-guided-3.png){:class="border"}
 
 From now on, to deploy our SAM project we just need to run the `sam deploy` command, so we run it but if we have no changes, the deployment will fail:
 
@@ -600,7 +602,7 @@ Infra sync completed.
 
 The console still listens for changes and if we change our lambda code and save it:
 
-![sam-sync-lambda](/assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/sam-sync-lambda.png){:class="border"}
+![sam-sync-lambda](sam-sync-lambda.png){:class="border"}
 
 The console will be updated automatically as follow:
 
@@ -627,7 +629,7 @@ Sync watch stopped.
 
 > When you executed the sync command, a nested stack associated with your main stack (sam-app) was created:
 >
-> ![sam-nested-stack](/assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/sam-nested-stack.png){:class="border"}
+> ![sam-nested-stack](sam-nested-stack.png){:class="border"}
 >
 > And when the console stops being synchronized, this nested stack is NOT deleted.
 {: .prompt-info }

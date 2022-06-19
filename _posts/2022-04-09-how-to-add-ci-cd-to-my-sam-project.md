@@ -3,7 +3,7 @@ layout: post
 title: How to add CI/CD to my SAM project
 date: 2022-04-10 10:53 +0200
 last_modified_at:
-description: I will show you how you can deploy a SAM project wih AWS CodePipeline using the pipeline integration included in the AWS SAM CLI.
+description: I will show you how you can deploy a SAM project with AWS CodePipeline using the pipeline integration included in the AWS SAM CLI.
 category: 
 - How-to
 - Serverless
@@ -19,6 +19,8 @@ pin: false
 featured_post: false
 comments: false
 sitemap: true
+img_path: /assets/img/posts/2022-06-04-aws-security-hub-deep-dive/
+---
 ---
 
 ## Introduction
@@ -31,11 +33,11 @@ Here we will add CI/CD to our SAM application through the pipeline integration o
 > As we want **to add automation** to our deployment process and integrate it with the AWS ecosystem, **we will use the AWS Developer tools**.
 {: .prompt-info }
 
-This is the SAM project code on [GitHub](https://github.com/alazaroc/aws-sam-app){:target="_blank"} that we will use on the article. In the [commit history](https://github.com/alazaroc/aws-sam-app/commits/main){:target="_blank"} you can find the evolution of the application through the steps explained.
+This is the SAM project code on [GitHub](https://github.com/alazaroc/aws-sam-app){:target="_blank"} that we will use in the article. In the [commit history](https://github.com/alazaroc/aws-sam-app/commits/main){:target="_blank"} you can find the evolution of the application through the steps explained.
 
 ## Add CI/CD to a SAM project
 
-We want to create a CI/CD pipeline to implement continuous deployment (we want that when we push new code, the pipeline deploy our resources automatically).
+We want to create a CI/CD pipeline to implement continuous deployment (we want that when we push new code, the pipeline deploys our resources automatically).
 
 > From AWS doc: AWS SAM provides a set of `default pipeline templates` for multiple CI/CD systems that encapsulate AWS's deployment best practices. These default pipeline templates use standard JSON/YAML pipeline configuration formats, and the built-in best practices help perform multi-account and multi-region deployments and verify that pipelines cannot make unintended changes to infrastructure.
 
@@ -45,7 +47,7 @@ To generate a starter pipeline configuration for AWS CodePipeline, we have to pe
 
 1. Create infrastructure resources
 2. Generate the pipeline configuration
-3. Commit your pipeline configuration to Git repository
+3. Commit your pipeline configuration to the Git repository
 4. Deploy your pipeline
 5. Connect your Git repository with your CI/CD system
 
@@ -590,7 +592,7 @@ After all changes that we did:
 
 ## Clean up
 
-We are created 4 stacks in CloudFormation related with SAM:
+We have created 4 stacks in CloudFormation related to SAM:
 
 - **sam-app**: application code
 - **sam-app-pipeline**: codepipeline
