@@ -357,7 +357,7 @@ In AWS, there are several different approaches you can use when addressing incid
 - [ ] **Enable foundational services** for all AWS accounts
   - [ ] [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html){:target="_blank"} to log API activity
   - [ ] [Amazon GuardDuty](https://aws.amazon.com/guardduty/){:target="_blank"} for continuous monitoring
-  - [ ] [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html){:target="_blank"} or a comprehensive view of your security posture
+  - [ ] [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html){:target="_blank"} for a comprehensive view of your security posture
 - [ ] **Configure service and application-level logging**
   - [ ] In addition to your application logs, enable logging at the service level, such as Amazon [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html){:target="_blank"} and [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html){:target="_blank"}, CloudTrail, and Elastic Load Balancer access logging, to gain visibility into events
   - [ ] Configure logs to flow to a central account, and protect them from manipulation or deletion

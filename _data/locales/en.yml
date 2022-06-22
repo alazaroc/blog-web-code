@@ -20,7 +20,7 @@ tabs:
 search:
   hint: search
   cancel: Cancel
-  no_results: Oops! No result founds.
+  no_results: Oops! No results found.
 
 panel:
   featured_post: Featured posts
@@ -49,6 +49,10 @@ not_found:
   hint_template: :HEAD_BAK to try finding it again, or search for it on the :ARCHIVES_PAGE.
   head_back: Head back Home
   archives_page: Archives page
+
+notification:
+  update_found: A new version of content is available.
+  update: Update
 
 # ----- Posts related labels -----
 

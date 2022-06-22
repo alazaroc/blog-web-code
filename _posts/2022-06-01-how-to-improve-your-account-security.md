@@ -20,22 +20,24 @@ img_path: /assets/img/posts/2022-06-01-how-to-improve-your-account-security/
 
 ## TLDR
 
-You already have one or multiple AWS accounts and you want to improve your security approach, the Well-Architected Framework (security pillar) contains a lot of information [as my previous post](/posts/getting-started-with-aws-security/){:target="_blank"}, and maybe you don't know where to start.
+You already have one or multiple AWS accounts and you want to improve your security approach, the Well-Architected Framework (security pillar) contains a lot of information, [I did a full summary here](/posts/getting-started-with-aws-security/){:target="_blank"}, and you may want to learn about a plan to improve your account.
 
 I will share with you two resources to do it:
 
 - **AWS Security Maturity Model** will allow you to know the recommended actions to strengthen your security posture at every stage of your journey to the cloud
   - Contains 4 phases. The first one "quick wins" allow you fast security improvements
-- Article in blog security: The top 10 most important cloud security tips that Stephen Schmidt, Chief Information Security Officer for AWS, laid out at AWS re:Invent 2019
+- Article in the AWS security blog: The top 10 most important cloud security tips that Stephen Schmidt, Chief Information Security Officer for AWS, laid out at AWS re:Invent 2019
 
 ## AWS Security Maturity Model
 
 It is a valuable resource for reviewing the current status and improving the security of your solutions.
 
-> The classification of the different recommendations into the categories depends on the cost and difficulty of implementing the security control, and the positive impact that it will achieve.
+The classification of the different recommendations into the categories depends on the cost and difficulty of implementing the security control, and the positive impact that it will achieve.
+
+> This model is **updated monthly** by AWS. In fact, a month after writing this article I had to update it because the model had changed and all areas of the organization had changed, although the content is the same.
 {: .prompt-info }
 
-This model is **updated monthly** by AWS. The official documentation is located [here](https://maturitymodel.security.aws.dev/en/){:target="_blank"}.
+The official documentation is located [here](https://maturitymodel.security.aws.dev/en/){:target="_blank"}.
 
 ### Introduction
 
@@ -67,12 +69,15 @@ Quick Wins are the first thing to focus on, controls that you could implement in
 
 | Level  | Recommendation |
 |---|---|
-| Organizational  | - Assign Security Contacts <br>- Select the region(s)  |
-| Identity and Access   | - Multi-Factor Authentication <br>- Avoid using Root and audit it <br>- Access and role analysis with <kbd>IAM Access Analyzer</kbd>  |
-| Protection and prevention   | - Limit Security Groups <br>- <kbd>AWS WAF</kbd> with managed rules <br>- Amazon S3 Block Public Access  |
-| Detection   | - Thread Detection with <kbd>Amazon GuardDuty</kbd> and review your findings <br>- Audit API calls with <kbd>AWS CloudTrail</kbd> <br>- Analyze data security posture with <kbd>Amazon Macie</kbd> <br>- Remediate security findings found by <kbd>AWS Trusted Advisor</kbd> <br>- Automate alignment with best practices using <kbd>AWS Security Hub</kbd> <br>- Billing alarms for anomaly detection  |
-| Response   | - Act on <kbd>Amazon GuardDuty</kbd> findings  |
-| Recovery   |   |
+| Security governance | - Assign Security Contacts <br>- Select the region(s)  |
+| Security assurance | - Automate alignment with best practices using <kbd>AWS Security Hub</kbd>  |
+| Identity and Access management   | - Multi-Factor Authentication <br>- Avoid using Root and audit it <br>- Access and role analysis with <kbd>IAM Access Analyzer</kbd>  |
+| Thread detection   | - Thread Detection with <kbd>Amazon GuardDuty</kbd> and review your findings <br>- Audit API calls with <kbd>AWS CloudTrail</kbd><br>- Remediate security findings found by <kbd>AWS Trusted Advisor</kbd> <br>- Billing alarms for anomaly detection  |
+| Vulnerability management   |   |
+| Infrastructure protection  | - Limit Security Groups  |
+| Data prevention   | -  Amazon S3 Block Public Access <br>- Analyze data security posture with <kbd>Amazon Macie</kbd>  |
+| Application security  | - <kbd>AWS WAF</kbd> with managed rules  |
+| Incident response   |  - Act on <kbd>Amazon GuardDuty</kbd> findings |
 
 [Link](https://maturitymodel.security.aws.dev/en/1.-quickwins/){:target="_blank"} to the updated content and more information on each recommendation
 
@@ -82,12 +87,15 @@ The controls and recommendations may take some more effort to implement but are 
 
 | Level  | Recommendation |
 |---|---|
-| Organizational  | - Identify security and regulatory requirements <br>- Identify the most sensitive data (crown jewels) <br>- Cloud Security Training Plan <br>- Involve security teams in development |
-| Identity and Access   | - Centralized user repository <br>-- Organization Policies (<kbd>SCPs</kbd>) |
-| Protection and prevention   | - Manage your instances with <kbd>Fleet Manager</kbd> <br>- Data Encryption (<kbd>AWS KMS</kbd>) <br>- No secrets in your code <kbd>AWS Secrets Manager</kbd> <br>- Network segmentation (Public/Private Networks - VPCs) <br>- Multi-account management with <kbd>AWS Control Tower</kbd> |
-| Detection   | - Configuration monitoring with <kbd>AWS Config</kbd> - Manage vulnerabilities in your infrastructure and perform pentesting <br>- Manage vulnerabilities in your applications <br>- Discover sensitive data with <kbd>Amazon Macie</kbd> |
-| Response   | - Define Incident response playbooks <br>- Investigate ALL <kbd>Amazon GuardDuty</kbd> findings including S3 Protection |
-| Recovery   | - Backups <br>- Redundancy using multiple Availability Zones  |
+| Security governance | - Identify security and regulatory requirements <br>- Identify the most sensitive data (crown jewels) <br>- Cloud Security Training Plan |
+| Security assurance | - Configuration monitoring with <kbd>AWS Config</kbd> |
+| Identity and Access management  | - Centralized user repository <br>-- Organization Policies (<kbd>SCPs</kbd>) |
+| Threat detection | - Investigate most <kbd>Amazon GuardDuty</kbd> findings |
+| Vulnerability management | - Manage vulnerabilities in your infrastructure and perform pentesting <br>- Manage vulnerabilities in your application |
+| Infrastructure protection | - Manage your instances with <kbd>Fleet Manager</kbd> <br>- Network segmentation (Public/Private Networks - VPCs) <br>- Multi-account management with <kbd>AWS Control Tower</kbd> |
+| Data protection  | - Data Encryption (<kbd>AWS KMS</kbd>) <br>- Backups <br>- Discover sensitive data with <kbd>Amazon Macie</kbd> |
+| Application security | - Involve security teams in development <br>- No secrets in your code <kbd>AWS Secrets Manager</kbd> <br> |
+| Incident response | - Define Incident response playbooks<br>- Redundancy using multiple Availability Zones  |
 
 [Link](https://maturitymodel.security.aws.dev/en/2.-foundational/){:target="_blank"} to the updated content and more information on each recommendation
 
@@ -97,12 +105,15 @@ There are some controls and recommendations that allow us to manage security in 
 
 | Level  | Recommendation |
 |---|---|
-| Organizational  | - Security Champions in Development <br>- Perform thread modelling |
-| Identity and Access   | - Privilege review (Least Privilege) <br>- Tagging strategy <br>- Customer IAM: security of your customers  |
-| Protection and prevention   | - Image Generation Pipeline <br>- <kbd>Shield Advanced</kbd> Advanced DDoS Mitigation <br>- Anti-Malware/EDR <br>- Encryption in transit <br>- <kbd>WAF</kbd> with custom rules <br>- Outbound Traffic Control <br>- Create your reports for compliance (such as PCI-DSS) |
-| Detection   | - Use abstract services (Serverless) <br>- Integration with SIEM/SOAR <br>- Network Flows analysis (<kbd>VPC Flow Logs</kbd>) |
-| Response   | - Automate critical and most frequently run Playbooks <br>- Automate deviation correction in configurations |
-| Recovery   | Using infrastructure as Code (<kbd>CloudFormation, CDK</kbd>)  |
+| Security governance | - Perform thread modelling |
+| Security assurance | - Create your reports for compliance (such as PCI-DSS) |
+| Identity and Access | - Privilege review (Least Privilege) <br>- Tagging strategy <br>- Customer IAM: security of your customers  |
+| Threat detection | - Integration with SIEM/SOAR <br>- Network Flows analysis (<kbd>VPC Flow Logs</kbd>) |
+| Vulnerability management | - Security champion in development |
+| Infrastructure protection | - Image Generation Pipeline <br>- Anti-Malware/EDR <br>- Outbound Traffic Control <br>- Use abstract services (Serverless) |
+| Data protection | - Encryption in transit |
+| Application security | - <kbd>WAF</kbd> with custom rules <br>- <kbd>Shield Advanced</kbd> Advanced DDoS Mitigation |
+| Incident response | - Automate critical and most frequently run Playbooks <br>- Automate deviation correction in configurations <br>-Using infrastructure as Code (<kbd>CloudFormation, CDK</kbd>)  |
 
 [Link](https://maturitymodel.security.aws.dev/en/1.-quickwins/){:target="_blank"} to the updated content and more information on each recommendation
 
@@ -112,12 +123,15 @@ And finally, there are those controls and recommendations that allow you to opti
 
 | Level  | Recommendation |
 |---|---|
-| Organizational  | - Forming a Red Team (Attacker's Point of View) <br>- Forming a Blue Team (Incident Response) <br>- Forming a Chaos Engineering team (Resilience) <br>- Sharing Security work and responsibility  |
-| Identity and Access   | - Context-based access control <br>- IAM Policy Generation Pipeline  |
-| Protection and prevention   | - Process standardization with Service Catalog <br>- DevSecOps |
-| Detection   | - Simulate Failures (Chaos Monkey) <br>- <kbd>Amazon Fraud Detector</kbd> <br>- Integration with additional Intelligence Feeds  |
-| Response   | - Automate most playbooks <br>- <kbd>Amazon Detective</kbd>: Root cause analysis |
-| Recovery   | - Multi-region disaster recovery automation |
+| Security governance | - Forming a Chaos Engineering team (Resilience) <br>- Sharing Security work and responsibility  |
+| Security assurance | |
+| Identity and Access management | - Context-based access control <br>- IAM Policy Generation Pipeline  |
+| Threat detection | - <kbd>Amazon Fraud Detector</kbd> <br>- Integration with additional Intelligence Feeds  |
+| Vulnerability management | |
+| Infrastructure protection | - Process standardization with Service Catalog |
+| Data protection | |
+| Application security   | - DevSecOps <br>- Forming a Red Team (Attacker's Point of View) <br> |
+| Incident response   | - Automate most playbooks <br>- <kbd>Amazon Detective</kbd>: Root cause analysis <br>- Forming a Blue Team (Incident Response) <br>- Multi-region disaster recovery automation |
 
 [Link](https://maturitymodel.security.aws.dev/en/1.-quickwins/){:target="_blank"} to the updated content and more information on each recommendation
 
