@@ -9,6 +9,7 @@ category:
 tags:
 - multi-account
 - getting started
+- security
 published: true
 pin: false
 featured_post: false
@@ -134,6 +135,9 @@ AWS recommends that you start with the central services in mind:
 
 Once you have your foundational Organizational Units, is time to think about the environments, and separate SDLC (non-production) from production because usually have different requirements and you want each of them isolated. Although it can be a new OU categorization, is common to use it as a sub-categorization inside another OU level (for example Security and Infrastructure would have another 2 levels: SDLC and Prod).
 
+> EDIT: **SDLC** (Software Development Life Cycle) is used here because this article is based in the AWS recommendations and they use it for the name of one OU to include all the non-productive environments, for example [here](https://aws.amazon.com/blogs/mt/best-practices-for-organizational-units-with-aws-organizations){:target="_blank"} and [here](https://aws.amazon.com/organizations/getting-started/best-practices){:target="_blank"}. Btw, I "introduce" the concept of SDLC when I explain how to add CI/CD to my CDK project in [this other article](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}. Please, if you found some error there, please let me know!
+{: .prompt-danger }
+
 Now, we have to think about all the additional OUs that you need. AWS recommends creating OUs that directly relate to building or running your products or services:
 
 - Sandbox
@@ -210,7 +214,10 @@ Now set a name for the Foundational Organizational Unit (Security, with 2 accoun
 
 ![aws-control-tower-4](aws-control-tower-4.png){:class="border"}
 
-Then configure the shared accounts (Foundational OU - security), set an email associated with the new accounts and a name for these 2 accounts (Log archive and Security audit):
+Then configure the shared accounts (Foundational OU - security), set an email associated with the new accounts and a name for these 2 accounts:
+
+- Log archive: *The log archive account is a repository of immutable logs of API activities and resource configurations from all accounts.*
+- Security audit: *The audit account is a restricted account. It allows your security and compliance teams to gain access to all accounts in the organization.*
 
 ![aws-control-tower-5](aws-control-tower-5.png){:class="border"}
 
@@ -219,12 +226,14 @@ Step 4 is to configure the CloudTrail and the encryption (disabled by default)
 
 Finally, you need to review all the information and confirm. Next, a new screen will be shown with the progress of the creation of the landing zone. The estimated time is 60 minutes.
 
-This is the summary of what is being set up:
-
-- 2 organizational units, one for your shared accounts and one for accounts that will be provisioned by your users.
-- 3 shared accounts, which are the management account and isolated accounts for log archive and security audit.
-- A native cloud directory with preconfigured groups and single sign-on access.
-- 20 preventive guardrails to enforce policies and 3 detective guardrails to detect configuration violations.
+> This is the summary of what is being set up:
+>
+> - **2 organizational units**, one for your shared accounts and one for accounts that will be provisioned by your users
+> - **2 new accounts**, for log archive and security audit
+> - **A native cloud directory** with preconfigured groups and single sign-on access
+> - **20 preventive guardrails** to enforce policies
+>  **3 detective guardrails** to detect configuration violations
+{: .prompt-info }
 
 ![aws-control-tower-7](aws-control-tower-7.png){:class="border"}
 
@@ -246,15 +255,18 @@ To clean up the AWS Control Tower you need to decommission it and then wait unti
 
 ![aws-control-tower-11](aws-control-tower-11.png){:class="border"}
 
-More useful information:
+## Next steps
 
-- [Practice: Workshop of multi-account security governance workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/d3f60827-89f2-46a8-9be7-6e7185bd7665/en-US){:target>="_blank"}
-- [Practice: AWS Control Tower Immersion day](https://controltower.aws-management.tools/immersionday/){:target>="_blank"}
-- [Example of SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html#examples_general){:target>="_blank"}
-- [AWS blog article: migrate AWS Accounts to AWS Control Tower](https://aws.amazon.com/blogs/architecture/lets-architect-architecting-for-governance-and-management/){:target="_blank"}
-- [AWS blog article: Migrate resources between accounts](https://aws.amazon.com/blogs/architecture/migrate-resources-between-aws-accounts/){:target>="_blank"}
-- [Landing Zone accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/){:target>="_blank"}
-- [Dependency checker to migrate between AWS Organizations](https://github.com/aws-samples/check-aws-resources-for-org-conditions){:target>="_blank"}
+- Next post: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/){:target="_blank"}
+- Comment this post
+- More information
+  - [Practice: Workshop of multi-account security governance workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/d3f60827-89f2-46a8-9be7-6e7185bd7665/en-US){:target>="_blank"}
+  - [Practice: AWS Control Tower Immersion day](https://controltower.aws-management.tools/immersionday/){:target>="_blank"}
+  - [Example of SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html#examples_general){:target>="_blank"}
+  - [AWS blog article: migrate AWS Accounts to AWS Control Tower](https://aws.amazon.com/blogs/architecture/lets-architect-architecting-for-governance-and-management/){:target="_blank"}
+  - [AWS blog article: Migrate resources between accounts](https://aws.amazon.com/blogs/architecture/migrate-resources-between-aws-accounts/){:target>="_blank"}
+  - [Landing Zone accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/){:target>="_blank"}
+  - [Dependency checker to migrate between AWS Organizations](https://github.com/aws-samples/check-aws-resources-for-org-conditions){:target>="_blank"}
 
 ---
 
