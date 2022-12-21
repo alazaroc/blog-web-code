@@ -9,6 +9,8 @@ frontend:
         # - rvm remove 2.4.6
         # - rvm list rubies
         - rvm 2.6.3 --default
+        # sass-embedded-1.57.1-x86_64-linux-gnu requires rubygems version >= 3.3.22, which is incompatible with the current version, 3.0.8
+        - gem pristine --all
         # - ruby -v
         - bundle
     build:
