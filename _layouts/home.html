@@ -3,8 +3,6 @@ layout: page
 # The Home page layout
 ---
 
-{% include lang.html %}
-
 {% assign pinned = site.posts | where: "pin", "true" %}
 {% assign default = site.posts | where_exp: "item", "item.pin != true and item.hidden != true" %}
 
