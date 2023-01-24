@@ -1,0 +1,200 @@
+---
+layout: post
+title: Getting started with AWS open-source tools
+date: 2023-01-24 21:15 +0200
+last_modified_at:
+description: First article about the open-source tools that can help you to manage your AWS accounts.
+category:
+- General
+tags:
+- open-source
+- getting started
+published: true
+pin: false
+featured_post: true
+comments: false
+sitemap: true
+img_path: /assets/img/posts/2023-01-24-aws-open-source-tools/
+
+---
+---
+
+## Introduction
+
+This is the first part of a series of articles about open source software and AWS, in which I will share those tools that I have tested and that I think you may find useful.
+
+The complete series contains the following:
+
+1. **Getting started**: main open source tools and extend AWS CLI (this article)
+2. **AWS Environment**: Analyze your environment, security assessment, compliance and clean (future article)
+3. **AWS Code**: IaC, analysis code (credentials and static analysis) and policy as code resources (future article)
+
+**What is open-source?**
+
+The `Open Source Initiative` defines [here](https://opensource.org/osd){:target="_blank"} the following criteria for considering software as open source:
+
+1. Free Redistribution
+2. Source code must be accessible
+3. The license must allow modifications and derived works
+4. Integrity of The Author's Source Code
+5. No Discrimination Against Persons or Groups
+6. No Discrimination Against Fields of Endeavour
+7. Distribution of License
+8. License Must Not Be Specific to a Product
+9. License Must Not Restrict Other Software
+10. License Must Be Technology-Neutral
+
+> <kbd>Open source</kbd> software is code designed to be accessible to the public: `anyone can view, modify and distribute the code` as they wish.
+{: .prompt-info }
+
+**What is the relationship with AWS?**
+
+I'm sure you already know. There are many open source projects related to AWS, too many. This is because AWS is very popular, but also because AWS is very committed to the open source community.
+
+AWS claims that open source is good for everyone and regularly develops open source software and contributes to thousands of open source communities on GitHub, Apache and the Linux Foundation. More information can be found [here](https://aws.amazon.com/what-is/open-source/){:target="_blank"}
+
+In this post, I will try to show you some open source projects, since you probably don't know all of them and you can surely start using some of them.
+
+> So, let's start sharing public code!
+{: .prompt-info }
+
+## Main AWS open-source tools
+
+Let's start with the most popular AWS open source projects.
+
+You are probably already using some of them and did not realize that they are open source. However, I am not going to explain them or give more information, I will just name them here:
+
+- <kbd>AWS CLI</kbd>: Amazon Web Services Command Line Interface
+  - [https://github.com/aws/aws-cli](https://github.com/aws/aws-cli){:target="_blank"}
+- <kbd>CDK</kbd> (Cloud Development Kit): Define cloud infrastructure using familiar programming languages
+  - [https://github.com/aws/aws-cdk](https://github.com/aws/aws-cdk){:target="_blank"}
+- <kbd>SAM</kbd> (Serverless Application Model): Framework for building serverless applications
+  - [https://github.com/aws/aws-sam-cli](https://github.com/aws/aws-sam-cli){:target="_blank"}
+- <kbd>AWS Amplify</kbd>: framework and tools for developing mobile and web applications
+  - [https://github.com/aws-amplify](https://github.com/aws-amplify){:target="_blank"}
+- <kbd>EKS distro</kbd>: Certified Kubernetes distribution based on and used by Amazon Elastic Kubernetes Service (EKS) to create reliable and secure Kubernetes clusters
+  -[https://github.com/aws/eks-distro](https://github.com/aws/eks-distro){:target="_blank"}
+- <kbd>Karpenter</kbd>: node provisioning project built for Kubernetes
+  - [https://github.com/aws/karpenter](https://github.com/aws/karpenter){:target="_blank"}
+- <kbd>OpenSearch</kbd>: A community-driven, search and analytics suite derived from Apache 2.0 licensed Elasticsearch 7.10.2 & Kibana 7.10.2
+  - [https://github.com/opensearch-project](https://github.com/opensearch-project){:target="_blank"}
+- <kbd>Bottlerocket</kbd>: Linux-based operating system meant for hosting containers
+  - [https://github.com/bottlerocket-os/bottlerocket](https://github.com/bottlerocket-os/bottlerocket){:target="_blank"}
+- <kbd>Firecracker</kbd>: Virtual machine monitor (VMM) to create and manage microVMs. Firecracker powers the AWS Lambda service.
+  - [https://firecracker-microvm.github.io/](https://firecracker-microvm.github.io/){:target="_blank"}
+
+## Extend AWS CLI
+
+My first idea was named this section `CLI tools` but all the open source tools listed here are CLI (Command Line Interface) tools, so this section is for the tools that you can use to improve/extend/replace your AWS CLI tool.
+
+- <kbd>aws-vault</kbd>: tool to `securely store and access AWS credentials` in a development environment
+- <kbd>aws-shell</kbd>: interactive `productivity booster` for the AWS CLI
+- <kbd>awsls</kbd>: a `list command` for AWS resources
+- <kbd>steampipe</kbd>: Use `SQL to query cloud infrastructure`, SaaS, code, logs, and more
+- <kbd>awslogs</kbd>: a simple command line tool for `querying` groups, streams and events `from Amazon CloudWatch logs`
+
+### aws-vault
+
+`aws-vault` securely store and access AWS credentials in a development environment.
+
+AWS Vault stores IAM credentials in your operating system's secure keystore and then generates temporary credentials from those to expose to your shell and applications. It's designed to be complementary to the AWS CLI tools, and is aware of your profiles and configuration in ~/.aws/config.
+
+> **Why use it**: Complementary tool for AWS CLI tools, for secure your connections protecting your credentials.
+>
+> ![aws-vault](aws-vault.png){:class="border"}
+>
+> With the last command, the AWS Console will be open and you will be logged!
+{: .prompt-info }
+
+**URL**: [https://github.com/99designs/aws-vault](https://github.com/99designs/aws-vault){:target="_blank"}
+
+> This is a **popular** open-source tool on github (Watch: 119; Fork: 725; Starts: 7.1k) **and** also an **updated** one (last week).
+{: .prompt-tip }
+
+### aws-shell
+
+The interactive productivity booster for the AWS CLI
+
+> **Why use it**: AWS CLI is awesome but maybe you don't know the commands. With aws-shell, you have helpers, while you write you can see the available options:
+>
+> ![aws-shell](aws-shell.png){:class="border"}
+{: .prompt-info }
+
+**URL**: [https://github.com/awslabs/aws-shell](https://github.com/awslabs/aws-shell){:target="_blank"}
+
+**Is it popular?**: On github: Watch: 230; Fork: 755; Starts: 6.8k
+
+> The tool has not been updated recently (last commit July 10, 2020), but is probably fine for use, as the tool contains all major AWS services.
+{: .prompt-warning }
+
+### awsls
+
+A list command for AWS resources. More than 100 AWS resource supported.
+
+> **Why use it**: If you want to search resources between several regions and/or accounts and filter by some value using GREP, this is your tool!
+>
+> ![awsls](awsls.png){:class="border"}
+{: .prompt-info }
+
+**URL**: [https://github.com/jckuester/awsls](https://github.com/jckuester/awsls){:target="_blank"}
+
+**Is it popular?**: On github: Watch: 10; Fork: 51; Starts: 763
+
+> One year from the last update (last commit Feb 13, 2022) but you can use it without problem.
+{: .prompt-warning }
+
+### steampipe
+
+Steampipe is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.
+
+> **Why use it**: Using SQL you can query AWS resources, perform join queries (same account, several accounts, between different sources), and you have a helper to perform the queries. All in one!
+>
+> ![steampipe-1](steampipe-1.png){:class="border"}
+{: .prompt-info }
+
+**URL**: [https://github.com/turbot/steampipe](https://github.com/turbot/steampipe){:target="_blank"}
+
+**Is it popular?**: On github: Watch: 32; Fork: 171; Starts: 4.6k
+
+**Is active?**: last commit 7 hours ago (> 1995 commits)
+
+More information (querying aws resources):
+
+- [https://steampipe.io/docs/query/overview](https://steampipe.io/docs/query/overview){:target="_blank"}
+- [https://aws.amazon.com/blogs/opensource/querying-aws-at-scale-across-apis-regions-and-accounts/](https://aws.amazon.com/blogs/opensource/querying-aws-at-scale-across-apis-regions-and-accounts/){:target="_blank"}
+
+### awslogs
+
+awslogs is a simple command line tool for querying groups, streams and events from Amazon CloudWatch logs.
+
+> **Why use it**: If you want to review your logs with console this is your tool. You can filter start/end and also using GREP! An example:
+>
+> ![awslogs](awslogs.png){:class="border"}
+{: .prompt-info }
+
+**URL**: [https://github.com/jorgebastida/awslogs](https://github.com/jorgebastida/awslogs){:target="_blank"}
+
+**Is it popular?**: On github: Watch: 61; Fork: 326; Starts: 4.5k
+
+> The tool is not updated (last commit Jul 10, 2020) but you can query the CloudWatch logs without problem.
+{: .prompt-warning }
+
+## Next steps
+
+As I said in the introduction, there are 2 more articles to come:
+
+- **AWS Environment**: Analyze your environment, security assessment, compliance and clean (future article)
+- **AWS Code**: IaC, analysis code (credentials and static analysis) and policy as code resources (future article)
+
+I will update this section with links as they become available.
+
+---
+
+## Comment this post
+
+> I have temporarily added the comments section to the post here. In the future, I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
+{: .prompt-info }
+
+{% include comment-form.html %}
+{% include comment-form.js %}
+{% include forms.css %}
