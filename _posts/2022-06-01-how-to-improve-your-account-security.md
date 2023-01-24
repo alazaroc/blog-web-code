@@ -11,7 +11,7 @@ tags:
 - getting started
 published: true
 pin: false
-featured_post: false
+featured_post: true
 comments: false
 sitemap: true
 img_path: /assets/img/posts/2022-06-01-how-to-improve-your-account-security/

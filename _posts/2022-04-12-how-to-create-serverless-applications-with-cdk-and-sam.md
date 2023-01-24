@@ -13,8 +13,8 @@ tags:
 - sam
 - comparative
 published: true
-pin: true
-featured_post: true 
+pin: false
+featured_post: false 
 comments: false
 sitemap: true
 img_path: /assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/

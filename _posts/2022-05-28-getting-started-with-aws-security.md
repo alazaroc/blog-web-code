@@ -11,7 +11,7 @@ tags:
 - getting started
 published: true
 pin: false
-featured_post: false
+featured_post: true
 comments: false
 sitemap: true
 img_path: /assets/img/posts/2022-05-28-getting-started-with-aws-security/

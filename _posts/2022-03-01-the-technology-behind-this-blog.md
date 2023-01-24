@@ -11,8 +11,8 @@ tags:
 - github
 - serverless
 published: true
-pin: true
-featured_post: true
+pin: false
+featured_post: false
 comments: false
 sitemap: true
 mermaid: true

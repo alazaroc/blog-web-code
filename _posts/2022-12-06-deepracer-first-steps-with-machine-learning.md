@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DeepRacer - First steps with Machine Learning (personal)
+title: DeepRacer - First steps with Machine Learning
 date: 2022-12-06 19:33 +0100
 last_modified_at:
 description: Want to know how AWS DeepRacer works? I tested it at re:Invent 2022 and tell you about my experience with this machine learning service.
@@ -26,11 +26,11 @@ Yes! Now that artificial intelligence bots are here to help everyone create cont
 
 In short, in DeepRacer you have to train your car to stay on track... and it won't be something you'll achieve quickly.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/q-4Z9A3Nt5I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% include embed/youtube.html id='q-4Z9A3Nt5I' %}
 
 But eventually, you will be able to complete a lap!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5Th-D8qE6mY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{% include embed/youtube.html id='5Th-D8qE6mY' %}
 
 ### Why did I decide to learn how DeepRacer works?
 
