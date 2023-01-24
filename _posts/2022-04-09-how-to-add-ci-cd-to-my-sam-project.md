@@ -19,7 +19,7 @@ pin: false
 featured_post: false
 comments: false
 sitemap: true
-img_path: /assets/img/posts/2022-06-04-aws-security-hub-deep-dive/
+img_path: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
 ---
 ---
 
@@ -135,14 +135,14 @@ in your CI/CD account. Read more about how to do so with your provider in
 
 A new stack is created for our new stage `test`.
 
-![sam-pipeline-bootstrap-test](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-bootstrap-test.png){:class="border"}
+![sam-pipeline-bootstrap-test](sam-pipeline-bootstrap-test.png){:class="border"}
 
 > If you want more than 1 stage you should repeat the `sam pipeline bootstrap` for the new stage (prod?). In this example I only want 1 stage to simplify.
 {: .prompt-info }
 
 In our SAM project now we have 1 new file containing our stage information:
 
-![sam-pipeline-bootstrap-new-file](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-bootstrap-new-file.png){:class="border"}
+![sam-pipeline-bootstrap-new-file](sam-pipeline-bootstrap-new-file.png){:class="border"}
 
 ### Step 2: Generate the pipeline configuration
 
@@ -300,13 +300,13 @@ Successfully created the pipeline configuration file(s):
 
 Now we have the new files in our project that CodePipeline will use to deploy our code:
 
-![sam-pipeline-init-one-stage](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-init-one-stage.png){:class="border"}
+![sam-pipeline-init-one-stage](sam-pipeline-init-one-stage.png){:class="border"}
 
 ### Step 3: Commit your pipeline configuration to Git
 
 This step is necessary to ensure your CI/CD system is aware of your pipeline configuration and will run when changes are committed.
 
-![sam-pipeline-init-commit](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-init-commit.png){:class="border"}
+![sam-pipeline-init-commit](sam-pipeline-init-commit.png){:class="border"}
 
 ### Step 4: Deploy your pipeline
 
@@ -415,11 +415,11 @@ Successfully created/updated stack - sam-app-pipeline in eu-west-1
 
 A new stack has been created to deploy our AWS CodePipeline:
 
-![sam-pipeline-stack-cicd](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-stack-cicd.png){:class="border"}
+![sam-pipeline-stack-cicd](sam-pipeline-stack-cicd.png){:class="border"}
 
 > But the first execution has failed
 >
-> ![sam-pipeline-error](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error.png){:class="border"}
+> ![sam-pipeline-error](sam-pipeline-error.png){:class="border"}
 {: .prompt-danger }
 
 We can see in the CodePipeline flow all steps created:
@@ -429,11 +429,11 @@ We can see in the CodePipeline flow all steps created:
 - **BuildAndPackage**: the SAM application is built, packaged, and uploaded (with AWS CodeBuild service)
 - **DeployTest**: the SAM application is deployed (with AWS CodeBuild service)
 
-![sam-pipeline-error-execution](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-execution.png){:class="border"}
+![sam-pipeline-error-execution](sam-pipeline-error-execution.png){:class="border"}
 
 The cause of the error was that the **connection between GitHub and AWS must be confirmed after being created**:
 
-![sam-pipeline-error-detail](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-detail.png){:class="border"}
+![sam-pipeline-error-detail](sam-pipeline-error-detail.png){:class="border"}
 
 ### Step 5: Connect your Git repository with your CI/CD system
 
@@ -444,11 +444,11 @@ The cause of the error was that the **connection between GitHub and AWS must be 
 
 By accessing the Settings/Connections in the Developer Tools, you can validate that the connection is pending approval:
 
-![sam-pipeline-connection](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-connection.png){:class="border"}
+![sam-pipeline-connection](sam-pipeline-connection.png){:class="border"}
 
 After activating it, we run the pipeline again (by clicking on the <kbd>Release change</kbd> button) and now the pipeline ends correctly.
 
-![sam-pipeline-ok-execution](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-ok-execution.png){:class="border"}
+![sam-pipeline-ok-execution](sam-pipeline-ok-execution.png){:class="border"}
 
 ## Update CI/CD steps to SAM project
 
@@ -473,15 +473,15 @@ To do this, we have to update the <kbd>codepipeline.yaml</kbd> file with the nec
 
 And after that, commit the changes and push them to the repository:
 
-![sam-codepipeline-update-steps](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-codepipeline-update-steps.png){:class="border"}
+![sam-codepipeline-update-steps](sam-codepipeline-update-steps.png){:class="border"}
 
 When we push the changes, the `UpdatePipeline` step executes an update on the `sam-app-pipeline` stack (in the CloudFormation service) and it will update the pipeline definition.
 
-![sam-app-pipeline-updating](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-app-pipeline-updating.png){:class="border"}
+![sam-app-pipeline-updating](sam-app-pipeline-updating.png){:class="border"}
 
 As we expected, **the pipeline has updated itself** and now we have `UnitTest` step but not `UpdatePipeline`.
 
-![sam-app-pipeline-updated-execution](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-app-pipeline-updated-execution.png){:class="border"}
+![sam-app-pipeline-updated-execution](sam-app-pipeline-updated-execution.png){:class="border"}
 
 ### Step 2: Update steps in the pipeline manually
 
@@ -576,7 +576,7 @@ Successfully created/updated stack - sam-app-pipeline in eu-west-1
 
 And the pipeline will be updated:
 
-![sam-pipeline-simplified](/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-simplified.png){:class="border"}
+![sam-pipeline-simplified](sam-pipeline-simplified.png){:class="border"}
 
 ### Summary of the current state
 
