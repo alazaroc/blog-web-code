@@ -157,9 +157,9 @@ My option 1: The default training model
 
 ![evaluate](evaluate-model.png){:class="border"}
 
-My option 2: using "SAC" option
+My option 2: using "SAC" option (hugh difference)
 
-![evaluate](evaluate-model.png){:class="border"}
+![evaluate-2](evaluate-model-2.png){:class="border"}
 
 Many more trials and errors...
 
