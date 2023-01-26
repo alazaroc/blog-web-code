@@ -92,6 +92,7 @@ My first idea was named this section `CLI tools` but all the open source tools l
 - <kbd>awsls</kbd>: a `list command` for AWS resources
 - <kbd>steampipe</kbd>: Use `SQL to query cloud infrastructure`, SaaS, code, logs, and more
 - <kbd>awslogs</kbd>: a simple command line tool for `querying` groups, streams and events `from Amazon CloudWatch logs`
+- <kbd>ohmyzsh with the aws plugin</kbd>: provides completion support for AWS CLI and a few utilities to `manage AWS profiles and display them in the prompt`
 
 ### aws-vault
 
@@ -108,7 +109,7 @@ AWS Vault stores IAM credentials in your operating system's secure keystore and 
 
 **URL**: [https://github.com/99designs/aws-vault](https://github.com/99designs/aws-vault){:target="_blank"}
 
-> This is a **popular** open-source tool on github (Watch: 119; Fork: 725; Starts: 7.1k) **and** also an **updated** one (last week).
+> This is a **popular** open-source tool on github (Watch: 119; Fork: 725; Stars: 7.1k) **and** also an **updated** one (last week).
 {: .prompt-tip }
 
 ### aws-shell
@@ -122,7 +123,7 @@ The interactive productivity booster for the AWS CLI
 
 **URL**: [https://github.com/awslabs/aws-shell](https://github.com/awslabs/aws-shell){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 230; Fork: 755; Starts: 6.8k
+**Is it popular?**: On github: Watch: 230; Fork: 755; Stars: 6.8k
 
 > The tool has not been updated recently (last commit July 10, 2020), but is probably fine for use, as the tool contains all major AWS services.
 {: .prompt-warning }
@@ -138,7 +139,7 @@ A list command for AWS resources. More than 100 AWS resource supported.
 
 **URL**: [https://github.com/jckuester/awsls](https://github.com/jckuester/awsls){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 10; Fork: 51; Starts: 763
+**Is it popular?**: On github: Watch: 10; Fork: 51; Stars: 763
 
 > One year from the last update (last commit Feb 13, 2022) but you can use it without problem.
 {: .prompt-warning }
@@ -154,7 +155,7 @@ Steampipe is the universal interface to APIs. Use SQL to query cloud infrastruct
 
 **URL**: [https://github.com/turbot/steampipe](https://github.com/turbot/steampipe){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 32; Fork: 171; Starts: 4.6k
+**Is it popular?**: On github: Watch: 32; Fork: 171; Stars: 4.6k
 
 **Is active?**: last commit 7 hours ago (> 1995 commits)
 
@@ -174,10 +175,24 @@ awslogs is a simple command line tool for querying groups, streams and events fr
 
 **URL**: [https://github.com/jorgebastida/awslogs](https://github.com/jorgebastida/awslogs){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 61; Fork: 326; Starts: 4.5k
+**Is it popular?**: On github: Watch: 61; Fork: 326; Stars: 4.5k
 
 > The tool is not updated (last commit Jul 10, 2020) but you can query the CloudWatch logs without problem.
 {: .prompt-warning }
+
+### ohmyzsh with the aws plugin
+
+If you are using ohmyzsh (framework for managing your zsh configuration), you can add this `aws` plugin to extend your CLI.
+
+This plugin provides completion support for AWS CLI and a few utilities to manage AWS profiles and display them in the prompt.
+
+> **Why use it**: Useful if you are using different profiles and ohmyzsh.
+>
+> ![ohmyzsh-aws](ohmyzsh-aws.png){:class="border"}
+
+ohmyzsh is a very popular framework for zsh (155k stars), and the AWS plugin is part of this framework
+
+**URL**: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws){:target="_blank"}
 
 ## Next steps
 
