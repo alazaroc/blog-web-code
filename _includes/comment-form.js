@@ -23,15 +23,18 @@ function initCommentForm() {
         contentType: "application/json",
         dataType: 'json',
         encode: true,
-    }).done(function() {
-      $('#comment-form-loading-submit-button').addClass('form-hidden');
-      $('#comment-form-was-submitted').removeClass('form-hidden');
-      commentForm.find('.form-group').addClass('form-hidden');
+
+    }).done(function(response) {
+        $('#comment-form-loading-submit-button').addClass('form-hidden');
+        $('#comment-form-was-submitted').removeClass('form-hidden');
+        commentForm.find('.form-group').addClass('form-hidden');
+        
     }).fail(function(err) {
-      $('#comment-form-loading-submit-button').addClass('form-hidden');
-      $('#comment-form-failed-to-submit').removeClass('form-hidden');
-      submitBtn.attr('disabled', false).removeClass('form-hidden');
+        $('#comment-form-loading-submit-button').addClass('form-hidden');
+        $('#comment-form-failed-to-submit').removeClass('form-hidden');
+        submitBtn.attr('disabled', false).removeClass('form-hidden');
     });
+  
   });
 }
 

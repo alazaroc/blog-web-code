@@ -224,11 +224,6 @@ If you review it and think it can be improved, please let me know.
 - Next post: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 - Comment this post
 
-## Comment this post
+---
 
-> I have temporarily added the comments section to the post here. In the future, I will add it in a better way and include all the validated comments (I guess that I will have to make a filter to avoid spam)
-{: .prompt-info }
-
-{% include comment-form.html %}
-{% include comment-form.js %}
-{% include forms.css %}
+{% include comments.md %}
