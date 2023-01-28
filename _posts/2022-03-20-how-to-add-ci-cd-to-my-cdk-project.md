@@ -16,7 +16,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/
 ---
@@ -519,7 +519,3 @@ That is all, we have automation in our deployment process!
 So as you can see, using CDK's CodePipeline constructor, the following is created:
 
 ![solution-2](architecture-diagrams/solution-2.png){:class="border"}
-
----
-
-{% include comments.md %}

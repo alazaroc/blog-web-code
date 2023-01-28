@@ -17,7 +17,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
 ---
@@ -610,7 +610,3 @@ You have several ways to delete your resources:
 
 > If you execute the command `sam delete`, it only will delete the main stack (sam-app) but not the CI/CD pipeline or the stage resources stack.
 {: .prompt-note }
-
----
-
-{% include comments.md %}

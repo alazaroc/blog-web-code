@@ -12,7 +12,7 @@ tags:
 published: true
 pin: false
 featured_post: true
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-05-28-getting-started-with-aws-security/
 ---
@@ -394,7 +394,3 @@ In AWS, there are several different approaches you can use when addressing incid
   - [ ] Begin with [GuardDuty findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html){:target="_blank"}. Turn on GuardDuty and ensure that someone with the ability to take action receives the notifications. Automatically creating trouble tickets is the best way to ensure that GuardDuty findings are integrated with your operational processes
 - [ ] **Practice responding to events**
   - [ ] Simulate and practice incident response by running regular game days, incorporating the lessons learned into your incident management plans, and continuously improving them
-
----
-
-{% include comments.md %}

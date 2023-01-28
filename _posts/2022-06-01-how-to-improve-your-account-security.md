@@ -12,7 +12,7 @@ tags:
 published: true
 pin: false
 featured_post: true
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-06-01-how-to-improve-your-account-security/
 ---
@@ -172,7 +172,3 @@ The original article was written in the AWS blog [here](https://aws.amazon.com/b
 9. **Rotate keys**
 10. **Be involved in the dev cycle**
     - “raise the security culture of your organization.”
-
----
-
-{% include comments.md %}

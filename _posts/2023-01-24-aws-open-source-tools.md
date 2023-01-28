@@ -12,7 +12,7 @@ tags:
 published: true
 pin: false
 featured_post: true
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-01-24-aws-open-source-tools/
 
@@ -202,7 +202,3 @@ As I said in the introduction, there are 2 more articles to come:
 - **AWS Code**: IaC, analysis code (credentials and static analysis) and policy as code resources (future article)
 
 I will update this section with links as they become available.
-
----
-
-{% include comments.md %}

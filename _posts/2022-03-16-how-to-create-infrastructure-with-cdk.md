@@ -14,7 +14,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/
 ---
@@ -223,7 +223,3 @@ If you review it and think it can be improved, please let me know.
 - If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}.
 - Next post: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 - Comment this post
-
----
-
-{% include comments.md %}

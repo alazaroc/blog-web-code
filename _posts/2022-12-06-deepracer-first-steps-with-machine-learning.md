@@ -14,7 +14,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-12-06-deepracer-first-steps-with-machine-learning/
 ---
@@ -181,7 +181,3 @@ And just for participating, I received this car!
 - [AWS DeepRacer Community](https://deepracing.io/){:target="_blank"}.
 - [Train models in local](https://github.com/aws-deepracer-community/deepracer-for-cloud){:target="_blank"}.
 - [Use logs to do analysis](https://github.com/breadcentric/aws-deepracer-workshops/tree/enhance-log-analysis/log-analysis){:target="_blank"}.
-
----
-
-{% include comments.md %}

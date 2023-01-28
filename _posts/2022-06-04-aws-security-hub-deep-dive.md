@@ -13,7 +13,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-06-04-aws-security-hub-deep-dive/
 ---
@@ -248,7 +248,3 @@ More info about automated response and remediation [here](https://docs.aws.amazo
 - [Automatically resolve findings for resources that no longer exists](https://aws.amazon.com/blogs/security/automatically-resolve-security-hub-findings-for-resources-that-no-longer-exist/){:target="_blank"}
 - [Enrich findings with account metadata](https://aws.amazon.com/blogs/security/how-to-enrich-aws-security-hub-findings-with-account-metadata/){:target="_blank"}
 - [Correlate findings](https://aws.amazon.com/blogs/security/correlate-security-findings-with-aws-security-hub-and-amazon-eventbridge/){:target="_blank"}
-
----
-
-{% include comments.md %}

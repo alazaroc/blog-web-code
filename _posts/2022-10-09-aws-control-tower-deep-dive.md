@@ -198,7 +198,3 @@ To deploy CfCT:
 There is a Terraform module that makes it easy to create and customize new accounts that comply with your organization's security guidelines.
 
 [Here](https://learn.hashicorp.com/tutorials/terraform/aws-control-tower-aft){:target="_blank"} is the official link that explains how to do it step by step.
-
----
-
-{% include comments.md %}

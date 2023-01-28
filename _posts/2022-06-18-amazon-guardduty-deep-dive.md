@@ -13,7 +13,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-06-18-amazon-guardduty-deep-dive/
 ---
@@ -210,7 +210,3 @@ However, I think that this is more appropriate to deal with compromised EC2 inst
 
 - [Official documentation](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html){:target>>="_blank"}
 - [Amazon GuardDuty Workshop](https://hands-on-guardduty.awssecworkshops.com/){:target>>="_blank"}
-
----
-
-{% include comments.md %}

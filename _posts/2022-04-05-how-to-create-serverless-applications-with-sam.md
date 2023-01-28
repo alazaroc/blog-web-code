@@ -16,7 +16,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/
 ---
@@ -702,7 +702,3 @@ To delete it, you can run the `sam delete` command which deletes the main stack 
 - If you need more information about SAM I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html){:target="_blank"}.
 - Next post: [How to add CI/CD to my SAM project](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"}
 - Comment this post
-
----
-
-{% include comments.md %}

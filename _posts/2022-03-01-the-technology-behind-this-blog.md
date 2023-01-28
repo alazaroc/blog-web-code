@@ -13,7 +13,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 mermaid: true
 ---
@@ -163,11 +163,10 @@ This is the architecture diagram of the AWS resources created:
 > At this moment, I only store the subscription information and if I want to send emails I have to do it manually. However, in the future, I will automate it and I will add the option to unsubscribe (to the sent mail)
 {: .prompt-warning }
 
-#### Comments
+#### Comments (updated January 27, 2023)
 
-- Used here: [Comment](#comment-this-post){:target="_blank"}
-- External option easy to integrate: ~~Disqus~~
-- Custom AWS solution
+- Used at the end of each post
+- The first year of my blog, the solution was the following (custom AWS solution):
 
   ``` mermaid
     flowchart LR
@@ -176,8 +175,7 @@ This is the architecture diagram of the AWS resources created:
     C --> D(DynamoDB)
   ```
 
-> At this moment I only store the comments of each post in a DynamoDB table and in the future I will show all validated comments in the posts
-{: .prompt-warning }
+- However, now I am using the giscus plugin
 
 ### Technology to deploy infrastructure
 
@@ -239,11 +237,7 @@ Price information by services used:
 
 I have many next steps identified, but I'll put here the ones related to the content of this post.
 
-- [ ] Update comments form
-- [ ] Show comments in the posts
+- [x] Update comments form --> March 17, 2022 --> giscus plugin have been integrated
+- [x] Show comments in the posts --> January 27, 2023 --> giscus plugin have been integrated to my web
 - [ ] Automate Mail subscription
 - [ ] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools
-
----
-
-{% include comments.md %}

@@ -13,7 +13,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-07-18-multi-account-approach/
 ---
@@ -267,7 +267,3 @@ To clean up the AWS Control Tower you need to decommission it and then wait unti
   - [AWS blog article: Migrate resources between accounts](https://aws.amazon.com/blogs/architecture/migrate-resources-between-aws-accounts/){:target>="_blank"}
   - [Landing Zone accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/){:target>="_blank"}
   - [Dependency checker to migrate between AWS Organizations](https://github.com/aws-samples/check-aws-resources-for-org-conditions){:target>="_blank"}
-
----
-
-{% include comments.md %}

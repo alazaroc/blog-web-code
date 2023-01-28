@@ -14,7 +14,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/
 ---
@@ -117,7 +117,3 @@ We can now access it with our domain name:
 ![amplify16](amplify-16-web-2.png){:class="border"}
 
 That's it, quick and easy!
-
----
-
-{% include comments.md %}

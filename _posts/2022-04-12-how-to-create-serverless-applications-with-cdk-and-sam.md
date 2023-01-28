@@ -15,7 +15,7 @@ tags:
 published: true
 pin: false
 featured_post: false 
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/
 ---
@@ -435,7 +435,3 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 ```
 
 ![testing api-gateway-from-web-v2](testing api-gateway-from-web-v2.png){:class="border"}
-
----
-
-{% include comments.md %}
