@@ -7,8 +7,9 @@ description: First article about the open-source tools that can help you to mana
 category:
 - General
 tags:
+- getting-started
 - open-source
-- getting started
+- github
 published: true
 pin: false
 featured_post: true
@@ -47,11 +48,13 @@ The `Open Source Initiative` defines [here](https://opensource.org/osd){:target=
 > <kbd>Open source</kbd> software is code designed to be accessible to the public: `anyone can view, modify and distribute the code` as they wish.
 {: .prompt-info }
 
+By the way, both terms are correct: open source and open-source. I could use them interchangeably in this article.
+
 **What is the relationship with AWS?**
 
-I'm sure you already know. There are many open source projects related to AWS, too many. This is because AWS is very popular, but also because AWS is very committed to the open source community.
+I'm sure you already know that there are many open-source projects related to AWS, too many. This is because AWS is very popular, but also because AWS is very committed to the open source community.
 
-AWS claims that open source is good for everyone and regularly develops open source software and contributes to thousands of open source communities on GitHub, Apache and the Linux Foundation. More information can be found [here](https://aws.amazon.com/what-is/open-source/){:target="_blank"}
+AWS claims that open source is good for everyone and regularly develops open source software and contributes to thousands of open-source communities on GitHub, Apache, and the Linux Foundation. More information can be found [here](https://aws.amazon.com/what-is/open-source/){:target="_blank"}
 
 In this post, I will try to show you some open source projects, since you probably don't know all of them and you can surely start using some of them.
 
@@ -62,7 +65,7 @@ In this post, I will try to show you some open source projects, since you probab
 
 Let's start with the most popular AWS open source projects.
 
-You are probably already using some of them and did not realize that they are open source. However, I am not going to explain them or give more information, I will just name them here:
+You are probably already using some of them and did not realize they are open source. However, I am not going to explain them or give more information, I will just name them here:
 
 - <kbd>AWS CLI</kbd>: Amazon Web Services Command Line Interface
   - [https://github.com/aws/aws-cli](https://github.com/aws/aws-cli){:target="_blank"}

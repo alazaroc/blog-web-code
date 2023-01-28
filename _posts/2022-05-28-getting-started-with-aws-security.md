@@ -3,12 +3,12 @@ layout: post
 title: Getting Started with AWS Security
 date: 2022-05-31 19:33 +0200
 last_modified_at:
-description: In AWS security is TOP priority, but what do you know about security? How you can secure your AWS solutions? What are the basics and best practices that you need to know? Where to start?
+description: In AWS security is the TOP priority, but what do you know about security? How you can secure your AWS solutions? What are the basics and best practices that you need to know? Where to start?
 category:
 - Security
 tags:
+- getting-started
 - security
-- getting started
 published: true
 pin: false
 featured_post: true
@@ -20,7 +20,7 @@ img_path: /assets/img/posts/2022-05-28-getting-started-with-aws-security/
 
 ## TLDR
 
-You have probably read many times that <kbd>in AWS security is TOP priority</kbd>, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these 2 resources that you *have to know*:
+You have probably read many times that <kbd>in AWS security is the TOP priority, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these 2 resources you _have to_ know*:
 
 - Recommendations and best practices: Security Pillar in AWS Well-Architected Framework
 - AWS Security checklist
@@ -147,7 +147,7 @@ How to grant access to different types of resources:
 - **Organizations service control policies (SCP)**: define the maximum permissions for account members of an organization or organizational unit (OU). **Limit permission** but do not grant it
 - **Session policies**: advanced policies that you pass as a parameter when you programmatically create a temporary session for a role or federated user. These policies **limit permissions** but do not grant permissions
 
-The following are the best practices related to the permission management:
+The following are the best practices related to permission management:
 
 - **Grant least privilege access**
 - **Define permission guardrails for your organization**: You should use <kbd>AWS Organizations</kbd> to establish common permission guardrails that restrict access to all identities in your organization. [Here](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html){:target="_blank"} are examples of service control policies (<kbd>SCPs</kbd>) defined by AWS that you can apply to your organization.
@@ -168,7 +168,7 @@ Detective Control provides guidance to help identify potential security incident
 
 - **Configure services and application logging**
   - A foundational practice is to establish a set of detection mechanisms **at the account level**. This base set of mechanisms is aimed at **recording and detecting** a wide range of actions on all resources in your account.
-    - <kbd>AWS CloudTrail</kbd> provides event history of your AWS account activity
+    - <kbd>AWS CloudTrail</kbd> provides the event history of your AWS account activity
     - <kbd>AWS Config</kbd> monitors and records your AWS resource configurations and allows you to automate the evaluation and remediation against desired configurations
     - <kbd>Amazon GuardDuty</kbd> is a threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts and workloads
     - <kbd>AWS Security Hub</kbd> provides a single place that aggregates, organizes, and prioritizes your security alerts, or findings, from multiple AWS services and optional third-party products to give you a comprehensive view of security alerts and compliance status.
@@ -181,7 +181,7 @@ Detective Control provides guidance to help identify potential security incident
 
 - **Implement actionable security events**: For each detective mechanism you have, you should also have a process, in the form of a <kbd>runbook or playbook</kbd>, to investigate
 - **Automate response to events**:
-  - In AWS, investigating events of interest and information on potentially unexpected changes into an automated workflow can be achieved using <kbd>Amazon EventBridge</kbd>
+  - In AWS, investigating events of interest and information on potentially unexpected changes in an automated workflow can be achieved using <kbd>Amazon EventBridge</kbd>
   - <kbd>Amazon GuardDuty</kbd> also allows you to route events to a workflow system for those building incident response systems (Step Functions), to a central Security Account, or to a bucket for further analysis.
   - Detecting change and routing this information to the correct workflow can also be accomplished using <kbd>AWS Config Rules</kbd> and Conformance Packs.
     - <kbd>Conformance packs</kbd> are a collection of Config Rules and remediation actions you deploy as a single entity authored as a YAML template. A [sample conformance pack template is available for the Well-Architected Security Pillar](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-wa-Security-Pillar.html){:target="_blank"}
@@ -245,7 +245,7 @@ These methods are important because they support objectives such as preventing m
 
 #### 5.1. Data Classification
 
-- **Identify the data within your workload**: You need to understand the type and classification of data your workload is processing, the associated business processes, data owner, applicable legal and compliance requirements, where it’s stored, and the resulting controls that are needed to be enforced.
+- **Identify the data within your workload**: You need to understand the type and classification of data your workload is processing, the associated business processes, the data owner, applicable legal and compliance requirements, where it’s stored, and the resulting controls that are needed to be enforced.
 - **Define data protection controls**: By using <kbd>resource tags</kbd>, separate AWS accounts per sensitivity, <kbd>IAM policies, Organizations SCPs, AWS KMS, and AWS CloudHSM</kbd>, you can define and implement your policies for data classification and protection with encryption.
 - **Define data lifecycle management**: Your defined lifecycle strategy should be based on sensitivity level as well as legal and organizational requirements. Aspects including the duration for which you retain data, data destruction processes, data access management, data transformation, and data sharing should be considered.
 - **Automate identification and classification**: Automating the identification and classification of data can help you implement the correct controls. Using automation for this instead of direct access from a person reduces the risk of human error and exposure. You should evaluate using a tool, such as <kbd>Amazon Macie</kbd>, that uses machine learning to automatically discover, classify, and protect sensitive data in AWS.
@@ -287,7 +287,7 @@ Best practices:
 - **Enforce encryption in transit**: AWS services provides HTTPS endpoints using TLS for communication, thus providing encryption in transit when communicating with the AWS APIs.
   - Insecure protocols, such as HTTP, can be **audited** and blocked in a VPC through the use of security groups.
   - HTTP requests can also be automatically **redirected** to HTTPS in Amazon CloudFront or on an Application Load Balancer.
-  - Additionally, you can use VPN connectivity into your VPC from an external network to facilitate encryption of traffic. Third-party solutions are available in the AWS Marketplace if you have special requirements.
+  - Additionally, you can use VPN connectivity into your VPC from an external network to facilitate the encryption of traffic. Third-party solutions are available in the AWS Marketplace if you have special requirements.
 - **Authenticate network communications**: Using network protocols (TLS/IPsec) that support authentication allows for trust to be established between the parties adding encryption to reduce the risk of communications being altered or intercepted.
 - **Automate detection of unintended data access**: Use tools such as
   - <kbd>Amazon GuardDuty</kbd> automatically detects suspicious activity or attempts to move data outside of defined boundaries.
@@ -366,7 +366,7 @@ In AWS, there are several different approaches you can use when addressing incid
   - [ ] Enable Config Managed Rules to automatically alert or remediate undesired changes
   - [ ] Configure alerts for all your sources of logs and events, from AWS CloudTrail to Amazon GuardDuty and your application logs,  for high-priority events and investigate
 
-### 3. Infrastructure protection
+### 3. Infrastructure Protection
 
 - [ ] **Patch your operating system, applications, and code**
   - [ ] Use [AWS Systems Manager Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html){:target="_blank"} to automate the patching process of all systems and code for which you are responsible, including your OS, applications, and code dependencies

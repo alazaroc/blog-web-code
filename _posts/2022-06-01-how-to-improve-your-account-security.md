@@ -7,8 +7,9 @@ description: If you already have one or multiple AWS accounts and you want to im
 category:
 - Security
 tags:
+- how-to
 - security
-- getting started
+- getting-started
 published: true
 pin: false
 featured_post: true
@@ -32,7 +33,7 @@ I will share with you two resources to do it:
 
 It is a valuable resource for reviewing the current status and improving the security of your solutions.
 
-The classification of the different recommendations into the categories depends on the cost and difficulty of implementing the security control, and the positive impact that it will achieve.
+The classification of the different recommendations into categories depends on the cost and difficulty of implementing the security control, and the positive impact that it will achieve.
 
 > This model is **updated monthly** by AWS. In fact, a month after writing this article I had to update it because the model had changed and all areas of the organization had changed, although the content is the same.
 {: .prompt-info }
@@ -119,7 +120,7 @@ There are some controls and recommendations that allow us to manage security in 
 
 ### Phase 4. Optimized
 
-And finally, there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle** the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security, or large organizations with very demanding requirements.
+And finally, there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle** the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security or large organizations with very demanding requirements.
 
 | Level  | Recommendation |
 |---|---|
@@ -163,7 +164,7 @@ The original article was written in the AWS blog [here](https://aws.amazon.com/b
    - design your approach to data classification
 6. **Centralize CloudTrail logs**
    - [AWS recommends](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html){:target="_blank"} that you write logs in an AWS account designated for logging (Log Archive).
-   - The permissions on the bucket should prevent deletion of the logs, and they should also be encrypted at rest. Review [how to use AWS to visualize AWS CloudTrail logs](https://docs.aws.amazon.com/athena/latest/ug/cloudtrail-logs.html){:target="_blank"}
+   - The permissions on the bucket should prevent the deletion of the logs, and they should also be encrypted at rest. Review [how to use AWS to visualize AWS CloudTrail logs](https://docs.aws.amazon.com/athena/latest/ug/cloudtrail-logs.html){:target="_blank"}
 7. **Validate IAM roles**
    - Use AWS IAM Access Analyzer
 8. **Take action on findings**

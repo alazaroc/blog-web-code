@@ -3,11 +3,11 @@ layout: post
 title: How to create infrastructure with CDK
 date: 2022-03-16 19:28 +0100
 last_modified_at:
-description: Do you want to know how to create infrastructure with CDK and review my cdk project used in this blog?
+description: Do you want to know how to create infrastructure with CDK and review my CDK project used in this blog?
 category:
-- How-to
 - IaC
 tags:
+- how-to
 - cdk
 - cloudformation
 - github
@@ -191,11 +191,11 @@ cdk diff
 
 ![cdk-diff-no-changes](cdk-diff-no-changes.png)
 
-Now le's update the cdk code to generate some differences. First of all, we have to open the project with our IDE (you can also do it with a notepad but...)
+Now let's update the CDK code to generate some differences. First of all, we have to open the project with our IDE (you can also do it with a notepad but...)
 
 ![cdk-code](cdk-code.png)
 
-This file contains the 2 AWS resources of my example, a queue (red) and a topic (yellow). I could add a new service but for simplicity, I will remove the topic (lines 15 to 17) and run the cdk diff again.
+This file contains the 2 AWS resources of my example, a queue (red) and a topic (yellow). I could add a new service but for simplicity, I will remove the topic (lines 15 to 17) and run the `cdk diff` again.
 
 ![cdk-code-2](cdk-code-2.png)
 

@@ -5,10 +5,11 @@ date: 2022-03-26 02:03 +0100
 last_modified_at:
 description: I will show you how you can deploy a CDK project using the Developer Tools of AWS, and a different approach to creating it with AWS console and with IaC.
 category:
-- How-to
-- AWS-console
 - IaC
+- DevOps
 tags:
+- how-to
+- iac
 - cdk
 - cicd
 - codepipeline
@@ -30,14 +31,14 @@ I want **to add automation** to my deployment process and integrate it with the 
 
 I will show you 2 different approaches:
 
-- **Create the pipeline with the AWS Console**: helps to understand how the services involved work
-- **Create the pipeline with IaC (CDK)**: best practice, always automate everything. So in this case yes, I also want to automate the creation of the application automation deployment!
+- **Create the pipeline with the AWS Console**: Why? Helps you understand the low level of the solution and how AWS services work
+- **Create the pipeline with IaC (CDK)**: Why? You should always try to automate everything. In this case, I will create the pipeline that will allow us to deploy the CDK code automatically.
 
 I want to implement the simplest solution, with the KISS principle in mind, and for this reason, my architecture diagram is as follows:
 
 ![solution-1](architecture-diagrams/solution-1.png){:class="border"}
 
-Explanation: In a cdk deployment, I don't need to run the `cdk synth` command and manage the generated artifacts, so the simplest solution is to run the `cdk deploy` command directly.
+Explanation: In a CDK deployment, I don't need to run the `cdk synth` command and manage the generated artifacts, so the simplest solution is to run the `cdk deploy` command directly.
 
 > If you need more information about it, I wrote a related post: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}.
 {: .prompt-info }
@@ -130,7 +131,7 @@ Step 3 is to add the build stage, and you should select <kbd>AWS CodeBuild</kbd>
 
 ![codepipeline6](console/codepipeline-6-build.png){:class="border"}
 
-After that, select the region, a project name, and a single build and click to <kbd>Next</kbd>.
+After that, select the region, a project name, and a single build and click <kbd>Next</kbd>.
 
 ![codepipeline7](console/codepipeline-7-build.png){:class="border"}
 
@@ -145,7 +146,7 @@ Now the CodePipeline is ready to be created and a review page is displayed. Conf
 
 ![codepipeline9](console/codepipeline-9.png){:class="border"}
 
-It is done. We have created the CodePipeline and added it 2 stages:
+It is done. We have created the CodePipeline and added 2 stages:
 
 - Source
 - Build
@@ -158,11 +159,11 @@ As you can see the execution had failed!
 
 Do you know what caused the error? Let's investigate it...
 
-If you click on the `execution` ID` link, You are redirected to the pipeline execution summary and you can see the error message `Project cannot be found` in CodeBuild.
+If you click on the `execution ID link`, you will be redirected to the pipeline execution summary and you will see the error message `Project cannot be found` in CodeBuild.
 
 ![codepipeline11](console/codepipeline-11.png){:class="border"}
 
-Also, you can click on the <kbd>AWS CodeBuild</kbd> action name and you will be redirected to CodeBuild service... where you will receive the same error information: "Resource not available".
+Also, you can click on the <kbd>AWS CodeBuild</kbd> action name and you will be redirected to the CodeBuild service... where you will receive the same error information: "Resource not available".
 
 ![codepipeline12](console/codepipeline-12.png){:class="border"}
 
@@ -213,7 +214,7 @@ When you have finished filling in all fields, click <kbd>Continue to CodePipelin
 > Again, with this configuration the execution will fail. Do you know why?
 {: .prompt-danger }
 
-You can now go back to the CodePipeline and force the execution again by clicking to <kbd>Release change</kbd>.
+You can now go back to the CodePipeline and force the execution again by clicking on <kbd>Release change</kbd>.
 
 And, as expected, it fails again.
 
@@ -223,16 +224,16 @@ This time we will review the **CloudWatch logs** generated for this run to look 
 
 ![codepipeline21](console/codepipeline-21.png){:class="border"}
 
-You can see that the **CodeBuild role** is trying to assume the CDK role to perform the cdk commands, and of course, we didn't specify any permissions to the new role so it can't assume any roles.
+You can see that the **CodeBuild role** is trying to assume the CDK role to perform the CDK commands, and of course, we didn't specify any permissions to the new role so it can't assume any roles.
 
 > **How CDK deploy works**: Behind the scenes, when the `cdk deploy` command is executed, CDK is using the CDK roles created in the bootstrap process to perform some actions: perform a lookup, upload files and deploy the template uploaded in the S3 into the CloudFormation service.
 {: .prompt-tip }
 
-Therefore, you need to update the CodeBuild role to add the assumed permission to cdk roles. To do this, create new permission (new inline policy).
+Therefore, you need to update the CodeBuild role to add the assumed permission to CDK roles. To do this, create new permission (new inline policy).
 
 ![codepipeline22](console/codepipeline-22-edit-role.png){:class="border"}
 
-You must to add the Action `sts:AssumeRole` and the Resources of the 4 CDK roles created in the bootstrap.
+You must add the Action `sts:AssumeRole` and the Resources of the 4 CDK roles created in the bootstrap.
 
 ![codepipeline23](console/codepipeline-23.png){:class="border"}
 
@@ -249,7 +250,7 @@ If you come back to the CodePipeline service and you execute it again, it will s
 > Now, if you make any changes in your repository, **the pipeline will be automatically executed** and your infrastructure will be updated executing the `cdk deploy` command of the CDK Toolkit inside of the CodeBuild service.
 {: .prompt-note }
 
-If you want, you can check the logs in **CloudWatch** service to verify that the execution of the `cdk deploy` command went as we expected:
+If you want, you can check the logs in the **CloudWatch** service to verify that the execution of the `cdk deploy` command went as we expected:
 
 ![codepipeline27](console/codepipeline-27.png){:class="border"}
 
@@ -257,11 +258,11 @@ If you want, you can check the logs in **CloudWatch** service to verify that the
 
 You have done a lot of manual work, and the first improvement you can **automate** is the definition of the build process itself.
 
-You need to update in the CodeBuild project the buildspec configuration of the project, choose `Use a buildspec file` and click to <kbd>Update buildspec</kbd>.
+You need to update in the CodeBuild project the buildspec configuration of the project, select `Use a buildspec file` and click to <kbd>Update buildspec</kbd>.
 
 Now **when the pipeline runs it will look for the buildspec file inside the code** (in the root folder). You have configured the CodeBuild service but you don't have the buildspec.yml file added to your code yet.
 
-Next, you must to add the buildspec.yml file with the same content you provided in the online editor to update the build commands in the code. [More information about buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage){:target="_blank"}
+Next, you must add the buildspec.yml file with the same content you provided in the online editor to update the build commands in the code. [More information about buildspec file](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage){:target="_blank"}
 
 In the following image, you can see the VSCode IDE and the new <kbd>buildspec.yml</kbd> file with the same content as before.
 
@@ -281,7 +282,7 @@ The **pipeline runs automatically** as expected
 
 Now that we have deployed the CodePipeline with the AWS Console, **we will do the same with Infrastructure as Code** with CDK.
 
-To do this, I will add a CodePipeline resource to my CDK project of the blog.
+To do this, I will add a CodePipeline resource to my CDK project for the blog.
 
 > I am using the GitHub v2 connection because it is the recommended way, and it requires first to use the AWS Console to authenticate to the source control provider, and then use the connection ARN in your pipeline definition.
 >
@@ -354,7 +355,7 @@ We have previously executed the deploy command but not a previous commit.
 
 I want to show you what will happen if you set the `selfmutate` property to false (and the code is not committed).
 
-This is the change needed in the to the CDK CodePipeline resource code, adding this line:
+This is the change needed in the CDK CodePipeline resource code, adding this line:
 
 ```typescript
 selfMutation: false,
@@ -430,7 +431,7 @@ And since we have added the appropriate permissions, it doesn't fail.
 
 I will use [this other example of CodePipeline for CDK](https://github.com/alazaroc/aws-cdk-pipeline){:target="_blank"}, to make it easier to understand. Also, I will go step by step to understand perfectly how it works.
 
-This is the final diagram of what we will build (with the cdk code):
+This is the final diagram of what we will build (with the CDK code):
 
 ![cdk-pipeline-diagram](iac/cdk-pipeline-diagram.png){:class="border"}
 

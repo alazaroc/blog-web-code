@@ -7,9 +7,8 @@ description: This is the first article related to the multi-account approach, an
 category:
 - General
 tags:
+- getting-started
 - multi-account
-- getting started
-- security
 published: true
 pin: false
 featured_post: false
@@ -55,7 +54,7 @@ There are many reasons to use isolations:
 
 Some other advantages of a multi-account solution are:
 
-- **to manage the security** by using policy-based controls
+- **to manage security** by using policy-based controls
 - **to simplify billing** - You can use a tagging strategy and cost allocation tags to track your AWS costs on a detailed level in the same account but is much better to use multiple accounts to do the same.
 - Promote innovation and agility
 
@@ -76,7 +75,7 @@ AWS provides a resource to help you centrally manage and govern your environment
 
 ![aws-organizations-summary](aws-organizations-summary.png){:class="border"}
 
-### Features / advantages
+### Features / Advantages
 
 - Free to use
 - Centralized management of your AWS accounts
@@ -97,7 +96,7 @@ This is the full list of supported service integration with AWS Organizations se
 - Amazon **Macie** (discover, classify, and help you protect your sensitive data in Amazon S3)
 - Amazon **VPC IP Address Manager** (makes it easier for you to plan, track, and monitor IP addresses for your AWS workloads)
 - Artifact (provides on-demand downloads of AWS security reports)
-- AWS **Account Management** (allow to programmatically modify your account information and metadata)
+- AWS **Account Management** (allow you to programmatically modify your account information and metadata)
 - AWS **Audit Manager** (helps you continuously audit your AWS usage)
 - AWS **Backup** (set policies to enforce automatic backups)
 - AWS **Control Tower** (straightforward way to set up and govern an AWS multi-account environment, following prescriptive best practices)
@@ -120,7 +119,7 @@ This is the full list of supported service integration with AWS Organizations se
 - **Service Quotas** (enables you to view and manage your quotas from a central location)
 - **Single Sign-On** (centrally provide and manage single sign-on access to all your AWS accounts)
 - **Systems Manager** (enables visibility and control of your AWS resources)
-- **Tag policies** (an help you standardize tags across resources)
+- **Tag policies** (help you standardize tags across resources)
 {: .prompt-info }
 
 ### Recommended organization structure (best practices)
@@ -165,7 +164,7 @@ To start you only need an AWS account, access to the AWS Organizations and then 
 
 ![aws-organizations-step1.png](aws-organizations-step1.png){:class="border"}
 
-When you do it, you could view the Organizational Structure of your Organization, and you will have in the left section of the screen the available options: send Invitations, configured supported services, enable policies, the Organization settings and a Get started option.
+When you do it, you could view the Organizational Structure of your Organization, and you will have in the left section of the screen the available options: send Invitations, configure supported services, enable policies, the Organization settings and a Get started option.
 
 ![aws-organizations-step2.png](aws-organizations-step2.png){:class="border"}
 
@@ -201,7 +200,7 @@ Fortunately, AWS has another service to help us: <kbd>AWS Control Tower</kbd>.
 
 Now, we are going to create our Landing Zone using AWS Control Tower.
 
-First, access the service and click to "Set up landing Zone":
+First, access the service and click on `Set up landing Zone`:
 
 ![aws-control-tower-1](aws-control-tower-1.png){:class="border"}
 

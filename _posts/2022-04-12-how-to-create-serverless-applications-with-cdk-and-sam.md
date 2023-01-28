@@ -5,10 +5,10 @@ date: 2022-04-25 20:45 +0200
 last_modified_at:
 description: CDK and SAM can be used together to create serverless applications. You will use CDK to define and create your AWS resources, and you will use SAM to test Lambda, API Gateway and DynamodDB resources.
 category:
-- How-to
 - Serverless
 - IaC
 tags:
+- how-to
 - cdk
 - sam
 - comparative

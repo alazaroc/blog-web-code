@@ -4,7 +4,8 @@ title: The technology behind this blog
 date: 2022-03-02 21:49 +0100
 last_modified_at:
 description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it until I felt comfortable with the solution. Want to know more?
-category: General
+category:
+- General
 tags:
 - amplify
 - cdk
@@ -23,7 +24,7 @@ mermaid: true
 
 My technology approach is:
 
-- Use of **AWS resources** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
+- Use **AWS resources**** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
   > <kbd>GitHub</kbd> is used as **code repository** because I want to share my code easily in a public way
   {: .prompt-danger }
 - Serverless architecture
@@ -92,7 +93,7 @@ I used **Amplify Hosting** for the following reasons (there are more, but the fo
 - Instant cache invalidations in new versions
 - Integrated with Amazon CloudWatch
 
-As you can see, this solution is awesome if you want that AWS manage for you the CI/CD, web, cache, certificate of your domain...
+As you can see, this solution is awesome if you want that AWS manage for you the CI/CD, web, cache, the certificate of your domain...
 
 > However, this is too "automagic" for me and I am here to practice/play and show you the results... so **in the future I'd like to migrate Amplify to a custom solution** to have more control and more services to play with (S3, CloudFront, AWS Certificate Manager, Developer Tools)... a lot of fun is waiting for me!
 {: .prompt-danger }
@@ -120,7 +121,7 @@ I don't want to use external plugins if I can do it "just the same" myself in AW
 After creating my empty blog I thought that it would be a good idea to implement the following:
 
 - Forms (contact form)
-- Mail Subscription (to send updates of the blog)
+- Mail subscription (to receive blog updates)
 - Add comments to each post (register it and show it)
 
 Now, I have a basic implementation of these points but I will improve it in the future.
@@ -165,8 +166,8 @@ This is the architecture diagram of the AWS resources created:
 
 #### Comments (updated January 27, 2023)
 
-- Used at the end of each post
-- The first year of my blog, the solution was the following (custom AWS solution):
+- It is used at the end of each post
+- In the first year of my blog, the solution was as follows:
 
   ``` mermaid
     flowchart LR
@@ -175,7 +176,8 @@ This is the architecture diagram of the AWS resources created:
     C --> D(DynamoDB)
   ```
 
-- However, now I am using the giscus plugin
+  - This solution was a custom AWS solution to use more AWS services, but only received comments in the database but I didn't implement the system to display them on the blog. Maybe someday...
+- However, now I am using the `giscus` plugin
 
 ### Technology to deploy infrastructure
 
@@ -237,7 +239,7 @@ Price information by services used:
 
 I have many next steps identified, but I'll put here the ones related to the content of this post.
 
-- [x] Update comments form --> March 17, 2022 --> giscus plugin have been integrated
-- [x] Show comments in the posts --> January 27, 2023 --> giscus plugin have been integrated to my web
+- [x] Update comments form --> March 17, 2022 --> A form was available and comments were recorded in a database
+- [x] Show comments in the posts --> January 27, 2023 --> `giscus` plugin has been integrated into my web
 - [ ] Automate Mail subscription
 - [ ] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools

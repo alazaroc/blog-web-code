@@ -5,11 +5,10 @@ date: 2022-12-06 19:33 +0100
 last_modified_at:
 description: Want to know how AWS DeepRacer works? I tested it at re:Invent 2022 and tell you about my experience with this machine learning service.
 category:
-- machine learning
+- Machine learning
 tags:
-- getting started
+- getting-started
 - deepracer
-- reinforcement learning
 - personal
 published: true
 pin: false
@@ -153,11 +152,11 @@ In any case, if you see that your graph decreases and the "best model" remains a
 
 **Some of my tests**
 
-My option 1: The default training model
+My option 1: The `default` training model
 
 ![evaluate](evaluate-model.png){:class="border"}
 
-My option 2: using "SAC" option (hugh difference)
+My option 2: using `SAC` option (huge difference)
 
 ![evaluate-2](evaluate-model-2.png){:class="border"}
 

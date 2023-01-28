@@ -3,13 +3,13 @@ layout: post
 title: AWS Control Tower Deep Dive
 date: 2022-10-09 00:30 +0200
 last_modified_at:
-description: Second article about multi-account approach and specifically about AWS Control Tower where we will review all options.
+description: Second article about the multi-account approach and specifically about AWS Control Tower where we will review all options.
 category:
-- Security
+- General
 tags:
 - multi-account
 - deep dive
-- security
+- control tower
 published: true
 pin: false
 featured_post: false
@@ -164,7 +164,7 @@ So, there are 23 mandatory guardrails, but there are 41 others that you can enab
 
 ## Infrastructure as Code (IaC)
 
-There are at least 2 solutions to define as Infrastructure as Code (IaC) your AWS resources or SCPs and deploy it on each account (new or existing).
+There are at least 2 solutions to define as `Infrastructure as Code` (IaC) your AWS resources or SCPs and deploy it on each account (new or existing).
 
 - Customizations for Control Tower (CfCT): use CloudFormation
 - Use the Terraform module of Control Tower Account Factory for Terraform
@@ -187,7 +187,7 @@ CfCT deploys two workflows:
 
 To deploy CfCT:
 
-- Step 1: Launch the stack in CloudFormation [here](https://github.com/aws-solutions/aws-control-tower-customizations/blob/main/customizations-for-aws-control-tower.template){:target="_blank"}. You can choose S3 or CodeCommit as source
+- Step 1: Launch the stack in CloudFormation [here](https://github.com/aws-solutions/aws-control-tower-customizations/blob/main/customizations-for-aws-control-tower.template){:target="_blank"}. You can choose S3 or CodeCommit as the source
 - Step 2: connect to the source and perform some changes (CodePipeline will be deployed automatically when you upload the new changes)
   - ![cfct-1](cfct-1.png){:class="border"}
   - ![cfct-2](cfct-2.png){:class="border"}

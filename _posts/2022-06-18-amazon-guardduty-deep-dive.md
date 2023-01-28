@@ -46,7 +46,7 @@ The first step to using GuardDuty is to enable it in your account. Once enabled,
 
 When you use GuardDuty with <kbd>AWS Organizations</kbd>, you can designate any account within the organization to be the GuardDuty delegated administrator. Only the organization management account can designate GuardDuty delegated administrators.
 
-An account that is designated as a delegated administrator becomes a GuardDuty administrator account, has GuardDuty automatically enabled in the designated Region, and is granted permission to enable and manage GuardDuty for all accounts in the organization within that Region.
+An account that is designated as a delegated administrator becomes a GuardDuty administrator account has GuardDuty automatically enabled in the designated Region and is granted permission to enable and manage GuardDuty for all accounts in the organization within that Region.
 
 [More information](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html){:target="_blank"}.
 
@@ -198,7 +198,7 @@ However, I think that this is more appropriate to deal with compromised EC2 inst
 - All findings are stored in GuardDuty for **90 days**. GuardDuty recommends setting up findings export, which allows you to export your findings to an S3 bucket for indefinite storage.
 - The events are delivered to EventBridge in near-real-time and on a best-effort basis.
 - Amazon GuardDuty consumes CloudTrail management and S3 data events directly from CloudTrail through an independent and duplicative stream of events (no additional cost)
-- **Global events** in CloudTrail (IAM, AWS Security Token Service, Amazon S3, Amazon CloudFront, and Route 53) are delivered to any trail that includes global services, and are **logged as occurring in the US East (N. Virginia) Region**.
+- **Global events** in CloudTrail (IAM, AWS Security Token Service, Amazon S3, Amazon CloudFront, and Route 53) are delivered to any trail that includes global services and are **logged as occurring in the US East (N. Virginia) Region**.
 - When you enable GuardDuty, it immediately starts analyzing your VPC flow logs data. It consumes VPC flow log events directly from the VPC flow logs feature through an independent and duplicative stream of flow logs, so Flow logs for VPCs do not need to be turned on to generate findings.
 - All findings are dynamic, meaning that, if GuardDuty detects new activity related to the same security issue it will update the original finding with the new information, instead of generating a new finding
 - Finding types (4): EC2, IAM, S3 and Kubernetes. The official documentation has a full explanation about each category and each finding inside, you can find it [here](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-active.html){:target="_blank"}.

@@ -5,10 +5,10 @@ date: 2022-04-10 10:53 +0200
 last_modified_at:
 description: I will show you how you can deploy a SAM project with AWS CodePipeline using the pipeline integration included in the AWS SAM CLI.
 category: 
-- How-to
 - Serverless
-- IaC
+- DevOps
 tags: 
+- how-to
 - sam
 - cicd
 - codepipeline
@@ -60,7 +60,7 @@ To generate a starter pipeline configuration for AWS CodePipeline, we have to pe
 
 **For each stage** we need (dev, test, prod...), we have to run `sam pipeline bootstrap`, and it will create a CloudFormation stack with the name `aws-sam-cli-managed-${stage}-pipeline-resources`, which will create the necessary resources that SAM needs.
 
-We are going to create only one stage with name `test`:
+We are going to create only one stage with a name `test`:
 
 ``` console
 > sam pipeline bootstrap
@@ -450,7 +450,7 @@ After activating it, we run the pipeline again (by clicking on the <kbd>Release 
 
 ![sam-pipeline-ok-execution](sam-pipeline-ok-execution.png){:class="border"}
 
-## Update CI/CD steps to SAM project
+## Update CI/CD steps to the SAM project
 
 Note that now we have a pipeline that first checks for changes in the pipeline itself and then checks the code and deploys the resources.
 
@@ -580,7 +580,7 @@ And the pipeline will be updated:
 
 ### Summary of the current state
 
-After all changes that we did:
+After all the changes that we made:
 
 - Now, we have 3 steps in our CodePipeline:
   - **Source**: integrated with GitHub as we indicated before
@@ -597,7 +597,7 @@ We have created 4 stacks in CloudFormation related to SAM:
 - **sam-app**: application code
 - **sam-app-pipeline**: codepipeline
 - **aws-sam-cli-managed-test-pipeline-resources**: test stage resources
-- **aws-sam-cli-managed-default**: general sam resources
+- **aws-sam-cli-managed-default**: general SAM resources
 
 > If you want to use SAM in the future you could keep the `aws-sam-cli-managed-default` stack.
 {: .prompt-tip }

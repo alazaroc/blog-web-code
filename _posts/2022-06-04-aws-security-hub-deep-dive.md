@@ -112,7 +112,7 @@ Within the Security Hub service, under the <kbd>Settings Usage tab</kbd>, you ca
 On the Summary page:
 
 - Security standards show you your security score (total and by standard), and the resources with the most failed security checks
-- Findings by Region summarizes the number of active findings for each severity across Regions. The counts only include findings that have a workflow status of NEW or NOTIFIED.
+- Findings by Region summarize the number of active findings for each severity across Regions. The counts only include findings that have a workflow status of NEW or NOTIFIED.
 - Insights: An AWS Security Hub insight is a collection of related findings. It identifies a security area that requires attention and intervention.
 
 ![security-hub-3](security-hub-3.png){:class="border"}
@@ -190,10 +190,10 @@ And then:
 
 ![security-hub-disable-control-2](security-hub-disable-control-2.png){:class="border"}
 
-In the following links, you will find more information on how to do it in-depth, how to do it in a multi-account environment (several options), and more relevant information!
+In the following links, you will find more information on how to do it in depth, how to do it in a multi-account environment (several options), and more relevant information!
 
 - [How to disable controls](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable-controls.html){:target="_blank"}
-- [How to disable in a multi account environment](https://aws.amazon.com/blogs/security/disabling-security-hub-controls-in-a-multi-account-environment/){:target="_blank"}
+- [How to disable in a multi-account environment](https://aws.amazon.com/blogs/security/disabling-security-hub-controls-in-a-multi-account-environment/){:target="_blank"}
 - [AWS Foundational Best Practices controls that you might want to disable](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-fsbp-to-disable.html){:target="_blank"}
 - [how to Create Auto-Suppression Rules in AWS Security Hub](https://github.com/aws-samples/aws-security-hub-automatic-suppression-rules){:target="_blank"}
 
@@ -204,7 +204,7 @@ Security Hub provides the ability to integrate security findings from AWS servic
 > For AWS services Security Hub automatically enables the integration, and you can optionally disable each integration. For third-party products Security Hub gives you the ability to selectively enable the integrations and provides a link to the configuration instructions related to the third-party product.
 {: .prompt-info }
 
-Some examples about custom integrations:
+Some examples of custom integrations:
 
 - [Integrate with Jira Service Management](https://aws.amazon.com/blogs/security/how-to-set-up-a-two-way-integration-between-aws-security-hub-and-jira-service-management/){:target="_blank"}.
   - ![jira](integration-jira.png){:class="border"}
@@ -245,6 +245,6 @@ More info about automated response and remediation [here](https://docs.aws.amazo
 
 - [AWS official documentation](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html){:target="_blank"}
 - [Security Hub Workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/adccbda9-ceaf-47a8-843b-cf231281b635/en-US/#overview){:target="_blank"}
-- [Automatically resolve findings for resources that no longer exists](https://aws.amazon.com/blogs/security/automatically-resolve-security-hub-findings-for-resources-that-no-longer-exist/){:target="_blank"}
+- [Automatically resolve findings for resources that no longer exist](https://aws.amazon.com/blogs/security/automatically-resolve-security-hub-findings-for-resources-that-no-longer-exist/){:target="_blank"}
 - [Enrich findings with account metadata](https://aws.amazon.com/blogs/security/how-to-enrich-aws-security-hub-findings-with-account-metadata/){:target="_blank"}
 - [Correlate findings](https://aws.amazon.com/blogs/security/correlate-security-findings-with-aws-security-hub-and-amazon-eventbridge/){:target="_blank"}

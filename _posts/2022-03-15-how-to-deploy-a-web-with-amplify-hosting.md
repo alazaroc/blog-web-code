@@ -5,11 +5,10 @@ date: 2022-03-15 21:13 +0100
 last_modified_at:
 description: I use Amplify hosting to deploy my blog and in this post, I will explain how to do it step by step. The source code is public, so you can also do it if you want to
 category:
-- How-to
-- AWS-console
+- DevOps
 tags:
+- how-to
 - amplify
-- route53
 - github
 published: true
 pin: false
@@ -47,7 +46,7 @@ We need to have our code ready to be deployed in a supported repository.
 
 In AWS Console, enter to AWS Amplify service and choose `Amplify Hosting`
 
-a) If you don't have any Amplify resource, this screen appears and you have to click on <kbd>Get Started</kbd>
+a) If you don't have any Amplify app, this screen appears and you have to click on <kbd>Get Started</kbd>
 
 ![amplify1.1](amplify-1.1-new.png){:class="border"}
 
@@ -61,7 +60,7 @@ b) If you already have an Amplify resource click on <kbd>New app</kbd> and <kbd>
 
 **Configure Amplify Hosting**:
 
-The first step to set up Amplify Hosting is to connect your repository. In my case, I chose <kbd>GitHub</kbd>
+The first step to setting up Amplify Hosting is to connect your repository. In my case, I chose <kbd>GitHub</kbd>
   ![amplify3](amplify-3.png){:class="border"}
 
 Add repository branch: choose your repository and your branch
@@ -99,7 +98,7 @@ Choose your Domain and click on <kbd>Save</kbd>. As I register my domain with Ro
 
 ![amplify11](amplify-11.png){:class="border"}
 
-Now you can choose the branch, the subdomains and the check of automatic redirect from HTTP to HTTPS, and click <kbd>Save</kbd>.
+Now you can choose the branch, the subdomains and check for automatic redirect from HTTP to HTTPS, and click <kbd>Save</kbd>.
 
 ![amplify12](amplify-12.png){:class="border"}
 
