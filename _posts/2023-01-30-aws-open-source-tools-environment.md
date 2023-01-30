@@ -63,7 +63,7 @@ Based on Python components.
 > ![cloudmapper-iam_report](cloudmapper-iam_report.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 135; Fork 759; Starts 5.3K
+**Is it popular?**: On github: Watch 135; Fork 759; Stars 5.3K
 
 **Recently updated?** No. The last commit was on Jul 25, 2022 (956 commits). Also, some original functionality of this tools is now deprecated (generation of networking diagrams).
 
@@ -88,7 +88,7 @@ prowler has a functionality to perform a quick inventory check. It will give you
 > ![prowler-inventory-csv](prowler-inventory-csv.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 122; Fork 1.1k; Starts 7.6K
+**Is it popular?**: On github: Watch 122; Fork 1.1k; Stars 7.6K
 
 **Recently updated?** Last commit yesterday (in the time I am writing this post). Total commits 2271
 
@@ -110,7 +110,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 >
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 15; Fork 68; Starts 673
+**Is it popular?**: On github: Watch 15; Fork 68; Stars 673
 
 **Recently updated?** No. Last commit the Aug 2, 2022. In total, 426 commits
 
@@ -187,7 +187,7 @@ severity:
 > ![prowler-report-2](prowler-report-2.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 122; Fork 1.1k; Starts 7.6K
+**Is it popular?**: On github: Watch 122; Fork 1.1k; Stars 7.6K
 
 **Recently updated?** Last commit yesterday (in the time I am writing this post). Total commits 2271
 
@@ -207,7 +207,7 @@ Scout Suite was designed by security consultants/auditors. It is meant to provid
 > ![scoutsuite-2](scoutsuite-2.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 113; Fork 816; Starts 5K
+**Is it popular?**: On github: Watch 113; Fork 816; Stars 5K
 
 **Recently updated?**: No. Last commit was on Sep 5, 2022 (6101 commits in total)
 
@@ -239,7 +239,7 @@ Compliance:
 > ![cloudsploit-3](cloudsploit-3.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 70; Fork 575; Starts 2.5k
+**Is it popular?**: On github: Watch 70; Fork 575; Stars 2.5k
 
 **Recently updated?**: Yes. Last commit was 3 weeks ago (3449 commits in total)
 
@@ -268,7 +268,7 @@ Besides, I am going to show you two new capabilities:
 > ![steampipe-4](steampipe-4.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 32; Fork 171; Starts 4.6k
+**Is it popular?**: On github: Watch 32; Fork 171; Stars 4.6k
 
 **Recently updated?** Yes, last commit 2 days ago. Total commits 2007
 
@@ -300,7 +300,7 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 > ![cloudsplaining-2](cloudsplaining-2.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 29; Fork 143; Starts 1.6K
+**Is it popular?**: On github: Watch 29; Fork 143; Stars 1.6K
 
 **Recently updated?** Yes. Last commit 3 days ago (347 commits in total)
 
@@ -318,6 +318,6 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 
 ## Next steps
 
-The next article related with open source tools will be
+The next article related with open source tools will be:
 
-- **AWS Code**: IaC, analysis code (credentials and static analysis) and policy as code resources
+- **How open source tools can help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials)
