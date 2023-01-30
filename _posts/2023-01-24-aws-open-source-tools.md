@@ -90,12 +90,15 @@ You are probably already using some of them and did not realize they are open so
 
 My first idea was named this section `CLI tools` but all the open source tools listed here are CLI (Command Line Interface) tools, so this section is for the tools that you can use to improve/extend/replace your AWS CLI tool.
 
-- <kbd>aws-vault</kbd>: tool to `securely store and access AWS credentials` in a development environment
-- <kbd>aws-shell</kbd>: interactive `productivity booster` for the AWS CLI
-- <kbd>awsls</kbd>: a `list command` for AWS resources
-- <kbd>steampipe</kbd>: Use `SQL to query cloud infrastructure`, SaaS, code, logs, and more
-- <kbd>awslogs</kbd>: a simple command line tool for `querying` groups, streams and events `from Amazon CloudWatch logs`
-- <kbd>ohmyzsh with the aws plugin</kbd>: provides completion support for AWS CLI and a few utilities to `manage AWS profiles and display them in the prompt`
+- Security
+  - <kbd>aws-vault</kbd>: tool to `securely store and access AWS credentials` in a development environment
+- Extend AWS CLI
+  - <kbd>aws-shell</kbd>: interactive `productivity booster` for the AWS CLI
+  - <kbd>awsls</kbd>: a `list command` for AWS resources
+  - <kbd>steampipe</kbd>: Use `SQL to query cloud infrastructure`, SaaS, code, logs, and more
+  - <kbd>ohmyzsh with the aws plugin</kbd>: provides completion support for AWS CLI and a few utilities to `manage AWS profiles and display them in the prompt`
+- Logs
+  - <kbd>awslogs</kbd>: a simple command line tool for `querying` groups, streams and events `from Amazon CloudWatch logs`
 
 ### aws-vault
 
@@ -110,41 +113,51 @@ AWS Vault stores IAM credentials in your operating system's secure keystore and 
 > With the last command, the AWS Console will be open and you will be logged!
 {: .prompt-info }
 
+**Is it popular?** Yes, GitHub statistics: Watch 119; Fork 725; Stars 7.1k
+
+**Recently updated?** Yes, 1096 commits, last 2 weeks ago
+
 **URL**: [https://github.com/99designs/aws-vault](https://github.com/99designs/aws-vault){:target="_blank"}
 
-> This is a **popular** open-source tool on github (Watch: 119; Fork: 725; Stars: 7.1k) **and** also an **updated** one (last week).
+> In my opinion, this tool is a must-have for securing your credentials.
 {: .prompt-tip }
 
 ### aws-shell
 
 The interactive productivity booster for the AWS CLI
 
-> **Why use it**: AWS CLI is awesome but maybe you don't know the commands. With aws-shell, you have helpers, while you write you can see the available options:
+> **Why use it**: AWS CLI is awesome but maybe you don't know the commands. With aws-shell, you have a helper and as you type you can visually see the available options:
 >
 > ![aws-shell](aws-shell.png){:class="border"}
 {: .prompt-info }
 
+**Is it popular?** Yes, GitHub statistics: Watch 230; Fork 755; Stars 6.8k
+
+**Recently updated?** No, the project seems abandoned (last commit Oct 7, 2020). Total commits 235
+
 **URL**: [https://github.com/awslabs/aws-shell](https://github.com/awslabs/aws-shell){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 230; Fork: 755; Stars: 6.8k
-
-> The tool has not been updated recently (last commit July 10, 2020), but is probably fine for use, as the tool contains all major AWS services.
+> The tool is not working with AWS CLI v2 ([here](https://github.com/awslabs/aws-shell/issues/238){:target="_blank"} is the official `Issue` in github), and the project seems to have been abandoned (last commit July 10, 2020).
+>
+> However, if you use v1, the tool is worth it because it contains all the core AWS services.
 {: .prompt-warning }
 
 ### awsls
 
-A list command for AWS resources. More than 100 AWS resource supported.
+A list command for AWS resources. More than 100 AWS resource supported. The goal is to code-generate a list function for every AWS resource that is covered by the Terraform AWS Provider (currently over 500)
 
-> **Why use it**: If you want to search resources between several regions and/or accounts and filter by some value using GREP, this is your tool!
+> **Why use it**: If you want to search for resources across multiple regions and/or accounts and filter by any value using `GREP`, this is the tool for you!
 >
 > ![awsls](awsls.png){:class="border"}
 {: .prompt-info }
 
+**Is it popular?** Yes, GitHub statistics: Watch 10; Fork 51; Stars 763
+
+**Recently updated?** No, one year from the last update (Feb 13, 2022), with 91 commits in total.
+
 **URL**: [https://github.com/jckuester/awsls](https://github.com/jckuester/awsls){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 10; Fork: 51; Stars: 763
-
-> One year from the last update (last commit Feb 13, 2022) but you can use it without problem.
+> Although it has not been updated recently, it is worth using for its ability to search multiple accounts and filter using the GREP command.
 {: .prompt-warning }
 
 ### steampipe
@@ -156,16 +169,19 @@ Steampipe is the universal interface to APIs. Use SQL to query cloud infrastruct
 > ![steampipe-1](steampipe-1.png){:class="border"}
 {: .prompt-info }
 
+**Is it popular?**: On github: Watch 32; Fork 171; Stars 4.6k
+
+**Recently updated?** Yes, last commit 2 days ago. Total commits 2007
+
 **URL**: [https://github.com/turbot/steampipe](https://github.com/turbot/steampipe){:target="_blank"}
-
-**Is it popular?**: On github: Watch: 32; Fork: 171; Stars: 4.6k
-
-**Is active?**: last commit 7 hours ago (> 1995 commits)
 
 More information (querying aws resources):
 
 - [https://steampipe.io/docs/query/overview](https://steampipe.io/docs/query/overview){:target="_blank"}
 - [https://aws.amazon.com/blogs/opensource/querying-aws-at-scale-across-apis-regions-and-accounts/](https://aws.amazon.com/blogs/opensource/querying-aws-at-scale-across-apis-regions-and-accounts/){:target="_blank"}
+
+> I like this tool! If I want to get specific information in AWS using a CLI tool this is my first choice to do so, I recommend you to try it!
+{: .prompt-tip }
 
 ### awslogs
 
@@ -176,11 +192,13 @@ awslogs is a simple command line tool for querying groups, streams and events fr
 > ![awslogs](awslogs.png){:class="border"}
 {: .prompt-info }
 
+**Is it popular?**: On github: Watch 61; Fork 326; Stars 4.5k
+
+**Recently updated?** No, the project seems to have been abandoned. The last commit was July 10, 2020. Total commits 326
+
 **URL**: [https://github.com/jorgebastida/awslogs](https://github.com/jorgebastida/awslogs){:target="_blank"}
 
-**Is it popular?**: On github: Watch: 61; Fork: 326; Stars: 4.5k
-
-> The tool is not updated (last commit Jul 10, 2020) but you can query the CloudWatch logs without problem.
+> The tool is not updated but if you want to query the CloudWatch logs, this is your tool!
 {: .prompt-warning }
 
 ### ohmyzsh with the aws plugin
@@ -193,7 +211,9 @@ This plugin provides completion support for AWS CLI and a few utilities to manag
 >
 > ![ohmyzsh-aws](ohmyzsh-aws.png){:class="border"}
 
-ohmyzsh is a very popular framework for zsh (155k stars), and the AWS plugin is part of this framework
+**Is it popular?**: `ohmyzsh` is a very popular framework for `zsh` (155k stars), and the `AWS plugin` is part of this framework.
+
+**Recently updated?** Yes. The aws plugin was updated 2 weeks ago
 
 **URL**: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws){:target="_blank"}
 
