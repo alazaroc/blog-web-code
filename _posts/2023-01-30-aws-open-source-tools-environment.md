@@ -22,7 +22,7 @@ img_path: /assets/img/posts/2023-01-30-aws-open-source-tools-environment/
 
 ## Introduction
 
-This is the second part of the series `Open source tools`. If this is the first article of this series that you are reading, I recommend you to review the first one `Getting started with AWS open-source tools` [here](/posts/aws-open-source-tools/){:target="_blank"}.
+This is the second part of the series `Open source tools`. If this is the first article of this series that you are reading, I recommend you to review the first one `Getting started with AWS open-source tools` [here](/posts/aws-open-source-tools/){:target="_blank"}
 
 > Some open source tool could appear in several categories (in this same article or among the 3 open source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
 {: .prompt-warning }
@@ -67,9 +67,9 @@ Based on Python components.
 
 **Recently updated?** No. The last commit was on Jul 25, 2022 (956 commits). Also, some original functionality of this tools is now deprecated (generation of networking diagrams).
 
-**URL**: [https://github.com/duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper){:target="_blank"}.
+**URL**: [https://github.com/duo-labs/cloudmapper](https://github.com/duo-labs/cloudmapper){:target="_blank"}
 
-> There is a CDK project to run in Fargate service the CloudMapper's collection and audit capabilities nightly, across multiple accounts, sending any audit findings to a Slack channel and keeping a copy of the collected metadata in an S3 bucket. This is the diagram of the solution [https://github.com/duo-labs/cloudmapper/blob/main/auditor/README.md](https://github.com/duo-labs/cloudmapper/blob/main/auditor/README.md){:target="_blank"}.
+> There is a CDK project to run in Fargate service the CloudMapper's collection and audit capabilities nightly, across multiple accounts, sending any audit findings to a Slack channel and keeping a copy of the collected metadata in an S3 bucket. This is the diagram of the solution [https://github.com/duo-labs/cloudmapper/blob/main/auditor/README.md](https://github.com/duo-labs/cloudmapper/blob/main/auditor/README.md){:target="_blank"}
 {: .prompt-tip }
 
 ### prowler
@@ -92,7 +92,7 @@ prowler has a functionality to perform a quick inventory check. It will give you
 
 **Recently updated?** Last commit yesterday (in the time I am writing this post). Total commits 2271
 
-**URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}.
+**URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}
 
 ### AirIAM
 
@@ -114,7 +114,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 
 **Recently updated?** No. Last commit the Aug 2, 2022. In total, 426 commits
 
-**URL**: [https://github.com/bridgecrewio/AirIAM](https://github.com/bridgecrewio/AirIAM){:target="_blank"}.
+**URL**: [https://github.com/bridgecrewio/AirIAM](https://github.com/bridgecrewio/AirIAM){:target="_blank"}
 
 **Updated**:
 
@@ -191,7 +191,7 @@ severity:
 
 **Recently updated?** Last commit yesterday (in the time I am writing this post). Total commits 2271
 
-**URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}.
+**URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}
 
 ### Scoutsuite
 
@@ -211,7 +211,7 @@ Scout Suite was designed by security consultants/auditors. It is meant to provid
 
 **Recently updated?**: No. Last commit was on Sep 5, 2022 (6101 commits in total)
 
-**URL**: [https://github.com/nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite){:target="_blank"}.
+**URL**: [https://github.com/nccgroup/ScoutSuite](https://github.com/nccgroup/ScoutSuite){:target="_blank"}
 
 > I didn't found information about what security frameworks is using or more information about the security controls. However, the findings in the audit report are useful and you have to review them!
 {: .prompt-warning }
@@ -243,14 +243,14 @@ Compliance:
 
 **Recently updated?**: Yes. Last commit was 3 weeks ago (3449 commits in total)
 
-**URL**: [https://github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit){:target="_blank"}.
+**URL**: [https://github.com/aquasecurity/cloudsploit](https://github.com/aquasecurity/cloudsploit){:target="_blank"}
 
 > I didn't found how to scan only a few regions. In the official documentation only is included how to suppress all one region results `./index.js --suppress *:us-east-1:*`. And to exclude more than one region you can use something like this `--suppress "*:ap-*-*:*" --suppress "*:af-*-*:*" ...`
 {: .prompt-tip }
 
 ### steampipe
 
-I mention this tool in my first article about open source, when I talked about `Extend CLI` capabilities [here](/posts/aws-open-source-tools/#steampipe){:target="_blank"}.
+I mention this tool in my first article about open source, when I talked about `Extend CLI` capabilities [here](/posts/aws-open-source-tools/#steampipe){:target="_blank"}
 
 Steampipe is the universal interface to APIs, and we can use SQL to query cloud infrastructure, SaaS, code, logs, and more.
 
@@ -276,9 +276,9 @@ Besides, I am going to show you two new capabilities:
 
 More information (checks and dashboard):
 
-- [https://steampipe.io/docs/check/overview](https://steampipe.io/docs/check/overview){:target="_blank"}.
-- [https://steampipe.io/docs/dashboard/overview](https://steampipe.io/docs/dashboard/overview){:target="_blank"}.
-- [https://aws.amazon.com/blogs/opensource/compliance-auditing-with-steampipe-and-sql/](https://aws.amazon.com/blogs/opensource/compliance-auditing-with-steampipe-and-sql/){:target="_blank"}.
+- [https://steampipe.io/docs/check/overview](https://steampipe.io/docs/check/overview){:target="_blank"}
+- [https://steampipe.io/docs/dashboard/overview](https://steampipe.io/docs/dashboard/overview){:target="_blank"}
+- [https://aws.amazon.com/blogs/opensource/compliance-auditing-with-steampipe-and-sql/](https://aws.amazon.com/blogs/opensource/compliance-auditing-with-steampipe-and-sql/){:target="_blank"}
 
 ### cloudsplaining
 
@@ -304,7 +304,7 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 
 **Recently updated?** Yes. Last commit 3 days ago (347 commits in total)
 
-**URL**: [https://github.com/salesforce/cloudsplaining](https://github.com/salesforce/cloudsplaining){:target="_blank"}.
+**URL**: [https://github.com/salesforce/cloudsplaining](https://github.com/salesforce/cloudsplaining){:target="_blank"}
 
 ### Summary: Which tool should I use to perform security assessments on my account?
 
@@ -320,4 +320,4 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 
 The next article related with open source tools will be:
 
-- **How open source tools can help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials)
+- **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) - [here](/posts/aws-open-source-tools-code/){:target="_blank"}
