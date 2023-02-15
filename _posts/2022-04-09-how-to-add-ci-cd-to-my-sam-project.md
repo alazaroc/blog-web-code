@@ -5,7 +5,6 @@ date: 2022-04-10 10:53 +0200
 last_modified_at:
 description: I will show you how you can deploy a SAM project with AWS CodePipeline using the pipeline integration included in the AWS SAM CLI.
 category: 
-- Serverless
 - DevOps
 tags: 
 - how-to
@@ -222,7 +221,7 @@ In the console log below, the following is displayed:
 
 > Unfortunately, you can't do that with the `AWS Quick Start Pipeline Templates` so I forked the main AWS project and I created a custom template with only ONE stage.
 >
-> This is my forked project: [https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git](https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git){:target="_blank"}.
+> This is my forked project: [https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git](https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git){:target="_blank"}
 >
 > I had to put my custom template in the root folder because otherwise, the AWS SAM CLI doesn't work.
 {: .prompt-danger }

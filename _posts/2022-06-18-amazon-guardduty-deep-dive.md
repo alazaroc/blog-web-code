@@ -48,7 +48,7 @@ When you use GuardDuty with <kbd>AWS Organizations</kbd>, you can designate any 
 
 An account that is designated as a delegated administrator becomes a GuardDuty administrator account has GuardDuty automatically enabled in the designated Region and is granted permission to enable and manage GuardDuty for all accounts in the organization within that Region.
 
-[More information](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html){:target="_blank"}.
+[More information](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html){:target="_blank"}
 
 ### Standalone account environment
 
@@ -85,7 +85,7 @@ You can use the GuardDuty console and API operations to estimate how much GuardD
 
 ![cost-estimation](guardduty-usage.png){:class="border"}
 
-[More information](https://aws.amazon.com/guardduty/pricing/){:target="_blank"}.
+[More information](https://aws.amazon.com/guardduty/pricing/){:target="_blank"}
 
 ---
 
@@ -124,7 +124,7 @@ There are some cases where it is desirable to use suppression rules, to facilita
 > **Suppressed findings are not sent** to AWS Security Hub, Amazon S3, Detective, or CloudWatch, reducing finding noise level if you consume GuardDuty findings via Security Hub, a third-party SIEM, or other alerting and ticketing applications.
 {: .prompt-warning }
 
-[More information about suppression rules](https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html){:target="_blank"}.
+[More information about suppression rules](https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html){:target="_blank"}
 
 ### Finding information
 
@@ -138,7 +138,7 @@ Amazon GuardDuty integrates with Amazon Detective and if you click on the `Inves
 
 ![guardduty-investigate-detective](guardduty-investigate-detective.png){:class="border"}
 
-[More information about finding details](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html?icmpid=docs_gd_help_panel){:target="_blank"}.
+[More information about finding details](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings-summary.html?icmpid=docs_gd_help_panel){:target="_blank"}
 
 ### Custom responses with EventBridge
 
@@ -201,7 +201,7 @@ However, I think that this is more appropriate to deal with compromised EC2 inst
 - **Global events** in CloudTrail (IAM, AWS Security Token Service, Amazon S3, Amazon CloudFront, and Route 53) are delivered to any trail that includes global services and are **logged as occurring in the US East (N. Virginia) Region**.
 - When you enable GuardDuty, it immediately starts analyzing your VPC flow logs data. It consumes VPC flow log events directly from the VPC flow logs feature through an independent and duplicative stream of flow logs, so Flow logs for VPCs do not need to be turned on to generate findings.
 - All findings are dynamic, meaning that, if GuardDuty detects new activity related to the same security issue it will update the original finding with the new information, instead of generating a new finding
-- Finding types (4): EC2, IAM, S3 and Kubernetes. The official documentation has a full explanation about each category and each finding inside, you can find it [here](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-active.html){:target="_blank"}.
+- Finding types (4): EC2, IAM, S3 and Kubernetes. The official documentation has a full explanation about each category and each finding inside, you can find it [here](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-active.html){:target="_blank"}
 - GuardDuty lists allow you to customize the publicly routable IP addresses that GuardDuty generates findings for. You can create a `Trusted IP list` and a `Threat list`.
 
 ---

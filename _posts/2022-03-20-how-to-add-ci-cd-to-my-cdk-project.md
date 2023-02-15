@@ -5,7 +5,6 @@ date: 2022-03-26 02:03 +0100
 last_modified_at:
 description: I will show you how you can deploy a CDK project using the Developer Tools of AWS, and a different approach to creating it with AWS console and with IaC.
 category:
-- IaC
 - DevOps
 tags:
 - how-to
@@ -258,7 +257,7 @@ If you want, you can check the logs in the **CloudWatch** service to verify that
 
 You have done a lot of manual work, and the first improvement you can **automate** is the definition of the build process itself.
 
-You need to update in the CodeBuild project the buildspec configuration of the project, select `Use a buildspec file` and click to <kbd>Update buildspec</kbd>.
+You need to update, in the CodeBuild project, the buildspec configuration of the project, select `Use a buildspec file` and click to <kbd>Update buildspec</kbd>.
 
 Now **when the pipeline runs it will look for the buildspec file inside the code** (in the root folder). You have configured the CodeBuild service but you don't have the buildspec.yml file added to your code yet.
 

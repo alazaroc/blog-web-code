@@ -25,7 +25,7 @@ You have probably read many times that <kbd>in AWS security is the TOP priority,
 - Recommendations and best practices: Security Pillar in AWS Well-Architected Framework
 - AWS Security checklist
 
-> If you're looking to dive deeper into the broader range of learning materials available on security, including digital courses, blogs, whitepapers, and more, AWS recommends you the [Ramp-Up Guide](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Security.pdf){:target="_blank"}.
+> If you're looking to dive deeper into the broader range of learning materials available on security, including digital courses, blogs, whitepapers, and more, AWS recommends you the [Ramp-Up Guide](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Security.pdf){:target="_blank"}
 {: .prompt-tip }
 
 ---
@@ -86,7 +86,7 @@ Where the security epics frame the overall security strategy, these Well-Archite
 
 ![shared-responsibility-model](shared-responsability-model.png){:class="border"}
 
-More detailed information [here](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/shared-responsibility.html){:target="_blank"}.
+More detailed information [here](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/shared-responsibility.html){:target="_blank"}
 
 #### 1.3. AWS Account Management and Separation
 
@@ -224,7 +224,7 @@ Compute resources include EC2 instances, containers, AWS Lambda functions, datab
 - **Reduce attack surface**: Reduce your exposure to unintended access by hardening operating systems and minimizing the components, libraries, and externally consumable services in use.
   - Reduce unused components
   - In EC2 you can create your own AMIs simplifying the process with <kbd>EC2 Image Builder</kbd>. When using containers implement <kbd>ECR Image Scanning</kbd>
-  - Using third-party static code analysis tools, you can identify common security issues. You can use <kbd>Amazon CodeGuru</kbd> for supported languages. Dependency checking tools can also be used to determine whether libraries your code links against are the latest versions, are themselves free of CVEs, and have licensing conditions that meet your software policy requirements.
+  - Using third-party static code analysis tools, you can identify common security issues. You can use <kbd>Amazon CodeGuru</kbd> for supported languages. Dependency-checking tools can also be used to determine whether libraries your code links against are the latest versions, are free of CVEs, and have licensing conditions that meet your software policy requirements.
   - Using <kbd>Amazon Inspector</kbd>, you can perform configuration assessments against your instances for known common vulnerabilities and exposures (CVEs), assess against security benchmarks and automate the notification of defects
 - **Enable people to perform actions at a distance**: Removing the ability for interactive access reduces the risk of human error, and the potential for manual configuration or management.
   - For example, use a change management workflow to manage EC2 instances using tools such as <kbd>AWS Systems Manager</kbd> instead of allowing direct access, or via a bastion host.
@@ -270,12 +270,12 @@ Best practices:
   - You should inventory what data is publicly accessible, and plan for how you can reduce the amount of data available over time. <kbd>Amazon S3 Glacier Vault Lock</kbd> and <kbd>S3 Object Lock</kbd> are capabilities providing mandatory access control—once a vault policy is locked with the compliance option, not even the root user can change it until the lock expires
 - **Audit the use of encryption keys**: Ensure that you understand and audit the use of encryption keys to validate that the access control mechanisms on the keys are appropriately implemented. For example, any AWS service using an AWS KMS key logs each use in AWS CloudTrail. You can then query <kbd>AWS CloudTrail</kbd>, by using a tool such as <kbd>Amazon CloudWatch Insights</kbd>, to ensure that all uses of your keys are valid.
 - **Use mechanisms to keep people away from data**: Keep all users away from directly accessing sensitive data and systems under normal operational circumstances.
-  - For example, use a change management workflow to manage EC2 instances using tools instead of allowing direct access or a bastion host. This can be achieved using <kbd>AWS Systems Manager Automation</kbd>, which uses automation documents that contain steps you use to perform tasks. These documents can be stored in source control, be peer-reviewed before running, and tested thoroughly to minimize risk compared to shell access.
+  - For example, use a change management workflow to manage EC2 instances using tools instead of allowing direct access or a bastion host. This can be achieved using <kbd>AWS Systems Manager Automation</kbd>, which uses automation documents that contain steps you use to perform tasks. These documents can be stored in source control, peer-reviewed before running, and tested thoroughly to minimize risk compared to shell access.
   - Business users could have a dashboard instead of direct access to a data store to run queries.
   - Where CI/CD pipelines are not used, determine which controls and processes are required to adequately provide a normally disabled break-glass access mechanism.
 - **Automate data at rest protection**: Use automated tools to validate and enforce data at rest controls continuously, for example, verify that there are only encrypted storage resources.
   - You can automate validation that all EBS volumes are encrypted using <kbd>AWS Config Rules</kbd>.
-  - <kbd>AWS Security Hub</kbd> can also verify a number of different controls through automated checks against security standards. Additionally, your AWS Config Rules can automatically remediate non-compliant resources.
+  - <kbd>AWS Security Hub</kbd> can also verify several different controls through automated checks against security standards. Additionally, your AWS Config Rules can automatically remediate non-compliant resources.
 
 #### 5.3. Protecting data in transit
 
@@ -335,7 +335,7 @@ In AWS, there are several different approaches you can use when addressing incid
 
 ## AWS Security checklist
 
-> This is a whitepaper of AWS that provides customer recommendations that align with the Well-Architected Framework Security Pillar. It is available [here](https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Checklist.pdf?did=wp_card&trk=wp_card){:target="_blank"}.
+> This is a whitepaper of AWS that provides customer recommendations that align with the Well-Architected Framework Security Pillar. It is available [here](https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Checklist.pdf?did=wp_card&trk=wp_card){:target="_blank"}
 {: .prompt-info }
 
 ### 1. Identity and Access Management

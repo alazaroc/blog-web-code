@@ -10,6 +10,7 @@ tags:
 - how-to
 - amplify
 - github
+- devops
 published: true
 pin: false
 featured_post: false
@@ -23,7 +24,7 @@ img_path: /assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/
 
 This is a practical use case where I will explain step by step how I deployed my blog using Amplify Hosting. I will use the AWS Console to do it.
 
-The source code of my blog (web) is available [here](https://github.com/alazaroc/blog-web/){:target="_blank"}.
+The source code of my blog (web) is available [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
 
 ## Introduction
 
@@ -46,7 +47,7 @@ We need to have our code ready to be deployed in a supported repository.
 
 In AWS Console, enter to AWS Amplify service and choose `Amplify Hosting`
 
-a) If you don't have any Amplify app, this screen appears and you have to click on <kbd>Get Started</kbd>
+a) If you don't have an Amplify app, this screen appears and you have to click on <kbd>Get Started</kbd>
 
 ![amplify1.1](amplify-1.1-new.png){:class="border"}
 

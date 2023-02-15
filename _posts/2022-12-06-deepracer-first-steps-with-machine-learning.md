@@ -174,9 +174,9 @@ And just for participating, I received this car!
 
 ## More information and the next steps
 
-- [What is DeepRacer](https://docs.aws.amazon.com/deepracer/latest/developerguide/what-is-deepracer.html){:target="_blank"}.
-- [More information about the car device](https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-prep-vehicle.html){:target="_blank"}.
-- [Wiki with concepts](https://wiki.deepracing.io/Main_Page){:target="_blank"}.
-- [AWS DeepRacer Community](https://deepracing.io/){:target="_blank"}.
-- [Train models in local](https://github.com/aws-deepracer-community/deepracer-for-cloud){:target="_blank"}.
-- [Use logs to do analysis](https://github.com/breadcentric/aws-deepracer-workshops/tree/enhance-log-analysis/log-analysis){:target="_blank"}.
+- [What is DeepRacer](https://docs.aws.amazon.com/deepracer/latest/developerguide/what-is-deepracer.html){:target="_blank"}
+- [More information about the car device](https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-prep-vehicle.html){:target="_blank"}
+- [Wiki with concepts](https://wiki.deepracing.io/Main_Page){:target="_blank"}
+- [AWS DeepRacer Community](https://deepracing.io/){:target="_blank"}
+- [Train models in local](https://github.com/aws-deepracer-community/deepracer-for-cloud){:target="_blank"}
+- [Use logs to do analysis](https://github.com/breadcentric/aws-deepracer-workshops/tree/enhance-log-analysis/log-analysis){:target="_blank"}

@@ -38,7 +38,7 @@ The classification of the different recommendations into categories depends on t
 > This model is **updated monthly** by AWS. In fact, a month after writing this article I had to update it because the model had changed and all areas of the organization had changed, although the content is the same.
 {: .prompt-info }
 
-The official documentation is located [here](https://maturitymodel.security.aws.dev/en/){:target="_blank"}.
+The official documentation is located [here](https://maturitymodel.security.aws.dev/en/){:target="_blank"}
 
 ### Introduction
 
@@ -150,7 +150,7 @@ This is the complete maturity model with all the phases through all the epics.
 > These are the top 10 most important cloud security tips that Stephen Schmidt, Chief Information Security Officer for AWS, laid out at AWS re:Invent 2019.
 {: .prompt-info }
 
-The original article was written in the AWS blog [here](https://aws.amazon.com/blogs/security/top-10-security-items-to-improve-in-your-aws-account/?trk=c750fe34-f44f-43e1-bcc0-6219228839b9&sc_channel=el){:target="_blank"}.
+The original article was written in the AWS blog [here](https://aws.amazon.com/blogs/security/top-10-security-items-to-improve-in-your-aws-account/?trk=c750fe34-f44f-43e1-bcc0-6219228839b9&sc_channel=el){:target="_blank"}
 
 1. **Configure account contacts**
 2. **Use multi-factor authentication (MFA)**
@@ -168,7 +168,7 @@ The original article was written in the AWS blog [here](https://aws.amazon.com/b
 7. **Validate IAM roles**
    - Use AWS IAM Access Analyzer
 8. **Take action on findings**
-   - Turn on [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html){:target="_blank"}, [Amazon GuardDuty](https://aws.amazon.com/guardduty/){:target="_blank"}, and [AWS Identity and Access Management Access Analyzer](https://aws.amazon.com/iam/features/analyze-access/){:target="_blank"}.
+   - Turn on [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html){:target="_blank"}, [Amazon GuardDuty](https://aws.amazon.com/guardduty/){:target="_blank"}, and [AWS Identity and Access Management Access Analyzer](https://aws.amazon.com/iam/features/analyze-access/){:target="_blank"}
    - You also need to take action when you see findings
 9. **Rotate keys**
 10. **Be involved in the dev cycle**

@@ -151,7 +151,7 @@ Interesting article in AWS Security Blog: [Best practices for cross-Region aggre
 - Disable AWS Security Hub AWS Foundational Best Practices periodic controls associated with global resources
 - Implement automatic remediation from a central Region
 
-You also can show your AWS Security Hub findings in a view of data to enable decision-makers to assess the health and status of an organization's IT infrastructure at a glance. This article contains [how to do it](https://aws.amazon.com/blogs/security/how-to-build-a-multi-region-aws-security-hub-analytic-pipeline/){:target="_blank"}.
+You also can show your AWS Security Hub findings in a view of data to enable decision-makers to assess the health and status of an organization's IT infrastructure at a glance. This article contains [how to do it](https://aws.amazon.com/blogs/security/how-to-build-a-multi-region-aws-security-hub-analytic-pipeline/){:target="_blank"}
 
 ### Disable controls
 
@@ -206,11 +206,11 @@ Security Hub provides the ability to integrate security findings from AWS servic
 
 Some examples of custom integrations:
 
-- [Integrate with Jira Service Management](https://aws.amazon.com/blogs/security/how-to-set-up-a-two-way-integration-between-aws-security-hub-and-jira-service-management/){:target="_blank"}.
+- [Integrate with Jira Service Management](https://aws.amazon.com/blogs/security/how-to-set-up-a-two-way-integration-between-aws-security-hub-and-jira-service-management/){:target="_blank"}
   - ![jira](integration-jira.png){:class="border"}
-- [Integrate with Slack](https://github.com/aws-samples/aws-securityhub-to-slack){:target="_blank"}.
+- [Integrate with Slack](https://github.com/aws-samples/aws-securityhub-to-slack){:target="_blank"}
   - ![slack](integration-slack.png){:class="border"}
-- [Summary email](https://github.com/aws-samples/aws-security-hub-summary-email){:target="_blank"}.
+- [Summary email](https://github.com/aws-samples/aws-security-hub-summary-email){:target="_blank"}
 
 ### Automated response, remediation, and enrichment actions
 

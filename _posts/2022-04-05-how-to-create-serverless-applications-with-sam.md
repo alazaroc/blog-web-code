@@ -9,6 +9,7 @@ category:
 tags: 
 - how-to
 - sam
+- serverless
 - cloudformation
 - github
 published: true
@@ -165,7 +166,7 @@ And you have to create in `events` folder the json definition of the rule:
 > I recommend that you run `aws sam init` and ty to create different projects from the templates.
 {: .prompt-tip }
 
-More information about template anatomy [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html){:target="_blank"}.
+More information about template anatomy [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html){:target="_blank"}
 
 ### Prerequisites
 
@@ -697,6 +698,6 @@ To delete it, you can run the `sam delete` command which deletes the main stack 
 
 ## Next steps
 
-- If you need more information about SAM I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html){:target="_blank"}.
+- If you need more information about SAM I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html){:target="_blank"}
 - Next post: [How to add CI/CD to my SAM project](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"}
 - Comment this post

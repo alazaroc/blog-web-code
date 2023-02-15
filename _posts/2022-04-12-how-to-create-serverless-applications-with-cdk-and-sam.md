@@ -6,11 +6,12 @@ last_modified_at:
 description: CDK and SAM can be used together to create serverless applications. You will use CDK to define and create your AWS resources, and you will use SAM to test Lambda, API Gateway and DynamodDB resources.
 category:
 - Serverless
-- IaC
 tags:
 - how-to
 - cdk
 - sam
+- iac
+- serverless
 - comparative
 published: true
 pin: false
@@ -100,6 +101,9 @@ However, **SAM** uses a `yaml` template, `template.yaml` or `template.yml`, in t
 {: .prompt-danger }
 
 Then, we have to run `cdk synth` and store the result in `template.yml` file.
+
+> use --no-staging to disable the copy of assets which allows local debugging via the SAM CLI to reference the original source files
+{: .prompt-tip }
 
 ``` console
 cdk synth --no-staging > template.yml
@@ -199,7 +203,7 @@ Ok, testing a mocked Lambda Function is the "hello world" example and not very u
 
 We will update our Lambda Function to store the data in a DynamoDB table, so we are using the <kbd>v2-dynamodb</kbd> example in the repository.
 
-> This code is based on the pattern defined in the web [cdkpatterns](https://cdkpatterns.com/patterns/filter/?by=Lambda){:target="_blank"} as the [simple webservice](https://github.com/cdk-patterns/serverless/blob/main/the-simple-webservice/README.md){:target="_blank"}.
+> This code is based on the pattern defined in the web [cdkpatterns](https://cdkpatterns.com/patterns/filter/?by=Lambda){:target="_blank"} as the [simple webservice](https://github.com/cdk-patterns/serverless/blob/main/the-simple-webservice/README.md){:target="_blank"}
 {: .prompt-info }
 
 ![simple-webservice-v2](simple-webservice-v2.png){:class="border"}
@@ -240,7 +244,7 @@ You may want to test your Lambda function locally instead of connecting to your 
 
 - Download DynamoDB docker image
 - Run the DynamoDB docker image
-- Set up DynamoDB: create tables, insert data, test it
+- Set up DynamoDB: create tables, insert data, and test it
 - Change your Lambda Function code
 
 #### Download the DynamoDB docker image

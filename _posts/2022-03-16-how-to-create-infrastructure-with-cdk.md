@@ -8,6 +8,7 @@ category:
 - IaC
 tags:
 - how-to
+- iac
 - cdk
 - cloudformation
 - github
@@ -214,12 +215,12 @@ And that's all, keep practicing and learning!
 
 ## Bonus: My CDK blog code
 
-The source code is available [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}.
+The source code is available [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
 
 If you review it and think it can be improved, please let me know.
 
 ## Next steps
 
-- If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}.
+- If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}
 - Next post: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 - Comment this post

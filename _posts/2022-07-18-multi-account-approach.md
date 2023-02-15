@@ -36,9 +36,9 @@ Then, for me, it is very simple:
 - Medium/Big enterprise solution - mandatory
 
 What AWS says?
-> While you may begin your AWS journey with a single account, AWS recommends that you "*set up multiple accounts, as your workloads grow in size and complexity*". Extracted from [here](https://aws.amazon.com/organizations/getting-started/best-practices/?org_console){:target="_blank"}.
+> While you may begin your AWS journey with a single account, AWS recommends that you "*set up multiple accounts, as your workloads grow in size and complexity*". Extracted from [here](https://aws.amazon.com/organizations/getting-started/best-practices/?org_console){:target="_blank"}
 >
-> Also, "*If you have a single account today and either have production workloads in place or are considering deploying production workloads, we recommend that you transition to the use of multiple accounts so that you can gain the Benefits of using multiple AWS accounts.*" Extracted from [here](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/single-aws-account.html){:target="_blank"}.
+> Also, "*If you have a single account today and either have production workloads in place or are considering deploying production workloads, we recommend that you transition to the use of multiple accounts so that you can gain the Benefits of using multiple AWS accounts.*" Extracted from [here](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/single-aws-account.html){:target="_blank"}
 {: .prompt-info }
 
 ### Why do you need a multi-account solution?
@@ -64,7 +64,7 @@ The main disadvantage if you want a multi-account solution is the **management**
 
 ## Multi-account approach: AWS Organizations
 
-AWS provides a resource to help you centrally manage and govern your environment: [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html){:target="_blank"}.
+AWS provides a resource to help you centrally manage and govern your environment: [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html){:target="_blank"}
 
 ### Core concepts
 

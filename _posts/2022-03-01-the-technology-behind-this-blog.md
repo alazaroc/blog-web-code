@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The technology behind this blog
+title: How I decided on the technology behind the blog
 date: 2022-03-02 21:49 +0100
 last_modified_at:
 description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it until I felt comfortable with the solution. Want to know more?
@@ -24,15 +24,17 @@ mermaid: true
 
 My technology approach is:
 
-- Use **AWS resources**** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
+- Use **AWS resources** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
   > <kbd>GitHub</kbd> is used as **code repository** because I want to share my code easily in a public way
   {: .prompt-danger }
 - Serverless architecture
-- Apply the separation of concerns design principle to frontend and backend:
+- I applied the separation of concerns design principle to frontend and backend:
   - **Frontend**: Static website generated with Jekyll and deployed with AWS Amplify
     - Code [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
   - **Backend**: AWS resources deployed with CDK using the TypeScript language
     - Code [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
+- This is the architecture of my blog:
+  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture.png)
 
 ## Frontend
 
@@ -108,13 +110,13 @@ And I complemented it with this one: [How to add CI/CD to my CDK project](/posts
 
 I have included the following in this section:
 
-- Decision 1: What resources to create
+- Decision 1: What resources should I create?
 - Decision 2: Technology to deploy infrastructure
 - Demo: How to deploy infrastructure
 
-### What resources to create
+### What resources should I create?
 
-No backend is necessary for the blog to work. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, mail subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your own solutions.
+No backend is necessary for a blog. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, mail subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your solutions.
 
 I don't want to use external plugins if I can do it "just the same" myself in AWS and practice/play with new services in the process
 
