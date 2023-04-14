@@ -20,6 +20,9 @@ mermaid: true
 ---
 ---
 
+> Last updated: I have migrated my web from Amplify web to Terraform + S3 + CloudFront + AWS Certificate Manager + Developer Tools
+{: .prompt-info }
+
 ## TLDR
 
 My technology approach is:
@@ -34,7 +37,10 @@ My technology approach is:
   - **Backend**: AWS resources deployed with CDK using the TypeScript language
     - Code [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
 - This is the architecture of my blog:
-  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture.png)
+  - Version 1:
+  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v1.png)
+  - Version 2:
+  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
 
 ## Frontend
 
@@ -62,7 +68,7 @@ Since I wanted to **keep it simple**, I used a **static site generator.** I must
 
 ### Technology to deploy the blog
 
-After choosing Jekyll as my static site generator, I needed to know how to deploy it on AWS and, of course, there are many options to do it on AWS:
+After choosing Jekyll as my static site generator, I needed to know how to deploy it on AWS and, of course, there are many options to do it:
 
 - EC2 + RDS (i.e. traditional blog with WordPress / Ghost + Gatsby / ...)
 - LightSail (by the way, [an interesting article comparing LightSail with EC2](https://aws.amazon.com/premiumsupport/knowledge-center/lightsail-differences-from-ec2/){:target="_blank"})
@@ -71,7 +77,9 @@ After choosing Jekyll as my static site generator, I needed to know how to deplo
 - S3
 - AWS Amplify
 
-But like I want it serverless and simple, I've leveraged <kbd>AWS Amplify</kbd> to help me with this point.
+#### Version 1
+
+But like I want it serverless and simple, in the v1 (until March 5, 2023) I leveraged <kbd>AWS Amplify</kbd> to help me with this point.
 
 > What is AWS Amplify? (Explained by AWS)
 >
@@ -97,14 +105,29 @@ I used **Amplify Hosting** for the following reasons (there are more, but the fo
 
 As you can see, this solution is awesome if you want that AWS manage for you the CI/CD, web, cache, the certificate of your domain...
 
-> However, this is too "automagic" for me and I am here to practice/play and show you the results... so **in the future I'd like to migrate Amplify to a custom solution** to have more control and more services to play with (S3, CloudFront, AWS Certificate Manager, Developer Tools)... a lot of fun is waiting for me!
-{: .prompt-danger }
+#### Version 2
+
+Version 1, using **Amplify Hosting**, was too "automagic" for me and I was here to practice/play and show you the results... so **I migrated my web to a custom solution** to have more control and more services to play with, a lot of fun!
+
+Creates the infrastructure using Terraform with the following AWS services:
+
+- **S3** bucket used as website
+- **CloudFront distribution** in front of the S3 bucket
+- **Lambda Edge** to use it in CloudFront, to transform all requests (required for Jekyll web)
+- **AWS ACM**: Certificate generation of my custom domain (playingaws.com)
+- **Developer Tools**: to deploy the Infrastructure as Code with Terraform
 
 ### How to deploy it
+
+#### Version 1
 
 I wrote it in this post: [How to deploy a web with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}
 
 And I complemented it with this one: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
+
+#### Version 2
+
+Infrastructure as Code created with Terraform and Developer Tools to deploy and automate the IaC
 
 ## Backend
 
@@ -128,12 +151,7 @@ After creating my empty blog I thought that it would be a good idea to implement
 
 Now, I have a basic implementation of these points but I will improve it in the future.
 
-This is the architecture diagram of the AWS resources created:
-
-![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/backend-architecture-400x353.png)
-*Backend Architecture Diagram*
-
-> The backend can also be integrated with the frontend with `Amplify Studio`, but I am not interested in doing it that way. I want separation of concerns and manage both independently.
+> The backend could be integrated with the frontend with `Amplify Studio`, but I am not interested in doing it that way. I want separation of concerns and manage both independently.
 {: .prompt-info }
 
 #### Forms
@@ -180,6 +198,12 @@ This is the architecture diagram of the AWS resources created:
 
   - This solution was a custom AWS solution to use more AWS services, but only received comments in the database but I didn't implement the system to display them on the blog. Maybe someday...
 - However, now I am using the `giscus` plugin
+
+  ``` mermaid
+    flowchart LR
+    A(Mail subscription form) --> B(GitHub repository)
+    B --> C(GitHub discussion)
+  ```
 
 ### Technology to deploy infrastructure
 
@@ -243,5 +267,5 @@ I have many next steps identified, but I'll put here the ones related to the con
 
 - [x] Update comments form --> March 17, 2022 --> A form was available and comments were recorded in a database
 - [x] Show comments in the posts --> January 27, 2023 --> `giscus` plugin has been integrated into my web
-- [ ] Automate Mail subscription
-- [ ] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools
+- [x] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools  –> March 5, 2023
+- [ ] - [ ] Automate Mail subscription

@@ -26,7 +26,7 @@ Finally, I also have 6 AWS certifications (the 3 associate, the 2 professional a
   - I don’t expect any income from the blog
   - I just want to keep learning, share knowledge and make it publicly accessible
 - The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}, but this is the architecture:
-  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture.png)
+  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
 
 > To me, "**play with AWS**" means <kbd>PRACTICE</kbd>, experiment trying something new and <kbd>keep learning</kbd>, so my domain is `playingaws`.
 {: .prompt-info }
