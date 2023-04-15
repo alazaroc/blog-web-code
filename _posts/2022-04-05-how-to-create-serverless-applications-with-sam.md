@@ -9,8 +9,8 @@ category:
 tags: 
 - how-to
 - sam
+- iac
 - serverless
-- cloudformation
 - github
 published: true
 pin: false

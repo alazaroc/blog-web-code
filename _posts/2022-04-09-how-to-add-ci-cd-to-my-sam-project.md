@@ -9,6 +9,7 @@ category:
 tags: 
 - how-to
 - sam
+- iac
 - cicd
 - codepipeline
 - codebuild
