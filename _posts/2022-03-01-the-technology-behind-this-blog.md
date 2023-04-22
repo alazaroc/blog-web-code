@@ -139,14 +139,14 @@ I have included the following in this section:
 
 ### What resources should I create?
 
-No backend is necessary for a blog. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, mail subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your solutions.
+No backend is necessary for a blog. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, email subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your solutions.
 
 I don't want to use external plugins if I can do it "just the same" myself in AWS and practice/play with new services in the process
 
 After creating my empty blog I thought that it would be a good idea to implement the following:
 
 - Forms (contact form)
-- Mail subscription (to receive blog updates)
+- Email subscription (to receive blog updates)
 - Add comments to each post (register it and show it)
 
 Now, I have a basic implementation of these points but I will improve it in the future.
@@ -168,7 +168,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
     D --> E(My email)  
   ```
 
-#### Mail Subscription
+#### Email Subscription
 
 - Used here: [Mail subscription](/about/#the-blog){:target="_blank"}
 - External option easy to integrate: ~~Mailchimp~~
@@ -176,12 +176,12 @@ Now, I have a basic implementation of these points but I will improve it in the 
 
   ``` mermaid
     flowchart LR
-    A(Mail subscription form) --> B(API Gateway)
+    A(Email subscription form) --> B(API Gateway)
     B --> C(Lambda)
     C --> D(DynamoDB)
   ```
 
-> At this moment, I only store the subscription information and if I want to send emails I have to do it manually. However, in the future, I will automate it and I will add the option to unsubscribe (to the sent mail)
+> At this moment, I only store the subscription information and if I want to send emails I have to do it manually. However, in the future, I will automate it and I will add the option to unsubscribe in the email sent
 {: .prompt-warning }
 
 #### Comments (updated January 27, 2023)
@@ -191,17 +191,17 @@ Now, I have a basic implementation of these points but I will improve it in the 
 
   ``` mermaid
     flowchart LR
-    A(Mail subscription form) --> B(API Gateway)
+    A(Email subscription form) --> B(API Gateway)
     B --> C(Lambda)
     C --> D(DynamoDB)
   ```
 
-  - This solution was a custom AWS solution to use more AWS services, but only received comments in the database but I didn't implement the system to display them on the blog. Maybe someday...
+  - This solution was a custom AWS solution to use more AWS services and although I received some comments and store them in the database, I didn't implement the system to display them on the blog.
 - However, now I am using the `giscus` plugin
 
   ``` mermaid
     flowchart LR
-    A(Mail subscription form) --> B(GitHub repository)
+    A(Email subscription form) --> B(GitHub repository)
     B --> C(GitHub discussion)
   ```
 
@@ -268,4 +268,4 @@ I have many next steps identified, but I'll put here the ones related to the con
 - [x] Update comments form --> March 17, 2022 --> A form was available and comments were recorded in a database
 - [x] Show comments in the posts --> January 27, 2023 --> `giscus` plugin has been integrated into my web
 - [x] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools  –> March 5, 2023
-- [ ] - [ ] Automate Mail subscription
+- [ ] - [ ] Automate Email subscription
