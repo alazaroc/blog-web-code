@@ -37,6 +37,9 @@ Security Hub enables you to understand your overall security posture via a **con
 > Enabling this service is a MUST and a quick win to improve your security posture: just by enabling some security standard you will receive security alerts (findings), and the service will aggregate your security alerts automatically.
 {: .prompt-tip }
 
+> Before you can enable Security Hub standards and controls, you must first enable resource recording in AWS Config. You must enable resource recording for all of the accounts and in all of the Regions where you plan to enable Security Hub standards and controls,
+{: .prompt-warning }
+
 ### How it works
 
 To maintain a **complete view** of your security posture on AWS, you need to **integrate multiple tools and services** including
@@ -135,7 +138,7 @@ In the following image, you can view Security Hub and GuardDuty findings:
 
 ### Finding aggregation (cross-account & cross-region)
 
-With finding aggregation, you can use a single aggregation account & Region to view and update findings from multiple linked accounts & Regions. Administrator accounts configure the aggregation. Security Hub replicates findings and finding updates for all of the member accounts in the linked Regions.
+With finding aggregation, you can use a single aggregation account & Region to view and update findings from multiple linked accounts & Regions. Administrator accounts configure the aggregation. Security Hub replicates `findings` and finds updates for all of the member accounts in the linked Regions.
 
 - You can **connect multiple AWS accounts** and consolidate findings across those accounts
   ![accounts-aggregation](security-hub-accounts-aggregation.png){:class="border"}
@@ -151,7 +154,7 @@ Interesting article in AWS Security Blog: [Best practices for cross-Region aggre
 - Disable AWS Security Hub AWS Foundational Best Practices periodic controls associated with global resources
 - Implement automatic remediation from a central Region
 
-You also can show your AWS Security Hub findings in a view of data to enable decision-makers to assess the health and status of an organization's IT infrastructure at a glance. This article contains [how to do it](https://aws.amazon.com/blogs/security/how-to-build-a-multi-region-aws-security-hub-analytic-pipeline/){:target="_blank"}
+You also can show your AWS Security Hub findings in a view of data to enable decision-makers to assess the health and status of an organization's IT infrastructure at a glance. This article contains [how to do it](https://aws.amazon.com/blogs/security/how-to-build-a-multi-region-aws-security-hub-analytic-pipeline/){:target="_blank"}.
 
 ### Disable controls
 
@@ -228,7 +231,7 @@ More info about automated response and remediation [here](https://docs.aws.amazo
 
 ## Good to know
 
-- Regional service
+- Regional service. You must enable it in all the regions you want to review.
 - **30 days free trial** when you enable it the first time, and during the free trial Security Hub provides an estimate of what the spend would be, so you can assess your spending beyond the free trial.
 - All findings are stored in Security Hub for **90 days** after the last update date
 - **Periodic checks run automatically within 12 hours** after the most recent run. You cannot change the periodicity.

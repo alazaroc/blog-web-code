@@ -24,7 +24,7 @@ img_path: /assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/
 
 ## TLDR
 
-I already have a CDK project on GitHub [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}, but to deploy it I have to run the CDK Toolkit command `cdk deploy` from my local machine.
+I already have a CDK project on GitHub [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}, but to deploy it I have to run the CDK Toolkit command `cdk deploy` from my local machine.
 
 I want **to add automation** to my deployment process and integrate it with the AWS ecosystem... so **I will use the AWS Developer tools** to do it.
 
@@ -202,7 +202,7 @@ You can create the build project by choosing the following:
         - cdk deploy
   ```
 
-- Add a CloudWatch log, choosing as Group name `/aws/codebuild/blog-infrastructure`
+- Add a CloudWatch log, choosing as Group name `/aws/codebuild/blog-backend-infrastructure`
 
 When you have finished filling in all fields, click <kbd>Continue to CodePipeline</kbd>.
 
@@ -302,13 +302,13 @@ This is the code to add the CodePipeline resource with 2 stages:
 {: .prompt-tip }
 
 ```typescript
-const codePipelineName = `blog-infrastructure-cdk`;
+const codePipelineName = `blog-backend-infrastructure-cdk`;
 const pipeline = new CodePipeline(this, codePipelineName, {
   pipelineName: codePipelineName,
   synth: new ShellStep('Synth', {
     // input: CodePipelineSource.gitHub('alazaroc/aws-cdk-pipeline', 'main'),
     input: CodePipelineSource.connection(
-      'alazaroc/blog-infrastructure',
+      'alazaroc/blog-backend-infrastructure',
       'main',
       {
         connectionArn:
@@ -376,7 +376,7 @@ Also, to avoid the assumed role error we saw in the AWS Console example (in this
 {: .prompt-tip }
 
 ```typescript
-const codePipelineName = `blog-infrastructure-cdk`;
+const codePipelineName = `blog-backend-infrastructure-cdk`;
   const pipeline = new CodePipeline(scope, codePipelineName, {
     pipelineName: codePipelineName,
     // synth: new ShellStep('Deploy', {
@@ -389,7 +389,7 @@ const codePipelineName = `blog-infrastructure-cdk`;
             'arn:aws:codestar-connections:eu-west-1:xxxxxx:connection/4d6c1902-bda7-43fb-8508-xxxxxx',
         },
       ),
-      commands: ['npm ci', 'npm run build', 'npx cdk deploy --require-approval'],
+      commands: ['npm ci', 'npm run build', 'npx cdk deploy --require-approval never'],
       rolePolicyStatements: [
         new aws_iam.PolicyStatement({
           actions: ['sts:AssumeRole'],

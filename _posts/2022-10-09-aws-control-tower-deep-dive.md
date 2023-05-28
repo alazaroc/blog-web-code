@@ -38,7 +38,7 @@ We have more than one account and need/want a central place to access all accoun
 
 > IAM Identity Center expands the capabilities of AWS Identity and Access Management (IAM) to provide a central place that brings together administration of users and their access to AWS accounts and cloud applications.
 
-The default configuration used as identity source is _Identity Center directory_, that is, an internal directory where we can add users directly to give them access to the organization.
+The default configuration used as `identity source` is _Identity Center directory_, that is, an internal directory where we can add users directly to give them access to the organization.
 
 ### Settings
 
@@ -78,7 +78,7 @@ By default, the following groups are created:
 
 ### Use of SSO
 
-You will access through one link similar to this "https://xxxxxxxxxxxxx.awsapps.com/start" y you will access to this portal:
+You will access through one link similar to this "<https://xxxxxxxxxxxxx.awsapps.com/start>" and you will access to this portal:
 
 ![sso-1](sso-1.png){:class="border"}
 
@@ -110,7 +110,7 @@ Creating a new Organizational Unit (OU) is very easy from the AWS Control Tower 
 
 ## Account Factory
 
-> With the account factory you can provision new accounts and enroll existing accounts, and you can standardize your account and network configurations for creating multiple accounts.
+> With the account factory you can provision new accounts and enrols existing accounts, and you can standardize your account and network configurations for creating multiple accounts.
 
 You can update the AWS Control Tower service to the Network configuration to define how VPCs will be created. When you save the changes, the defined configurations will be published to **AWS Service Catalog** as a product.
 
@@ -128,7 +128,7 @@ To deploy new AWS accounts with Account Factory you have 2 options:
 In both cases, the mandatory fields are:
 
 - Account email
-- Display name
+- Display Name
 - Identity Center user email
 - IAM Identity Center user name
 - Organizational unit
@@ -139,11 +139,14 @@ More information:
 
 - [Automate the creation of multiple accounts with Control Tower](https://aws.amazon.com/blogs/mt/how-to-automate-the-creation-of-multiple-accounts-in-aws-control-tower/){:target="_blank"}
 
-## Guardrails
+## Guardrails (Controls)
 
 AWS Control Tower applies high-level rules, called guardrails, that help enforce your policies using service control policies (SCPs), and detect policy violations using AWS Config rules.
 
-AWS Control Tower has 64 controls (governance rules for your AWS environment) in 3 different categories of guidance.
+> 07 May 2023: AWS Control Tower has updated recently the controls.
+{: .prompt-warning }
+
+AWS Control Tower has now 358 controls (governance rules for your AWS environment) in 3 different categories of `guidance`.
 
 - **Mandatory**: always enforced
   - **20 preventive** guardrails to enforce policies
@@ -152,9 +155,41 @@ AWS Control Tower has 64 controls (governance rules for your AWS environment) in
   - Example: _Detect whether public write access to Amazon S3 buckets is allowed_
 - **Elective**: enable you to track or lock down actions that are commonly restricted in an AWS enterprise environment.
 
+Now, is also important distinct the controls by `behaviour`:
+
+- Proactive
+  - These controls only are available if you deploy `CloudFormation templates` in the accounts and Regions where the control has been activated.
+  - It is implemented through AWS CloudFormation hooks and guard rules, and enforced through the deployment of a CloudFormation template. A guard rule is a policy-as-code rule that expresses the compliance requirements for an AWS resource. Hooks proactively inspect these resource configurations by comparing AWS resources against the guard rule, before the resources are provisioned.
+- Detective
+  - These controls are owned by `AWS Security Hub` or `AWS Control Tower` and implemented using `AWS Config rules`
+  - Controls owned by AWS Security Hub are not aggregated in the compliance status of accounts and OUs in AWS Control Towe
+- Preventive
+  - These controls are implemented with `Service control policy (SCP)`.
+  - When activated, preventive controls are enforced at the OU level.
+
+> I recommend to enable these controls in all the OUs:
+> All: [Disallow actions as a root user](https://us-east-1.console.aws.amazon.com/controltower/home/controls/AWS-GR_RESTRICT_ROOT_USER?region=us-east-1){:target="_blank"}
+>
+> - Control objective: Enforce least privilege
+> - Guidance: Strongly recommended
+> - Behaviour: Preventive
+>
+> All: [Disallow creation of access keys for the root user](https://us-east-1.console.aws.amazon.com/controltower/home/controls/AWS-GR_RESTRICT_ROOT_USER_ACCESS_KEYS?region=us-east-1){:target="_blank"}
+>
+> - Control objective: Enforce least privilege
+> - Guidance: Strongly recommended
+> - Behaviour: Preventive
+>
+> If possible: [Deny access to AWS based on the requested AWS Region](https://us-east-1.console.aws.amazon.com/controltower/home/controls/AWS-GR_REGION_DENY?region=us-east-1){:target="_blank"}
+>
+> - Control objective: Protect configurations
+> - Guidance: Elective
+> - Behaviour: Preventive
+{: .prompt-info }
+
 ### Enable controls
 
-So, there are 23 mandatory guardrails, but there are 41 others that you can enable. To enable one of them you select, click on <kbd>Enable control on OU</kbd> and then select one of them.
+So, there are 23 mandatory guardrails, but there many others that you can enable. To enable one of them you select, click on <kbd>Enable control on OU</kbd> and then select one of them.
 
 ![controls-enable](controls-enable.png){:class="border"}
 
@@ -164,7 +199,7 @@ So, there are 23 mandatory guardrails, but there are 41 others that you can enab
 
 ## Infrastructure as Code (IaC)
 
-There are at least 2 solutions to define as `Infrastructure as Code` (IaC) your AWS resources or SCPs and deploy it on each account (new or existing).
+There are at least 2 solutions to define using `Infrastructure as Code` (IaC) your AWS resources or SCPs and deploy it on each account (new or existing).
 
 - Customizations for Control Tower (CfCT): use CloudFormation
 - Use the Terraform module of Control Tower Account Factory for Terraform
@@ -176,7 +211,7 @@ There are at least 2 solutions to define as `Infrastructure as Code` (IaC) your 
 
 Customizations for AWS Control Tower (CfCT) helps you customize your AWS Control Tower landing zone and stay aligned with AWS best practices. Customizations are implemented with AWS CloudFormation templates and service control policies (SCPs).
 
-Deploying CfCT builds the following environment in the AWS Cloud.
+Deploying CfCT builds the following environment in the AWS Cloud:
 
 ![cfct-architecture-diagram](customizations-for-aws-control-tower-architecture-diagram.png){:class="border"}
 
@@ -184,6 +219,16 @@ CfCT deploys two workflows:
 
 - an AWS CodePipeline workflow (executed when changes appear)
 - an AWS Control Tower lifecycle event workflow (executed when a new account is launched)
+
+The `customizations-for-aws-control-tower.template` deploys the following:
+
+- An AWS CodeBuild project
+- An AWS CodePipeline project
+- An Amazon EventBridge rule
+- AWS Lambda functions
+- An Amazon Simple Queue Service queue
+- An Amazon Simple Storage Service bucket with a sample configuration package
+- AWS Step Functions
 
 To deploy CfCT:
 

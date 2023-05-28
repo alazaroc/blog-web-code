@@ -215,7 +215,7 @@ And that's all, keep practicing and learning!
 
 ## Bonus: My CDK blog code
 
-The source code is available [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
+The source code is available [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}
 
 If you review it and think it can be improved, please let me know.
 

@@ -35,7 +35,7 @@ My technology approach is:
   - **Frontend**: Static website generated with Jekyll and deployed with AWS Amplify
     - Code [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
   - **Backend**: AWS resources deployed with CDK using the TypeScript language
-    - Code [here](https://github.com/alazaroc/blog-infrastructure/){:target="_blank"}
+    - Code [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}
 - This is the architecture of my blog:
   - Version 1:
   - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v1.png)
@@ -146,7 +146,7 @@ I don't want to use external plugins if I can do it "just the same" myself in AW
 After creating my empty blog I thought that it would be a good idea to implement the following:
 
 - Forms (contact form)
-- Email subscription (to receive blog updates)
+- Email Subscription (to receive blog updates)
 - Add comments to each post (register it and show it)
 
 Now, I have a basic implementation of these points but I will improve it in the future.
@@ -207,9 +207,17 @@ Now, I have a basic implementation of these points but I will improve it in the 
 
 ### Technology to deploy infrastructure
 
-Honestly, I did not evaluate other options, since I knew which one to choose.
+> Now, I am using CDK (Cloud Development Kit) and Terraform.
+{: .prompt-info }
 
-I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript programming language to create the backend services.
+#### Version 1
+
+Initially, in version 1, I used:
+
+- `CDK with TypeScript` programming language to deploy `backend infrastructure` using this GitHub repository: [https://github.com/alazaroc/blog-backend-infrastructure](https://github.com/alazaroc/blog-backend-infrastructure){:target="_blank"}.
+- `Amplify Hosting` to create for me the `frontend infrastructure` to deploy the Jekyll web located in this GitHub repository: [https://github.com/alazaroc/blog-web](https://github.com/alazaroc/blog-web){:target="_blank"}.
+
+Honestly, I did not evaluate other options, since I knew which one to choose and I wanted to be as simple as possible.
 
 > What is CDK? (Explained by AWS)
 >
@@ -220,9 +228,16 @@ I use <kbd>CDK</kbd> (Cloud Development Kit) with TypeScript programming languag
 > To me, with a developer background, CloudFormation is complex and CDK fills the gap because it allows me to use a programming language to create the infrastructure easily, it's wonderful.
 {: .prompt-info }
 
+#### Version 2
+
+However now, I have migrated the `frontend infrastructure` to `Terraform`.
+
 ### How to deploy infrastructure
 
-I wrote it in another post: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
+I wrote it in these posts:
+
+- [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
+- [How to deploy a serverless website with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
 
 ## Price estimation of the blog
 
@@ -268,4 +283,4 @@ I have many next steps identified, but I'll put here the ones related to the con
 - [x] Update comments form --> March 17, 2022 --> A form was available and comments were recorded in a database
 - [x] Show comments in the posts --> January 27, 2023 --> `giscus` plugin has been integrated into my web
 - [x] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools  –> March 5, 2023
-- [ ] - [ ] Automate Email subscription
+- [ ] - [ ] Automate email subscription

@@ -287,7 +287,7 @@ The tool contains more than 150 AWS controls.
 - Integrate with IDE: checkov or tfsec
 - Allow create custom rules: checkov, KICKS, terrascan, tfsec
 
-In my blog-infrastructure code [available here](https://github.com/alazaroc/blog-infrastructure){:target="_blank"} I had the following errors using these tools:
+In my blog-backend-infrastructure code [available here](https://github.com/alazaroc/blog-backend-infrastructure){:target="_blank"} I had the following errors using these tools:
 
 - KICKS: 36 (3 high, 20 medium, 13 low)
 - terrascan: 9 (1 high, 7 medium, 1 low)
