@@ -37,11 +37,11 @@ My technology approach is:
   - **Backend**: AWS resources deployed with CDK using the TypeScript language
     - Code [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}
 - This is the architecture of my blog:
-  - Version 1:
-  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v1.png)
-  - Version 2:
-  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
-
+  - Current Version [2]:
+    - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
+  - Previous Version [1]:
+    - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v1.png)
+  
 ## Frontend
 
 I have included the following in this section:
@@ -105,7 +105,7 @@ I used **Amplify Hosting** for the following reasons (there are more, but the fo
 
 As you can see, this solution is awesome if you want that AWS manage for you the CI/CD, web, cache, the certificate of your domain...
 
-#### Version 2
+#### Version 2 [Current version]
 
 Version 1, using **Amplify Hosting**, was too "automagic" for me and I was here to practice/play and show you the results... so **I migrated my web to a custom solution** to have more control and more services to play with, a lot of fun!
 
@@ -125,7 +125,7 @@ I wrote it in this post: [How to deploy a web with amplify hosting](/posts/how-t
 
 And I complemented it with this one: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
 
-#### Version 2
+#### Version 2 [Current version]
 
 Infrastructure as Code created with Terraform and Developer Tools to deploy and automate the IaC
 
@@ -228,7 +228,7 @@ Honestly, I did not evaluate other options, since I knew which one to choose and
 > To me, with a developer background, CloudFormation is complex and CDK fills the gap because it allows me to use a programming language to create the infrastructure easily, it's wonderful.
 {: .prompt-info }
 
-#### Version 2
+#### Version 2 [Current version]
 
 However now, I have migrated the `frontend infrastructure` to `Terraform`.
 

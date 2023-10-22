@@ -5,7 +5,7 @@ date: 2022-10-09 00:30 +0200
 last_modified_at:
 description: Second article about the multi-account approach and specifically about AWS Control Tower where we will review all options.
 category:
-- General
+- Multi-account
 tags:
 - multi-account
 - deep dive

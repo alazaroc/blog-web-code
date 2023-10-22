@@ -209,9 +209,12 @@ jekyll_compose:
       description:
       category:
       tags:
+      published: true
       pin: false
       featured_post: false
       comments: false
+      sitemap: true
+      img_path:
     posts:
       last_modified_at:
       description:
@@ -222,3 +225,4 @@ jekyll_compose:
       featured_post: false
       comments: false
       sitemap: true
+      img_path:

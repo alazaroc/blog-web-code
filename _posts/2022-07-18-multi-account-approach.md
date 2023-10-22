@@ -5,7 +5,7 @@ date: 2022-09-17 19:22 +0200
 last_modified_at:
 description: This is the first article related to the multi-account approach, and the first thing to review is to know when and why I need a multi-account solution.
 category:
-- General
+- Multi-account
 tags:
 - getting-started
 - multi-account
