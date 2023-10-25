@@ -24,34 +24,41 @@ More than one year ago, I wrote [this other article](https://ifgeekthen.nttdata.
 
 Now, 22 of October of 2023, I have 2 more AWS certifications, and 8/8 in AWS exams.
 
-This is just numbers, but I know how to prepare these exams and if you are reading this you probably want to know why I wrote something like this and why you should trust me.
-
-![steps](steps.jpeg)
+These are just numbers, but `I know how to prepare the AWS certification exams`, and if you are reading this article you probably want to know why I wrote something like this and why you should trust me.
 
 ## My 10 steps to achieve any AWS certification
 
+![steps](steps.jpeg)
+
 This is the process I always follow to prepare any AWS certification:
 
-> `1.` Find the proper certification for you and read the general information about it
+> 1/10: <kbd>Find</kbd> the proper certification for you
 {: .prompt-info }
 
-Access the official page of the chosen certification, and review the <kbd>exam guide</kbd> to validate if this certification is suitable for you and whether pursuing it aligns with your goals.
+The first step is choose your certification. Probably you already did it.
 
-> `2.` Find your <kbd>WHY</kbd>: Motivation is the key
+Access to the [AWS certification website](https://aws.amazon.com/certification/){:target="_blank"}, and check all of them. You have to review:
+
+1. Level of the certification
+2. Area of the certification
+
+Next step is access to the specific certification and read all the information included in the official page. It includes the <kbd>exam guide</kbd> to validate if this certification is suitable for you and whether pursuing it aligns with your goals.
+
+> 2/10: Find your <kbd>WHY</kbd>: Motivation is the key
 {: .prompt-info }
   
-Do you truly want this specific certification? Do you need it? Why? 
+Do you truly want this specific certification? Do you need it? `Why?` 
 
 If you don't have a very good reason, you might find it challenging to stay committed.
 
-> `3.` Create a <kbd>study plan</kbd>
+> 3/10: Create a <kbd>study plan</kbd>
 {: .prompt-info }
 
 Set a <kbd>target date</kbd> for the exam and <kbd>allocate study hours</kbd> accordingly to create a structured plan. When creating your study plan, it is important to `be realistic` about the amount of time you can commit to studying. Be sure to factor in other commitments, such as work, family, and social obligations.
 
 It's important to stick to this plan as much as possible. Don't worry, if necessary, you can reschedule the exam for a later date, but it's crucial to have a target date in mind.
 
-> `4.` Take the <kbd>official AWS `Exam Readiness` course</kbd>
+> 4/10: Take the <kbd>official AWS Exam Readiness course</kbd>
 {: .prompt-info }
 
 This course provides an overview of the certification and highlights the key topics you should study.
@@ -62,7 +69,7 @@ Note that this course only provides a high-level understanding, so additional st
 
 You should try to study everything included there.
 
-> `5.` Choose the <kbd>main training course</kbd> that will prepare you for the certification
+> 5/10: Choose the <kbd>main training course</kbd> that will prepare you for the certification
 {: .prompt-info }
 
 It must be specific to your certification. 
@@ -71,7 +78,7 @@ There are many options available, including official courses, online video cours
 
 In my last exam, I skipped this step because I wanted to experiment if I could prepare for one certification without any specific course. My conclusion is: if you have limited time and don't want to invest a significant amount of time searching for various resources to cover all exam content, yes, the specific certification course is necessary. It is going to save to you a lot of time.
 
-> `6.` <kbd>Practice</kbd> using the AWS console to gain hands-on experience
+> 6/10: <kbd>Practice</kbd> using the AWS console to gain hands-on experience
 {: .prompt-info }
 
 Practice is the best way to learn and gain real experience.
@@ -80,14 +87,14 @@ Avoid relying solely on studying tests or theory—you must know how to use the 
 
 Yes, you can pass an AWS exam without the practice, but then, what is the point? You won't know how to do anything, and you'll likely forget everything...
 
-> `7.` Read the recommended <kbd>whitepapers</kbd> for your certification
+> 7/10: Read the recommended <kbd>whitepapers</kbd> for your certification
 {: .prompt-info }
 
 AWS Whitepapers are in-depth technical documents that provide detailed information about specific AWS services.
 
 These whitepapers may be extensive, but it's crucial to read the ones recommended on the certification's official page.
 
-> `8.` Read the recommended <kbd>FAQs</kbd>
+> 8/10: Read the recommended <kbd>FAQs</kbd>
 {: .prompt-info }
 
 The services listed in the FAQs section of the certification are the most important services for this certification selected by AWS. You should check it.
@@ -96,14 +103,14 @@ The AWS FAQs are a great resource for getting clarification on any topics that a
 
 Is this step required to prepare an AWS certification? No, but it is highly recommended.
 
-> `9.`  <kbd>Take your own notes</kbd> (and study them)
+> 9/10:  <kbd>Take your own notes</kbd> (and study them)
 {: .prompt-info }
 
 Taking your own notes is a great way to retain information. Be sure to review your notes regularly, and add to them as you learn new things.
 
 Another option is to find comprehensive summaries online, but be cautious not to rely solely on them and avoid taking shortcuts, though it may be tempting.
 
-> `10.` Practice with exam-style questions (<kbd>tests</kbd>)
+> 10/10: Practice with exam-style questions (<kbd>tests</kbd>)
 {: .prompt-info }
 
 Practice exams are a great way to get used to the format of the certification exam and the types of questions that are typically asked. Be sure to take practice exams under timed conditions to simulate the real exam experience. 
@@ -115,7 +122,7 @@ You have a lot of options.
 So, you're thinking about getting AWS certified? Good for you! It's a great way to boost your career and learn some cool stuff along the way.
 
 > Just remember, the journey is just as important as the destination. Don't just focus on passing the exam. Take the time to really understand the material and how it applies to the real world.
-> {: .prompt-tip }
+{: .prompt-tip }
 
 And don't be afraid to ask for help. There are tons of resources available to help you prepare, from online forums to study groups.
 
