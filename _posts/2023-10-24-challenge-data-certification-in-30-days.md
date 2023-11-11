@@ -19,6 +19,11 @@ img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
 
 ## TLDR
 
+> Updated: The `AWS Certified Data Analytics Specialty` <kbd>is going to be retired on April 9, 2024</kbd>. You still have time to do it!
+>
+> However, you have another option, AWS presented a new `Data` certification of the Associate level, `AWS Certified Data Engineer`, you have more information [here](https://aws.amazon.com/certification/certified-data-engineer-associate/){:target="_blank"}.
+{: .prompt-danger }
+
 If you are here, it's likely because you're eager to obtain the certification, or perhaps you're curious about the insights I've shared in this guide!
 
 In either case, rest assured that this guide is a firsthand account of my successful journey to achieve the AWS Certified Data Analytics Specialty certification. I conquered the exam on `October 15th`.
