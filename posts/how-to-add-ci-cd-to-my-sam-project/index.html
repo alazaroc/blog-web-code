@@ -1,0 +1,735 @@
+<!DOCTYPE html><html lang="en" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.3.2" /><meta property="og:title" content="How to add CI/CD to my SAM project" /><meta property="og:locale" content="en" /><meta name="description" content="I will show you how you can deploy a SAM project with AWS CodePipeline using the pipeline integration included in the AWS SAM CLI." /><meta property="og:description" content="I will show you how you can deploy a SAM project with AWS CodePipeline using the pipeline integration included in the AWS SAM CLI." /><link rel="canonical" href="https://www.playingaws.com//posts/how-to-add-ci-cd-to-my-sam-project/" /><meta property="og:url" content="https://www.playingaws.com//posts/how-to-add-ci-cd-to-my-sam-project/" /><meta property="og:site_name" content="Playing AWS" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-04-10T10:53:00+02:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="How to add CI/CD to my SAM project" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-15T10:39:52+02:00","datePublished":"2022-04-10T10:53:00+02:00","description":"I will show you how you can deploy a SAM project with AWS CodePipeline using the pipeline integration included in the AWS SAM CLI.","headline":"How to add CI/CD to my SAM project","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.playingaws.com//posts/how-to-add-ci-cd-to-my-sam-project/"},"url":"https://www.playingaws.com//posts/how-to-add-ci-cd-to-my-sam-project/"}</script><title>How to add CI/CD to my SAM project | Playing AWS</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Playing AWS"><meta name="application-name" content="Playing AWS"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" class="mx-auto"> <img src="/assets/img/favicons/favicon.ico" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title"> <a href="/">Playing AWS</a></div><div class="site-subtitle font-italic">Learn, remove barriers and practice</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://www.linkedin.com/in/alejandro-lazaro-chueca/" aria-label="linkedin" target="_blank" rel="noopener"> <i class="fab fa-linkedin"></i> </a> <a href="https://github.com/alazaroc" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper"><div id="topbar" class="container d-flex align-items-center justify-content-between h-100 pl-3 pr-3 pl-md-4 pr-md-4"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>How to add CI/CD to my SAM project</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper" class="d-flex justify-content-center"><div id="main" class="container pl-xl-4 pr-xl-4"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4"><div class="post pl-1 pr-1 pl-md-2 pr-md-2"> <img src="/assets/img/header.jpeg" alt="header"><h1 data-toc-skip>How to add CI/CD to my SAM project</h1><div class="post-meta text-muted"> <span> Posted <em class="" data-ts="1649580780" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Apr 10, 2022 </em> </span> <span> Updated <em class="" data-ts="1681547992" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Apr 15, 2023 </em> </span><div class="d-flex justify-content-between"> <span> By <em> <a href="https://www.linkedin.com/in/alejandro-lazaro-chueca/">Alejandro Lazaro</a> </em> </span><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3567 words"> <em>19 min</em> read</span></div></div></div><div class="post-content"><hr /><h2 id="introduction"><span class="mr-2">Introduction</span><a href="#introduction" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><blockquote class="prompt-warning"><div><p>This is the second article of SAM. <a href="/posts/how-to-create-serverless-applications-with-sam/" target="_blank">In this other article</a> I had explained how to create serverless applications with SAM, and there I explained all the basic SAM information, so you may need to review it before this.</p></div></blockquote><p>Here we will add CI/CD to our SAM application through the pipeline integration of the AWS SAM CLI.</p><blockquote class="prompt-info"><div><p>As we want <strong>to add automation</strong> to our deployment process and integrate it with the AWS ecosystem, <strong>we will use the AWS Developer tools</strong>.</p></div></blockquote><p>This is the SAM project code on <a href="https://github.com/alazaroc/aws-sam-app" target="_blank">GitHub</a> that we will use in the article. In the <a href="https://github.com/alazaroc/aws-sam-app/commits/main" target="_blank">commit history</a> you can find the evolution of the application through the steps explained.</p><h2 id="add-cicd-to-a-sam-project"><span class="mr-2">Add CI/CD to a SAM project</span><a href="#add-cicd-to-a-sam-project" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>We want to create a CI/CD pipeline to implement continuous deployment (we want that when we push new code, the pipeline deploys our resources automatically).</p><blockquote><p>From AWS doc: AWS SAM provides a set of <code class="language-plaintext highlighter-rouge">default pipeline templates</code> for multiple CI/CD systems that encapsulate AWS’s deployment best practices. These default pipeline templates use standard JSON/YAML pipeline configuration formats, and the built-in best practices help perform multi-account and multi-region deployments and verify that pipelines cannot make unintended changes to infrastructure.</p></blockquote><p>We want to create a <strong>new pipeline in the AWS CodePipeline resource</strong> using the SAM templates.</p><p>To generate a starter pipeline configuration for AWS CodePipeline, we have to perform the following tasks in this order:</p><ol><li>Create infrastructure resources<li>Generate the pipeline configuration<li>Commit your pipeline configuration to the Git repository<li>Deploy your pipeline<li>Connect your Git repository with your CI/CD system</ol><blockquote class="prompt-info"><div><p>After you’ve generated the starter pipeline configuration and committed it to your Git repository, whenever someone commits a code change to that repository your pipeline will be triggered to run automatically.</p></div></blockquote><h3 id="step-1-create-infrastructure-resources"><span class="mr-2">Step 1: Create infrastructure resources</span><a href="#step-1-create-infrastructure-resources" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><code class="language-plaintext highlighter-rouge">Pipelines that use AWS SAM require certain AWS resources</code>, like an IAM user and roles with necessary permissions, an Amazon S3 bucket, and optionally an Amazon ECR repository. You must have a set of infrastructure resources for each deployment stage of the pipeline.</p><p><strong>For each stage</strong> we need (dev, test, prod…), we have to run <code class="language-plaintext highlighter-rouge">sam pipeline bootstrap</code>, and it will create a CloudFormation stack with the name <code class="language-plaintext highlighter-rouge">aws-sam-cli-managed-${stage}-pipeline-resources</code>, which will create the necessary resources that SAM needs.</p><p>We are going to create only one stage with a name <code class="language-plaintext highlighter-rouge">test</code>:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+</pre><td class="rouge-code"><pre><span class="gp">&gt;</span><span class="w"> </span>sam pipeline bootstrap
+<span class="go">
+sam pipeline bootstrap generates the required AWS infrastructure resources to connect
+to your CI/CD system. This step must be run for each deployment stage in your pipeline,
+prior to running the sam pipeline init command.
+
+We will ask for [1] stage definition, [2] account details, and
+[3] references to existing resources in order to bootstrap these pipeline resources.
+
+[1] Stage definition
+Enter a configuration name for this stage. This will be referenced later when you use the sam pipeline init command:
+</span><span class="gp">Stage configuration name: &gt;</span><span class="w"> </span><span class="nb">test</span>
+<span class="go">
+[2] Account details
+The following AWS credential sources are available to use.
+To know more about configuration AWS credentials, visit the link below:
+</span><span class="gp">&lt;https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html&gt;</span><span class="w">
+</span><span class="go">1 - Environment variables (not available)
+2 - default (named profile)
+3 - localstack (named profile)
+q - Quit and configure AWS credentials
+</span><span class="gp">Select a credential source to associate with this stage: &gt;</span><span class="w"> </span>2
+<span class="go">Associated account xxxxxxxxxxxx with configuration test.
+
+Enter the region in which you want these resources to be created [eu-west-1]:
+Enter the pipeline IAM user ARN if you have previously created one, or we will create one for you []:
+
+[3] Reference application build resources
+</span><span class="gp">Enter the pipeline execution role ARN if you have previously created one, or we will create one for you []: &gt;</span><span class="w">
+</span><span class="gp">Enter the CloudFormation execution role ARN if you have previously created one, or we will create one for you []: &gt;</span><span class="w">
+</span><span class="gp">Please enter the artifact bucket ARN for your Lambda function. If you do not have a bucket, we will create one for you []: &gt;</span><span class="w">
+</span><span class="gp">Does your application contain any IMAGE type Lambda functions? [y/N]: &gt;</span><span class="w">
+</span><span class="go">
+[4] Summary
+Below is the summary of the answers:
+1 - Account: xxxxxxxxxxxx
+2 - Stage configuration name: test
+3 - Region: eu-west-1
+4 - Pipeline user: [to be created]
+5 - Pipeline execution role: [to be created]
+6 - CloudFormation execution role: [to be created]
+7 - Artifacts bucket: [to be created]
+8 - ECR image repository: [skipped]
+</span><span class="gp">Press enter to confirm the values above, or select an item to edit the value: &gt;</span><span class="w">
+</span><span class="go">
+This will create the following required resources for the 'test' configuration:
+- Pipeline IAM user
+- Pipeline execution role
+- CloudFormation execution role
+- Artifact bucket
+</span><span class="gp">Should we proceed with the creation? [y/N]: &gt;</span><span class="w"> </span>Y
+<span class="go">Creating the required resources...
+Successfully created!
+The following resources were created in your account:
+- Pipeline IAM user
+- Pipeline execution role
+- CloudFormation execution role
+- Artifact bucket
+Pipeline IAM user credential:
+AWS_ACCESS_KEY_ID: xxxxxxxxxx
+AWS_SECRET_ACCESS_KEY: xxxxxxxxxx
+View the definition in .aws-sam/pipeline/pipelineconfig.toml,
+run sam pipeline bootstrap to generate another set of resources, or proceed to
+sam pipeline init to create your pipeline configuration file.
+
+Before running sam pipeline init, we recommend first setting up AWS credentials
+in your CI/CD account. Read more about how to do so with your provider in
+</span><span class="gp">&lt;https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-generating-example-ci-cd-others.html&gt;</span><span class="nb">.</span>
+</pre></table></code></div></div><p>A new stack is created for our new stage <code class="language-plaintext highlighter-rouge">test</code>.</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-bootstrap-test.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-bootstrap-test.png" alt="sam-pipeline-bootstrap-test" class="lazyload" data-proofer-ignore></a></p><blockquote class="prompt-info"><div><p>If you want more than 1 stage you should repeat the <code class="language-plaintext highlighter-rouge">sam pipeline bootstrap</code> for the new stage (prod?). In this example I only want 1 stage to simplify.</p></div></blockquote><p>In our SAM project now we have 1 new file containing our stage information:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-bootstrap-new-file.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-bootstrap-new-file.png" alt="sam-pipeline-bootstrap-new-file" class="lazyload" data-proofer-ignore></a></p><h3 id="step-2-generate-the-pipeline-configuration"><span class="mr-2">Step 2: Generate the pipeline configuration</span><a href="#step-2-generate-the-pipeline-configuration" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>To generate the pipeline configuration, run the command <code class="language-plaintext highlighter-rouge">sam pipeline init</code>:</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+</pre><td class="rouge-code"><pre><span class="gp">&gt;</span><span class="w"> </span>sam pipeline init
+<span class="go">
+sam pipeline init generates a pipeline configuration file that your CI/CD system
+can use to deploy serverless applications using AWS SAM.
+We will guide you through the process to bootstrap resources for each stage,
+then walk through the details necessary for creating the pipeline config file.
+
+Please ensure you are in the root folder of your SAM application before you begin.
+
+Select a pipeline template to get started:
+ 1 - AWS Quick Start Pipeline Templates
+ 2 - Custom Pipeline Template Location
+</span><span class="gp">Choice: &gt;</span><span class="w"> </span>1
+<span class="go">
+Cloning from https://github.com/aws/aws-sam-cli-pipeline-init-templates.git (process may take a moment)
+Select CI/CD system
+ 1 - Jenkins
+ 2 - GitLab CI/CD
+ 3 - GitHub Actions
+ 4 - Bitbucket Pipelines
+ 5 - AWS CodePipeline
+</span><span class="gp">Choice: &gt;</span><span class="w"> </span>5
+<span class="go">You are using the 2-stage pipeline template.
+ _________    _________
+|         |  |         |
+</span><span class="gp">| Stage 1 |-&gt;</span>| Stage 2 |
+<span class="go">|_________|  |_________|
+
+Checking for existing stages...
+
+Only 1 stage(s) were detected, fewer than what the template requires: 2.
+
+To set up stage(s), please quit the process using Ctrl+C and use one of the following commands:
+sam pipeline init --bootstrap       To be guided through the stage and config file creation process.
+sam pipeline bootstrap              To specify details for an individual stage.
+
+To reference stage resources bootstrapped in a different account, press enter to proceed []:
+What is the Git provider?
+ 1 - Bitbucket
+ 2 - CodeCommit
+ 3 - GitHub
+ 4 - GitHubEnterpriseServer
+</span><span class="gp">Choice []: &gt;</span><span class="w"> </span>3
+<span class="go">What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
+What is the Git branch used for production deployments? [main]:
+What is the template file path? [template.yaml]:
+We use the stage configuration name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
+
+Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+ 1 - test
+</span><span class="gp">Select an index or enter the stage 1's configuration name (as provided during the bootstrapping): &gt;</span><span class="w"> </span>1
+<span class="gp">What is the sam application stack name for stage 1? [sam-app]: &gt;</span><span class="w">
+</span><span class="go">Stage 1 configured successfully, configuring stage 2.
+
+Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+ 1 - test
+Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
+</span></pre></table></code></div></div><p><strong>I have to stop the execution here.</strong></p><p>In the console log below, the following is displayed:</p><ul><li><em>You are using the 2-stage pipeline template</em><li><em>Only 1 stage(s) were detected, fewer than what the template requires: 2.</em></ul><blockquote class="prompt-info"><div><p>In any real project <strong>you should have at least two stages</strong>, so you could use the default AWS template.</p></div></blockquote><p><code class="language-plaintext highlighter-rouge">I don't want to create two stages</code> in my CI/CD pipeline, I am testing a simple SAM project, and <code class="language-plaintext highlighter-rouge">I only want ONE</code>.</p><blockquote class="prompt-danger"><div><p>Unfortunately, you can’t do that with the <code class="language-plaintext highlighter-rouge">AWS Quick Start Pipeline Templates</code> so I forked the main AWS project and I created a custom template with only ONE stage.</p><p>This is my forked project: <a href="https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git" target="_blank">https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git</a></p><p>I had to put my custom template in the root folder because otherwise, the AWS SAM CLI doesn’t work.</p></div></blockquote><p>In the next execution, I will choose option 2 <code class="language-plaintext highlighter-rouge">Custom Pipeline Template Location</code>, and add it to my updated forked repository to create only one stage in the CodePipeline.</p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+</pre><td class="rouge-code"><pre><span class="gp">&gt;</span><span class="w"> </span>sam pipeline init
+<span class="go">
+sam pipeline init generates a pipeline configuration file that your CI/CD system
+can use to deploy serverless applications using AWS SAM.
+We will guide you through the process to bootstrap resources for each stage,
+then walk through the details necessary for creating the pipeline config file.
+
+Please ensure you are in the root folder of your SAM application before you begin.
+
+Select a pipeline template to get started:
+ 1 - AWS Quick Start Pipeline Templates
+ 2 - Custom Pipeline Template Location
+</span><span class="gp">Choice: &gt;</span><span class="w"> </span>2
+<span class="gp">Template Git location: &gt;</span><span class="w"> </span>https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git
+<span class="go">
+Cloning from https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git (process may take a moment)
+You are using the 1-stage pipeline template.
+ _________
+|         |
+| Stage 1 |
+|_________|
+
+Checking for existing stages...
+
+What is the Git provider?
+ 1 - Bitbucket
+ 2 - CodeCommit
+ 3 - GitHub
+ 4 - GitHubEnterpriseServer
+</span><span class="gp">Choice []: &gt;</span><span class="w"> </span>3
+<span class="gp">What is the full repository id (Example: some-user/my-repo)?: &gt;</span><span class="w"> </span>alazaroc/aws-sam-app
+<span class="gp">What is the Git branch used for production deployments? [main]: &gt;</span><span class="w">
+</span><span class="gp">What is the template file path? [template.yaml]: &gt;</span><span class="w">
+</span><span class="go">We use the stage name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
+
+Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+ 1 - test
+What is the name of stage 1 (as provided during the bootstrapping)?
+</span><span class="gp">Select an index or enter the stage name: &gt;</span><span class="w"> </span>1
+<span class="gp">What is the sam application stack name for stage 1? [sam-app]: &gt;</span><span class="w">
+</span><span class="go">Stage 1 configured successfully (you only have one stage).
+
+To deploy this template and connect to the main git branch, run this against the leading account:
+</span><span class="gp">`sam deploy -t codepipeline.yaml --stack-name &lt;stack-name&gt;</span><span class="w"> </span><span class="nt">--capabilities</span><span class="o">=</span>CAPABILITY_IAM<span class="sb">`</span><span class="nb">.</span>
+<span class="go">SUMMARY
+We will generate a pipeline config file based on the following information:
+ What is the Git provider?: GitHub
+ What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
+ What is the Git branch used for production deployments?: main
+ What is the template file path?: template.yaml
+ What is the name of stage 1 (as provided during the bootstrapping)?
+Select an index or enter the stage name: 1
+ What is the sam application stack name for stage 1?: sam-app
+ What is the pipeline execution role ARN for stage 1?: arn:aws:iam::xxxxxxxxxxxx:role/aws-sam-cli-managed-test-pip-PipelineExecutionRole-1RT9YMZ60U7L8
+ What is the CloudFormation execution role ARN for stage 1?: arn:aws:iam::xxxxxxxxxxxx:role/aws-sam-cli-managed-test-CloudFormationExecutionR-FA52519RHRDD
+ What is the S3 bucket name for artifacts for stage 1?: aws-sam-cli-managed-test-pipeline-artifactsbucket-jf6hixn3rx29
+ What is the ECR repository URI for stage 1?:
+ What is the AWS region for stage 1?: eu-west-1
+Successfully created the pipeline configuration file(s):
+ - codepipeline.yaml
+ - assume-role.sh
+ - pipeline/buildspec_unit_test.yml
+ - pipeline/buildspec_build_package.yml
+ - pipeline/buildspec_integration_test.yml
+ - pipeline/buildspec_feature.yml
+ - pipeline/buildspec_deploy.yml
+</span></pre></table></code></div></div><p>Now we have the new files in our project that CodePipeline will use to deploy our code:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-init-one-stage.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-init-one-stage.png" alt="sam-pipeline-init-one-stage" class="lazyload" data-proofer-ignore></a></p><h3 id="step-3-commit-your-pipeline-configuration-to-git"><span class="mr-2">Step 3: Commit your pipeline configuration to Git</span><a href="#step-3-commit-your-pipeline-configuration-to-git" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>This step is necessary to ensure your CI/CD system is aware of your pipeline configuration and will run when changes are committed.</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-init-commit.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-init-commit.png" alt="sam-pipeline-init-commit" class="lazyload" data-proofer-ignore></a></p><h3 id="step-4-deploy-your-pipeline"><span class="mr-2">Step 4: Deploy your pipeline</span><a href="#step-4-deploy-your-pipeline" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>For <strong>AWS CodePipeline</strong> you have to deploy the pipeline running <code class="language-plaintext highlighter-rouge">sam deploy -t codepipeline.yaml --stack-name &lt;pipeline-stack-name&gt; --capabilities=CAPABILITY_IAM --region &lt;region-X&gt;</code></p><blockquote class="prompt-warning"><div><p>Don’t set the same stack name as your SAM application because doing so will overwrite your application’s stack (and delete your application resources).</p></div></blockquote><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+</pre><td class="rouge-code"><pre><span class="gp">&gt;</span><span class="w"> </span>sam deploy <span class="nt">-t</span> codepipeline.yaml <span class="nt">--stack-name</span> sam-app-pipeline <span class="nt">--capabilities</span><span class="o">=</span>CAPABILITY_IAM
+<span class="go">
+    Deploying with following values
+    ===============================
+    Stack name                   : sam-app-pipeline
+    Region                       : eu-west-1
+    Confirm changeset            : True
+    Disable rollback             : False
+    Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-19wv6mek3hxyw
+    Capabilities                 : ["CAPABILITY_IAM"]
+    Parameter overrides          : {}
+    Signing Profiles             : {}
+
+Initiating deployment
+=====================
+File with same data already exists at sam-app/f421d3ae8f9c85b69c81f641d104e1eb.template, skipping upload
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+-------------------------------------------------------------------------------------------------------------------------
+Operation                      LogicalResourceId              ResourceType                   Replacement
+-------------------------------------------------------------------------------------------------------------------------
++ Add                          CodeBuildProjectBuildAndPack   AWS::CodeBuild::Project        N/A
++ Add                          CodeBuildProjectDeploy         AWS::CodeBuild::Project        N/A
++ Add                          CodeBuildServiceRole           AWS::IAM::Role                 N/A
++ Add                          CodePipelineExecutionRole      AWS::IAM::Role                 N/A
++ Add                          CodeStarConnection             AWS::CodeStarConnections::Co   N/A
++ Add                          PipelineArtifactsBucketPolic   AWS::S3::BucketPolicy          N/A
++ Add                          PipelineArtifactsBucket        AWS::S3::Bucket                N/A
++ Add                          PipelineArtifactsLoggingBuck   AWS::S3::BucketPolicy          N/A
++ Add                          PipelineArtifactsLoggingBuck   AWS::S3::Bucket                N/A
++ Add                          PipelineStackCloudFormationE   AWS::IAM::Role                 N/A
++ Add                          Pipeline                       AWS::CodePipeline::Pipeline    N/A
+-------------------------------------------------------------------------------------------------------------------------
+
+Changeset created successfully. arn:aws:cloudformation:eu-west-1:xxxxxxxxxxxx:changeSet/samcli-deploy1649184605/5c7e3379-74d0-486e-a387-99837b6ab74b
+
+
+Previewing CloudFormation changeset before deployment
+======================================================
+</span><span class="gp">Deploy this changeset? [y/N]: &gt;</span><span class="w"> </span>Y
+<span class="go">
+2022-04-05 20:50:13 - Waiting for stack create/update to complete
+
+CloudFormation events from stack operations
+-------------------------------------------------------------------------------------------------------------------------
+ResourceStatus                 ResourceType                   LogicalResourceId              ResourceStatusReason
+-------------------------------------------------------------------------------------------------------------------------
+CREATE_IN_PROGRESS             AWS::S3::Bucket                PipelineArtifactsLoggingBuck   -
+CREATE_IN_PROGRESS             AWS::IAM::Role                 PipelineStackCloudFormationE   -
+CREATE_IN_PROGRESS             AWS::CodeStarConnections::Co   CodeStarConnection             -
+CREATE_IN_PROGRESS             AWS::IAM::Role                 PipelineStackCloudFormationE   Resource creation Initiated
+CREATE_IN_PROGRESS             AWS::S3::Bucket                PipelineArtifactsLoggingBuck   Resource creation Initiated
+CREATE_COMPLETE                AWS::CodeStarConnections::Co   CodeStarConnection             -
+CREATE_IN_PROGRESS             AWS::CodeStarConnections::Co   CodeStarConnection             Resource creation Initiated
+CREATE_COMPLETE                AWS::IAM::Role                 PipelineStackCloudFormationE   -
+CREATE_COMPLETE                AWS::S3::Bucket                PipelineArtifactsLoggingBuck   -
+CREATE_IN_PROGRESS             AWS::S3::BucketPolicy          PipelineArtifactsLoggingBuck   -
+CREATE_IN_PROGRESS             AWS::S3::Bucket                PipelineArtifactsBucket        -
+CREATE_IN_PROGRESS             AWS::S3::Bucket                PipelineArtifactsBucket        Resource creation Initiated
+CREATE_COMPLETE                AWS::S3::BucketPolicy          PipelineArtifactsLoggingBuck   -
+CREATE_IN_PROGRESS             AWS::S3::BucketPolicy          PipelineArtifactsLoggingBuck   Resource creation Initiated
+CREATE_COMPLETE                AWS::S3::Bucket                PipelineArtifactsBucket        -
+CREATE_IN_PROGRESS             AWS::IAM::Role                 CodeBuildServiceRole           -
+CREATE_IN_PROGRESS             AWS::IAM::Role                 CodeBuildServiceRole           Resource creation Initiated
+CREATE_COMPLETE                AWS::IAM::Role                 CodeBuildServiceRole           -
+CREATE_IN_PROGRESS             AWS::CodeBuild::Project        CodeBuildProjectBuildAndPack   -
+CREATE_IN_PROGRESS             AWS::CodeBuild::Project        CodeBuildProjectDeploy         -
+CREATE_IN_PROGRESS             AWS::CodeBuild::Project        CodeBuildProjectDeploy         Resource creation Initiated
+CREATE_IN_PROGRESS             AWS::CodeBuild::Project        CodeBuildProjectBuildAndPack   Resource creation Initiated
+CREATE_COMPLETE                AWS::CodeBuild::Project        CodeBuildProjectDeploy         -
+CREATE_COMPLETE                AWS::CodeBuild::Project        CodeBuildProjectBuildAndPack   -
+CREATE_IN_PROGRESS             AWS::IAM::Role                 CodePipelineExecutionRole      -
+CREATE_IN_PROGRESS             AWS::IAM::Role                 CodePipelineExecutionRole      Resource creation Initiated
+CREATE_COMPLETE                AWS::IAM::Role                 CodePipelineExecutionRole      -
+CREATE_IN_PROGRESS             AWS::S3::BucketPolicy          PipelineArtifactsBucketPolic   -
+CREATE_IN_PROGRESS             AWS::S3::BucketPolicy          PipelineArtifactsBucketPolic   Resource creation Initiated
+CREATE_IN_PROGRESS             AWS::CodePipeline::Pipeline    Pipeline                       -
+CREATE_COMPLETE                AWS::S3::BucketPolicy          PipelineArtifactsBucketPolic   -
+CREATE_IN_PROGRESS             AWS::CodePipeline::Pipeline    Pipeline                       Resource creation Initiated
+CREATE_COMPLETE                AWS::CodePipeline::Pipeline    Pipeline                       -
+CREATE_COMPLETE                AWS::CloudFormation::Stack     sam-app-pipeline               -
+-------------------------------------------------------------------------------------------------------------------------
+
+CloudFormation outputs from deployed stack
+---------------------------------------------------------------------------------------------------------------------------
+Outputs
+---------------------------------------------------------------------------------------------------------------------------
+Key                 CodeStarConnectionArn
+Description         The Arn of AWS CodeStar Connection used to connect to external code repositories.
+Value               arn:aws:codestar-connections:eu-west-1:xxxxxxxxxxxx:connection/81d48b76-1ae7-4d69-b6eb-11eea6acf94a
+---------------------------------------------------------------------------------------------------------------------------
+
+Successfully created/updated stack - sam-app-pipeline in eu-west-1
+</span></pre></table></code></div></div><p>A new stack has been created to deploy our AWS CodePipeline:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-stack-cicd.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-stack-cicd.png" alt="sam-pipeline-stack-cicd" class="lazyload" data-proofer-ignore></a></p><blockquote class="prompt-danger"><div><p>But the first execution has failed</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error.png" alt="sam-pipeline-error" class="lazyload" data-proofer-ignore></a></p></div></blockquote><p>We can see in the CodePipeline flow all steps created:</p><ul><li><strong>Source</strong>: integrated with GitHub as we indicated before<li><strong>UpdatePipeline</strong>: the pipeline can update itself<li><strong>BuildAndPackage</strong>: the SAM application is built, packaged, and uploaded (with AWS CodeBuild service)<li><strong>DeployTest</strong>: the SAM application is deployed (with AWS CodeBuild service)</ul><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-execution.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-execution.png" alt="sam-pipeline-error-execution" class="lazyload" data-proofer-ignore></a></p><p>The cause of the error was that the <strong>connection between GitHub and AWS must be confirmed after being created</strong>:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-detail.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-error-detail.png" alt="sam-pipeline-error-detail" class="lazyload" data-proofer-ignore></a></p><h3 id="step-5-connect-your-git-repository-with-your-cicd-system"><span class="mr-2">Step 5: Connect your Git repository with your CI/CD system</span><a href="#step-5-connect-your-git-repository-with-your-cicd-system" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><blockquote class="prompt-warning"><div><p>If you are using GitHub or Bitbucket, after running the <code class="language-plaintext highlighter-rouge">sam deploy</code> command, you need to complete the <strong>pending connection</strong> in the Settings/Connection section of the Developer Tools.</p><p>In addition, you could store a copy of the CodeStarConnectionArn from the output of the sam deploy command, because you will need it if you want to use AWS CodePipeline with another branch than main.</p></div></blockquote><p>By accessing the Settings/Connections in the Developer Tools, you can validate that the connection is pending approval:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-connection.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-connection.png" alt="sam-pipeline-connection" class="lazyload" data-proofer-ignore></a></p><p>After activating it, we run the pipeline again (by clicking on the <kbd>Release change</kbd> button) and now the pipeline ends correctly.</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-ok-execution.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-ok-execution.png" alt="sam-pipeline-ok-execution" class="lazyload" data-proofer-ignore></a></p><h2 id="update-cicd-steps-to-the-sam-project"><span class="mr-2">Update CI/CD steps to the SAM project</span><a href="#update-cicd-steps-to-the-sam-project" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Note that now we have a pipeline that first checks for changes in the pipeline itself and then checks the code and deploys the resources.</p><h3 id="step-1-update-steps-in-the-pipeline-automatically"><span class="mr-2">Step 1: Update steps in the pipeline automatically</span><a href="#step-1-update-steps-in-the-pipeline-automatically" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><blockquote class="prompt-info"><div><p>With this pipeline configuration (with <code class="language-plaintext highlighter-rouge">UpdatePipeline</code> step) all the changes that we make in the pipeline will be updated automatically.</p></div></blockquote><p>We want to test the automatic update of the pipeline if we make some changes.</p><p>So, let’s change the pipeline steps to:</p><ul><li>delete the <code class="language-plaintext highlighter-rouge">UpdatePipeline</code> step<li>add the <code class="language-plaintext highlighter-rouge">UnitTest</code> step</ul><p>To do this, we have to update the <kbd>codepipeline.yaml</kbd> file with the necessary changes:</p><ul><li>comment all the <code class="language-plaintext highlighter-rouge">UpdatePipeline</code> step code<li>uncomment all the <code class="language-plaintext highlighter-rouge">UnitTest</code> step code</ul><p>And after that, commit the changes and push them to the repository:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-codepipeline-update-steps.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-codepipeline-update-steps.png" alt="sam-codepipeline-update-steps" class="lazyload" data-proofer-ignore></a></p><p>When we push the changes, the <code class="language-plaintext highlighter-rouge">UpdatePipeline</code> step executes an update on the <code class="language-plaintext highlighter-rouge">sam-app-pipeline</code> stack (in the CloudFormation service) and it will update the pipeline definition.</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-app-pipeline-updating.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-app-pipeline-updating.png" alt="sam-app-pipeline-updating" class="lazyload" data-proofer-ignore></a></p><p>As we expected, <strong>the pipeline has updated itself</strong> and now we have <code class="language-plaintext highlighter-rouge">UnitTest</code> step but not <code class="language-plaintext highlighter-rouge">UpdatePipeline</code>.</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-app-pipeline-updated-execution.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-app-pipeline-updated-execution.png" alt="sam-app-pipeline-updated-execution" class="lazyload" data-proofer-ignore></a></p><h3 id="step-2-update-steps-in-the-pipeline-manually"><span class="mr-2">Step 2: Update steps in the pipeline manually</span><a href="#step-2-update-steps-in-the-pipeline-manually" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><blockquote class="prompt-info"><div><p>If you remove the <code class="language-plaintext highlighter-rouge">UpdatePipeline</code> step, when you push a change to the repository the pipeline won’t be updated, so you have to run manually the update of the pipeline.</p></div></blockquote><p>To update the pipeline we have to run again the command <code class="language-plaintext highlighter-rouge">sam deploy -t codepipeline.yaml --stack-name sam-app-pipeline --capabilities=CAPABILITY_IAM</code></p><div class="language-console highlighter-rouge"><div class="code-header"> <span data-label-text="Console"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+</pre><td class="rouge-code"><pre><span class="gp">&gt;</span><span class="w"> </span>sam deploy <span class="nt">-t</span> codepipeline.yaml <span class="nt">--stack-name</span> sam-app-pipeline <span class="nt">--capabilities</span><span class="o">=</span>CAPABILITY_IAM
+<span class="go">
+ Deploying with following values
+ ===============================
+ Stack name                   : sam-app-pipeline
+ Region                       : eu-west-1
+ Confirm changeset            : True
+ Disable rollback             : False
+ Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-bymcog0ibyy0
+ Capabilities                 : ["CAPABILITY_IAM"]
+ Parameter overrides          : {}
+ Signing Profiles             : {}
+
+Initiating deployment
+=====================
+Uploading to sam-app/23360d9a8d229e9ea24f2e1a53ea8b00.template  15967 / 15967  (100.00%)
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+-------------------------------------------------------------------------------------------------
+Operation                LogicalResourceId        ResourceType             Replacement
+-------------------------------------------------------------------------------------------------
+* Modify                 CodeBuildProjectBuildA   AWS::CodeBuild::Projec   Conditional
+* Modify                 CodeBuildProjectDeploy   AWS::CodeBuild::Projec   Conditional
+* Modify                 CodeBuildServiceRole     AWS::IAM::Role           False
+* Modify                 CodePipelineExecutionR   AWS::IAM::Role           False
+* Modify                 CodeStarConnection       AWS::CodeStarConnectio   False
+* Modify                 PipelineArtifactsBucke   AWS::S3::BucketPolicy    False
+* Modify                 PipelineArtifactsBucke   AWS::S3::Bucket          False
+* Modify                 PipelineArtifactsLoggi   AWS::S3::BucketPolicy    False
+* Modify                 PipelineArtifactsLoggi   AWS::S3::Bucket          False
+* Modify                 PipelineStackCloudForm   AWS::IAM::Role           False
+* Modify                 Pipeline                 AWS::CodePipeline::Pip   False
+- Delete                 CodeBuildProjectUnitTe   AWS::CodeBuild::Projec   N/A
+-------------------------------------------------------------------------------------------------
+
+Changeset created successfully. arn:aws:cloudformation:eu-west-1:xxxxxxxxxxxx:changeSet/samcli-deploy1649503303/4d23550d-27da-458d-ba18-f3be6db7ca54
+
+
+Previewing CloudFormation changeset before deployment
+======================================================
+</span><span class="gp">Deploy this changeset? [y/N]: &gt;</span><span class="w"> </span>Y
+<span class="go">
+2022-04-09 13:22:01 - Waiting for stack create/update to complete
+
+CloudFormation events from stack operations
+-------------------------------------------------------------------------------------------------
+ResourceStatus           ResourceType             LogicalResourceId        ResourceStatusReason
+-------------------------------------------------------------------------------------------------
+UPDATE_COMPLETE          AWS::S3::Bucket          PipelineArtifactsLoggi   -
+UPDATE_COMPLETE          AWS::IAM::Role           PipelineStackCloudForm   -
+UPDATE_COMPLETE          AWS::CodeStarConnectio   CodeStarConnection       -
+UPDATE_COMPLETE          AWS::S3::Bucket          PipelineArtifactsBucke   -
+UPDATE_COMPLETE          AWS::S3::BucketPolicy    PipelineArtifactsLoggi   -
+UPDATE_COMPLETE          AWS::IAM::Role           CodeBuildServiceRole     -
+UPDATE_COMPLETE          AWS::CodeBuild::Projec   CodeBuildProjectBuildA   -
+UPDATE_COMPLETE          AWS::CodeBuild::Projec   CodeBuildProjectDeploy   -
+UPDATE_IN_PROGRESS       AWS::IAM::Role           CodePipelineExecutionR   -
+UPDATE_COMPLETE          AWS::IAM::Role           CodePipelineExecutionR   -
+UPDATE_COMPLETE          AWS::S3::BucketPolicy    PipelineArtifactsBucke   -
+UPDATE_IN_PROGRESS       AWS::CodePipeline::Pip   Pipeline                 -
+UPDATE_COMPLETE          AWS::CodePipeline::Pip   Pipeline                 -
+UPDATE_COMPLETE_CLEANU   AWS::CloudFormation::S   sam-app-pipeline         -
+DELETE_IN_PROGRESS       AWS::CodeBuild::Projec   CodeBuildProjectUnitTe   -
+UPDATE_COMPLETE          AWS::CloudFormation::S   sam-app-pipeline         -
+DELETE_COMPLETE          AWS::CodeBuild::Projec   CodeBuildProjectUnitTe   -
+-------------------------------------------------------------------------------------------------
+
+CloudFormation outputs from deployed stack
+-------------------------------------------------------------------------------------------------
+Outputs
+-------------------------------------------------------------------------------------------------
+Key                 CodeStarConnectionArn
+Description         The Arn of AWS CodeStar Connection used to connect to external code
+repositories.
+Value               arn:aws:codestar-connections:eu-
+west-1:xxxxxxxxxxxx:connection/cc4ce462-f77f-43ab-b63c-8012ef6a467e
+-------------------------------------------------------------------------------------------------
+
+Successfully created/updated stack - sam-app-pipeline in eu-west-1
+</span></pre></table></code></div></div><p>And the pipeline will be updated:</p><p><a href="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-simplified.png" class="popup img-link border"><img data-src="/assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/sam-pipeline-simplified.png" alt="sam-pipeline-simplified" class="lazyload" data-proofer-ignore></a></p><h3 id="summary-of-the-current-state"><span class="mr-2">Summary of the current state</span><a href="#summary-of-the-current-state" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>After all the changes that we made:</p><ul><li>Now, we have 3 steps in our CodePipeline:<ul><li><strong>Source</strong>: integrated with GitHub as we indicated before<li><strong>BuildAndPackage</strong>: the SAM application is built, packaged, and uploaded (with AWS CodeBuild service)<li><strong>DeployTest</strong>: the SAM application is deployed (with AWS CodeBuild service)</ul><li>To summarize the current state:<ul><li>If we change the SAM application and update the code in our GitHub repository, the pipeline will update the resources in our AWS account.<li>If we want to update the pipeline itself, we have to update the specific pipeline files in our SAM application, and then run manually the command <code class="language-plaintext highlighter-rouge">sam deploy -t codepipeline.yaml --stack-name sam-app-pipeline --capabilities=CAPABILITY_IAM</code>.</ul></ul><h2 id="clean-up"><span class="mr-2">Clean up</span><a href="#clean-up" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>We have created 4 stacks in CloudFormation related to SAM:</p><ul><li><strong>sam-app</strong>: application code<li><strong>sam-app-pipeline</strong>: codepipeline<li><strong>aws-sam-cli-managed-test-pipeline-resources</strong>: test stage resources<li><strong>aws-sam-cli-managed-default</strong>: general SAM resources</ul><blockquote class="prompt-tip"><div><p>If you want to use SAM in the future you could keep the <code class="language-plaintext highlighter-rouge">aws-sam-cli-managed-default</code> stack.</p></div></blockquote><p>You have several ways to delete your resources:</p><ul><li>AWS CloudFormation service<li>AWS CLI<li>WS SAM CLI</ul><blockquote class="prompt-note"><div><p>If you execute the command <code class="language-plaintext highlighter-rouge">sam delete</code>, it only will delete the main stack (sam-app) but not the CI/CD pipeline or the stage resources stack.</p></div></blockquote></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/devops/'>DevOps</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/how-to/" class="post-tag no-text-decoration" >how-to</a> <a href="/tags/sam/" class="post-tag no-text-decoration" >sam</a> <a href="/tags/iac/" class="post-tag no-text-decoration" >iac</a> <a href="/tags/cicd/" class="post-tag no-text-decoration" >cicd</a> <a href="/tags/codepipeline/" class="post-tag no-text-decoration" >codepipeline</a> <a href="/tags/codebuild/" class="post-tag no-text-decoration" >codebuild</a> <a href="/tags/github/" class="post-tag no-text-decoration" >github</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=How%20to%20add%20CI/CD%20to%20my%20SAM%20project%20-%20Playing%20AWS&url=https%3A%2F%2Fwww.playingaws.com%2F%2Fposts%2Fhow-to-add-ci-cd-to-my-sam-project%2F" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fwww.playingaws.com%2F%2Fposts%2Fhow-to-add-ci-cd-to-my-sam-project%2F&text=How%20to%20add%20CI/CD%20to%20my%20SAM%20project%20-%20Playing%20AWS" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.playingaws.com%2F%2Fposts%2Fhow-to-add-ci-cd-to-my-sam-project%2F" data-toggle="tooltip" data-placement="top" title="Linkedin" target="_blank" rel="noopener" aria-label="Linkedin"> <i class="fa-fw fab fa-linkedin"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading"></div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/aws-open-source-tools/">Getting started with AWS open-source tools</a><li><a href="/posts/getting-started-with-aws-security/">Getting Started with AWS Security</a><li><a href="/posts/how-to-improve-your-account-security/">How to improve your account security</a></ul></div><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/challenge-data-certification-in-30-days/">Challenge: 'AWS Certified Data Analytics Specialty' in 30 days</a><li><a href="/posts/10-steps-to-prepare-any-aws-certification/">10 steps to prepare any AWS certification</a><li><a href="/posts/aws-control-tower-deep-dive/">AWS Control Tower Deep Dive</a><li><a href="/posts/the-technology-behind-this-blog/">How I decided on the technology behind the blog</a><li><a href="/posts/multi-account-approach/">Getting started with AWS Multi-account approach</a></ul></div><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/github/">github</a> <a class="post-tag" href="/tags/how-to/">how-to</a> <a class="post-tag" href="/tags/security/">security</a> <a class="post-tag" href="/tags/iac/">iac</a> <a class="post-tag" href="/tags/getting-started/">getting-started</a> <a class="post-tag" href="/tags/cdk/">cdk</a> <a class="post-tag" href="/tags/deep-dive/">deep dive</a> <a class="post-tag" href="/tags/serverless/">serverless</a> <a class="post-tag" href="/tags/certification/">certification</a> <a class="post-tag" href="/tags/open-source/">open-source</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4"><div id="related-posts" class="mb-2 mb-sm-4"><h3 class="pt-2 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/how-to-add-ci-cd-to-my-cdk-project/"><div class="card-body"> <em class="small" data-ts="1648256580" data-df="ll" > Mar 26, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>How to add CI/CD to my CDK project</h3><div class="text-muted small"><p> TLDR I already have a CDK project on GitHub here, but to deploy it I have to run the CDK Toolkit command cdk deploy from my local machine. I want to add automation to my deployment process and ...</p></div></div></a></div><div class="card"> <a href="/posts/how-to-create-serverless-applications-with-sam/"><div class="card-body"> <em class="small" data-ts="1649509620" data-df="ll" > Apr 9, 2022 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>How to create serverless applications with SAM</h3><div class="text-muted small"><p> Introduction The AWS Serverless Application Model (AWS SAM) is an open-source framework that you can use to build serverless applications on AWS. A serverless application is more than just a La...</p></div></div></a></div><div class="card"> <a href="/posts/how-to-deploy-serverless-website-with-terraform/"><div class="card-body"> <em class="small" data-ts="1683312780" data-df="ll" > May 5, 2023 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>How to deploy a serverless website with Terraform</h3><div class="text-muted small"><p> Introduction As you already know, creating and managing infrastructure can be a complex and time-consuming process, and fortunately, tools like Terraform can simplify this process by allowing yo...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/how-to-create-serverless-applications-with-sam/" class="btn btn-outline-primary" prompt="Older"><p>How to create serverless applications with SAM</p></a> <a href="/posts/how-to-create-serverless-applications-with-cdk-and-sam/" class="btn btn-outline-primary" prompt="Newer"><p>How to create serverless applications with CDK and SAM</p></a></div><script type="text/javascript"> document.getElementsByClassName("post-content")[0].innerHTML += '<h2 id="comment-this-post">Comment this post</h2>'; document.getElementsByClassName("post-content")[0].innerHTML += '<p>I hope this content has been relevant to you. To help me improve it would be helpful if you could give me your honest feedback.</p>'; $(function () { const origin = "https://giscus.app"; const iframe = "iframe.giscus-frame"; const lightTheme = "light"; const darkTheme = "dark_dimmed"; let initTheme = lightTheme; if ($("html[data-mode=dark]").length > 0 || ($("html[data-mode]").length == 0 && window.matchMedia("(prefers-color-scheme: dark)").matches)) { initTheme = darkTheme; } let giscusAttributes = { "src": "https://giscus.app/client.js", "data-repo": "alazaroc/blog-web", "data-repo-id": "R_kgDOHA-hqQ", "data-category": "Announcements", "data-category-id": "DIC_kwDOHA-hqc4CT2E5", "data-mapping": "pathname", "data-reactions-enabled": "1", "data-emit-metadata": "0", "data-theme": initTheme, "data-input-position": "top", "data-lang": "", "crossorigin": "anonymous", "async": "" }; let giscusScript = document.createElement("script"); Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value)); document.getElementsByClassName("post-content")[0].appendChild(giscusScript); addEventListener("message", (event) => { if (event.source === window && event.data && event.data.direction === ModeToggle.ID) { /* global theme mode changed */ const mode = event.data.message; const theme = (mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme); const message = { setConfig: { theme: theme } }; const giscus = document.querySelector(iframe).contentWindow; giscus.postMessage({ giscus: message }, origin); } }); }); </script></div></div></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/github/">github</a> <a class="post-tag" href="/tags/how-to/">how-to</a> <a class="post-tag" href="/tags/security/">security</a> <a class="post-tag" href="/tags/iac/">iac</a> <a class="post-tag" href="/tags/getting-started/">getting-started</a> <a class="post-tag" href="/tags/cdk/">cdk</a> <a class="post-tag" href="/tags/deep-dive/">deep dive</a> <a class="post-tag" href="/tags/serverless/">serverless</a> <a class="post-tag" href="/tags/certification/">certification</a> <a class="post-tag" href="/tags/open-source/">open-source</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><footer><div class="container pl-lg-4 pr-lg-4"><div class="d-flex justify-content-between align-items-center text-muted ml-md-3 mr-md-3"><div class="footer-left"><p class="mb-0"> © 2023 <a href="https://www.linkedin.com/in/alejandro-lazaro-chueca/">Alejandro Lazaro</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0">Deployed with AWS resources.</p></div></div></div></footer><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a><div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-autohide="false"><div class="toast-header"> <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="toast-body text-center pt-0"><p class="pl-2 pr-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></div><script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lazysizes@5.3.2/lazysizes.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/en.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-HW1NDPDLBF"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-HW1NDPDLBF'); }); </script>
