@@ -6,9 +6,11 @@ order: 4
 
 ## Me
 
-I am a Cloud & Solutions Architect specialized in AWS. I started as a developer but evolved to an architect, and now with more than 10 years of experience, I have been involved with different clients in all phases of software development and have worked with all kinds of architectures: monolithic, microservices, event-driven, SOA (service-oriented), serverless, cloud-native... I have also worked on modernization projects, DevOps transformations, and security assessments... I often teach AWS to my co-workers and like to collaborate on anything AWS-related that I can help with. I love serverless, event-driven architectures, DevOps, security and new technology challenges.
+I am a Cloud Architect specialized in AWS. I started as a developer and evolved to a software architect and then to a cloud architect. Now with more than 12 years of experience, I have been involved with different clients in all the phases of software development and have worked with all kinds of architectures: monolithic, microservices, event-driven, SOA (service-oriented), serverless, cloud-native... I have also worked on modernization projects, DevOps transformations, security assessments... I teach AWS to my co-workers and I like to collaborate on anything AWS-related that I can help with. 
 
-Finally, I also have 6 AWS certifications (the 3 associate, the 2 professional and the Security Specialty). You can find more information about my professional experience on my [LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/){:target="_blank"}. Of course, I will be happy to connect with anyone interested.
+I love serverless, event-driven and native architectures, DevOps, security and new technology challenges.
+
+Finally, I also have 7 AWS certifications (the 3 associate, the 2 professional and the Security and Data Analytics Specialities). You can find more information about my professional experience on my [LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/){:target="_blank"}. Of course, I will be happy to connect with anyone interested.
 
 ## The Blog
 
@@ -25,7 +27,7 @@ Finally, I also have 6 AWS certifications (the 3 associate, the 2 professional a
   - I don’t want to sell you anything
   - I don’t expect any income from the blog
   - I just want to keep learning, share knowledge and make it publicly accessible
-- The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}, but this is the architecture:
+- The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}, but this is the current architecture:
   - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
 
 > To me, "**play with AWS**" means <kbd>PRACTICE</kbd>, experiment trying something new and <kbd>keep learning</kbd>, so my domain is `playingaws`.
