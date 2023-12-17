@@ -33,7 +33,7 @@ My technology approach is:
 - Serverless architecture
 - I applied the separation of concerns design principle to frontend and backend:
   - **Frontend**: Static website generated with Jekyll and deployed with AWS Amplify
-    - Code [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
+    - Code [here](https://github.com/alazaroc/blog-web-code/){:target="_blank"}
   - **Backend**: AWS resources deployed with CDK using the TypeScript language
     - Code [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}
 - This is the architecture of my blog:
@@ -215,7 +215,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
 Initially, in version 1, I used:
 
 - `CDK with TypeScript` programming language to deploy `backend infrastructure` using this GitHub repository: [https://github.com/alazaroc/blog-backend-infrastructure](https://github.com/alazaroc/blog-backend-infrastructure){:target="_blank"}.
-- `Amplify Hosting` to create for me the `frontend infrastructure` to deploy the Jekyll web located in this GitHub repository: [https://github.com/alazaroc/blog-web](https://github.com/alazaroc/blog-web){:target="_blank"}.
+- `Amplify Hosting` to create for me the `frontend infrastructure` to deploy the Jekyll web located in this GitHub repository: [https://github.com/alazaroc/blog-web-code](https://github.com/alazaroc/blog-web-code){:target="_blank"}.
 
 Honestly, I did not evaluate other options, since I knew which one to choose and I wanted to be as simple as possible.
 

@@ -101,7 +101,7 @@ comments:
   #     issue_term: # < url | pathname | title | ...>
   #   # Giscus options › https://giscus.app
   giscus:
-    repo: alazaroc/blog-web
+    repo: alazaroc/blog-web-code
     repo_id: R_kgDOHA-hqQ
     category: Announcements
     category_id: DIC_kwDOHA-hqc4CT2E5

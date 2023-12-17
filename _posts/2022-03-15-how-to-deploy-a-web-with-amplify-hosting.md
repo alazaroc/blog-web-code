@@ -27,7 +27,7 @@ img_path: /assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/
 
 This is a practical use case where I will explain step by step how I deployed my blog using Amplify Hosting. I will use the AWS Console to do it.
 
-The source code of my blog (web) is available [here](https://github.com/alazaroc/blog-web/){:target="_blank"}
+The source code of my blog (web) is available [here](https://github.com/alazaroc/blog-web-code/){:target="_blank"}
 
 ## Introduction
 
