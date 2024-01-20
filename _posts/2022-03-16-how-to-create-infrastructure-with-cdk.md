@@ -101,7 +101,7 @@ The typescript sources need to be compiled into JavaScript.
 
 **What is the fastest way to create a new CDK project and deploy it in your AWS account?**
 
-``` console
+```shell
 # Create an empty folder
 mkdir cdk-basic-example && cd cdk-basic-example
 
@@ -131,7 +131,7 @@ Let's destroy the stack. I know this section maybe should be at the end, but whe
 > If you try to do something different and on your own, you will learn faster!
 {: .prompt-tip }
 
-``` console
+```console
 # Delete the CloudFormation stack (so it will delete all resources related)
 cdk destroy --force
 ```
@@ -146,7 +146,7 @@ Perhaps we want to check what is to be deployed before we deploy it?
 
 It makes sense to me.
 
-``` console
+```console
 # Synthesizes the CloudFormation template for the specified stack(s)
 # In the console, the template will be printed in yaml format
 # In the "cdk.out" folder, the template will be in json format
@@ -159,7 +159,7 @@ cdk synth
 
 What if we compare the local code with the stack deployed in the AWS account?
 
-``` console
+```console
 cdk diff
 ```
 
@@ -180,13 +180,13 @@ We can see all the new resources that will be created:
 
 We deploy it again:
 
-``` console
+```console
 cdk deploy --require-approval never
 ```
 
 And we run the diff command again to see the differences between the local code and the deployed stack:
 
-``` console
+```console
 cdk diff
 ```
 
@@ -200,7 +200,7 @@ This file contains the 2 AWS resources of my example, a queue (red) and a topic 
 
 ![cdk-code-2](cdk-code-2.png)
 
-``` console
+```console
 cdk diff
 ```
 

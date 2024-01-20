@@ -69,7 +69,7 @@ To understand the code structure of the SAM projects, five files are particularl
 
 This is the `template.yaml` content for a Lambda Function:
 
-``` yaml
+```yaml
 # The AWSTemplateFormatVersion identifies the capabilities of the template
 # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
 AWSTemplateFormatVersion: 2010-09-09
@@ -107,7 +107,7 @@ Resources:
 
 To add an API (Amazon API Gateway) to your Lambda Function you will have to update inside the properties by adding `Events` as follows:
 
-``` yaml
+```yaml
 Resources:
   HelloWorldFunction:
     Properties:
@@ -122,17 +122,18 @@ Resources:
 
 And you have to create in `events` folder the json definition of the method:
 
-``` json
+```json
 {
     "httpMethod": "GET"
 }
 ```
+{: .nolineno }
 
 #### Add an scheduled event
 
 Include a scheduled event is pretty similar to add an API.
 
-``` yaml
+```yaml
 Resources:
   HelloWorldFunction:
     Properties:
@@ -146,7 +147,7 @@ Resources:
 
 And you have to create in `events` folder the json definition of the rule:
 
-``` json
+```json
 {
   "id": "cdc73f9d-aea9-11e3-9d5a-835b769c0d9c",
   "detail-type": "Scheduled Event",
@@ -197,7 +198,7 @@ The first step is to create our application through a quick start template: `Sta
 
 To create a new application from a template we run the `sam init` command.
 
-``` console
+```shell
 > sam init
 
 Which template source would you like to use?
@@ -273,7 +274,7 @@ The AWS SAM CLI provides the `sam local` command to run your application using D
 
 Invoke your Lambda function running `sam local invoke`:
 
-``` console
+```shell
 > sam local invoke
 Invoking src/handlers/hello-from-lambda.helloFromLambdaHandler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.43.0-x86_64.
@@ -290,7 +291,7 @@ We received the response <kbd>"Hello from Lambda!"</kbd> and more useful informa
 
 If you have more than one Lambda Function, you must add the name which appears in the `template.yaml` file.
 
-```console
+```shell
 > sam local invoke "helloFromLambdaFunction"
 Invoking src/handlers/hello-from-lambda.helloFromLambdaHandler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.43.0-x86_64.
@@ -311,7 +312,7 @@ REPORT RequestId: dc41d97d-0867-4516-94d9-d1830192565e Init Duration: 0.49 ms Du
 
 Tests are defined in the **__tests\__** folder in this project. Use npm to install the **Jest test framework** and run unit tests.
 
-``` console
+```shell
 > npm install
 ...
 
@@ -353,7 +354,7 @@ Ran all test suites.
 
 The `sam build` command builds any dependencies that your application has, and copies your application source code to folders under `.aws-sam/build` to be zipped and uploaded to Lambda.
 
-``` console
+```shell
 > sam build
 Building codeuri: /Users/alazaroc/Documents/MyProjects/github/aws/sam/sam-app runtime: nodejs14.x metadata: {} architecture: x86_64 functions: ['helloFromLambdaFunction']
 Running NodejsNpmBuilder:NpmPack
@@ -391,7 +392,7 @@ As we don't have a **configuration file** containing all the values, we are goin
 > The `sam deploy` command will package and upload the application artifacts to the S3 bucket, and deploys the application using AWS CloudFormation
 {: .prompt-info }
 
-``` console
+```shell
 > sam deploy --guided
 
 Configuring SAM deploy
@@ -483,7 +484,7 @@ Remember that the executed command will create the `samconfig.toml` file in our 
 
 From now on, to deploy our SAM project we just need to run the `sam deploy` command, so we run it but if we have no changes, the deployment will fail:
 
-``` console
+```shell
 > sam deploy
 File with same data already exists at sam-app/c606de95995c9e6d65f310f130ccc787, skipping upload
 
@@ -520,7 +521,7 @@ We already have deployed our application in the cloud and you may want to synchr
 > <kbd>The sync command should only be used against a development stack</kbd>.
 {: .prompt-warning }
 
-``` console
+```shell
 > sam sync --stack-name sam-app --watch
 
 Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-bymcog0ibyy0
@@ -605,7 +606,7 @@ The console still listens for changes and if we change our lambda code and save 
 
 The console will be updated automatically as follow:
 
-``` console
+```shell
 Syncing Lambda Function helloFromLambdaFunction...
 Manifest is not changed for c14e7b11-e157-4aea-a19b-97b33b39cef5, running incremental build
 Building codeuri: /Users/alazaroc/Documents/MyProjects/github/aws/sam/sam-app runtime: nodejs14.x metadata: {} architecture: x86_64 functions: ['helloFromLambdaFunction']
@@ -621,7 +622,7 @@ Finished syncing Lambda Function helloFromLambdaFunction.
 
 When you stop it (`control + C`) in the console it will appear:
 
-``` console
+```shell
 Shutting down sync watch...
 Sync watch stopped.
 ```
@@ -637,7 +638,7 @@ How to **remove the nested stack** created with the sync command?
 
 You have to run the `sam deploy` command again:
 
-``` console
+```shell
 > sam deploy
 File with same data already exists at sam-app/c606de95995c9e6d65f310f130ccc787, skipping upload
 

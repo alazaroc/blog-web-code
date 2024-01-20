@@ -187,7 +187,7 @@ You can create the build project by choosing the following:
 - New role name
 - Buildspec: `Insert build commands` and click to <kbd>Switch to editor</kbd> and add the following:
 
-  ```shell
+  ```yaml
   version: 0.2
   phases:
     install:
@@ -356,7 +356,7 @@ I want to show you what will happen if you set the `selfmutate` property to fals
 
 This is the change needed in the CDK CodePipeline resource code, adding this line:
 
-```typescript
+```yaml
 selfMutation: false,
 ```
 

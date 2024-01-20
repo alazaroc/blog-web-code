@@ -62,7 +62,7 @@ To generate a starter pipeline configuration for AWS CodePipeline, we have to pe
 
 We are going to create only one stage with a name `test`:
 
-``` console
+```shell
 > sam pipeline bootstrap
 
 sam pipeline bootstrap generates the required AWS infrastructure resources to connect
@@ -148,7 +148,7 @@ In our SAM project now we have 1 new file containing our stage information:
 
 To generate the pipeline configuration, run the command `sam pipeline init`:
 
-``` console
+```shell
 > sam pipeline init
 
 sam pipeline init generates a pipeline configuration file that your CI/CD system
@@ -229,7 +229,7 @@ In the console log below, the following is displayed:
 
 In the next execution, I will choose option 2 `Custom Pipeline Template Location`, and add it to my updated forked repository to create only one stage in the CodePipeline.
 
-``` console
+```shell
 > sam pipeline init
 
 sam pipeline init generates a pipeline configuration file that your CI/CD system
@@ -315,7 +315,7 @@ For **AWS CodePipeline** you have to deploy the pipeline running `sam deploy -t 
 > Don't set the same stack name as your SAM application because doing so will overwrite your application's stack (and delete your application resources).
 {: .prompt-warning }
 
-``` console
+```shell
 > sam deploy -t codepipeline.yaml --stack-name sam-app-pipeline --capabilities=CAPABILITY_IAM
 
     Deploying with following values
@@ -490,7 +490,7 @@ As we expected, **the pipeline has updated itself** and now we have `UnitTest` s
 
 To update the pipeline we have to run again the command `sam deploy -t codepipeline.yaml --stack-name sam-app-pipeline --capabilities=CAPABILITY_IAM`
 
-``` console
+```shell
 > sam deploy -t codepipeline.yaml --stack-name sam-app-pipeline --capabilities=CAPABILITY_IAM
 
  Deploying with following values

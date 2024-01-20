@@ -160,7 +160,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
 - External option easy to integrate: ~~Google Forms~~.
 - Custom AWS solution:
 
-  ``` mermaid
+  ```mermaid
     flowchart LR
     A(Contact form) --> B(API Gateway)
     B --> C(Lambda)
@@ -174,7 +174,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
 - External option easy to integrate: ~~Mailchimp~~
 - Custom AWS solution:
 
-  ``` mermaid
+  ```mermaid
     flowchart LR
     A(Email subscription form) --> B(API Gateway)
     B --> C(Lambda)
@@ -189,7 +189,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
 - It is used at the end of each post
 - In the first year of my blog, the solution was as follows:
 
-  ``` mermaid
+  ```mermaid
     flowchart LR
     A(Email subscription form) --> B(API Gateway)
     B --> C(Lambda)
@@ -199,7 +199,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
   - This solution was a custom AWS solution to use more AWS services and although I received some comments and store them in the database, I didn't implement the system to display them on the blog.
 - However, now I am using the `giscus` plugin
 
-  ``` mermaid
+  ```mermaid
     flowchart LR
     A(Email subscription form) --> B(GitHub repository)
     B --> C(GitHub discussion)
@@ -283,4 +283,4 @@ I have many next steps identified, but I'll put here the ones related to the con
 - [x] Update comments form --> March 17, 2022 --> A form was available and comments were recorded in a database
 - [x] Show comments in the posts --> January 27, 2023 --> `giscus` plugin has been integrated into my web
 - [x] Migrate AWS Amplify Web to S3 + CloudFront + AWS Certificate Manager + Developer Tools  –> March 5, 2023
-- [ ] - [ ] Automate email subscription
+- [ ] Automate email subscription

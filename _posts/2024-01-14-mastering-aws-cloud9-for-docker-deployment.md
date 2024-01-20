@@ -13,12 +13,15 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2024-01-14-mastering-aws-cloud9-for-docker-deployment/
 ---
 
 ## TLDR
+
+> This is the guide I would have liked to find before I started using AWS Cloud9. There are many similar articles out there, but none quite like this one, or at least, I didn't find any!
+{: .prompt-info }
 
 - AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser.
 - It includes a code editor, debugger, and terminal.
@@ -101,7 +104,7 @@ With Cloud9, you can effortlessly connect with AWS CodeCommit or other Git repos
     
     Use the command below to clone
 
-    ```shell
+    ```console
     git clone https://github.com/alazaroc/microservices.git
     ```
 
@@ -111,7 +114,7 @@ With Cloud9, you can effortlessly connect with AWS CodeCommit or other Git repos
 
     The following is an example of how you can clone the CodeCommit repository (you have to use your own repository):
 
-    ```shell
+    ```console
     git clone codecommit::eu-west-1://microservices
     ```
 
@@ -153,7 +156,7 @@ These two applications are prepared to be executed locally directly (after insta
 
 Install the required npm packages:
 
-```shell
+```console
 npm install
 ```
 
@@ -161,7 +164,7 @@ npm install
 
 To start the Node.js microservice, use the command:
 
-```shell
+```console
 node app.js
 ```
 
@@ -200,13 +203,13 @@ If changing the port is not an option or if you prefer external access, you can 
 
 To build the Docker image of the application, run:
 
-```shell
+```console
 docker build -t ms-nodejs .
 ```
 
 To run the application as a Docker container:
 
-```shell
+```console
 docker run -p 3000:3000 --name ms-nodejs ms-nodejs
 ```
 
@@ -216,7 +219,7 @@ docker run -p 3000:3000 --name ms-nodejs ms-nodejs
 
 Install the required Python packages:
 
-```shell
+```console
 pip install Flask requests
 ```
 
@@ -224,7 +227,7 @@ pip install Flask requests
 
 To run the microservice, execute the following command:
 
-```shell
+```console
 python app.py
 ```
 
@@ -236,13 +239,13 @@ Refer to the Node.js application section to know how to access this URL.
 
 To build the Docker image, run:
 
-```shell
+```console
 docker build -t ms-python .
 ```
 
 To run the application as a Docker container:
 
-```shell
+```console
 docker run -p 5000:5000 --name ms-python ms-python
 ```
 
@@ -266,7 +269,7 @@ aws ecr create-repository \
 
 #### Get the local images
 
-```shell
+```console
 docker images 
 ```
 
@@ -274,7 +277,7 @@ docker images
 
 #### Login to ECR
 
-```shell
+```console
 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.eu-west-1.amazonaws.com
 ```
 

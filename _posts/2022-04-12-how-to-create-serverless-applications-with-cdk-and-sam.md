@@ -92,7 +92,7 @@ With **CDK**, when you run `cdk synth`, it will synthesize a stack defined in yo
 However, **SAM** uses a `yaml` template, `template.yaml` or `template.yml`, in the root folder.
 > Also, <kbd>to test locally</kbd>, you will need this file created or you will receive an error
 >
-> ``` console
+> ```shell
 > > sam local invoke
 > Error: Template file not found at 
 > /.../aws-cdk-simple-webservice/template.yml
@@ -105,7 +105,7 @@ Then, we have to run `cdk synth` and store the result in `template.yml` file.
 > use --no-staging to disable the copy of assets which allows local debugging via the SAM CLI to reference the original source files
 {: .prompt-tip }
 
-``` console
+```console
 cdk synth --no-staging > template.yml
 ```
 
@@ -116,7 +116,7 @@ cdk synth --no-staging > template.yml
 
 You have now a `template.yml` file and can run the SAM command to test your lambda function.
 
-``` console
+```shell
 > sam local invoke
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
@@ -135,7 +135,7 @@ The Lambda returns the following body: `You have connected with the Lambda!`
 
 If your Lambda Functions need input data, you can generate it from **SAM CLI** with the command `generate-event`
 
-``` console
+```console
 sam local generate-event [OPTIONS] COMMAND [ARGS]...
 ```
 
@@ -143,7 +143,7 @@ You can use this command to generate sample payloads from different event source
 
 Or you can add the input data to the option `-e` of the command `invoke`
 
-``` console
+```shell
 > sam local invoke -e test/events/simple-event.json
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
@@ -158,7 +158,7 @@ REPORT RequestId: 992499c1-83c4-408d-966b-2e13f5955cbc Init Duration: 0.89 ms Du
 
 You have to run `sam local start-api`
 
-``` console
+```shell
 > sam local start-api
 Mounting simplest-lambda at http://127.0.0.1:3000$default [X-AMAZON-APIGATEWAY-ANY-METHOD]
 You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. You only need to restart SAM CLI if you update your AWS SAM template
@@ -172,7 +172,7 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 
 If you review your previous console, it will be updated when you accessed your API Gateway:
 
-``` console
+```shell
 > sam local start-api
 default [X-AMAZON-APIGATEWAY-ANY-METHOD]
 You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. You only need to restart SAM CLI if you update your AWS SAM template
@@ -214,7 +214,7 @@ When you try to locally test a Lambda Function that stores data in a DynamoDB ta
 
 So, to test your Account DynamoDB tables, you have to do nothing.
 
-``` console
+```shell
 > sam local invoke -e test/events/simple-event.json
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
@@ -232,7 +232,7 @@ _executor.js:116:18)"]}%
 
 Of course, you can set your AWS account in your sam CLI using the `profile` command. If you do not specify it, the default value will be applied.
 
-``` console
+```shell
 > sam local invoke -e test/events/simple-event.json profile test
 Invoking index.handler (nodejs14.x)
 ...
@@ -251,7 +251,7 @@ You may want to test your Lambda function locally instead of connecting to your 
 
 The first step is to download the DynamoDB Docker image.
 
-``` console
+```shell
 > docker pull amazon/dynamodb-local
 Using default tag: latest
 latest: Pulling from amazon/dynamodb-local
@@ -270,7 +270,7 @@ Now we have to run the locally downloaded docker image.
 > This terminal tab will be kept running and you will have to open another one.
 {: .prompt-info }
 
-``` console
+```shell
 > docker run -p 8000:8000 amazon/dynamodb-local
 Initializing DynamoDB Local with the following configuration:
 Port: 8000
@@ -288,7 +288,7 @@ CorsParams: *
 
 We are going to create a <kbd>table</kbd> with the name `hits`, with a <kbd>partitionKey</kbd> with the name `path` and the `String` type.
 
-``` console
+```shell
 > aws dynamodb create-table --table-name hits --attribute-definitions AttributeName=path,AttributeType=S --key-schema AttributeName=path,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
 {
     "TableDescription": {
@@ -328,16 +328,17 @@ We will add 2 elements:
 - path: "/test"
 - path: "/hello"
 
-``` console
+```shell
 aws dynamodb put-item --table-name hits --item '{ "path": {"S": "/test"} }' --return-consumed-capacity TOTAL --endpoint-url http://localhost:8000
 aws dynamodb put-item --table-name hits --item '{ "path": {"S": "/hello"} }' --return-consumed-capacity TOTAL --endpoint-url http://localhost:8000
 ```
+{: .nolineno }
 
 #### Scan your table locally
 
 We check that our table has the created elements:
 
-``` console
+```shell
 > aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000
 {
     "Count": 2,
@@ -365,7 +366,7 @@ We need to update our Lambda Function code to tell DynamoDB to read from our loc
 > You have to use your specific docker endpoint
 {: .prompt-info }
 
-``` javascript
+```javascript
 if (process.env.AWS_SAM_LOCAL) {
   // mac
   dynamo.endpoint = new AWS.Endpoint("http://docker.for.mac.localhost:8000/");
@@ -388,7 +389,7 @@ In summary, we have:
 
 Now we are going to test our Lambda Function which will insert data into our local DynamoDB table.
 
-``` console
+```shell
 > sam local invoke -e test/events/simple-event.json
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
@@ -403,7 +404,7 @@ REPORT RequestId: eaf85e61-e9a2-4b49-9953-d247f9794fb8 Init Duration: 0.48 ms Du
 
 If we scan the table again, we can review that in "/test" element will be a new `hits` column and `2` values:
 
-```console
+```shell
 > aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000
 {
     "Count": 2,
@@ -431,7 +432,7 @@ If you run your function more times, the value of `hits` will be updated.
 
 And, of course, you can also test it from **API Gateway**:
 
-```console
+```shell
 > sam local start-api
 Mounting dynamodb-lambda at http://127.0.0.1:3000$default [X-AMAZON-APIGATEWAY-ANY-METHOD]
 You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. You only need to restart SAM CLI if you update your AWS SAM template

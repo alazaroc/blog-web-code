@@ -5,14 +5,14 @@ date: 2023-10-25 22:59 +0200
 last_modified_at:
 description: Embark on a 30-day challenge and follow this ultimate guide to obtain the AWS Certified Data Analytics Specialty certification.
 category:
-- General
+- Data Analytics
 tags:
 - data
 - certification
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
 ---

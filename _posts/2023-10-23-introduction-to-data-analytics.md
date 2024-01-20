@@ -5,14 +5,14 @@ date: 2023-10-23 00:11 +0200
 last_modified_at:
 description: This article provides a comprehensive overview of data analytics, including its fundamentals, different types, and applications
 category:
-- General
+- Data Analytics
 tags:
 - data
 - certification
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 ---
 
