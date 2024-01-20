@@ -59,14 +59,14 @@ In this section, we will review how Terraform works creating a first example to 
 
 - Create a new directory for your Terraform configuration file:
 
-  ``` console
+  ```console
   mkdir my-serverless-website
   cd my-serverless-website
   ```
 
 - Create a new file called "main.tf" and there we are going to include the `AWS provider information` with the "us-east-1" region, and one resource of type `aws_s3_bucket` to create an S3 bucket with all the default configuration. Remember that the S3 bucket name must be unique globally.
 
-  ``` terraform
+  ```terraform
   provider "aws" {
     region = "us-east-1"
   }
@@ -78,7 +78,7 @@ In this section, we will review how Terraform works creating a first example to 
 
 - **Initialize** your Terraform configuration.
 
-  ``` console
+  ```console
   terraform init
   ```
 
@@ -86,7 +86,7 @@ In this section, we will review how Terraform works creating a first example to 
 
 - Generate an execution **plan** (optional):
 
-  ``` console
+  ```console
   terraform plan
   ```
 
@@ -94,7 +94,7 @@ In this section, we will review how Terraform works creating a first example to 
 
 - **Apply** the execution plan to deploy on AWS:
 
-  ``` console
+  ```console
   terraform apply
   ```
 
@@ -133,6 +133,7 @@ In these examples, we are going to deploy a static website based on an `index.ht
 ```html
 This is my serverless website
 ```
+{: .nolineno }
 
 ### v1.1: public S3 bucket
 
@@ -150,7 +151,7 @@ In this version 1.1 we are going to expose the S3 bucket publicly so any person 
 
 Update the file "main.tf" with the following content:
 
-``` terraform
+```terraform
 provider "aws" {
   region = "us-east-1"
 }
@@ -225,7 +226,7 @@ In this version, similar to the previous one, we still have exposed the S3 bucke
 
 Using the content of the "main.tf" showed in the previous v1.1 example, add at the end of the document the following lines:
 
-``` terraform
+```terraform
 resource "aws_s3_bucket_website_configuration" "website_bucket" {
   bucket = aws_s3_bucket.website_bucket.id
   index_document {
@@ -236,7 +237,7 @@ resource "aws_s3_bucket_website_configuration" "website_bucket" {
 
 Now, execute the terraform apply command: `terraform apply --auto-approve`
 
-Then, open a private window in your browser and access through the static website to the `index.html` content: [http://my-unique-bucket-name-12y398y13489148h.s3-website-us-east-1.amazonaws.com/](http://my-unique-bucket-name-12y398y13489148h.s3-website-us-east-1.amazonaws.com/){:target="_blank"}
+Then, open a private window in your browser and access through the static website to the `index.html` content: ```http://my-unique-bucket-name-12y398y13489148h.s3-website-us-east-1.amazonaws.com/```
 
 ![s3-static-website](terraform-s3-static-website.png)
 
@@ -256,7 +257,7 @@ In this version, we are going to change the bucket to private again (and also, w
 
 Replace the "main.tf" content with the following lines:
 
-``` terraform
+```terraform
 provider "aws" {
   region = "us-east-1"
 }
@@ -385,7 +386,7 @@ These are the changes that you have to do in the previous "main.tf" file:
 
 - Update in your CloudFront Distribution resource `aws_cloudfront_distribution` the following, (where `${var.domain_name_simple}` is for example `example.com`):
 
-  ``` terraform
+  ```terraform
     viewer_certificate {
       cloudfront_default_certificate = true 
     }
@@ -393,7 +394,7 @@ These are the changes that you have to do in the previous "main.tf" file:
 
   replacing it for this:
 
-  ``` terraform
+  ```terraform
     viewer_certificate {
       acm_certificate_arn      = aws_acm_certificate.cert.arn
       ssl_support_method       = "sni-only"
@@ -408,7 +409,7 @@ These are the changes that you have to do in the previous "main.tf" file:
 
 - Next, add the following lines:
 
-  ``` terraform
+  ```terraform
   resource "aws_acm_certificate" "cert" {
     provider                  = aws.use_default_region
     domain_name               = "*.${var.domain_name_simple}"

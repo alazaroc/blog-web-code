@@ -63,6 +63,14 @@ test() {
     "$SITE_DIR"
 }
 
+# test() {
+#   bundle exec ruby tools/custom_htmlproofer.rb \
+#     --disable-external \
+#     --check-html \
+#     --allow_hash_href \
+#     "$SITE_DIR"
+# }
+
 resume_site_dir() {
   if [[ -n $_baseurl ]]; then
     # Move the site file to the regular directory '_site'

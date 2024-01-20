@@ -1,25 +1,10 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
 gem 'jekyll-theme-chirpy-customized-by-alazaroc', '~> 5.4.0'
 
 group :test do
-  gem "html-proofer", "~> 3.19"
-end
-
-# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
-#install_if -> { RUBY_PLATFORM =~ %r!mingw|mswin|java! } do
-#  gem "tzinfo", "~> 1.2"
-#  gem "tzinfo-data"
-#end
-
-# Performance-booster for watching directories on Windows
-#  gem "wdm", "~> 0.1.1", :install_if => Gem.win_platform?
-
-# Jekyll <= 4.2.0 compatibility with Ruby 3.0
-# gem "webrick", "~> 1.7"
+    gem "html-proofer", "~> 4.4"
+  end
 
 # Compose: https://github.com/jekyll/jekyll-compose
 gem 'jekyll-compose', group: [:jekyll_plugins]
