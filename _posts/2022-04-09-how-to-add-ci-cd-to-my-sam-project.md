@@ -23,10 +23,17 @@ img_path: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
 ---
 ---
 
-## Introduction
+## TLDR
 
 > This is the second article of SAM. [In this other article](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"} I had explained how to create serverless applications with SAM, and there I explained all the basic SAM information, so you may need to review it before this.
 {: .prompt-warning }
+
+We will use `sam pipeline` to deploy the solution.
+
+> I had to create `one custom template` to be able to deploy the solution `using only 1 stage`. Using the default templates you have to use 2, and I don't want to do it for this PoC. [This is the GitHub code of my custom template](https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates){:target="_blank"}
+{: .prompt-info }
+
+## Introduction
 
 Here we will add CI/CD to our SAM application through the pipeline integration of the AWS SAM CLI.
 
@@ -171,6 +178,10 @@ Select CI/CD system
  4 - Bitbucket Pipelines
  5 - AWS CodePipeline
 Choice: > 5
+Which pipeline template would you like to use?
+	1 - Two-stage pipeline
+	2 - Two-stage pipeline with monorepo
+Choice []: > 1
 You are using the 2-stage pipeline template.
  _________    _________
 |         |  |         |
@@ -179,18 +190,19 @@ You are using the 2-stage pipeline template.
 
 Checking for existing stages...
 
-Only 1 stage(s) were detected, fewer than what the template requires: 2.
+Only 1 stage(s) were detected, fewer than what the template requires: 2. If these are incorrect, delete .aws-sam/pipeline/pipelineconfig.toml and rerun
 
 To set up stage(s), please quit the process using Ctrl+C and use one of the following commands:
 sam pipeline init --bootstrap       To be guided through the stage and config file creation process.
 sam pipeline bootstrap              To specify details for an individual stage.
 
 To reference stage resources bootstrapped in a different account, press enter to proceed []:
+2 stage(s) were detected, matching the template requirements. If these are incorrect, delete .aws-sam/pipeline/pipelineconfig.toml and rerun
 What is the Git provider?
- 1 - Bitbucket
- 2 - CodeCommit
- 3 - GitHub
- 4 - GitHubEnterpriseServer
+	1 - Bitbucket
+	2 - CodeCommit
+	3 - GitHub
+	4 - GitHubEnterpriseServer
 Choice []: > 3
 What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
 What is the Git branch used for production deployments? [main]:
@@ -208,7 +220,8 @@ Here are the stage configuration names detected in .aws-sam/pipeline/pipelinecon
 Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
 ```
 
-**I have to stop the execution here.**
+> I have to stop the execution here.
+{: .prompt-warning }
 
 In the console log below, the following is displayed:
 
@@ -310,7 +323,11 @@ This step is necessary to ensure your CI/CD system is aware of your pipeline con
 
 ### Step 4: Deploy your pipeline
 
-For **AWS CodePipeline** you have to deploy the pipeline running `sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilities=CAPABILITY_IAM --region <region-X>`
+For **AWS CodePipeline** you have to deploy the pipeline running 
+
+```console
+sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilities=CAPABILITY_IAM --region <region-X>
+```
 
 > Don't set the same stack name as your SAM application because doing so will overwrite your application's stack (and delete your application resources).
 {: .prompt-warning }

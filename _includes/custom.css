@@ -26,4 +26,9 @@
   details {
     margin-bottom: 15px;
   }
+  .language-ruby{
+    margin-top: 15px;
+    float: left;
+    margin-bottom: 0px;
+  }
 </style>

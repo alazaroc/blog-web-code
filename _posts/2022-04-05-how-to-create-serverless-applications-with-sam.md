@@ -52,7 +52,7 @@ The AWS `Serverless Application Model` (AWS SAM) is an [open-source framework](h
     - you can enable tracing by using `AWS X-Ray`
 - **Deep integration with development tools**
   - AWS Serverless Application Repository: discover new applications
-  - AWS Cloud9 IDE: For authoring, testing, and debugging. [I have written a post about Cloud9; you can find it here](/posts/2024-01-14-mastering-aws-cloud9-for-docker-deployment/){:target="_blank"}
+  - AWS Cloud9 IDE: For authoring, testing, and debugging. [I have written a post about Cloud9; you can find it here](/posts/mastering-aws-cloud9-for-docker-deployment/){:target="_blank"}
   - CodeBuild, CodeDeploy, and CodePipeline: To build a deployment pipeline
   - AWS CodeStar: To get started with a project structure, code repository, and a CI/CD pipeline that's automatically configured for you
 
