@@ -262,7 +262,7 @@ Resources:
       TracingConfig: Active
 ```
 
-# Saving one property in the SSM Parameter Store
+### Saving one property in the SSM Parameter Store
 
 ```yaml
 Resources:
