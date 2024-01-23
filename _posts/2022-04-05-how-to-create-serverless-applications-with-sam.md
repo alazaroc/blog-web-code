@@ -2,7 +2,7 @@
 layout: post
 title: How to create serverless applications with AWS SAM (Serverless Application Model)
 date: 2022-04-09 15:07 +0200
-last_modified_at: 2024-01-23 06:07 +0200
+last_modified_at: 2024-01-23 16:27 +0200
 description: SAM (Serverless Application Model) is an open-source framework that you can use to build serverless applications on AWS and I will show you how it works.
 category: 
 - Serverless
