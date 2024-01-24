@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using AWS Cloud9 to Test and Deploy Docker Applications: A Step-by-Step Guide"
+title: "Using AWS Cloud9 to test and deploy Docker applications: A step-by-step guide"
 date: 2024-01-15 01:55 +0100
 last_modified_at:
 description: The guide provides a step-by-step walkthrough on setting up a Cloud9 environment, integrating with Git, and preparing Docker applications for testing, using two microservices, one in Node.js and the other in Python.
