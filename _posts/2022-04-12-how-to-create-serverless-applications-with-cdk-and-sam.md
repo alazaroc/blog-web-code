@@ -26,7 +26,7 @@ img_path: /assets/img/posts/2022-04-12-how-to-create-serverless-applications-wit
 
 > A **serverless application** is more than just a Lambda Function. It is a combination of Lambda functions, event sources, APIs, databases, and other resources that work together to perform tasks.
 
-Creating serverless resources from the AWS Console is quick and easy, but as you know you should only use it for testing purposes when you are learning how it works. After that, and thinking about **how to use the resources in a real project**, you will need:
+Creating serverless resources via the AWS Console is quick and easy, but it's advisable to use this approach only for testing purposes during the learning phase. After that, and thinking about **how to use the resources in a real project**, you will need:
 
 - **IaC**: to create your resources in a way that allows you to recreate them easily
 - **Version control**: to track all the code modifications
@@ -35,20 +35,20 @@ Creating serverless resources from the AWS Console is quick and easy, but as you
 > Does anyone use CloudFormation or Terraform to manage their serverless resources? Possibly but come on, there is a better way!
 {: .prompt-info }
 
-> To manage your serverless resources, there are much better options:
+> To manage your serverless resources, the natural way to do it is using the following IaC technologies:
 >
-> - `SAM (Serverless Application Model) / Serverless Framework`: declarative option with templates. Specific frameworks for serverless applications
-> - `CDK / Pulumi`: add a level of abstraction and allow you to define the infrastructure with modern programming languages
+> - `SAM (Serverless Application Model) / Serverless Framework`: declarative option with templates. It is a specific framework for Serverless applications.
+> - `CDK / Pulumi`: add a level of abstraction and allow you to define the infrastructure with modern programming languages.
 {: .prompt-tip }
 
 In this article, we will review the approach to combining both **CDK + SAM**.
 
-> By the way, CDK + SAM is my preferred approach: you get the best of the 2 options!
+> By the way, CDK + SAM is my preferred approach: you get the best of the 2 options! What do you think? You can share your opinion in the comments!
 {: .prompt-info }
 
 ## CDK vs SAM
 
-In the following articles, you will find the basics of CDK and SAM.
+In the linked articles below, you will find information about CDK and SAM.
 
 - CDK basics: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
 - SAM basics: [How to create serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
@@ -71,15 +71,15 @@ Both...
 | To declare resources | Uses familiar programming languages | Uses JSON or YAML |
 | Dynamic references | Native language capabilities | Pseudo parameters and logical functions |
 | Testing | Not supported natively (you could use SAM) | Supported (also debug) |
-| IaC resources | All | Focus on serverless |
-| Complexity | Very low | High, verbose configuration |
-| Maintainability | Higher | Lower |
+| IaC resources | All | Focus on serverless but you can use CloudFormation to create any AWS resource |
+| Complexity | Very low | Medium, based on CloudFormation |
+| Maintainability | Higher | Medium |
 
 ## Demo: CDK + SAM
 
-From Jan 6, 2022, [AWS announced](https://aws.amazon.com/about-aws/whats-new/2022/01/aws-serverless-application-model-sam-cli-aws-cloud-development-kit-cdk/){:target="_blank"} the general availability of AWS SAM CLI support for local testing of AWS CDK applications. It means that **you can use SAM over your CDK project to test your resources!**
+From Jan 6, 2022, [AWS announced](https://aws.amazon.com/about-aws/whats-new/2022/01/aws-serverless-application-model-sam-cli-aws-cloud-development-kit-cdk/){:target="_blank"} the general availability of AWS SAM CLI support for local testing of AWS CDK applications. It means that **you can use SAM over your CDK project to test your resources!**. Now 2 years have passed, so this integration is mature!
 
-So... we will use a new CDK project to show the CDK + SAM.
+So... we will use a new CDK project to show how to work the combination of CDK + SAM.
 
 The source code is available [here](https://github.com/alazaroc/aws-cdk-simple-webservice){:target="_blank"}. This repository has several CDK projects but first, we will use the <kbd>v1-simple</kbd>
 
@@ -93,31 +93,28 @@ However, **SAM** uses a `yaml` template, `template.yaml` or `template.yml`, in t
 > Also, <kbd>to test locally</kbd>, you will need this file created or you will receive an error
 >
 > ``` console
-> > sam local invoke
+> $ sam local invoke
 > Error: Template file not found at 
 > /.../aws-cdk-simple-webservice/template.yml
 > ```
 >
 {: .prompt-danger }
 
-Then, we have to run `cdk synth` and store the result in `template.yml` file.
+Therefore, we have to run `cdk synth` and store the result in one file with the name `template.yml`.
 
-> use --no-staging to disable the copy of assets which allows local debugging via the SAM CLI to reference the original source files
-{: .prompt-tip }
+> You have to use <kbd>--no-staging </kbd> because it is required for SAM CLI to local debug the source files. It will disable the copy of assets which allows local debugging to reference the original source files
+{: .prompt-info }
 
 ``` console
 cdk synth --no-staging > template.yml
 ```
 
-> You have to use <kbd>--no-staging </kbd> because it is required for SAM CLI to local debug the source files.
-{: .prompt-info }
-
 ### Testing Lambda Functions
 
-You have now a `template.yml` file and can run the SAM command to test your lambda function.
+Now, you have a `template.yml` file and can run the SAM command to test your Lambda function.
 
 ``` console
-> sam local invoke
+$ sam local invoke
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
 
@@ -141,10 +138,10 @@ sam local generate-event [OPTIONS] COMMAND [ARGS]...
 
 You can use this command to generate sample payloads from different event sources such as S3, API Gateway, SNS, and so on. These payloads contain the information that the event sources send to your Lambda functions.
 
-Or you can add the input data to the option `-e` of the command `invoke`
+Alternatively, you can add the input data using the `-e` option with the `invoke` command.
 
 ``` console
-> sam local invoke -e test/events/simple-event.json
+$ sam local invoke -e test/events/simple-event.json
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
 
@@ -159,7 +156,7 @@ REPORT RequestId: 992499c1-83c4-408d-966b-2e13f5955cbc Init Duration: 0.89 ms Du
 You have to run `sam local start-api`
 
 ``` console
-> sam local start-api
+$ sam local start-api
 Mounting simplest-lambda at http://127.0.0.1:3000$default [X-AMAZON-APIGATEWAY-ANY-METHOD]
 You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. You only need to restart SAM CLI if you update your AWS SAM template
 2022-04-23 00:03:58  * Running on http://127.0.0.1:3000/ (Press CTRL+C to quit)
@@ -173,7 +170,7 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 If you review your previous console, it will be updated when you accessed your API Gateway:
 
 ``` console
-> sam local start-api
+$ sam local start-api
 default [X-AMAZON-APIGATEWAY-ANY-METHOD]
 You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. You only need to restart SAM CLI if you update your AWS SAM template
 2022-04-23 00:03:58  * Running on http://127.0.0.1:3000/ (Press CTRL+C to quit)
@@ -201,7 +198,7 @@ REPORT RequestId: 5759a74a-40b5-4a7e-8362-eec719ae44a7 Init Duration: 0.50 ms Du
 
 Ok, testing a mocked Lambda Function is the "hello world" example and not very useful, but what about a Lambda Function that connects to a DynamoDB table?
 
-We will update our Lambda Function to store the data in a DynamoDB table, so we are using the <kbd>v2-dynamodb</kbd> example in the repository.
+We will update our Lambda Function to store the data in a DynamoDB table, so we will use the <kbd>v2-dynamodb</kbd> example in the repository.
 
 > This code is based on the pattern defined in the web [cdkpatterns](https://cdkpatterns.com/patterns/filter/?by=Lambda){:target="_blank"} as the [simple webservice](https://github.com/cdk-patterns/serverless/blob/main/the-simple-webservice/README.md){:target="_blank"}
 {: .prompt-info }
@@ -215,7 +212,7 @@ When you try to locally test a Lambda Function that stores data in a DynamoDB ta
 So, to test your Account DynamoDB tables, you have to do nothing.
 
 ``` console
-> sam local invoke -e test/events/simple-event.json
+$ sam local invoke -e test/events/simple-event.json
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
 
@@ -230,29 +227,30 @@ _executor.js:116:18)"]}%
 > If you don't deploy your CDK project before attempting to test it, you will get the following ERROR: `"errorType":"ResourceNotFoundException","errorMessage":"Requested resource not found"`
 {: .prompt-warning }
 
-Of course, you can set your AWS account in your sam CLI using the `profile` command. If you do not specify it, the default value will be applied.
+Of course, you can set your AWS account in your sam CLI using the `profile` command.
 
 ``` console
-> sam local invoke -e test/events/simple-event.json profile test
+$ sam local invoke -e test/events/simple-event.json profile test
 Invoking index.handler (nodejs14.x)
 ...
 ```
 
 ### Case 2: Testing local DynamoDB
 
-You may want to test your Lambda function locally instead of connecting to your DynamoDB account, so do the following:
+You may want to test your Lambda function locally instead of connecting to your DynamoDB account, so we will do the following:
 
-- Download DynamoDB docker image
-- Run the DynamoDB docker image
+- Download the DynamoDB Docker image
+- Run the DynamoDB Docker image locallyc
 - Set up DynamoDB: create tables, insert data, and test it
 - Change your Lambda Function code
+- Test DynamoDB locally
 
-#### Download the DynamoDB docker image
+#### Download the DynamoDB Docker image
 
-The first step is to download the DynamoDB Docker image.
+First, download the DynamoDB Docker image.
 
 ``` console
-> docker pull amazon/dynamodb-local
+$ docker pull amazon/dynamodb-local
 Using default tag: latest
 latest: Pulling from amazon/dynamodb-local
 3a461b3ae562: Pull complete
@@ -265,13 +263,13 @@ docker.io/amazon/dynamodb-local:latest
 
 #### Run the DynamoDB Docker image locally
 
-Now we have to run the locally downloaded docker image.
+Next, execute the locally downloaded DynamoDB Docker image.
 
 > This terminal tab will be kept running and you will have to open another one.
 {: .prompt-info }
 
 ``` console
-> docker run -p 8000:8000 amazon/dynamodb-local
+$ docker run -p 8000:8000 amazon/dynamodb-local
 Initializing DynamoDB Local with the following configuration:
 Port: 8000
 InMemory: true
@@ -286,10 +284,10 @@ CorsParams: *
 
 #### Create a local DynamoDB table
 
-We are going to create a <kbd>table</kbd> with the name `hits`, with a <kbd>partitionKey</kbd> with the name `path` and the `String` type.
+To create a local <kbd>DynamoDB table</kbd> named `hits` with a `path` partition key, execute the following command:
 
 ``` console
-> aws dynamodb create-table --table-name hits --attribute-definitions AttributeName=path,AttributeType=S --key-schema AttributeName=path,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
+$ aws dynamodb create-table --table-name hits --attribute-definitions AttributeName=path,AttributeType=S --key-schema AttributeName=path,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
 {
     "TableDescription": {
         "TableArn": "arn:aws:dynamodb:ddblocal:000000000000:table/hits",
@@ -323,7 +321,7 @@ We are going to create a <kbd>table</kbd> with the name `hits`, with a <kbd>part
 
 #### Add values to our local DynamoDB table
 
-We will add 2 elements:
+We will add two elements:
 
 - path: "/test"
 - path: "/hello"
@@ -338,7 +336,7 @@ aws dynamodb put-item --table-name hits --item '{ "path": {"S": "/hello"} }' --r
 We check that our table has the created elements:
 
 ``` console
-> aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000
+$ aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000
 {
     "Count": 2,
     "Items": [
@@ -362,7 +360,7 @@ We check that our table has the created elements:
 
 We need to update our Lambda Function code to tell DynamoDB to read from our local DynamoDB service:
 
-> You have to use your specific docker endpoint
+> You have to use your specific Docker endpoint
 {: .prompt-info }
 
 ``` javascript
@@ -389,7 +387,7 @@ In summary, we have:
 Now we are going to test our Lambda Function which will insert data into our local DynamoDB table.
 
 ``` console
-> sam local invoke -e test/events/simple-event.json
+$ sam local invoke -e test/events/simple-event.json
 Invoking index.handler (nodejs14.x)
 Skip pulling image and use local one: public.ecr.aws/sam/emulation-nodejs14.x:rapid-1.46.0-x86_64.
 
@@ -404,7 +402,7 @@ REPORT RequestId: eaf85e61-e9a2-4b49-9953-d247f9794fb8 Init Duration: 0.48 ms Du
 If we scan the table again, we can review that in "/test" element will be a new `hits` column and `2` values:
 
 ```console
-> aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000
+$ aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000
 {
     "Count": 2,
     "Items": [
@@ -432,7 +430,7 @@ If you run your function more times, the value of `hits` will be updated.
 And, of course, you can also test it from **API Gateway**:
 
 ```console
-> sam local start-api
+$ sam local start-api
 Mounting dynamodb-lambda at http://127.0.0.1:3000$default [X-AMAZON-APIGATEWAY-ANY-METHOD]
 You can now browse to the above endpoints to invoke your functions. You do not need to restart/reload SAM CLI while working on your functions, changes will be reflected instantly/automatically. You only need to restart SAM CLI if you update your AWS SAM template
 2022-04-25 19:53:01  * Running on http://127.0.0.1:3000/ (Press CTRL+C to quit)
