@@ -28,11 +28,9 @@ img_path: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
 > This is my second article about SAM. I have explained `how to create serverless applications using SAM` [here](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}, detailing all the essential information about SAM. It would be beneficial to review that article before proceeding with this one.
 {: .prompt-warning }
 
-We will use `sam pipeline` to deploy the solution. However, we are not going to use one standard template.
+We will use `sam pipeline` to deploy the solution.
 
-> I had to create `one custom template` to be able to deploy the solution `using only 1 stage`. Using the default templates you have to use 2 (test/prod?), and I don't want to do it for this PoC, I don't need it, so I just create it and then customize it. [This is the GitHub code of my custom template](https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates){:target="_blank"} that you can use if you want!
->
-> I don't know why AWS doesn't provide it. If you know it, please leave a comment with this information. I will appreciate it!
+> I had to create `one custom template` to be able to deploy the solution `using only 1 stage`. Using the default templates you have to use 2, and I don't want to do it for this PoC. [This is the GitHub code of my custom template](https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates){:target="_blank"}
 {: .prompt-info }
 
 ## Introduction
@@ -165,10 +163,12 @@ In our SAM project now we have 1 new file containing our stage information:
 
 ### Step 2: Generate the pipeline configuration
 
+#### Two-stage pipeline template
+
 To generate the pipeline configuration, run the command `sam pipeline init`:
 
 ```shell
-> sam pipeline init
+sam pipeline init
 ```
 
 <details>
@@ -189,53 +189,48 @@ To generate the pipeline configuration, run the command `sam pipeline init`:
 
 	Cloning from https://github.com/aws/aws-sam-cli-pipeline-init-templates.git (process may take a moment)
 	Select CI/CD system
-		1 - Jenkins
-		2 - GitLab CI/CD
-		3 - GitHub Actions
-		4 - Bitbucket Pipelines
-		5 - AWS CodePipeline
-	Choice: 5
-	Which pipeline template would you like to use?
-		1 - Two-stage pipeline
-		2 - Two-stage pipeline with monorepo
-	Choice []: 1
+	1 - Jenkins
+	2 - GitLab CI/CD
+	3 - GitHub Actions
+	4 - Bitbucket Pipelines
+	5 - AWS CodePipeline
+	Choice: > 5
 	You are using the 2-stage pipeline template.
 	_________    _________
 	|         |  |         |
 	| Stage 1 |->| Stage 2 |
 	|_________|  |_________|
 
-	Checking for existing stages...
+		Checking for existing stages...
 
-	Only 1 stage(s) were detected, fewer than what the template requires: 2. If these are incorrect, delete .aws-sam/pipeline/pipelineconfig.toml and rerun
+	Only 1 stage(s) were detected, fewer than what the template requires: 2.
 
-	To set up stage(s), please quit the process using Ctrl+C and use one of the following commands:
-	sam pipeline init --bootstrap       To be guided through the stage and config file creation process.
-	sam pipeline bootstrap              To specify details for an individual stage.
+		To set up stage(s), please quit the process using Ctrl+C and use one of the following commands:
+		sam pipeline init --bootstrap       To be guided through the stage and config file creation process.
+		sam pipeline bootstrap              To specify details for an individual stage.
 
 	To reference stage resources bootstrapped in a different account, press enter to proceed []:
-	2 stage(s) were detected, matching the template requirements. If these are incorrect, delete .aws-sam/pipeline/pipelineconfig.toml and rerun
 	What is the Git provider?
-		1 - Bitbucket
-		2 - CodeCommit
-		3 - GitHub
-		4 - GitHubEnterpriseServer
+	1 - Bitbucket
+	2 - CodeCommit
+	3 - GitHub
+	4 - GitHubEnterpriseServer
 	Choice []: > 3
-	What is the full repository id (Example: some-user/my-repo)?: > alazaroc/aws-sam-app
+	What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
 	What is the Git branch used for production deployments? [main]:
 	What is the template file path? [template.yaml]:
 	We use the stage configuration name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
 
-	Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
-		1 - test
-	Select an index or enter the stage 1's configuration name (as provided during the bootstrapping): 1
-	What is the sam application stack name for stage 1? [sam-app]:
-	Stage 1 configured successfully, configuring stage 2.
+		Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+			1 - test
+		Select an index or enter the stage 1's configuration name (as provided during the bootstrapping): 1
+		What is the sam application stack name for stage 1? [sam-app]:
+		Stage 1 configured successfully, configuring stage 2.
 
-	Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
-		1 - test
-	Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
-	Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
+		Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+			1 - test
+		Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
+		Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
   {% endhighlight %}
 </details>
 
@@ -259,20 +254,12 @@ However, `I don't want to create two stages` in my CI/CD pipeline, I am testing 
 > I had to put my custom template in the root folder because otherwise, the AWS SAM CLI doesn't work.
 {: .prompt-danger }
 
+#### One-stage pipeline template
+
 In the next execution, I will select the option `Custom Pipeline Template Location` and use my updated forked repository to create only one stage in the AWS CodePipeline service.
 
-Important: You also will be asked if you already have an S3 bucket and you want to reuse it:
-```shell
-What is the S3 bucket name used for artifacts of SAM deployments? Not the ARN, the name. >[aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla]: aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla
-```
-
-> If you say yes, you will have to do one manual change in your code (to be able to deploy it in a later phase).
->
-> ![sam-error-resolve-s3](sam-error-resolve-s3.png){:class="border"}
-{: .prompt-danger }
-
-```shell
-> sam pipeline init
+```console
+sam pipeline init
 ```
 
 <details>
@@ -363,19 +350,13 @@ This step ensures that your CI/CD system recognizes your pipeline configuration 
 
 ### Step 4: Deploy the pipeline
 
-We have selected before that we will use `AWS CodePipeline` like our CI/CD system. 
-
-Now, we have to deploy the pipeline resources we just created in the previous step:
-
-```console
-sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilities=CAPABILITY_IAM --region <region-X>
-```
+For **AWS CodePipeline** you have to deploy the pipeline running `sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilities=CAPABILITY_IAM --region <region-X>`
 
 > Don't set the same stack name as your SAM application because doing so will overwrite your application's stack (and delete your application resources).
 {: .prompt-warning }
 
-```shell
-> sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM
+```console
+sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM
 ```
 
 <details>
@@ -402,7 +383,6 @@ sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilitie
 
 		Uploading to sam-app/1ac2fdc178c63ba988480068fe211880.template  15696 / 15696  (100.00%)
 
-
 	Waiting for changeset to be created..
 
 	CloudFormation stack changeset
@@ -424,7 +404,6 @@ sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilitie
 	-----------------------------------------------------------------------------------------------------
 
 	Changeset created successfully. arn:aws:cloudformation:eu-west-1:00000000000:changeSet/samcli-deploy1706135069/11d2764f-90e7-4495-b70c-513533ce61d2
-
 
 	Previewing CloudFormation changeset before deployment
 	======================================================
@@ -489,7 +468,6 @@ sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilitie
 	Value               arn:aws:codestar-connections:eu-
 	west-1:00000000000:connection/0b2a540b-8af9-490f-91e7-24e26e16a313
 	-------------------------------------------------------------------------------------------------------
-
 
 	Successfully created/updated stack - pipeline-sam-app in eu-west-1
   {% endhighlight %}
@@ -563,7 +541,7 @@ When we push the changes, the `UpdatePipeline` step executes an update on the `p
 
 As we expected, **the pipeline has updated itself** and now we have `UnitTest` step but not `UpdatePipeline`.
 
-![pipeline-sam-app-updated-execution](pipeline-sam-app-updated-execution.png){:class="border"}
+![pipeline-sam-app-updated-execution](sam-app-pipeline-updated-execution.png){:class="border"}
 
 ### Step 2: Update the steps in the pipeline manually
 
@@ -596,8 +574,6 @@ Now, we will remove the UnitTest stage.
 	Initiating deployment
 	=====================
 
-
-
 	Waiting for changeset to be created..
 
 	CloudFormation stack changeset
@@ -620,9 +596,7 @@ Now, we will remove the UnitTest stage.
 							t
 	-----------------------------------------------------------------------------------------------------
 
-
 	Changeset created successfully. arn:aws:cloudformation:eu-west-1:00000000000:changeSet/samcli-deploy1706140589/27c840fe-922c-4232-861f-51c03d45471c
-
 
 	Previewing CloudFormation changeset before deployment
 	======================================================
@@ -672,7 +646,6 @@ Now, we will remove the UnitTest stage.
 	west-1:00000000000:connection/0b2a540b-8af9-490f-91e7-24e26e16a313
 	-------------------------------------------------------------------------------------------------------
 
-
 	Successfully created/updated stack - pipeline-sam-app in eu-west-1
   {% endhighlight %}
 </details>
@@ -710,10 +683,20 @@ You have several ways to delete your resources:
 
 - AWS CloudFormation service
 - AWS CLI
-- WS SAM CLI
+- AWS SAM CLI
 
 > If you execute the command `sam delete`, it only will delete the main stack (sam-app) but not the CI/CD pipeline or the stage resources stack, so you have to specify the pipeline stack in the second execution.
 {: .prompt-note }
+
+```console
+sam delete --stack-name pipeline-sam-app
+```
+
+And don't forget to remove the environment stack resources:
+
+```console
+sam delete --stack-name aws-sam-cli-managed-test-pipeline-resources
+```
 
 ## Wrapping It Up
 
@@ -725,6 +708,10 @@ That brings us to the end of our journey on integrating CI/CD into AWS SAM proje
 
 ## What's next?
 
-Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+Further reading:
+
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
 
 Thank you for reading, and I hope this article has been both informative and useful in setting up your CI/CD pipeline. I look forward to hearing your thoughts and experiences with AWS SAM. Feel free to share them in the comments below. Happy coding!
