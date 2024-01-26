@@ -519,3 +519,13 @@ That is all, we have automation in our deployment process!
 So as you can see, using CDK's CodePipeline constructor, the following is created:
 
 ![solution-2](architecture-diagrams/solution-2.png){:class="border"}
+
+## Next steps
+
+Further reading:
+
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+- SAM: [How to create Serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
+
+I look forward to hearing your thoughts and experiences with AWS CDK. Feel free to share them in the comments below. Happy coding!

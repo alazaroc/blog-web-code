@@ -710,10 +710,20 @@ You have several ways to delete your resources:
 
 - AWS CloudFormation service
 - AWS CLI
-- WS SAM CLI
+- AWS SAM CLI
 
 > If you execute the command `sam delete`, it only will delete the main stack (sam-app) but not the CI/CD pipeline or the stage resources stack, so you have to specify the pipeline stack in the second execution.
 {: .prompt-note }
+
+```console
+sam delete --stack-name pipeline-sam-app
+```
+
+And don't forget to remove the environment stack resources:
+
+```console
+sam delete --stack-name aws-sam-cli-managed-test-pipeline-resources
+```
 
 ## Wrapping It Up
 
@@ -725,6 +735,10 @@ That brings us to the end of our journey on integrating CI/CD into AWS SAM proje
 
 ## What's next?
 
-Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+Further reading:
+
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
 
 Thank you for reading, and I hope this article has been both informative and useful in setting up your CI/CD pipeline. I look forward to hearing your thoughts and experiences with AWS SAM. Feel free to share them in the comments below. Happy coding!

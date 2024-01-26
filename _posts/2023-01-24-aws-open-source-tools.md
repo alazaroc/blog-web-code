@@ -16,7 +16,6 @@ featured_post: true
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-01-24-aws-open-source-tools/
-
 ---
 ---
 
