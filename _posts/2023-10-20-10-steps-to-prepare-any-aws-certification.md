@@ -11,7 +11,7 @@ tags:
 published: true
 pin: false
 featured_post: false
-comments: false
+comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-10-20-10-steps-to-prepare-any-aws-certification/
 ---
