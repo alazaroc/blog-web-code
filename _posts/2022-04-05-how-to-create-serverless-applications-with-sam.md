@@ -347,15 +347,8 @@ sam init
   Based on your selections, the only Package type available is Zip.
   We will proceed to selecting the Package type as Zip.
 
-  Based on your selections, the only dependency manager available is npm.
-  We will proceed copying the template using npm.
-
-  Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]: > N
-
-  Would you like to enable monitoring using CloudWatch Application Insights?
-  For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.html [y/N]: > N
-
-  Would you like to set Structured Logging in JSON format on your Lambda functions?  [y/N]:
+Based on your selections, the only dependency manager available is npm.
+We will proceed copying the template using npm.
 
   Project name [sam-app]: > sam-app
 
@@ -933,6 +926,11 @@ sam delete
 
 ## Next steps
 
-- If you need more information about SAM I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html){:target="_blank"}
-- Next post: [How to add CI/CD to my SAM project](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"}
-- Comment this post
+Further reading:
+
+- Next SAM post: [How to add CI/CD to my SAM project](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"}
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
+
+I look forward to hearing your thoughts and experiences with AWS SAM. Feel free to share them in the comments below. Happy coding!

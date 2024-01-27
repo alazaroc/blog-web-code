@@ -221,6 +221,11 @@ If you review it and think it can be improved, please let me know.
 
 ## Next steps
 
-- If you need more information about CDK I recommend you to visit the AWS documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html){:target="_blank"}
-- Next post: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
-- Comment this post
+Further reading:
+
+- More about CDK: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+- SAM: [How to create Serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
+
+I look forward to hearing your thoughts and experiences with AWS CDK. Feel free to share them in the comments below. Happy coding!

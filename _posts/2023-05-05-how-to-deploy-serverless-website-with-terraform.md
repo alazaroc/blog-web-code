@@ -485,3 +485,13 @@ These are the changes that you have to do in the previous "main.tf" file:
 In this article, we have explored the basics of Terraform and walked through how to create infrastructure with different examples. With Terraform, you can define your infrastructure as code and automate the process of creating and updating your resources.
 
 This example is based on the code I have created to deploy my own blog [https://playingaws.com](https://playingaws.com){:target="_blank"} using `Route53 + ACM + CloudFront Distribution + private S3 bucket`.
+
+## Next steps
+
+Further reading (IaC):
+
+- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
+- SAM: [How to create Serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
+
+I look forward to hearing your thoughts and experiences with AWS SAM. Feel free to share them in the comments below. Happy coding!
