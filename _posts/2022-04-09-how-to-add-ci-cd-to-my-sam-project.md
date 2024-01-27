@@ -553,7 +553,7 @@ To update the pipeline we have to run again the command `sam deploy -t codepipel
 Now, we will remove the UnitTest stage.
 
 ```shell
-> sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM
+sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM
 ```
 
 <details>
