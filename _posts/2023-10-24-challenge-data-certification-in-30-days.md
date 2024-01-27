@@ -10,7 +10,7 @@ tags:
 - data
 - certification
 published: true
-pin: false
+pin: true
 featured_post: false
 comments: true
 sitemap: true
