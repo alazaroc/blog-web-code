@@ -28,4 +28,12 @@
     float: left;
     margin-bottom: 0px;
   }
+  #toc-wrapper ul .toc-link {
+    white-space: normal !important;
+}
+#panel-wrapper .text-truncate {
+  white-space: normal !important;
+  list-style-position: inside !important;
+  list-style-type: disclosure-closed !important;
+}
 </style>

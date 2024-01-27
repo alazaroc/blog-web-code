@@ -149,7 +149,7 @@ defaults:
   - scope:
       path: _drafts
     values:
-      comments: false
+      comments: true
   - scope:
       path: ""
       type: tabs # see `site.collections`
@@ -209,7 +209,7 @@ jekyll_compose:
       published: true
       pin: false
       featured_post: false
-      comments: false
+      comments: true
       sitemap: true
       img_path:
     posts:
@@ -220,6 +220,6 @@ jekyll_compose:
       published: true
       pin: false
       featured_post: false
-      comments: false
+      comments: true
       sitemap: true
       img_path:
