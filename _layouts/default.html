@@ -17,6 +17,7 @@ layout: compress
   {% include head.html %}
 
   <body>
+    {% include custom.css %}
     {% include sidebar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
@@ -84,6 +85,5 @@ layout: compress
     {% endif %}
 
     {% include_cached search-loader.html %}
-    {% include custom.css %}
   </body>
 </html>
