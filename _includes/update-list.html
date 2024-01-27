@@ -1,34 +1,32 @@
-<!-- Get the last 3 featured_post -->
+<!-- Get 3 last posted/updated posts -->
 
 {% assign MAX_SIZE = 3 %}
 
 {% assign all_list = '' | split: '' %}
 
 {% for post in site.posts %}
-  {% if post.featured_post %}
-    {% capture elem %}
-      {% if post.featured_post == true %}
-        {{- post.featured_post -}}::{{- forloop.index0 -}}
-      {% endif %}
-    {% endcapture %}
+  {% assign datetime = post.last_modified_at | default: post.date %}
+
+  {% capture elem %}
+    {{- datetime | date: "%Y%m%d%H%M%S" -}}::{{- forloop.index0 -}}
+  {% endcapture %}
+
   {% assign all_list = all_list | push: elem %}
-  {% endif %}
 {% endfor %}
 
 {% assign all_list = all_list | sort | reverse %}
 
-{% assign featured_list = '' | split: '' %}
+{% assign update_list = '' | split: '' %}
 
-{% for entry in all_list limit:MAX_SIZE %}
-  {% assign featured_list = featured_list | push: entry %}
+{% for entry in all_list limit: MAX_SIZE %}
+  {% assign update_list = update_list | push: entry %}
 {% endfor %}
 
-
-{% if featured_list.size > 0 %}
+{% if update_list.size > 0 %}
   <section id="access-lastmod">
-    <h2 class="panel-heading">{{- site.data.locales[include.lang].panel.featured_post -}}</h2>
+    <h2 class="panel-heading">{{- site.data.locales[include.lang].panel.lastmod -}}</h2>
     <ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2">
-      {% for item in featured_list %}
+      {% for item in update_list %}
         {% assign index = item | split: '::' | last | plus: 0 %}
         {% assign post = site.posts[index] %}
         {% assign url = post.url | relative_url %}
@@ -38,5 +36,5 @@
       {% endfor %}
     </ul>
   </section>
-  <!-- #access-featured_post -->
+  <!-- #access-lastmod -->
 {% endif %}
