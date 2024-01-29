@@ -21,9 +21,8 @@ tagline: Learn, remove barriers and practice # it will display as the sub-title
 description: >- # used by seo meta and the atom feed
   My personal blog related with AWS.
 
-# Fill in the protocol & hostname for your site.
-# e.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://www.playingaws.com"
+# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
+url: "https://playingaws.com/"
 
 github:
   username: alazaroc # change to your github username
