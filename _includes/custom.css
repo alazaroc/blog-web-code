@@ -39,4 +39,18 @@
   .access>section:not(:last-child) {
     margin-bottom: 2rem;
   }
+  .preview-img img {
+    object-fit: contain;
+    width: 95% !important;
+    height: 100%;
+  }
+  #sidebar #avatar{
+    margin-left: 20px;
+    width: 8rem;
+    height: 8rem;
+  }
+  #sidebar #avatar img {
+    width: 130px;
+    height: 130px;
+  }
 </style>
