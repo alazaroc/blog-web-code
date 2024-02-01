@@ -18,14 +18,16 @@ function initSubscribeForm() {
         type: 'POST',
         url: subscribeForm.attr('action'),
         data: JSON.stringify(req),
-        contentType: "application/json",
+        contentType: 'application/json; charset=utf-8', // Assuming JSON content type
         dataType: 'json',
         encode: true,
+    // Added console.error for logging AJAX errors and clearing email input on success
     }).done(function() {
       $('#subscribe-form-loading-submit-button').addClass('form-hidden');
       $('#subscribe-form-was-submitted').removeClass('form-hidden');
       subscribeForm.find('.form-group').addClass('form-hidden');
     }).fail(function(err) {
+      console.error("Failed to submit:", err);
       $('#subscribe-form-loading-submit-button').addClass('form-hidden');
       $('#subscribe-form-failed-to-submit').removeClass('form-hidden');
       submitBtn.attr('disabled', false).removeClass('form-hidden');

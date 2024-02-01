@@ -7,18 +7,21 @@
     width: 100%;
   }
   .width_300 {
-    width: 300px;
+    width: 300px !important;
   }
   .left {
     float:left;
   }
   .custom_button {
     font-size: 1rem !important;
-    padding: .375rem .75rem !important;
+    padding: .275rem .75rem !important;
     margin-left: 5px !important;
   }
   .margin_bottom_15 {
     margin-bottom: 15px;
+  }
+  .margin_right_15 {
+    margin-right: 15px;
   }
   details {
     margin-bottom: 15px;
@@ -52,5 +55,8 @@
   #sidebar #avatar img {
     width: 130px;
     height: 130px;
+  }
+  .form-group{
+    margin-bottom: 10px;
   }
 </style>
