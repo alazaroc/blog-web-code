@@ -20,14 +20,14 @@ mermaid: true
 ---
 ---
 
-> Last updated: I have migrated my web from Amplify web to Terraform + S3 + CloudFront + AWS Certificate Manager + Developer Tools
+> Last updated: I have migrated my website from Amplify web to Terraform + S3 + CloudFront + AWS Certificate Manager + Developer Tools
 {: .prompt-info }
 
 ## TLDR
 
 My technology approach is:
 
-- Use **AWS resources** when possible. One of the reasons for creating this blog is to practice with AWS... and as a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
+- Use **AWS resources** when possible. One of the reasons for creating this blog is to practice with AWS... As a first step, the blog itself must use AWS resources. However, as a good rule, there is an exception
   > <kbd>GitHub</kbd> is used as **code repository** because I want to share my code easily in a public way
   {: .prompt-danger }
 - Serverless architecture
@@ -37,10 +37,10 @@ My technology approach is:
   - **Backend**: AWS resources deployed with CDK using the TypeScript language
     - Code [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}
 - This is the architecture of my blog:
-  - Current Version [2]:
-    - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
   - Previous Version [1]:
     - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v1.png)
+  - Current Version [2]:
+    - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
   
 ## Frontend
 
@@ -56,26 +56,26 @@ I could add much more details but I want to keep it short.
 
 First of all, I needed to choose how to create the blog, and nowadays there are a lot of options to do it in a serverless way:
 
-- Single Page Application (SPA): React, Angular, Vue.js, Ionic, Ember
-- Server-Side Rendering (SSR): Express.js, Next.js, Nux.js, Gatsby.js
-- Static Site Generator (SSG): Gatsby, Next.js, Nuxt.js, Hugo, Jekyll, Hexo
-- Progressive Web Apps (PWA): React, Angular, Vue.js, Preact, PWABuilder
+- `Single Page Application (SPA)`: React, Angular, Vue.js, Ionic, Ember
+- `Server-Side Rendering (SSR)`: Express.js, Next.js, Nux.js, Gatsby.js
+- `Static Site Generator (SSG)`: Gatsby, Next.js, Nuxt.js, Hugo, Jekyll, Hexo
+- `Progressive Web Apps (PWA)`: React, Angular, Vue.js, Preact, PWABuilder
 
-Since I wanted to **keep it simple**, I used a **static site generator.** I must admit I hesitated with Hugo, Jekyll, and Hexo, all three options were good for me and although I liked Hugo for its fast build times and execution performance, I finally decided on <kbd>Jekyl</kbd> just because the theme I used ([Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/){:target="_blank"}) I liked more visually than the other options and I didn't want to have to customize it too much.
+Since I wanted to **keep it simple**, I used a **static site generator.** I must admit I hesitated with Hugo, Jekyll, and Hexo, all three options were good for me and although I liked Hugo for its fast build times and execution performance, I finally decided on `Jekyl` just because the theme I used ([Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/){:target="_blank"}). I liked it more visually than the other options and I didn't want to have to customize it too much.
 
 > I am a big fan of the KISS design principle!
 {: .prompt-info }
 
 ### Technology to deploy the blog
 
-After choosing Jekyll as my static site generator, I needed to know how to deploy it on AWS and, of course, there are many options to do it:
+After choosing <kbd>Jekyll</kbd> as my `static site generator`, I needed to decide how to deploy it on AWS. There are many options to do it:
 
-- EC2 + RDS (i.e. traditional blog with WordPress / Ghost + Gatsby / ...)
-- LightSail (by the way, [an interesting article comparing LightSail with EC2](https://aws.amazon.com/premiumsupport/knowledge-center/lightsail-differences-from-ec2/){:target="_blank"})
-- Container solutions (ECS/EKS)
-- AWS ElasticBeanstalk
-- S3
-- AWS Amplify
+- `EC2 + RDS` (i.e. traditional blog with WordPress / Ghost + Gatsby / ...)
+- `LightSail` (by the way, [an interesting article comparing LightSail with EC2](https://aws.amazon.com/premiumsupport/knowledge-center/lightsail-differences-from-ec2/){:target="_blank"})
+- C`ontainer solutions` (ECS/EKS)
+- `AWS ElasticBeanstalk`
+- `S3`
+- `AWS Amplify`
 
 #### Version 1
 
@@ -107,27 +107,27 @@ As you can see, this solution is awesome if you want that AWS manage for you the
 
 #### Version 2 [Current version]
 
-Version 1, using **Amplify Hosting**, was too "automagic" for me and I was here to practice/play and show you the results... so **I migrated my web to a custom solution** to have more control and more services to play with, a lot of fun!
+Version 1, using **Amplify Hosting**, was too "automagic" for me and I am here to practice/play and show you the results... so **I migrated my website to a custom solution** to have more control and access to a wider range of services, which adds more fun!
 
-Creates the infrastructure using Terraform with the following AWS services:
+I created the infrastructure using Terraform with the following AWS services:
 
-- **S3** bucket used as website
-- **CloudFront distribution** in front of the S3 bucket
-- **Lambda Edge** to use it in CloudFront, to transform all requests (required for Jekyll web)
-- **AWS ACM**: Certificate generation of my custom domain (playingaws.com)
-- **Developer Tools**: to deploy the Infrastructure as Code with Terraform
+- `S3 bucket` used as website
+- `CloudFront Distribution` in front of the S3 bucket
+- `Lambda Edge` to use it in CloudFront, to transform all requests (required for Jekyll web)
+- `AWS ACM`: Certificate generation of my custom domain (playingaws.com)
+- `Developer Tools`: to deploy the Infrastructure as Code with Terraform
 
 ### How to deploy it
 
 #### Version 1
 
-I wrote it in this post: [How to deploy a web with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}
+I wrote how I did it in this post: [How to deploy a website with amplify hosting](/posts/how-to-deploy-a-web-with-amplify-hosting/){:target="_blank"}.
 
-And I complemented it with this one: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
+And I complemented it with this one: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}.
 
 #### Version 2 [Current version]
 
-Infrastructure as Code created with Terraform and Developer Tools to deploy and automate the IaC
+Infrastructure as Code was created with Terraform</kbd> and used the <kbd>Developer Tools</kbd> to deploy and automate the IaC.
 
 ## Backend
 
@@ -139,13 +139,13 @@ I have included the following in this section:
 
 ### What resources should I create?
 
-No backend is necessary for a blog. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, email subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your solutions.
+`No backend is necessary for a blog`. Simple blogs that only have content don't need anything more than static pages. However, if you want more functionality like forms, email subscriptions, or comments you will need to use external plugins (to store the data somewhere else, not on AWS) or create your solutions.
 
-I don't want to use external plugins if I can do it "just the same" myself in AWS and practice/play with new services in the process
+I don't want to use external plugins if I can do "just the same" by myself in AWS and practice/play with new services in the process.
 
 After creating my empty blog I thought that it would be a good idea to implement the following:
 
-- Forms (contact form)
+- Contact forms
 - Email Subscription (to receive blog updates)
 - Add comments to each post (register it and show it)
 
@@ -230,18 +230,18 @@ Honestly, I did not evaluate other options, since I knew which one to choose and
 
 #### Version 2 [Current version]
 
-However now, I have migrated the `frontend infrastructure` to `Terraform`.
+However now, I have migrated the `frontend infrastructure` to `Terraform`. The `backend infrastructure` continues to be `CDK with TypeScript`.
 
 ### How to deploy infrastructure
 
-I wrote it in these posts:
+I have written the following articles to explain it:
 
 - [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
 - [How to deploy a serverless website with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
 
 ## Price estimation of the blog
 
-I just created the AWS Account, so I will use the **free tier**.
+When I created my blog, with the **free tier** the cost was 0 euros per month, except the payment of the domain.
 
 Price information by services used:
 
@@ -270,7 +270,7 @@ Price information by services used:
 
 **TOTAL 1.5$ per month**. Taxes are NOT included.
 
-> The domain name purchase on Route53 is annual and is paid in the month of purchase, but for simplicity, I split it into each month. Also, the invoice category is NOT Route53 but "Registrar", "Global Region", and "Amazon Registrar DomainRegistration".
+> The domain name purchase on Route53 is annual and is paid in the month of purchase, but for simplicity, I have slitted it into each month. Also, the invoice category is NOT Route53 but "Registrar", "Global Region", and "Amazon Registrar DomainRegistration".
 {: .prompt-info }
 
 > Use **Route53** for Register Domain is not the cheapest option. I paid $12 instead of around $1 for the first year with GoDaddy, but it's worth it (to me)
