@@ -17,7 +17,6 @@ layout: compress
   {% include head.html %}
 
   <body>
-    {% include custom.css %}
     {% include sidebar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
@@ -39,6 +38,8 @@ layout: compress
               {% include_cached update-list.html lang=lang %}
               {% include_cached featured-list.html lang=lang %}
               {% include_cached trending-tags.html lang=lang %}
+              <!-- Subscription form -->
+              {% include_cached subscribe-form-menu.html lang=lang %}
             </div>
 
             {% for _include in layout.panel_includes %}
