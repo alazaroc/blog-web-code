@@ -1,54 +1,68 @@
 <!-- https://giscus.app/ -->
 <script type="text/javascript">
 
-  document.getElementsByClassName("post-content")[0].innerHTML += '<hr>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<h2 id="comment-this-post">Feedback</h2>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<p>Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.</p>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<ul>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<li>What is your experience in this topic?</li>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<li>What did you find most useful or interesting about this article?</li>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<li>Do you have any suggestions for topics you would like me to cover in future articles?</li>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '</ul>';
+  document.querySelector(".content").insertAdjacentHTML('beforeend', `
+    <hr>
+    <h2 id="comment-this-post">Feedback</h2>
+    <p>Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.</p>
+    <ul>
+      <li>What is your experience in this topic?</li>
+      <li>What did you find most useful or interesting about this article?</li>
+      <li>Do you have any suggestions for topics you would like me to cover in future articles?</li>
+    </ul>
+  `);
 
-  $(function () {
-    const origin = "https://giscus.app";
-    const iframe = "iframe.giscus-frame";
-    const lightTheme = "light";
-    const darkTheme = "dark_dimmed";
+
+  (function () {
+    const origin = 'https://giscus.app';
+    const iframe = 'iframe.giscus-frame';
+    const lightTheme = 'light';
+    const darkTheme = 'dark_dimmed';
+
     let initTheme = lightTheme;
+    const html = document.documentElement;
 
-    if ($("html[data-mode=dark]").length > 0
-        || ($("html[data-mode]").length == 0
-            && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    if (
+      (html.hasAttribute('data-mode') &&
+        html.getAttribute('data-mode') === 'dark') ||
+      (!html.hasAttribute('data-mode') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
       initTheme = darkTheme;
     }
 
     let giscusAttributes = {
-      "src": "https://giscus.app/client.js",
-      "data-repo": "{{ site.comments.giscus.repo}}",
-      "data-repo-id": "{{ site.comments.giscus.repo_id }}",
-      "data-category": "{{ site.comments.giscus.category }}",
-      "data-category-id": "{{ site.comments.giscus.category_id }}",
-      "data-mapping": "{{ site.comments.giscus.mapping | default: 'pathname' }}",
-      "data-reactions-enabled": "{{ site.comments.giscus.reactions_enabled | default: '1' }}",
-      "data-emit-metadata": "0",
-      "data-theme": initTheme,
-      "data-input-position": "{{ site.comments.giscus.input_position | default: 'bottom' }}",
-      "data-lang": "{{ site.comments.giscus.lang | default: lang }}",
-      "crossorigin": "anonymous",
-      "async": ""
+      src: 'https://giscus.app/client.js',
+      'data-repo': '{{ site.comments.giscus.repo}}',
+      'data-repo-id': '{{ site.comments.giscus.repo_id }}',
+      'data-category': '{{ site.comments.giscus.category }}',
+      'data-category-id': '{{ site.comments.giscus.category_id }}',
+      'data-mapping': '{{ site.comments.giscus.mapping | default: 'pathname' }}',
+      'data-reactions-enabled': '{{ site.comments.giscus.reactions_enabled | default: '1' }}',
+      'data-emit-metadata': '0',
+      'data-theme': initTheme,
+      'data-input-position': '{{ site.comments.giscus.input_position | default: 'bottom' }}',
+      'data-lang': '{{ site.comments.giscus.lang | default: lang }}',
+      'data-loading': 'lazy',
+      crossorigin: 'anonymous',
+      async: ''
     };
 
-    let giscusScript = document.createElement("script");
-    Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
-    document.getElementsByClassName("post-content")[0].appendChild(giscusScript);
+    let giscusScript = document.createElement('script');
+    Object.entries(giscusAttributes).forEach(([key, value]) =>
+      giscusScript.setAttribute(key, value)
+    );
+    document.querySelector(".content").appendChild(giscusScript);
 
-    addEventListener("message", (event) => {
-      if (event.source === window && event.data &&
-            event.data.direction === ModeToggle.ID) {
+    addEventListener('message', (event) => {
+      if (
+        event.source === window &&
+        event.data &&
+        event.data.direction === ModeToggle.ID
+      ) {
         /* global theme mode changed */
         const mode = event.data.message;
-        const theme = (mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme);
+        const theme = mode === ModeToggle.DARK_MODE ? darkTheme : lightTheme;
 
         const message = {
           setConfig: {
@@ -59,8 +73,6 @@
         const giscus = document.querySelector(iframe).contentWindow;
         giscus.postMessage({ giscus: message }, origin);
       }
-
     });
-
-  });
+  })();
 </script>
