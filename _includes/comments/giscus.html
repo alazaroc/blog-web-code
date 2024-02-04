@@ -1,8 +1,14 @@
 <!-- https://giscus.app/ -->
 <script type="text/javascript">
 
-  document.getElementsByClassName("post-content")[0].innerHTML += '<h2 id="comment-this-post">Comment this post</h2>';
-  document.getElementsByClassName("post-content")[0].innerHTML += '<p>I hope this content has been relevant to you. To help me improve it would be helpful if you could give me your honest feedback.</p>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<hr>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<h2 id="comment-this-post">Feedback</h2>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<p>Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.</p>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<ul>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<li>What is your experience in this topic?</li>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<li>What did you find most useful or interesting about this article?</li>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '<li>Do you have any suggestions for topics you would like me to cover in future articles?</li>';
+  document.getElementsByClassName("post-content")[0].innerHTML += '</ul>';
 
   $(function () {
     const origin = "https://giscus.app";
