@@ -37,7 +37,7 @@ This section contains:
 
 ### What is CDK
 
-[CDK](https://aws.amazon.com/cdk/){:target="_blank"} is an open-source software development framework to define your cloud application resources using familiar programming languages (TypeScript, JavaScript, Python, Java, C#/.Net, and Go)
+[CDK](https://aws.amazon.com/cdk/){:target="_blank"} is an open-source software development framework to define your cloud application resources using familiar programming languages (TypeScript, JavaScript, Python, Java, C#/.Net, and Go).
 
 AWS CDK provisions your resources in a safe, repeatable manner through AWS <kbd>CloudFormation</kbd>.
 

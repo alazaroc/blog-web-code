@@ -4,10 +4,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 ---
-
-> You can <kbd>subscribe to the newsletter</kbd> to receive new content periodically.
+<!-- Subscription form -->
 {% include subscribe-form.html %}
-{: .prompt-tip }
 
 ## Me
 
