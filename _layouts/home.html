@@ -95,6 +95,12 @@ refactor: true
                     {% endfor %}
                   </span>
                 {% endif %}
+
+                <!-- level -->
+                {% if post.level.size > 0 %}
+                  <i class="far fa-info-circle fa-fw me-1"></i>
+                  Level {{ post.level }}
+                {% endif %}
               </div>
 
               {% if post.pin %}
