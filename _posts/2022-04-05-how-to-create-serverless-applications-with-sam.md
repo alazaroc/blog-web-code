@@ -12,6 +12,8 @@ tags:
 - iac
 - serverless
 - github
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
@@ -794,7 +796,7 @@ The console still listens for changes and if we change our lambda code and save 
 
 ![sam-sync-lambda](sam-sync-lambda.png){:class="border"}
 
-The console will be updated automatically as follow:
+The console will be updated automatically as follows:
 
 ```shell
 Syncing Lambda Function helloFromLambdaFunction...

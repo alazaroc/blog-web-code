@@ -10,6 +10,8 @@ tags:
 - getting-started
 - deepracer
 - personal
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false

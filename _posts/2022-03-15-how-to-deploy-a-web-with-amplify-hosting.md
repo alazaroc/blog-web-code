@@ -11,6 +11,8 @@ tags:
 - amplify
 - github
 - devops
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
@@ -149,7 +151,7 @@ To do that you have to:
 
 ### How to protect any environment
 
-If you want to protect any environment to don't be accessible by everyone, you can use the feature of <kbd>Access Control</kbd>. With this option, you can create a simple user/password to restrict access to your web:
+If you want to protect any environment to not be accessible by everyone, you can use the feature of <kbd>Access Control</kbd>. With this option, you can create a simple user/password to restrict access to your web:
 
 ![amplify-access-control](amplify-access-control.png){:class="border"}
 
@@ -160,6 +162,6 @@ There are only 2 options for the option `Access settings`:
 
 ![amplify-access-control-pass](amplify-access-control-pass.png){:class="border"}
 
-When you try to access now to the web you have to log in yo view the content:
+When you try to access now to the web you have to log in to view the content:
 
 ![amplify-access-control-web](amplify-access-control-web.png){:class="border"}

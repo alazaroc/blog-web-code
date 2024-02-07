@@ -3,9 +3,13 @@ layout: post
 title: 'AWS API Gateway exposed: choosing the right endpoint strategy for your API'
 date: 2024-02-04 13:42 +0100
 last_modified_at:
-description: This guide explores AWS API Gateway's endpoint exposure options, detailing their implementation, advantages, uses cases, real-world scenarios, architectural impacts, limitations, troubleshooting, costs and more.
-category:
+description: This guide explores AWS API Gateway's endpoint exposure options, detailing their implementation, advantages, use cases, real-world scenarios, architectural impacts, limitations, troubleshooting, costs and more.
+category: Serverless
 tags:
+- serverless
+- apigateway
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false

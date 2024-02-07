@@ -13,6 +13,8 @@ tags:
 - iac
 - serverless
 - comparative
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false 
@@ -167,7 +169,7 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 
 ![testing api-gateway-from-web-v1](testing api-gateway-from-web-v1.png){:class="border"}
 
-If you review your previous console, it will be updated when you accessed your API Gateway:
+If you review your previous console, it will be updated when you access your API Gateway:
 
 ```shell
 > sam local start-api
@@ -227,7 +229,7 @@ _executor.js:116:18)"]}%
 > If you don't deploy your CDK project before attempting to test it, you will get the following ERROR: `"errorType":"ResourceNotFoundException","errorMessage":"Requested resource not found"`
 {: .prompt-warning }
 
-Of course, you can set your AWS account in your sam CLI using the `profile` command.
+Of course, you can set your AWS account in your SAM CLI using the `profile` command.
 
 ``` console
 $ sam local invoke -e test/events/simple-event.json profile test
@@ -240,7 +242,7 @@ Invoking index.handler (nodejs14.x)
 You may want to test your Lambda function locally instead of connecting to your DynamoDB account, so we will do the following:
 
 - Download the DynamoDB Docker image
-- Run the DynamoDB Docker image locallyc
+- Run the DynamoDB Docker image locally
 - Set up DynamoDB: create tables, insert data, and test it
 - Change your Lambda Function code
 - Test DynamoDB locally
@@ -400,7 +402,7 @@ REPORT RequestId: eaf85e61-e9a2-4b49-9953-d247f9794fb8 Init Duration: 0.48 ms Du
 {"statusCode":200,"headers":{"Content-Type":"text/html"},"body":"You have connected with the Lambda and store the data in the DynamoDB table!"}
 ```
 
-If we scan the table again, we can review that in "/test" element will be a new `hits` column and `2` values:
+If we scan the table again, we can review that in the "/test" element will be a new `hits` column and `2` values:
 
 ```shell
 > aws dynamodb scan --table-name hits --endpoint-url http://localhost:8000

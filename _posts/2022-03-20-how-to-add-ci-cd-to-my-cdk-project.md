@@ -13,6 +13,8 @@ tags:
 - cicd
 - codepipeline
 - codebuild
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -42,7 +44,7 @@ Explanation: In a CDK deployment, I don't need to run the `cdk synth` command an
 > If you need more information about it, I wrote a related post: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}.
 {: .prompt-info }
 
-However, upon investigation the AWS recommendation to deploy a CI/CD pipeline of CDK projects is something similar to the following:
+However, upon investigation, the AWS recommendation to deploy a CI/CD pipeline of CDK projects is something similar to the following:
 
 ![solution-2](architecture-diagrams/solution-2.png){:class="border"}
 
@@ -60,7 +62,7 @@ SDLC (**Software Development Lifecycle**)
 
 Depending on where you look, there will be a different number of phases in the SDLC process.
 
-For this article we will explain what means CI/CD over 4 phases of the software release process: source, build, test and production (deployment):
+For this article, we will explain what means CI/CD over 4 phases of the software release process: source, build, test and production (deployment):
 
 ![software-release-process](software-release-process.png){:class="border"}
 

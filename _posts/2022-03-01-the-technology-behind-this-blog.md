@@ -11,6 +11,8 @@ tags:
 - cdk
 - github
 - serverless
+- level-100
+level: 100
 published: true
 pin: false
 featured_post: false
@@ -72,7 +74,7 @@ After choosing <kbd>Jekyll</kbd> as my `static site generator`, I needed to deci
 
 - `EC2 + RDS` (i.e. traditional blog with WordPress / Ghost + Gatsby / ...)
 - `LightSail` (by the way, [an interesting article comparing LightSail with EC2](https://aws.amazon.com/premiumsupport/knowledge-center/lightsail-differences-from-ec2/){:target="_blank"})
-- C`ontainer solutions` (ECS/EKS)
+- `Container solutions` (ECS/EKS)
 - `AWS ElasticBeanstalk`
 - `S3`
 - `AWS Amplify`
@@ -103,7 +105,7 @@ I used **Amplify Hosting** for the following reasons (there are more, but the fo
 - Instant cache invalidations in new versions
 - Integrated with Amazon CloudWatch
 
-As you can see, this solution is awesome if you want that AWS manage for you the CI/CD, web, cache, the certificate of your domain...
+As you can see, this solution is awesome if you want AWS to manage for you the CI/CD, web, cache, the certificate of your domain...
 
 #### Version 2 [Current version]
 
@@ -196,7 +198,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
     C --> D(DynamoDB)
   ```
 
-  - This solution was a custom AWS solution to use more AWS services and although I received some comments and store them in the database, I didn't implement the system to display them on the blog.
+  - This solution was a custom AWS solution to use more AWS services and although I received some comments and stored them in the database, I didn't implement the system to display them on the blog.
 - However, now I am using the `giscus` plugin
 
   ```mermaid

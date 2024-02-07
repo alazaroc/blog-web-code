@@ -10,6 +10,8 @@ tags:
 - how-to
 - security
 - getting-started
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: true
@@ -26,7 +28,7 @@ You already have one or multiple AWS accounts and you want to improve your secur
 I will share with you two resources to do it:
 
 - **AWS Security Maturity Model** will allow you to know the recommended actions to strengthen your security posture at every stage of your journey to the cloud
-  - Contains 4 phases. The first one "quick wins" allow you fast security improvements
+  - Contains 4 phases. The first one, `quick wins`, allows you fast security improvements
 - Article in the AWS security blog: The top 10 most important cloud security tips that Stephen Schmidt, Chief Information Security Officer for AWS, laid out at AWS re:Invent 2019
 
 ## AWS Security Maturity Model
@@ -102,7 +104,7 @@ The controls and recommendations may take some more effort to implement but are 
 
 ### Phase 3. Efficient
 
-There are some controls and recommendations that allow us to manage security in an efficient way.
+There are some controls and recommendations that allow us to manage security efficiently.
 
 | Level  | Recommendation |
 |---|---|
@@ -120,7 +122,7 @@ There are some controls and recommendations that allow us to manage security in 
 
 ### Phase 4. Optimized
 
-And finally, there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle** the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security or large organizations with very demanding requirements.
+And finally, there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle**, the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security or large organizations with very demanding requirements.
 
 | Level  | Recommendation |
 |---|---|
@@ -157,7 +159,7 @@ The original article was written in the AWS blog [here](https://aws.amazon.com/b
    - is the best way to protect accounts from inappropriate access
 3. **No hard-coding secrets**
    - use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/){:target="_blank"}
-   - if you are using java or python you can use [CodeGuru Reviewer](https://aws.amazon.com/about-aws/whats-new/2021/11/amazon-codeguru-reviewer-hardcoded-secrets-java-python/){:target="_blank"} to detect secrets in the code
+   - if you are using Java or Python you can use [CodeGuru Reviewer](https://aws.amazon.com/about-aws/whats-new/2021/11/amazon-codeguru-reviewer-hardcoded-secrets-java-python/){:target="_blank"} to detect secrets in the code
 4. **Limit security groups**
    - use [AWS Config](https://aws.amazon.com/config/){:target="_blank"} and [AWS Firewall Manager](https://aws.amazon.com/firewall-manager/){:target="_blank"} to programmatically ensure that the virtual private cloud (VPC) security group configuration is what you intended
 5. **Intentional data policies**

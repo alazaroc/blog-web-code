@@ -9,7 +9,9 @@ category:
 tags:
 - security
 - guardduty
-- deep dive
+- deep-dive
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -111,7 +113,7 @@ You could also save your custom filters and using later.
 
 ### Suppression rules
 
-If you are receiving findings for expected behavior in your environment, you can **automatically archive findings** based on criteria you define with suppression rules. Suppression rules are rules which automatically send matched findings to `archive`.
+If you are receiving findings for expected behavior in your environment, you can **automatically archive findings** based on criteria you define with suppression rules. Suppression rules are rules that automatically send matched findings to `archive`.
 
 ![guardduty-suppression-filter](guardduty-suppression-filter.png){:class="border"}
 
@@ -165,7 +167,7 @@ This is the information found in the official AWS documentation:
 1. Investigate the potentially compromised instance for malware and remove any discovered malware
 2. If you are unable to identify and stop unauthorized activity on your EC2 instance, AWS recommends that you terminate the compromised EC2 instance and replace it with a new instance as needed
 
-However, I think that this is more appropriate to deal with compromised EC2 instances:
+However, I think that this is more appropriate for dealing with compromised EC2 instances:
 
 1. Lock the instance down
 2. Take the EBS snapshot

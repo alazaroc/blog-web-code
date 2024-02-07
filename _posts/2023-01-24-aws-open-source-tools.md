@@ -10,6 +10,8 @@ tags:
 - getting-started
 - open-source
 - github
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: true
@@ -21,7 +23,7 @@ img_path: /assets/img/posts/2023-01-24-aws-open-source-tools/
 
 ## Introduction
 
-This is the first part of a series of articles about open source software and AWS, in which I will share those tools that I have tested and that I think you may find useful.
+This is the first part of a series of articles about open-source software and AWS, in which I will share those tools that I have tested and that I think you may find useful.
 
 The complete series contains the following:
 
@@ -47,22 +49,22 @@ The `Open Source Initiative` defines [here](https://opensource.org/osd){:target=
 > <kbd>Open source</kbd> software is code designed to be accessible to the public: `anyone can view, modify and distribute the code` as they wish.
 {: .prompt-info }
 
-By the way, both terms are correct: open source and open-source. I could use them interchangeably in this article.
+By the way, both terms are correct: open-source and open-source. I could use them interchangeably in this article.
 
 **What is the relationship with AWS?**
 
-I'm sure you already know that there are many open-source projects related to AWS, too many. This is because AWS is very popular, but also because AWS is very committed to the open source community.
+I'm sure you already know that there are many open-source projects related to AWS, too many. This is because AWS is very popular, but also because AWS is very committed to the open-source community.
 
-AWS claims that open source is good for everyone and regularly develops open source software and contributes to thousands of open-source communities on GitHub, Apache, and the Linux Foundation. More information can be found [here](https://aws.amazon.com/what-is/open-source/){:target="_blank"}
+AWS claims that open source is good for everyone and regularly develops open-source software and contributes to thousands of open-source communities on GitHub, Apache, and the Linux Foundation. More information can be found [here](https://aws.amazon.com/what-is/open-source/){:target="_blank"}
 
-In this post, I will try to show you some open source projects, since you probably don't know all of them and you can surely start using some of them.
+In this post, I will try to show you some open-source projects, since you probably don't know all of them and you can surely start using some of them.
 
 > So, let's start sharing public code!
 {: .prompt-info }
 
 ## Main AWS open-source tools
 
-Let's start with the most popular AWS open source projects.
+Let's start with the most popular AWS open-source projects.
 
 You are probably already using some of them and did not realize they are open source. However, I am not going to explain them or give more information, I will just name them here:
 
@@ -87,10 +89,10 @@ You are probably already using some of them and did not realize they are open so
 
 ## Extend AWS CLI
 
-My first idea was named this section `CLI tools` but all the open source tools listed here are CLI (Command Line Interface) tools, so this section is for the tools that you can use to improve/extend/replace your AWS CLI tool.
+My first idea was to name this section `CLI tools` but all the open source tools listed here are CLI (Command Line Interface) tools, so this section is for the tools that you can use to improve/extend/replace your AWS CLI tool.
 
 - Security
-  - <kbd>aws-vault</kbd>: tool to `securely store and access AWS credentials` in a development environment
+  - <kbd>aws-vault</kbd>: a tool to `securely store and access AWS credentials` in a development environment
 - Extend AWS CLI
   - <kbd>aws-shell</kbd>: interactive `productivity booster` for the AWS CLI
   - <kbd>awsls</kbd>: a `list command` for AWS resources
@@ -101,9 +103,9 @@ My first idea was named this section `CLI tools` but all the open source tools l
 
 ### aws-vault
 
-`aws-vault` securely store and access AWS credentials in a development environment.
+`aws-vault` securely stores and access AWS credentials in a development environment.
 
-AWS Vault stores IAM credentials in your operating system's secure keystore and then generates temporary credentials from those to expose to your shell and applications. It's designed to be complementary to the AWS CLI tools, and is aware of your profiles and configuration in ~/.aws/config.
+AWS Vault stores IAM credentials in your operating system's secure keystore and then generates temporary credentials from those to expose to your shell and applications. It's designed to be complementary to the AWS CLI tools and is aware of your profiles and configuration in ~/.aws/config.
 
 > **Why use it**: Complementary tool for AWS CLI tools, for secure your connections protecting your credentials.
 >
@@ -138,12 +140,12 @@ The interactive productivity booster for the AWS CLI
 
 > The tool is not working with AWS CLI v2 ([here](https://github.com/awslabs/aws-shell/issues/238){:target="_blank"} is the official `Issue` in github), and the project seems to have been abandoned (last commit July 10, 2020).
 >
-> However, if you use v1, the tool is worth it because it contains all the core AWS services.
+> However, if you use the v1, the tool is worth it because it contains all the core AWS services.
 {: .prompt-warning }
 
 ### awsls
 
-A list command for AWS resources. More than 100 AWS resource supported. The goal is to code-generate a list function for every AWS resource that is covered by the Terraform AWS Provider (currently over 500)
+A list command for AWS resources. More than 100 AWS resources are supported. The goal is to code-generate a list function for every AWS resource that is covered by the Terraform AWS Provider (currently over 500)
 
 > **Why use it**: If you want to search for resources across multiple regions and/or accounts and filter by any value using `GREP`, this is the tool for you!
 >
@@ -168,7 +170,7 @@ Steampipe is the universal interface to APIs. Use SQL to query cloud infrastruct
 > ![steampipe-1](steampipe-1.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 32; Fork 171; Stars 4.6k
+**Is it popular?**: On Github: Watch 32; Fork 171; Stars 4.6k
 
 **Recently updated?** Yes, last commit 2 days ago. Total commits 2007
 
@@ -191,7 +193,7 @@ awslogs is a simple command line tool for querying groups, streams and events fr
 > ![awslogs](awslogs.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 61; Fork 326; Stars 4.5k
+**Is it popular?**: On Github: Watch 61; Fork 326; Stars 4.5k
 
 **Recently updated?** No, the project seems to have been abandoned. The last commit was July 10, 2020. Total commits 326
 
@@ -218,7 +220,7 @@ This plugin provides completion support for AWS CLI and a few utilities to manag
 
 ## Next steps
 
-As I said in the introduction, there are 2 more articles in this series of open source tools:
+As I said in the introduction, there are 2 more articles in this series of open-source tools:
 
 - **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment - [here](/posts/aws-open-source-tools-environment/){:target="_blank"}
 - **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) - [here](/posts/aws-open-source-tools-code/){:target="_blank"}
