@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Comprehensive Guide to Amazon API Gateway Integrations
-date: 2024-02-10 11:53 +0100
+date: 2024-02-10 19:40 +0100
 last_modified_at:
-description:
+description: Explore Amazon API Gateway integrations, such as AWS Lambda, HTTP endpoints, and more, highlighting features, costs, and use cases to help developers optimize their serverless application architectures
 category: Serverless
 tags:
 - serverless
