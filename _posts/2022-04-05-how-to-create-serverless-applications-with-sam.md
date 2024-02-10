@@ -184,7 +184,7 @@ Resources:
   BasicAWSApiGateway:
     Type: AWS::Serverless::Api
     Properties:
-      Name: Basic AWS Api Gateway resource
+      Name: Basic Amazon API Gateway resource
       StageName: poc
       ...
 ```
