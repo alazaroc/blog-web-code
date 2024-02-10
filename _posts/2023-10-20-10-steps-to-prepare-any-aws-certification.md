@@ -16,6 +16,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-10-20-10-steps-to-prepare-any-aws-certification/
+image:
+  path: path_study.jpeg
+  header_post: false
 ---
 ---
 
@@ -25,15 +28,15 @@ The process to prepare for an AWS certification is always the same, but yes, log
 
 More than one year ago, I wrote [this other article](https://ifgeekthen.nttdata.com/es/como-preparar-cualquier-certificacion-de-aws){:target="_blank"} in Spanish, about `How to pass any AWS certification`. At this moment I had 5 AWS certifications and I had passed 6/6 AWS exams (1 renewal exam). There you will find much more information, but I want to have here in my blog the updated version with the most useful information.
 
-Now, 22 of October of 2023, I have 2 more AWS certifications and 8/8 in AWS exams.
+Now, on 22 October of 2023, I have 2 more AWS certifications and 8/8 in AWS exams.
 
 These are just numbers, but `I know how to prepare for AWS certification exams`, and if you are reading this article you probably want to know why I wrote something like this and why you should trust me.
 
+![steps](study_aws.jpg)
+
 ## My 10 steps to achieve any AWS certification
 
-![steps](steps.jpeg)
-
-This is the process I always follow to prepare any AWS certification:
+This is the process I always follow to prepare for any AWS certification:
 
 > 1/10: <kbd>Find</kbd> the proper certification for you
 {: .prompt-info }
@@ -130,3 +133,5 @@ So, you're thinking about getting AWS certified? Good for you! It's a great way 
 And don't be afraid to ask for help. There are tons of resources available to help you prepare, from online forums to study groups.
 
 With dedication and hard work, you'll be a certified AWS professional in no time!
+
+![pass the exam image](achieve_aws_certification.jpg)

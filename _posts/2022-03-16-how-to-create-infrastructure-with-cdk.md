@@ -20,6 +20,10 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/
+image:
+  path: cdk-aws-img.png
+  header_post: false
+
 ---
 ---
 
@@ -58,7 +62,7 @@ To interact with CDK apps you will need the AWS CDK Toolkit (command-line tool).
 
 ![how-cdk-works](cdk-aws-img.png)
 
-AWS CDK Toolkit commands you need to know:
+AWS CDK commands you need to know:
 
 | Command: Function   |
 | ---   |

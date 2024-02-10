@@ -4,12 +4,14 @@ icon: fas fa-info-circle
 order: 4
 ---
 ---
-<!-- Subscription form -->
-{% include subscribe-form.html %}
 
 ## Me
 
-My name is `Alejandro Lazaro Chueca` and currently, I am an AWS Community Builder (Security) & also AWS Ambassador in my company. As a Cloud Architect specializing in AWS, my journey began in development before advancing to software architecture, and ultimately, cloud architecture. Over 12 years, my career has spanned various clients and stages of software development, encompassing a broad spectrum of architectures including monolithic, microservices, event-driven, SOA, serverless,... and also cloud-native. My experience extends to leading modernization projects, spearheading DevOps transformations, conducting security assessments and much more.
+
+![me](/assets/img/alejandro_moncayo.jpeg){: width="972" height="589" .w-50 .right}
+
+
+My name is `Alejandro Lazaro Chueca` and currently, I am an AWS Community Builder (Security) & also an AWS Ambassador in my company. As a Cloud Architect specializing in AWS, my journey began in development before advancing to software architecture, and ultimately, cloud architecture. Over 12 years, my career has spanned various clients and stages of software development, encompassing a broad spectrum of architectures including monolithic, microservices, event-driven, SOA, serverless,... and also cloud-native. My experience extends to leading modernization projects, spearheading DevOps transformations, conducting security assessments and much more.
 
 My passion lies in serverless and event-driven architectures, DevOps, security, and embracing new technological challenges. I actively share this enthusiasm by teaching AWS to my colleagues, and I am always eager to collaborate on AWS-related projects.
 
@@ -30,14 +32,3 @@ I hold 7 AWS certifications, covering the 3 Associate levels, the 2 Professional
 
 > To me, "**play with AWS**" means <kbd>PRACTICE</kbd>, experiment trying something new and <kbd>keep learning</kbd>, so my domain is `playingaws`.
 {: .prompt-info }
-
-## Contact
-
-You can contact me for anything you want. I will get back to you as soon as I can.
-
-> I will appreciate if you <kbd>give me feedback</kbd> and help me to improve. I'm new to blogging and I'm not an English speaker, but I'll do my best and I want to learn a lot with the experience.
-{% include contact-form.html %}
-{: .prompt-tip }
-
-{% include contact-form.js %}
-{% include subscribe-form.js %}

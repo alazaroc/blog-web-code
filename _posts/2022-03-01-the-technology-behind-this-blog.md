@@ -158,7 +158,7 @@ Now, I have a basic implementation of these points but I will improve it in the 
 
 #### Forms
 
-- Used here: [Contact form](/about/#contact){:target="_blank"}
+- Used in the lateral panel and also here [Feedback form](/feedback){:target="_blank"}
 - External option easy to integrate: ~~Google Forms~~.
 - Custom AWS solution:
 

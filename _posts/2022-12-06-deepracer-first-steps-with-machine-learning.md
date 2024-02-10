@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-12-06-deepracer-first-steps-with-machine-learning/
+image:
+  path: car.png
+  header_post: false
 ---
 ---
 

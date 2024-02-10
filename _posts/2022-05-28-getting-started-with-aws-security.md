@@ -22,7 +22,7 @@ img_path: /assets/img/posts/2022-05-28-getting-started-with-aws-security/
 
 ## TLDR
 
-You have probably read many times that <kbd>in AWS security is the TOP priority, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these 2 resources you _have to_ know*:
+You have probably read many times that <kbd>in AWS security is the TOP priority</kbd>, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these `2 resources you have to know`:
 
 - Recommendations and best practices: Security Pillar in AWS Well-Architected Framework
 - AWS Security checklist

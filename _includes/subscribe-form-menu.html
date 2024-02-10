@@ -1,20 +1,25 @@
 <section>
-  <div class="col-xs-8 col-xs-offset-2">
-      <h2 class="panel-heading">Subscribe for monthly updates</h2>
-      <form id="customer-subscribe-form" action="https://www.playingaws.com/api/subscription" accept-charset="UTF-8" method="post">
+  <div class="subscription-form-container">
+    <h2 class="panel-heading">Subscribe for monthly updates</h2>
+    <form id="subscription-form" method="post" action="https://www.playingaws.com/api/v1/subscription" accept-charset="UTF-8">
       <div class="d-flex">
         <div class="form-group width_300 margin_right_15">
-          <input class="form-control" placeholder="me@gmail.com" type="email" name="email" id="subscribe_email" required />
+          <input type="email" id="subscription-email" name="email" placeholder="me@gmail.com" class="form-control" required />
         </div>
+
         <div class="form-actions">
-          <button id="subscribe-form-submit-button" name="button" type="submit" class="btn-default btn btn-primary btn-lg custom_button">Submit</button>
-          <button id="subscribe-form-loading-submit-button" name="button" class="btn btn-default btn-primary btn-lg form-hidden custom_button">Submitting...</button>
+          <button type="submit" id="submit-button" name="submit" class="btn-default btn btn-primary btn-lg custom_button">Submit</button>
+          <button id="loading-button" name="loading" class="btn btn-default btn-primary btn-lg form-hidden custom_button">Submitting...</button>
         </div>
       </div>
-      <div class="alert alert-danger form-hidden" id="subscribe-form-failed-to-submit" role="alert">
-        <strong>Failed to submit the form</strong> Please, try again.
+      <div id="failed-submit-alert" class="alert alert-danger form-hidden" role="alert">
+        <strong>Failed to submit the form.</strong> Please, try again.
       </div>
-      <div class="alert alert-success form-hidden" id="subscribe-form-was-submitted" role="alert"><strong>Thank you to subscribe</strong>. I'll send you some notifications with new updates!</div>
+
+      <div id="success-submit-alert" class="alert alert-success form-hidden" role="alert">
+        <strong>Thank you for subscribing!</strong> I'll send you some notifications with new updates!
+      </div>
+
     </form>
   </div>
 </section>

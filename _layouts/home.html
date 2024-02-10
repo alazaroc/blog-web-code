@@ -46,6 +46,12 @@ refactor: true
       <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
         {% assign card_body_col = '12' %}
 
+        {% if post.important_notice %}
+          <blockquote class="prompt-warning"> 
+            <p>{{ post.important_notice }}</p>
+          </blockquote>
+        {% endif %}
+
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
           {% unless src contains '//' %}
@@ -54,11 +60,11 @@ refactor: true
 
           {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
 
-          {% assign lqip = null %}
+          <!-- {% assign lqip = null %}
 
           {% if post.image.lqip %}
             {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
-          {% endif %}
+          {% endif %} -->
 
           <div class="col-md-5">
             <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>

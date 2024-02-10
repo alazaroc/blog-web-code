@@ -17,6 +17,10 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
+image:
+  path: badge.png
+  header_post: false
+important_notice: Only available until April 9, 2024
 ---
 ---
 

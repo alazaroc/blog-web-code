@@ -58,6 +58,14 @@ details {
 .form-group{
   margin-bottom: 10px;
 }
+.preview-img{
+  text-align: center;
+  width: auto !important;
+  height: auto !important;
+}
+.preview-img:not(.no-bg) {
+  background: none !important;
+}
 
 /* Customization of the colours of highlight text */
 html {

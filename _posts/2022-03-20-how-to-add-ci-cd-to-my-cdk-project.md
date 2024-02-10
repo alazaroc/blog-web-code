@@ -21,6 +21,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-03-20-how-to-add-ci-cd-to-my-cdk-project/
+image:
+  path: architecture-diagrams/solution-2.png
+  header_post: false
 ---
 ---
 

@@ -1,19 +1,27 @@
-> <div class="col-xs-8 col-xs-offset-2">
->    <p>Subscribe for monthly updates:</p>
->    <form id="customer-subscribe-form" action="https://www.playingaws.com/api/v1/subscription" accept-charset="UTF-8" method="post">
->      <div class="d-flex">
->        <div class="form-group width_300 margin_right_15">
->          <input class="form-control" placeholder="me@gmail.com" type="email" name="email" id="subscribe_email" required />
->        </div>
->        <div class="form-actions">
->          <button id="subscribe-form-submit-button" name="button" type="submit" class="btn-default btn btn-primary btn-lg custom_button">Submit</button>
->          <button id="subscribe-form-loading-submit-button" name="button" class="btn btn-default btn-primary btn-lg form-hidden custom_button">Submitting...</button>
->        </div>
->      </div>
->      <div class="alert alert-danger form-hidden" id="subscribe-form-failed-to-submit" role="alert">
->        <strong>Failed to submit the form</strong> Please, try again.
->      </div>
->      <div class="alert alert-success form-hidden" id="subscribe-form-was-submitted" role="alert"><strong>Thank you to subscribe</strong>. I'll send you some notifications with new updates!</div>
->    </form>
->  </div>
-{: .prompt-tip }
+<div class="col-xs-8 col-xs-offset-2">
+  <p>Subscribe for monthly updates:</p>
+  <form id="customer-subscribe-form" action="https://www.playingaws.com/api/v1/subscription" method="post" accept-charset="UTF-8">
+
+    <div class="d-flex">
+
+      <div class="form-group width_300 margin_right_15">
+        <input required type="email" name="email" id="subscribe_email" placeholder="me@gmail.com" class="form-control" />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" name="button" id="subscribe-form-submit-button" class="btn-default btn btn-primary btn-lg custom_button">Submit</button>
+        <button name="button" id="subscribe-form-loading-submit-button" class="btn btn-default btn-primary btn-lg form-hidden custom_button">Submitting...</button>
+      </div>
+
+    </div>
+
+    <div class="alert alert-danger form-hidden" role="alert" id="subscribe-form-failed-to-submit">
+      <strong>Failed to submit the form</strong> Please, try again.
+    </div>
+
+    <div class="alert alert-success form-hidden" role="alert" id="subscribe-form-was-submitted">
+      <strong>Thank you for subscribing</strong>. I'll send you notifications with new updates!
+    </div>
+
+  </form>
+</div>
