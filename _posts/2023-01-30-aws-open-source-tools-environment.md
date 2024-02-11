@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Open source tools to analyze your AWS environment'
+title: 'Open-source tools to analyze your AWS environment (2/3)'
 date: 2023-01-30 18:02 +0100
 last_modified_at:
-description: This article is the second part of a series on open source tools, focusing on tools for inventory, analysis and security assessment of the AWS environment.
+description: This article is the second part of a series on open-source tools, focusing on tools for inventory, analysis and security assessment of the AWS environment.
 category:
 - General
 tags:
@@ -21,11 +21,20 @@ img_path: /assets/img/posts/2023-01-30-aws-open-source-tools-environment/
 ---
 ---
 
+> This article is part of a series about `open-source` tools and AWS, in which I will share those tools that I have tested and that I think you may find useful.
+>
+> 1/3: [Getting Started with AWS open-source tools](/posts/aws-open-source-tools/){:target="_blank"}: main open-source tools and extend AWS CLI (this article).
+> 
+> 2/3: **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment.
+> 
+> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/){:target="_blank"}: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
+{: .prompt-tip }
+
 ## Introduction
 
-This is the second part of the series of `open-source tools`. If this is the first article of this series that you are reading, I recommend you to review the first one `Getting Started with AWS open-source tools` [here](/posts/aws-open-source-tools/){:target="_blank"}
+In this article, we will focus on the `inventory`, `analysis` and `security assessment` of the AWS environment.
 
-> Some open source tool could appear in several categories (in this same article or among the 3 open source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
+> Some open-source tool could appear in several categories (in this same article or among the 3 open-source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
 {: .prompt-warning }
 
 ## Inventory and analyze your environment

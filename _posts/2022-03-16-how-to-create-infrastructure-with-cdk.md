@@ -3,7 +3,7 @@ layout: post
 title: How to create infrastructure with CDK
 date: 2022-03-16 19:28 +0100
 last_modified_at:
-description: Do you want to know how to create infrastructure with CDK and review my CDK project used in this blog?
+description: Do you want to know how CDK works and how to deploy it from scratch? I will explain to you how to do it.
 category:
 - IaC
 tags:
@@ -23,7 +23,6 @@ img_path: /assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/
 image:
   path: cdk-aws-img.png
   header_post: false
-
 ---
 ---
 

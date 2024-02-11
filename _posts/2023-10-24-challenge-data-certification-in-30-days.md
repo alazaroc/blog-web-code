@@ -20,7 +20,7 @@ img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
 image:
   path: badge.png
   header_post: false
-important_notice: Only available until April 9, 2024
+important_notice: This certification will be only available until April 9, 2024.
 ---
 ---
 

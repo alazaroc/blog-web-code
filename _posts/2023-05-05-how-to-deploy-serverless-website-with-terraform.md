@@ -3,7 +3,7 @@ layout: post
 title: How to deploy a serverless website with Terraform
 date: 2023-05-05 20:53 +0200
 last_modified_at:
-description: Terraform is the main open-source tool to create infrastructure as code (IaC) in any cloud provider. In this article, we will review how we can use it to deploy a serverless website on AWS.
+description: Terraform is the main open-source tool to create infrastructure as code (IaC) in any cloud provider. In this article, we will review how we can use it to deploy a serverless website on AWS, exploring different options.
 category:
 - IaC
 tags:

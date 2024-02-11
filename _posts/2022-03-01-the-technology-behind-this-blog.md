@@ -3,7 +3,7 @@ layout: post
 title: How I decided on the technology behind the blog
 date: 2022-03-02 21:49 +0100
 last_modified_at:
-description: I just started the blog, but before that I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it until I felt comfortable with the solution. Want to know more?
+description: Before creating my blog and starting posting I did a lot of research comparing technologies, doing proofs of concept, and it took me weeks to figure out how to do it until I felt comfortable with the solution. Want to know more?
 category:
 - General
 tags:

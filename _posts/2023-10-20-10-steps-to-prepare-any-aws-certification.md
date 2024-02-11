@@ -3,7 +3,7 @@ layout: post
 title: "10 steps to prepare any AWS certification"
 date: 2023-10-20 19:37 +0200
 last_modified_at:
-description: This guide outlines 10 crucial steps for conquering any AWS certification exam. Embark on your journey to AWS mastery with confidence, knowing you are equipped with the necessary tools for success.
+description: This guide outlines 10 crucial steps for conquering any AWS certification exam. Begin your journey to AWS mastery with confidence, knowing you are equipped with the necessary tools for success.
 category:
 - General
 tags:

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'How open source tools can help you with your code'
+title: 'How open-source tools help you with your code (3/3)'
 date: 2023-02-11 15:41 +0100
 last_modified_at:
-description: The article is about the use of open source tools to help with your AWS code
+description: This final article in a series explores open-source tools for AWS, covering IaC generation, code analysis, policy compliance, and cost estimation, offering a toolkit for developers.
 category:
 - General
 tags:
@@ -21,14 +21,18 @@ img_path: /assets/img/posts/2023-02-04-aws-open-source-tools-code/
 ---
 ---
 
+> This article is part of a series about `open-source` tools and AWS, in which I will share those tools that I have tested and that I think you may find useful.
+>
+> 1/3: [Getting Started with AWS open-source tools](/posts/aws-open-source-tools/){:target="_blank"}: main open-source tools and extend AWS CLI (this article).
+> 
+> 2/3: [Analyze your AWS environment](/posts/aws-open-source-tools-environment/){:target="_blank"}: focus on the inventory, analysis and security assessment of the AWS environment.
+> 
+> 3/3: **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
+{: .prompt-tip }
+
 ## Introduction
 
-This is the last article of a series of 3 about open-source tools and AWS. If you haven't read them I recommend you to do it.
-
-- `Getting started with AWS open-source tools`: [here](/posts/aws-open-source-tools/){:target="_blank"}
-- `Open source tools to analyze your AWS environment`: [here](/posts/aws-open-source-tools-environment/){:target="_blank"}
-
-The current article is about `how open source tools can help you with your code`: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials)
+This is the last article of a series of 3 about open-source tools and AWS. The current article is about `how open-source tools can help you with your code`: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials)
 
 I have created the following sections:
 
@@ -129,8 +133,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 - <kbd>tfsec</kbd>: static analysis code for `Terraform`
 - <kbd>cfn-nag</kbd>: looks for patterns in `CloudFormation templates` that may indicate insecure infrastructure.
 
-> All the tools in this section allow you to create custom rules
-{: .prompt-info }
+All the tools in this section allow you to create custom rules
 
 ### checkov
 
@@ -181,7 +184,7 @@ Find security vulnerabilities, compliance issues, and infrastructure misconfigur
 
 KICS stands for `Keeping Infrastructure as Code Secure` and supports the following IaC solutions: `Terraform, AWS CloudFormation, AWS SAM, AWS CDK`, Kubernetes, Docker, Ansible, Helm, Google Deployment Manager, Microsoft ARM, Microsoft Azure Blueprints, OpenAPI 2.0 and 3.0, Pulumi, Crossplane, Knative and Serverless Framework.
 
-KICS is 100% open source and is written in Golang using Open Policy Agent (OPA) and it is possible to create custom queries to create custom rules (using REGO language).
+KICS is 100% open-source and is written in Golang using Open Policy Agent (OPA) and it is possible to create custom queries to create custom rules (using REGO language).
 
 > **Why use it**: Evaluate IaC to detect vulnerabilities
 >

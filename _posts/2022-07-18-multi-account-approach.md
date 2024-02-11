@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting started with AWS Multi-account approach
+title: Getting started with AWS Multi-account approach (1/2)
 date: 2022-09-17 19:22 +0200
 last_modified_at:
 description: This is the first article related to the multi-account approach, and the first thing to review is to know when and why I need a multi-account solution.
@@ -20,15 +20,23 @@ img_path: /assets/img/posts/2022-07-18-multi-account-approach/
 ---
 ---
 
+> This article is part of a series about `AWS multi-account`.
+>
+> 1/2: **Getting started with AWS Multi-account approach**
+> 
+> 2/2: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/){:target="_blank"}
+> 
+{: .prompt-tip }
+
 ## Introduction
 
-This is the first article related to the multi-account approach, and the first thing to review is to know when and why I need a multi-account solution.
+This is the first article related to the multi-account approach, and the first thing to review is to know `when and why I need a multi-account solution`.
 
 ### When do you need a multi-account solution?
 
 If you are using AWS for your personal projects and you have a simple solution without many resources, it is not worth it. Or maybe your solution is not so simple but you don't want to worry about the additional operational overhead to manage it. I understand it. This was exactly my case but in this article, I want to show you when, why and how to deploy a multi-account solution.
 
-However, in enterprise solutions, you should have a multi-account solution, without a doubt, so you need to know about it.
+However, `in enterprise solutions, you should have a multi-account solution`, without a doubt, so you need to know about it.
 
 Then, for me, it is very simple:
 
@@ -62,7 +70,7 @@ Some other advantages of a multi-account solution are:
 
 ### The disadvantage of a multi-account solution
 
-The main disadvantage if you want a multi-account solution is the **management** of all accounts (do it in the same way, create new accounts, duplicate efforts,... this is, mismanagement).
+The main disadvantage if you want a multi-account solution is the `management` of all accounts (do it in the same way, create new accounts, duplicate efforts,... this is, mismanagement).
 
 ## Multi-account approach: AWS Organizations
 
@@ -72,7 +80,7 @@ AWS provides a resource to help you centrally manage and govern your environment
 
 - **Organization**: an entity to administer accounts as a single unit
 - **Account**: standard AWS account that contains your AWS resources
-- **Organizational Units (OUs)**: a container that helps you to organize your accounts into a hierarchy and make it easier to apply management controls
+- **Organizational Units (OUs)**: a container that helps you to organize your accounts into a hierarchy and makes it easier to apply management controls
 - **Secure Control Policies (SCPs)**: policies are used to limit what the principals in member accounts can do
 
 ![aws-organizations-summary](aws-organizations-summary.png){:class="border"}

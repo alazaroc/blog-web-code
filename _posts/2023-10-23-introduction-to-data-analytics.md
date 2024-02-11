@@ -3,7 +3,7 @@ layout: post
 title: "Mastering the Basics of Data Analytics"
 date: 2023-10-23 00:11 +0200
 last_modified_at:
-description: This article provides a comprehensive overview of data analytics, including its fundamentals, different types, and applications
+description: This article provides a comprehensive overview of data analytics, including its fundamentals, different types, and applications. If you are new to Data Analytics start here!
 category:
 - Data Analytics
 tags:

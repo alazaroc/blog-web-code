@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AWS Control Tower Deep Dive
+title: AWS Control Tower Deep Dive (2/2)
 date: 2022-10-09 00:30 +0200
 last_modified_at:
 description: Second article about the multi-account approach and specifically about AWS Control Tower where we will review all options.
@@ -8,8 +8,10 @@ category:
 - Multi-account
 tags:
 - multi-account
-- deep dive
-- control tower
+- deep-dive
+- control-tower
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -19,14 +21,19 @@ img_path: /assets/img/posts/2022-10-09-aws-control-tower-deep-dive/
 ---
 ---
 
+> This article is part of a series about `AWS multi-account`.
+>
+> 1/2: [Getting started with AWS Multi-account approach](/posts/multi-account-approach/){:target="_blank"}
+> 
+> 2/2: **AWS Control Tower Deep Dive**
+> 
+{: .prompt-tip }
+
 ## Introduction
 
-> This is the second article of AWS Control Tower and the AWS multi-account approach. [In the first article](/posts/multi-account-approach/){:target="_blank"} I had explained why you need a multi-account approach, what are the best practices and recommendations and how to create the landing zone using AWS Control Tower.
-{: .prompt-warning }
+In this article, we will continue adding new AWS accounts to our multi-account approach and review all options in the AWS Control Tower service.
 
-In this article, we will continue to add new AWS accounts to our multi-account approach and review all options in the AWS Control Tower service.
-
-Once the creation of the landing zone by the AWS control tower is completed, it will have the following organizational structure:
+Once the creation of the landing zone by the AWS control tower is completed, it has the following organizational structure:
 
 ![organization.png](organization.png){:class="border"}
 
@@ -116,7 +123,7 @@ You can update the AWS Control Tower service to the Network configuration to def
 
 To deploy new AWS accounts with Account Factory you have 2 options:
 
-1. Use the product in AWS Service Catalog:
+1. Use the product in the AWS Service Catalog:
 
     ![service-catalog-1](service-catalog-1.png){:class="border"}
     ![service-catalog-2](service-catalog-2.png){:class="border"}
@@ -153,16 +160,16 @@ AWS Control Tower has now 358 controls (governance rules for your AWS environmen
   - **3 detective** to detect configuration violations
 - **Strongly recommended**: designed to enforce some common best practices for well-architected, multi-account environments.
   - Example: _Detect whether public write access to Amazon S3 buckets is allowed_
-- **Elective**: enable you to track or lock down actions that are commonly restricted in an AWS enterprise environment.
+- **Elective**: enables you to track or lock down actions that are commonly restricted in an AWS enterprise environment.
 
 Now, is also important distinct the controls by `behaviour`:
 
 - Proactive
   - These controls only are available if you deploy `CloudFormation templates` in the accounts and Regions where the control has been activated.
-  - It is implemented through AWS CloudFormation hooks and guard rules, and enforced through the deployment of a CloudFormation template. A guard rule is a policy-as-code rule that expresses the compliance requirements for an AWS resource. Hooks proactively inspect these resource configurations by comparing AWS resources against the guard rule, before the resources are provisioned.
+  - It is implemented through AWS CloudFormation hooks and guard rules, and enforced through the deployment of a CloudFormation template. A guard rule is a policy-as-code rule that expresses the compliance requirements for an AWS resource. Hooks proactively inspects these resource configurations by comparing AWS resources against the guard rule, before the resources are provisioned.
 - Detective
   - These controls are owned by `AWS Security Hub` or `AWS Control Tower` and implemented using `AWS Config rules`
-  - Controls owned by AWS Security Hub are not aggregated in the compliance status of accounts and OUs in AWS Control Towe
+  - Controls owned by AWS Security Hub are not aggregated in the compliance status of accounts and OUs in AWS Control Tower
 - Preventive
   - These controls are implemented with `Service control policy (SCP)`.
   - When activated, preventive controls are enforced at the OU level.
@@ -240,6 +247,71 @@ To deploy CfCT:
 
 ### Manage AWS Accounts Using Control Tower Account Factory for Terraform
 
-There is a Terraform module that makes it easy to create and customize new accounts that comply with your organization's security guidelines.
+There is a Terraform solution that makes it easy to create and customize new accounts that comply with your organization's security guidelines.
 
 [Here](https://learn.hashicorp.com/tutorials/terraform/aws-control-tower-aft){:target="_blank"} is the official link that explains how to do it step by step.
+
+There are 5 repositories, one with the `AFT module deployment` and 4 additional required to define your account specifications. You will only run Terraform commands within the first repository, and AFT will execute the configuration in the account specification repositories:
+
+1. `Account requests` – This repository handles placing or updating account requests.
+2. `AFT account provisioning customizations` – This repository manages customizations that are applied to all accounts created by and managed with AFT, before beginning the global customizations stage.
+3. `Global customizations` – This repository manages customizations that are applied to all accounts created by and managed with AFT.
+4. `Account customizations` – This repository manages customizations that are applied only to specific accounts created by and managed with AFT.
+
+AFT expects that each of these repositories follows a specific directory structure.
+
+This is the architecture of the solution:
+
+![aws-control-tower-aft](aws-control-tower-aft.png){:class="border"}
+![high-level-aft-diagram](high-level-aft-diagram.png){:class="border"}
+
+This is how it works:
+
+1. Account requests are created and submitted to the pipeline. You can create and submit more than one account request at a time. Account Factory processes requests in a first-in-first-out order. For more information, see Submit multiple account requests.
+2. Each account is provisioned. This stage runs in the AWS Control Tower management account.
+3. Global customizations run in the pipelines that are created for each vended account.
+4. If customizations are specified in the initial account provisioning requests, the customizations run only on targeted accounts. If you have an account that's already provisioned, you must initiate further customizations manually in the account's pipeline.
+
+Related to the `cost``, there are no additional charges for AFT. You pay only for the resources deployed by AFT, the AWS services enabled by AFT, and the resources you deploy in your AFT environment.
+
+> However, `be careful` if you want to use this option for your personal accounts. It is not a free option because the solution uses VPC endpoints and additional components for which you have to pay! I start using it to test purposes and at the end of the month `I had to pay more than $70` (just for have it deployed on my account...)
+{: .prompt-warning }
+
+### Comparative of Customizations for Control Tower (CfCT) with Control Tower Account Factory for Terraform
+
+| Feature / Aspect                         | Customizations for AWS Control Tower (CfCT)                                         | Control Tower Account Factory for Terraform (AFT)                                    |
+|------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| **Purpose**                              | Customize AWS Control Tower's landing zone with additional policies and configurations. | Automate provisioning and management of AWS accounts using Terraform.               |
+| **Flexibility**                          | High flexibility for AWS-specific customizations.                                   | High degree of automation and repeatability with Terraform.                         |
+| **Integration with AWS Services**        | Tightly integrated with AWS native tools.                                           | Integrates with AWS, but relies on Terraform for setup and configuration.           |
+| **Primary Use Case**                     | Ideal for organizations preferring AWS-native tools for cloud management.            | Suited for organizations using Terraform for infrastructure management.             |
+| **Maintenance and Updates**              | Managed by AWS, ensuring up-to-date features and security practices.                | Requires maintenance of Terraform configurations in line with AWS updates.          |
+| **Ease of Use**                          | More straightforward for teams familiar with AWS services.                          | Better for teams experienced with Terraform.                                        |
+| **Tooling Requirement**                  | Relies on AWS-native tools and services.                                            | Requires understanding and use of Terraform.                                        |
+| **Ideal for Organizations**              | Heavily invested in AWS ecosystem and prefer AWS tools for management.             | Already using Terraform and seeking to extend its capabilities to AWS management.   |
+
+## Top 5 customizations
+
+These are the top 5 customizations in a multi-account approach:
+
+1. Identity
+   1. Identity providers
+   2. IAM role and policy
+   3. Service Control Policy
+2. Security and Compliance
+   1. Security Tooling
+   2. Encryption
+3. Networking
+   1. AWS Transit Gateway
+   2. IP allocation
+   3. Routing
+   4. Security groups
+4. Logging
+   1. AWS CloudTrail (data events)
+   2. VPC Flow logs
+   3. Firewall logs
+   4. Amazon CloudWatch logs
+5. Control
+   1. AWS Config rules
+   2. Resource policy (Amazon S3, Amazon SNS, AWS KMS)
+   3. Preconfigured conducts
