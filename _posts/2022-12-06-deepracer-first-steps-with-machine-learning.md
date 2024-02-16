@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DeepRacer - First steps with Machine Learning
+title: 'DeepRacer: First steps with Machine Learning'
 date: 2022-12-06 19:33 +0100
 last_modified_at:
 description: Want to know how AWS DeepRacer works? I tested it at re:Invent 2022 and tell you about my experience with this machine learning service.
@@ -10,12 +10,17 @@ tags:
 - getting-started
 - deepracer
 - personal
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-12-06-deepracer-first-steps-with-machine-learning/
+image:
+  path: car.png
+  header_post: false
 ---
 ---
 

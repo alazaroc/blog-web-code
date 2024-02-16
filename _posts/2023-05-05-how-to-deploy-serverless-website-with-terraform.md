@@ -3,7 +3,7 @@ layout: post
 title: How to deploy a serverless website with Terraform
 date: 2023-05-05 20:53 +0200
 last_modified_at:
-description: Terraform is the main open-source tool to create infrastructure as code (IaC) in any cloud provider. In this article, we will review how we can use it to deploy a serverless website on AWS.
+description: Terraform is the main open-source tool to create infrastructure as code (IaC) in any cloud provider. In this article, we will review how we can use it to deploy a serverless website on AWS, exploring different options.
 category:
 - IaC
 tags:
@@ -12,12 +12,17 @@ tags:
 - terraform
 - github
 - serverless
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-05-05-how-to-deploy-serverless-website-with-terraform/
+image:
+  path: terraform-website.png
+  header_post: false
 ---
 ---
 
@@ -251,7 +256,7 @@ In this version, we are going to change the bucket to private again (and also, w
 - **Advantage**:
   - easy to implement
   - private s3 bucket (aligned with the security best practices)
-  - includes cache for static files
+  - includes a cache for static files
 - **Disadvantages**:
   - auto-generated domain name (by CloudFront)
 
@@ -373,16 +378,16 @@ In the last example, we will use our domain (registered in Route53) and we will 
 - **Requirement**:
   - Required a custom domain
 - **Advantages**:
-  - custom domain name using AWS managed certificates
+  - custom domain name using AWS-managed certificates
   - private s3 bucket (aligned with the security best practices)
-  - includes cache for static files
+  - includes a cache for static files
 - **Disadvantages**:
   - more complex to implement
 
 > To be able to run this example you need your own domain (example.com) and you have to register it in Route53 service. If you don't have it you can buy a new domain in the Route53 server but it will cost you about 10 dollars per year.
 {: .prompt-warning }
 
-These are the changes that you have to do in the previous "main.tf" file:
+These are the changes that you have to make in the previous "main.tf" file:
 
 - Update in your CloudFront Distribution resource `aws_cloudfront_distribution` the following, (where `${var.domain_name_simple}` is for example `example.com`):
 

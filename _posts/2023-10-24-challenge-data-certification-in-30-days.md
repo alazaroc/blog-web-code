@@ -5,16 +5,23 @@ date: 2023-10-25 22:59 +0200
 last_modified_at:
 description: Embark on a 30-day challenge and follow this ultimate guide to obtain the AWS Certified Data Analytics Specialty certification.
 category:
-- General
+- Data Analytics
 tags:
 - data
 - certification
+- level-400
+level: 400
 published: true
-pin: false
+pin: true
 featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
+image:
+  path: badge.png
+  header_post: false
+important_notice: This certification will be only available until April 9, 2024.
+---
 ---
 
 ## TLDR
@@ -26,11 +33,11 @@ img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
 
 If you are here, it's likely because you're eager to obtain the certification, or perhaps you're curious about the insights I've shared in this guide!
 
-In either case, rest assured that this guide is a firsthand account of my successful journey to achieve the AWS Certified Data Analytics Specialty certification. I conquered the exam on `October 15th`.
+In either case, rest assured that this guide is a first-hand account of my successful journey to achieve the AWS Certified Data Analytics Specialty certification. I conquered the exam on `October 15th`.
 
 If I could do it, you certainly can too.
 
-I didn't have experience in data analytics (not enough) and neither specific knowledge, but I wanted to prepare the certification because I wanted to get more knowledge in this area. I am a Cloud & Solutions Architect who wanted to know how to design, build, secure, and maintain analytics solutions using AWS tools and services. However, this `certification is not easy` and I had to dedicate a lot of hours to be prepared to pass the exam.
+I didn't have experience in data analytics (not enough) and no specific knowledge, but I wanted to prepare for the certification because I wanted to get more knowledge in this area. I am a Cloud & Solutions Architect who wanted to know how to design, build, secure, and maintain analytics solutions using AWS tools and services. However, this `certification is not easy` and I had to dedicate a lot of hours to be prepared to pass the exam.
 
 > I will use in this article `[30 days]` to prepare the certification's journey. However, remember, <kbd>everyone's learning pace is different</kbd>. Adjust the suggested plan based on your comfort level and progress. You could need more or less than 30 days.
 {: .prompt-warning }
@@ -86,7 +93,7 @@ Before starting, you must have a very good reason to do it, good enough to not q
 > What are your reasons for getting this new AWS certification?
 {: .prompt-info }
 
-In my case, I need the Data certification because I don't have as much experience in data projects as I want, and `I truly wanted to learn how to design, build, secure, and maintain analytics solutions using AWS tools and services` so that I can collaborate in a helpful way on data projects. The second reason is because the data certification is the nearest one to an event driven solution, and I want to be involved in this solutions in the future.
+In my case, I need the Data certification because I don't have as much experience in data projects as I want, and `I truly wanted to learn how to design, build, secure, and maintain analytics solutions using AWS tools and services` so that I can collaborate helpfully on data projects. The second reason is that the data certification is the nearest one to an event-driven solution, and I want to be involved in this solution in the future.
 
 > Your motivation is your WHY. How powerful to you is your WHY to you? 
 > 
@@ -97,27 +104,27 @@ In my case, I need the Data certification because I don't have as much experienc
 
 - [x] Purchase the exam
 
-My target date was one month away, so I purchased the exam to do it even more real. I usually set a target date and buy the exam to motivate myself. Don't worry, you can always reschedule the exam twice for free with at least a minimum of 24 hours prior notice. I had to reschedule exams several times, but it is a good idea have a date in mind from the beginning.
+My target date was one month away, so I purchased the exam to make it even more real. I usually set a target date and buy the exam to motivate myself. Don't worry, you can always reschedule the exam twice for free with at least a minimum of 24 hours prior notice. I had to reschedule exams several times, but it is a good idea to have a date in mind from the beginning.
 
 > I strongly recommend you request the time extension of 30 minutes if English is not your mother tongue.
 {: .prompt-tip }
 
 - [x] Create a study plan
 
-Like I said, we will follow these [10 steps to prepare any AWS Certification](https://www.playingaws.com/posts/10-steps-to-prepare-any-aws-certification/){:target="_blank"}.
+As I said, we will follow these [10 steps to prepare any AWS Certification](https://www.playingaws.com/posts/10-steps-to-prepare-any-aws-certification/){:target="_blank"}.
 
-You have to allocate time to prepare the exam. When creating your study plan, it is important to `be realistic about the amount of time you can commit to studying`. Be sure to factor in other commitments, such as work, family, and social obligations.
+You have to allocate time to prepare for the exam. When creating your study plan, it is important to `be realistic about the amount of time you can commit to studying`. Be sure to factor in other commitments, such as work, family, and social obligations.
 
-Probably your plan will change and you need to be flexible, but it is a good idea try to plan all the things you want to do to prepare the exam.
+Probably your plan will change and you need to be flexible, but it is a good idea to try to plan all the things you want to do to prepare for the exam.
 
-These are all the tasks that I had to do to prepare the exam, with an estimated amount of time [`updated`: I had to spend more hours in practically all the tasks]:
+These are all the tasks that I had to do to prepare for the exam, with an estimated amount of time [`updated`: I had to spend more hours on practically all the tasks]:
 
 - 8h: Learn the basics of data analytics
 - 4h of online content (so I will spend at least 8 hours)
-- Xh: Take a main training course. I will left here different options for you (there are many many more).
+- Xh: Take a main training course. I will leave here different options for you (there are many many more).
 - 4h (my estimation) - Whitepapers:
 - 5h (my estimation) - FAQs
-- 20h (my estimation) - Practice with the main services (list above)
+- 20h (my estimation) - Practice with the main services (listed above)
 - 8h (my estimation) - Take my own notes and study it
 - 8h (my estimation) - Practice exam questions
 
@@ -125,7 +132,7 @@ These are all the tasks that I had to do to prepare the exam, with an estimated 
 
 - [x] Introduction to AWS Data Analytics
 
-In my case, I had to start with the basics, so I decided to spend one full day and also writing this article about the [Introduction to Data Analytics](/posts/introduction-to-data-analytics/){:target="_blank"}. 
+In my case, I had to start with the basics, so I decided to spend one full day and also write this article about the [Introduction to Data Analytics](/posts/introduction-to-data-analytics/){:target="_blank"}. 
 
 > Initially I have included all the information in the same article but it was too long so I decided separate, also because maybe you are not interested in the introduction to the Data Analytics!
 {: .prompt-tip }
@@ -139,7 +146,7 @@ Take the time to go through the [Exam Readiness: AWS Certified Data Analytics Sp
 > AWS always show one message similar to this one: `This is NOT training`. This is to `complement` your training....
 {: .prompt-warning }
 
-These are the five domains for this certification. Four of them are the same that the `Process of Data Analytics` mentioned above + Security domain.
+These are the five domains for this certification. Four of them are the same as the `Process of` Data Analytics` mentioned above + the Security domain.
 
 - Collection (18%)
 - Storage and data management (22%)
@@ -199,7 +206,7 @@ The analysis and visualization domain is about using the data you've collected, 
 - `Amazon OpenSearch`
 - `Amazon EMR`
 - `Amazon Redshift`
-- `Amazon kinesis Data Analytics`
+- `Amazon Kinesis Data Analytics`
 - Amazon SageMaker
 - `Amazon QuickSight`
 
@@ -213,11 +220,11 @@ Main AWS Services:
 
 - [x] Take my own notes
 
-I take notes of all the videos/material I think it is useful so after that I can check it again. Sometimes is just do an screenshot of something important and sometimes I take my own notes.
+I take notes of all the videos/material I think is useful so after that I can check it again. Sometimes is just do a screenshot of something important and sometimes I take my own notes.
 
 ### Days 7-17 - Main training course & Practice resources (step 5 & 6)
 
-First of all, I think you have to check this AWS resource: [Ramp-up data analytics](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Data_Analytics.pdf){:target="_blank"}. This is a recompilation of many other courses and AWS content related with Data Analytics.
+First of all, I think you have to check this AWS resource: [Ramp-up data analytics](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Data_Analytics.pdf){:target="_blank"}. This is a recompilation of many other courses and AWS content related to Data Analytics.
 
 - [x] Main training course
 
@@ -229,7 +236,7 @@ Some examples:
 - 42h of content: [Cloud Academy](https://cloudacademy.com/learning-paths/aws-certified-data-analytics-specialty-das-c01-certification-preparation-for-aws-1804/){:target="_blank"} [not free course]
 - AWS SkillBuilder courses [not free courses]
 
-In my case, I selected `SkillBuilder` resources because I wanted to test this platform. Also, I don't wanted to watch training videos... I preferred choose all downloadable content and online content, and take my own notes to check them later. However, there is no one official preparation course in the SkillBuilder platform, so I had to select a few resources to try to cover all the content (and definitely I had to invest more time).
+In my case, I selected `SkillBuilder` resources because I wanted to test this platform. Also, I don't want to watch training videos... I preferred to choose all downloadable content and online content and take my own notes to check them later. However, there is no one official preparation course in the SkillBuilder platform, so I had to select a few resources to try to cover all the content (and definitely I had to invest more time).
 
 > Disclaimer: these are not free courses. If you are only looking for free content, you can search yourself a free main training course or you can omit this step. However, probably you have to compensate with MANY more hours of preparation to fill all the gaps you have and to cover all the certification content
 {: .prompt-tip }
@@ -237,21 +244,21 @@ In my case, I selected `SkillBuilder` resources because I wanted to test this pl
 These are a few courses I did in the SkillBuilder platform:
 
 - Data Analytics on AWS (Technical), 4h. Digital content (no videos)
-- AWS Partner Certification Readiness: Data Analytics - Specialty (18h 27m). It includes pdf material that you can download, very useful! I didn't check the videos... only the pdf content! Also, this is a readiness course...
-- Data & Analytics Tech Talk (Partner Learning Plan), 10h 32m. Again, it includes pdf content that you can download, very useful! It contains 8 different courses
+- AWS Partner Certification Readiness: Data Analytics - Specialty (18h 27m). It includes PDF material that you can download, very useful! I didn't check the videos... only the PDF content! Also, this is a readiness course...
+- Data & Analytics Tech Talk (Partner Learning Plan), 10h 32m. Again, it includes PDF content that you can download, very useful! It contains 8 different courses
   - Transform your data approach: Develop a modern data strategy - Technical
-  - Better, faster, and lower-cost storage : Optimizing Amazon S3 & FSx/EFS storage - Technical
+  - Better, faster, and lower-cost storage: Optimizing Amazon S3 & FSx/EFS Storage - Technical
   - Analytics Readiness for BFSI - Technical
   - Transactional data lakes on AWS - Technical
   - Serverless Data Integration for a Modern Data Infrastructure with AWS Glue - Technical
   - Analytics on SAP Data - Technical
   - Redshift Migrations & POCs - Technical
   - Right Data Streaming Architecture for your Streaming Analytics
-- AWS Cloud Quest Data Analytics. AWS Cloud Quest is the only `role-playing game` to help you build practical AWS Cloud skills. The challenges were easy and you have to complete many very un-useful challenges related with other services not related with the Data Analytics certification, but it was funny! I completed all the challenges and I achieved the `AWS Cloud Quest Data Analytics` badge
+- AWS Cloud Quest Data Analytics. AWS Cloud Quest is the only `role-playing game` to help you build practical AWS Cloud skills. The challenges were easy and you had to complete many very un-useful challenges related to other services not related to the Data Analytics certification, but it was funny! I completed all the challenges and I achieved the `AWS Cloud Quest Data Analytics` badge
 
 - [x] Practice
 
-Follow a training course is highly recommended but practice with the AWS console is even more useful to retain information. And much more if you don't have much experience with some of the AWS services.
+Following a training course is highly recommended but practice with the AWS console is even more useful to retain information. And much more if you don't have much experience with some of the AWS services.
 
 I experiment by myself directly with some of the AWS services but I also get some internet examples.
 
@@ -262,7 +269,7 @@ Again, there is A LOT of free content you can check... Here are a few examples:
 1. [Build and automate a serverless data lake using an AWS Glue trigger for the Data Catalog and ETL jobs](https://aws.amazon.com/blogs/big-data/build-and-automate-a-serverless-data-lake-using-an-aws-glue-trigger-for-the-data-catalog-and-etl-jobs/){:target="_blank"}
 2. [Game Analytics Pipeline](https://aws.amazon.com/solutions/implementations/game-analytics-pipeline/){:target="_blank"}
 3. [Serverless Analytics for Games](https://catalog.us-east-1.prod.workshops.aws/workshops/29253aed-05ee-46f3-bcf3-bb3f90919de4/en-US){:target="_blank"}
-4. Create business intelligence dashboards with Amazon QuickSight: https://aws.amazon.com/getting-started/hands-on/create-business-intelligence-dashboards-using-amazon-quicksight/?p=ft&c=aa&z=4){:target="_blank"}
+4. [Create business intelligence dashboards with Amazon QuickSight](https://aws.amazon.com/getting-started/hands-on/create-business-intelligence-dashboards-using-amazon-quicksight/?p=ft&c=aa&z=4){:target="_blank"}
 5. [Orchestrate Amazon EMR Serverless jobs with AWS Step functions](https://aws.amazon.com/blogs/big-data/orchestrate-amazon-emr-serverless-jobs-with-aws-step-functions/){:target="_blank"}
 6. [Modernize a legacy real-time analytics application with Amazon Managed Service for Apache Flink](https://aws.amazon.com/blogs/big-data/modernize-a-legacy-real-time-analytics-application-with-amazon-managed-service-for-apache-flink/){:target="_blank"}
 7. [Using AWS AppSync and AWS Lake Formation to access a secure data lake through a GraphQL API](https://aws.amazon.com/blogs/big-data/using-aws-appsync-and-aws-lake-formation-to-access-a-secure-data-lake-through-a-graphql-api/){:target="_blank"}
@@ -276,7 +283,7 @@ Again, there is A LOT of free content you can check... Here are a few examples:
 
 ### Days 18-19 - Whitepapers (step 7)
 
-The link of the official AWS Whitepapers is included in the [documentation landing page](https://aws.amazon.com/certification/certified-data-analytics-specialty/){:target="_blank"}:
+The link to the official AWS Whitepapers is included in the [documentation landing page](https://aws.amazon.com/certification/certified-data-analytics-specialty/){:target="_blank"}:
 
 - [Amazon EMR Migration Guide: How to Move Apache Spark and Apache Hadoop From On-Premises to AWS](https://d1.awsstatic.com/whitepapers/amazon_emr_migration_guide.pdf){:target="_blank"}
 - [Big Data Options on AWS](https://docs.aws.amazon.com/whitepapers/latest/big-data-analytics-options/welcome.html){:target="_blank"}
@@ -287,7 +294,7 @@ The link of the official AWS Whitepapers is included in the [documentation landi
 
 ### Days 20-21 - FAQs of the main services (step 8)
 
-The link of the official FAQs is included (again) in the same [documentation landing page](https://aws.amazon.com/certification/certified-data-analytics-specialty/){:target="_blank"}:
+The link to the official FAQs is included (again) in the same [documentation landing page](https://aws.amazon.com/certification/certified-data-analytics-specialty/){:target="_blank"}:
 
 - [Amazon Athena](https://aws.amazon.com/athena/faqs/?das=sec&sec=prep){:target="_blank"}
 - [Amazon EMR](https://aws.amazon.com/emr/faqs/?das=sec&sec=prep){:target="_blank"}
@@ -311,7 +318,7 @@ Unfortunately I cannot share my own notes, but I used this time to check everyth
 
 ### Days 25-29 - Practice with exam-style questions (step 10)
 
-You have many options on internet.
+You have many internet options.
 
 The 2 AWS official test resources are the following:
 
@@ -320,18 +327,18 @@ The 2 AWS official test resources are the following:
 
 ### Day 30 - EXAM
 
-A few advices that you already know... so, reminders!
+A few pieces of advice that you already know... so, reminders!
 
 `BEFORE the exam`:
 
--  Sleep well the previous night to be rest in the exam. It will be a long exam with long questions...
+-  Sleep well the previous night to rest for the exam. It will be a long exam with long questions...
 
 `DURING the exam`:
 
 1. Identify keywords in the questions
 1. Eliminate wrong answers
 1. If you have doubts, answer the question, write in the comments your possible answers and everything that will help you in your next revision (example: A or B doubt in xxxxx), flag it, and go to the next one
-1. Don't spend to much time on each question. 3 minutes if you have requested the additional 30 minutes for non-native english speakers
+1. Don't spend to much time on each question. 3 minutes if you have requested the additional 30 minutes for non-native English speakers
 1. Review all the flagged questions and un-flag the ones that you are more confident now
 1. Review again
 

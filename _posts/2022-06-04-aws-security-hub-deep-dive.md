@@ -8,8 +8,10 @@ category:
 - Security
 tags:
 - security
-- security hub
-- deep dive
+- security-hub
+- deep-dive
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -145,7 +147,7 @@ With finding aggregation, you can use a single aggregation account & Region to v
 - You can also **designate an aggregator Region** and link some or all Regions to that aggregator Region to give you a centralized view of all your findings across all your accounts and all your linked Regions
   ![region-aggregation](security-hub-region-aggregation.png){:class="border"}
 
-Interesting article in AWS Security Blog: [Best practices for cross-Region aggregation of security findings](https://aws.amazon.com/blogs/security/best-practices-for-cross-region-aggregation-of-security-findings/){:target="_blank"}. Best practices mentioned:
+Interesting article in AWS Security Blog: [Best practices for cross-region aggregation of security findings](https://aws.amazon.com/blogs/security/best-practices-for-cross-region-aggregation-of-security-findings/){:target="_blank"}. Best practices mentioned:
 
 - Enable cross-Region aggregation
 - Consolidating downstream SIEM and ticketing integrations
@@ -233,13 +235,13 @@ More info about automated response and remediation [here](https://docs.aws.amazo
 
 - Regional service. You must enable it in all the regions you want to review.
 - **30 days free trial** when you enable it the first time, and during the free trial Security Hub provides an estimate of what the spend would be, so you can assess your spending beyond the free trial.
-- All findings are stored in Security Hub for **90 days** after the last update date
+- All findings are stored in the Security Hub for **90 days** after the last update date
 - **Periodic checks run automatically within 12 hours** after the most recent run. You cannot change the periodicity.
 - **Change-triggered checks run when the associated resource changes state**. Even if the resource does not change state, the updated time for change-triggered checks is refreshed **every 18 hours**.
 - After control statuses are generated for the first time, Security Hub **updates the control status every 24 hours** based on the findings from the previous 24 hours
 - Security Hub processes the findings using a standard findings format called the **AWS Security Finding Format** (ASFF), which eliminates the need for time-consuming data conversion efforts. With the ASFF, **all of Security Hub’s integration partners** (including both AWS services and external partners) **send their findings to Security Hub in a well-typed JSON format** consisting of over 1,000 available fields. This means that all of your security findings are normalized before they are ingested into Security Hub, and you don’t need to do any parsing and normalization yourself. The findings identify resources, severities, and timestamps consistently so that you can more easily search and take action on them.
 - The events are delivered to EventBridge in near-real-time and on a guaranteed basis
-- When you enabled a security standard, AWS Config rules are created automatically (and you cannot delete them)
+- When you enable a security standard, AWS Config rules are created automatically (and you cannot delete them)
 - You can create Custom Findings with AWS Config Rules and send them to Security Hub with EventBridge
 
 ---

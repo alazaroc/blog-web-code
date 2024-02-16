@@ -9,7 +9,9 @@ category:
 tags:
 - security
 - waf
-- deep dive
+- deep-dive
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -133,11 +135,11 @@ These metrics provide a SUM count of web requests that hit a specific Rule or We
 
 Usually is a good idea to create some alarms to be notified if some block requests appear on our web, so we can configure a `CloudWatch Alarm`.
 
-The easy way to create the alarm is through the AWS WAF Metric for `BlockeRequests`. There we have a direct link to create one alarm with this associated metric if we access `Graphed Metrics`` and select the indicated icon in red color:
+The easy way to create the alarm is through the AWS WAF Metric for `BlockedRequests`. There we have a direct link to create one alarm with this associated metric if we access `Graphed Metrics`` and select the indicated icon in red color:
 
 ![waf-alarm-1](waf-alarm-1.png){:class="border"}
 
-After the creation, we will have something like that:
+After the creation, we will have something like this:
 
 ![waf-alarm-2](waf-alarm-2.png){:class="border"}
 

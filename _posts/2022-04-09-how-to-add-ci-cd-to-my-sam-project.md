@@ -14,6 +14,8 @@ tags:
 - codepipeline
 - codebuild
 - github
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -553,7 +555,7 @@ To update the pipeline we have to run again the command `sam deploy -t codepipel
 Now, we will remove the UnitTest stage.
 
 ```shell
-> sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM
+sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM
 ```
 
 <details>
@@ -700,7 +702,7 @@ sam delete --stack-name aws-sam-cli-managed-test-pipeline-resources
 
 ## Wrapping It Up
 
-That brings us to the end of our journey on integrating CI/CD into AWS SAM projects. Let's recap the highlights:
+That brings us to the end of our journey of integrating CI/CD into AWS SAM projects. Let's recap the highlights:
 
 1. Ease of Deployment with SAM CLI: We utilized the `sam pipeline` command for a streamlined deployment process. It's efficient and simplifies the deployment of SAM applications.
 2. Customizing the Pipeline: Demonstrating AWS SAM's adaptability, we successfully used a custom template for a single-stage pipeline, allowing for tailored deployment strategies.

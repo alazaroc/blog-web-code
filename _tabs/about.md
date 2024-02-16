@@ -3,44 +3,32 @@ title: About
 icon: fas fa-info-circle
 order: 4
 ---
+---
 
 ## Me
 
-I am a Cloud Architect specialized in AWS. I started as a developer and evolved to a software architect and then to a cloud architect. Now with more than 12 years of experience, I have been involved with different clients in all the phases of software development and have worked with all kinds of architectures: monolithic, microservices, event-driven, SOA (service-oriented), serverless, cloud-native... I have also worked on modernization projects, DevOps transformations, security assessments... I teach AWS to my co-workers and I like to collaborate on anything AWS-related that I can help with. 
 
-I love serverless, event-driven and native architectures, DevOps, security and new technology challenges.
+![me](/assets/img/alejandro_moncayo.jpeg){: width="972" height="589" .w-50 .right}
 
-Finally, I also have 7 AWS certifications (the 3 associate, the 2 professional and the Security and Data Analytics Specialities). You can find more information about my professional experience on my [LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/){:target="_blank"}. Of course, I will be happy to connect with anyone interested.
+
+My name is `Alejandro Lazaro Chueca` and currently, I am an AWS Community Builder (Security) & also an AWS Ambassador in my company. As a Cloud Architect specializing in AWS, my journey began in development before advancing to software architecture, and ultimately, cloud architecture. Over 12 years, my career has spanned various clients and stages of software development, encompassing a broad spectrum of architectures including monolithic, microservices, event-driven, SOA, serverless,... and also cloud-native. My experience extends to leading modernization projects, spearheading DevOps transformations, conducting security assessments and much more.
+
+My passion lies in serverless and event-driven architectures, DevOps, security, and embracing new technological challenges. I actively share this enthusiasm by teaching AWS to my colleagues, and I am always eager to collaborate on AWS-related projects.
+
+I hold 7 AWS certifications, covering the 3 Associate levels, the 2 Professional levels, and specializations in Security and Data Analytics. For a deeper dive into my professional journey, visit my [LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/){:target="_blank"} profile. I welcome the opportunity to connect with like-minded individuals or anyone interested in exploring AWS.
 
 ## The Blog
 
-> You can <kbd>subscribe to the newsletter</kbd> and receive new content periodically.
-{% include subscribe-form.html %}
-{: .prompt-tip }
-
 - The main goal is to **create periodic content related to AWS** and share it publicly.
-- The secondary goal is to have an excuse to keep learning and practicing with AWS resources.
+- The secondary goal is to have an excuse to `keep learning and practicing` with AWS resources.
 - I like the TLDR summary.
 - This is a **personal blog**:
-  - All opinions on this blog are personal
-  - All the content is created in my free time
-  - I don’t want to sell you anything
-  - I don’t expect any income from the blog
-  - I just want to keep learning, share knowledge and make it publicly accessible
-- The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}, but this is the current architecture:
-  - ![architecture_diagram](/assets/img/posts/2022-03-01-the-technology-behind-this-blog/blog-architecture-v2.png)
+  - All opinions on this blog are personal.
+  - All the content is created in my free time.
+  - I don’t want to sell you anything.
+  - I don’t expect any income from the blog.
+  - I just want to keep learning, share knowledge and make it publicly accessible.
+- The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}.
 
 > To me, "**play with AWS**" means <kbd>PRACTICE</kbd>, experiment trying something new and <kbd>keep learning</kbd>, so my domain is `playingaws`.
 {: .prompt-info }
-
-## Contact
-
-You can contact me for anything you want. I will get back to you as soon as I can.
-
-> I will appreciate if you <kbd>give me feedback</kbd> and help me to improve. I'm new to blogging and I'm not an English speaker, but I'll do my best and I want to learn a lot with the experience.
-{% include contact-form.html %}
-{: .prompt-tip }
-
-{% include custom.css %}
-{% include contact-form.js %}
-{% include subscribe-form.js %}

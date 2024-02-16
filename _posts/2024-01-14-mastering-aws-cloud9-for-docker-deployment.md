@@ -1,15 +1,17 @@
 ---
 layout: post
-title: "Using AWS Cloud9 to Test and Deploy Docker Applications: A Step-by-Step Guide"
+title: "Using AWS Cloud9 to test and deploy Docker applications: A step-by-step guide"
 date: 2024-01-15 01:55 +0100
 last_modified_at:
-description: The guide provides a step-by-step walkthrough on setting up a Cloud9 environment, integrating with Git, and preparing Docker applications for testing, using two microservices, one in Node.js and the other in Python.
+description: The guide provides a step-by-step walkthrough on setting up a Cloud9 environment, integrating with Git, and preparing Docker applications for testing, using two microservices (in Node.js and Python).
 category:
 - General
 tags:
 - cloud9
 - docker
 - github
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
@@ -17,8 +19,12 @@ comments: true
 sitemap: true
 img_path: /assets/img/posts/2024-01-14-mastering-aws-cloud9-for-docker-deployment/
 ---
+---
 
 ## TLDR
+
+> This is the guide I would have liked to find before I started using AWS Cloud9. There are many similar articles out there, but none quite like this one, or at least, I didn't find any!
+{: .prompt-info }
 
 - AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser.
 - It includes a code editor, debugger, and terminal.
@@ -28,7 +34,7 @@ img_path: /assets/img/posts/2024-01-14-mastering-aws-cloud9-for-docker-deploymen
 
 `Have you ever been frustrated by the restrictions of your local development environment?` If so, you're not the only one.
 
-Enter AWS Cloud9, `cloud-based Integrated Development Environment (IDE)` that stands apart with its seamless Docker integration and browser-based accessibility, liberating you from the constraints of traditional setups. Imagine running code, debugging, and integrating Docker applications directly from your browser, without the usual setup headaches. That's the power of Cloud9.
+Enter AWS Cloud9, a `cloud-based Integrated Development Environment (IDE)` that stands apart with its seamless Docker integration and browser-based accessibility, liberating you from the constraints of traditional setups. Imagine running code, debugging, and integrating Docker applications directly from your browser, without the usual setup headaches. That's the power of Cloud9.
 
 In this article, we delve into how Cloud9 doesn't just offer convenience but brings a new level of power and versatility to your coding experience. Its robust code editor, efficient debugger, and integrated terminal transform coding into a streamlined, hassle-free process. This is especially crucial for projects that demand flexibility, such as serverless applications or containerized apps. With Cloud9, the world of cloud-based development is at your fingertips, allowing you to focus more on creating and less on configuring. Let's explore how Cloud9 can revolutionize your workflow and take your development projects to new heights.
 
@@ -56,7 +62,7 @@ To give you a clear picture, here are the foremost strengths and weaknesses.
 Setting up your AWS Cloud9 environment is a straightforward process. Here's how you can do it:
 
 1. `Access AWS Cloud9 Service`: Log in to your AWS account and navigate to the Cloud9 service.
-2. `Create a New Environment`: Select the Create a new environment option. Here, you'll need to provide some details:
+2. `Create a New Environment`: Select the Create a New Environment option. Here, you'll need to provide some details:
    - Instance Type: Choose the appropriate EC2 instance type based on your project needs.
    - Timeout Settings: Set the desired idle time after which the instance should shut down to save resources.
    - Network Settings: Configure network settings as per your requirements.
@@ -101,7 +107,7 @@ With Cloud9, you can effortlessly connect with AWS CodeCommit or other Git repos
     
     Use the command below to clone
 
-    ```shell
+    ```console
     git clone https://github.com/alazaroc/microservices.git
     ```
 
@@ -111,7 +117,7 @@ With Cloud9, you can effortlessly connect with AWS CodeCommit or other Git repos
 
     The following is an example of how you can clone the CodeCommit repository (you have to use your own repository):
 
-    ```shell
+    ```console
     git clone codecommit::eu-west-1://microservices
     ```
 
@@ -140,7 +146,7 @@ In your browser settings, ensure that third-party cookies or cross-site tracking
 Now, let's proceed to test two microservices – one built with `Node.js` and the other with `Python`. You can find the sample code for these microservices [here](https://github.com/alazaroc/microservices){:target="_blank"}.
 
 
-These two applications are prepared to be executed locally directly (after installation of the packages/libraries), but they also contain a Dockerfile, so they are containerized and we can use docker to test them.
+These two applications are prepared to be executed locally directly (after installation of the packages/libraries), but they also contain a Dockerfile, so they are containerized and we can use Docker to test them.
 
 > Docker and Cloud9 together create a robust environment for containerized application development. 
 > Docker encapsulates the application environment, ensuring consistency across different stages of development. 
@@ -153,7 +159,7 @@ These two applications are prepared to be executed locally directly (after insta
 
 Install the required npm packages:
 
-```shell
+```console
 npm install
 ```
 
@@ -161,7 +167,7 @@ npm install
 
 To start the Node.js microservice, use the command:
 
-```shell
+```console
 node app.js
 ```
 
@@ -176,7 +182,7 @@ Now that our application is running, the next step is to verify its functionalit
 
 ###### Preview running application
 
-If you try to preview the application running in this port 3000, you will receive a message like this:
+If you try to preview the application running in port 3000, you will receive a message like this:
 
 ![run_app_3000_warning_8080](run_app_3000_warning_8080.png)
 
@@ -186,7 +192,7 @@ AWS says:
 
 In our case we are using the port 3000, so we can't use the preview functionality.
 
-If you change the application port for 8080, then, you are able to do it:
+If you change the application port for 8080, then, you can do it:
 
 ![run_app_8080_ok](run_app_8080_ok.png)
 
@@ -200,13 +206,13 @@ If changing the port is not an option or if you prefer external access, you can 
 
 To build the Docker image of the application, run:
 
-```shell
+```console
 docker build -t ms-nodejs .
 ```
 
 To run the application as a Docker container:
 
-```shell
+```console
 docker run -p 3000:3000 --name ms-nodejs ms-nodejs
 ```
 
@@ -216,7 +222,7 @@ docker run -p 3000:3000 --name ms-nodejs ms-nodejs
 
 Install the required Python packages:
 
-```shell
+```console
 pip install Flask requests
 ```
 
@@ -224,7 +230,7 @@ pip install Flask requests
 
 To run the microservice, execute the following command:
 
-```shell
+```console
 python app.py
 ```
 
@@ -236,19 +242,19 @@ Refer to the Node.js application section to know how to access this URL.
 
 To build the Docker image, run:
 
-```shell
+```console
 docker build -t ms-python .
 ```
 
 To run the application as a Docker container:
 
-```shell
+```console
 docker run -p 5000:5000 --name ms-python ms-python
 ```
 
 ### Pushing Docker Images to Amazon ECR
 
-The next step, after building and testing the Docker images of these 2 applications is upload them to `Amazon Elastic Container Registry` (ECR).
+The next step, after building and testing the Docker images of these 2 applications is to upload them to `Amazon Elastic Container Registry` (ECR).
 
 
 #### Create the ECR repositories
@@ -266,7 +272,7 @@ aws ecr create-repository \
 
 #### Get the local images
 
-```shell
+```console
 docker images 
 ```
 
@@ -274,7 +280,7 @@ docker images
 
 #### Login to ECR
 
-```shell
+```console
 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.eu-west-1.amazonaws.com
 ```
 
@@ -298,7 +304,7 @@ docker push xxxxxxxxxxxx.dkr.ecr.eu-west-1.amazonaws.com/ms-nodejs:latest
 
 We've journeyed through setting up AWS Cloud9, integrating it with Git repositories, testing Docker applications, and finally, pushing Docker images to Amazon ECR. This walkthrough demonstrates the seamless integration and powerful capabilities of AWS Cloud9 in managing Docker-based projects.
 
-Now, as you embark on applying these insights to your development endeavors, remember that each project is a unique mosaic of challenges and learning opportunities. I encourage you to not just use Cloud9, but to experiment with it, mold it into your workflow, and uncover the myriad ways it can amplify your productivity and creativity within the AWS ecosystem.
+Now, as you embark on applying these insights to your development endeavours, remember that each project is a unique mosaic of challenges and learning opportunities. I encourage you to not just use Cloud9, but to experiment with it, mold it into your workflow, and uncover the myriad ways it can amplify your productivity and creativity within the AWS ecosystem.
 
 But don't let the journey end here. Your experiences, insights, and innovations are invaluable – and sharing them creates a rich tapestry of knowledge that benefits the entire development community. `I invite you to use the comments section below` as a platform to share your own stories with Cloud9. How has it transformed your development process? What unique challenges have you overcome using it? Your shared experiences are not just stories; they're the waypoints for others in their journey of cloud-based development.
 

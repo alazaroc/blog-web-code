@@ -18,3 +18,6 @@ package-lock.json
 
 # errors in Amplify
 Gemfile.lock
+
+_drafts/*
+assets/img/drafts/*

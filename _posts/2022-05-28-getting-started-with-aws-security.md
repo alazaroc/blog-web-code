@@ -9,6 +9,8 @@ category:
 tags:
 - getting-started
 - security
+- level-100
+level: 100
 published: true
 pin: false
 featured_post: true
@@ -20,7 +22,7 @@ img_path: /assets/img/posts/2022-05-28-getting-started-with-aws-security/
 
 ## TLDR
 
-You have probably read many times that <kbd>in AWS security is the TOP priority, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these 2 resources you _have to_ know*:
+You have probably read many times that <kbd>in AWS security is the TOP priority</kbd>, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these `2 resources you have to know`:
 
 - Recommendations and best practices: Security Pillar in AWS Well-Architected Framework
 - AWS Security checklist
@@ -138,11 +140,11 @@ How to grant access to different types of resources:
 
 - **Identity-based policies** in <kbd>IAM</kbd> (managed or inline): These policies let you specify what that identity can do (its permissions)
   - In most cases, you should create your own <kbd>customer-managed policies</kbd> following the principle of least privilege
-- **Resource-based policies** are attached to a <kbd>resource</kbd>. These policies grant permission to a principal that can be in the same account as the resource or in another account
+- **Resource-based policies** are attached to a <kbd>resource</kbd>. These policies grant permission to a `principal` that can be in the same account as the resource or in another account
 - **Permissions boundaries**: use a managed policy to set the maximum permissions that an administrator can set
   - This enables you to **delegate the ability to create and manage permissions** to developers, such as the creation of an IAM role, but limit the permissions they can grant so that they cannot escalate their permission using what they have created
 - **Attribute-based access control (ABAC)**: enables you to grant permissions **based on tags** (attributes)
-  - <kbd>Tags</kbd> can be attached to IAM principals (users or roles) and to AWS resources
+  - <kbd>Tags</kbd> can be attached to IAM principals (users or roles) and AWS resources
   - Using <kbd>IAM policies</kbd>, administrators can **create a reusable policy** that applies permissions based on the attributes of the IAM principal
 - **Organizations service control policies (SCP)**: define the maximum permissions for account members of an organization or organizational unit (OU). **Limit permission** but do not grant it
 - **Session policies**: advanced policies that you pass as a parameter when you programmatically create a temporary session for a role or federated user. These policies **limit permissions** but do not grant permissions
@@ -152,7 +154,7 @@ The following are the best practices related to permission management:
 - **Grant least privilege access**
 - **Define permission guardrails for your organization**: You should use <kbd>AWS Organizations</kbd> to establish common permission guardrails that restrict access to all identities in your organization. [Here](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html){:target="_blank"} are examples of service control policies (<kbd>SCPs</kbd>) defined by AWS that you can apply to your organization.
 - **Analyze public and cross-account access**: In AWS, you can grant access to resources in another account. You grant direct cross-account access using policies attached to resources or by allowing identity to assume an IAM role in another account.
-  - <kbd>IAM Access Analyzer</kbd> identify all access paths to a resource from outside of its account. It reviews resource policies continuously, and reports findings of public and cross-account access to make it easy for you to analyze potentially broad access.
+  - <kbd>IAM Access Analyzer</kbd> identifies all access paths to a resource from outside of its account. It reviews resource policies continuously and reports findings of public and cross-account access to make it easy for you to analyze potentially broad access.
 - **Share resources securely**: AWS recommends sharing resources using AWS Resource Access Manager (<kbd>AWS RAM</kbd>) because enables you to easily and securely share AWS resources within your AWS Organization and Organizational Units
 - **Reduce permissions continuously**: Maybe in the getting started of a project you chose to grant broad access, but later you should evaluate access continuously and restrict access to only the permissions required and achieve **least privilege**
 - **Establish emergency access process**: AWS recommends having a process that allows emergency access to your workload, in particular your AWS accounts, in the unlikely event of an automated process or pipeline issue
@@ -202,7 +204,7 @@ When you follow the **principle of applying security at all layers**, you employ
 - **Control traffic at all layers**: You should examine the connectivity requirements of each component. In a VPC (region level), the subnets are in an Availability Zone with Network ACLs and route tables associated, and inside of subnets, you include the use of security groups (stateful inspection firewall).
   - Some AWS services require components to access the internet for making API calls, where AWS API endpoints are located.
   - Other AWS services use <kbd>VPC endpoints</kbd> within your Amazon VPCs.
-  - Many AWS services, including Amazon S3 and Amazon DynamoDB, support VPC endpoints, and this technology has been generalized in <kbd>AWS PrivateLink</kbd>. AWS recommends you to use this approach to access AWS services, third-party services, and your own services hosted in other VPCs securely because **all network traffic on AWS PrivateLink stays on the global AWS backbone and never traverses the internet**. Connectivity can only be initiated by the consumer of the service, and not by the provider of the service.
+  - Many AWS services, including Amazon S3 and Amazon DynamoDB, support VPC endpoints, and this technology has been generalized in <kbd>AWS PrivateLink</kbd>. AWS recommends you use this approach to access AWS services, third-party services, and your own services hosted in other VPCs securely because **all network traffic on AWS PrivateLink stays on the global AWS backbone and never traverses the internet**. Connectivity can only be initiated by the consumer of the service, and not by the provider of the service.
 - **Implement inspection and protection**: Inspect and filter your traffic at each layer.
   - You can inspect your VPC configurations for potential unintended access using <kbd>VPC Network Access Analyzer</kbd>.
   - For components transacting over HTTP-based protocols, a web application firewall, <kbd>AWS WAF</kbd>, can help protect from common attacks. AWS WAF lets you monitor and block HTTP(s) requests that match your configurable rules that are forwarded to an Amazon API Gateway API, Amazon CloudFront, or an Application Load Balancer.
@@ -226,9 +228,9 @@ Compute resources include EC2 instances, containers, AWS Lambda functions, datab
   - In EC2 you can create your own AMIs simplifying the process with <kbd>EC2 Image Builder</kbd>. When using containers implement <kbd>ECR Image Scanning</kbd>
   - Using third-party static code analysis tools, you can identify common security issues. You can use <kbd>Amazon CodeGuru</kbd> for supported languages. Dependency-checking tools can also be used to determine whether libraries your code links against are the latest versions, are free of CVEs, and have licensing conditions that meet your software policy requirements.
   - Using <kbd>Amazon Inspector</kbd>, you can perform configuration assessments against your instances for known common vulnerabilities and exposures (CVEs), assess against security benchmarks and automate the notification of defects
-- **Enable people to perform actions at a distance**: Removing the ability for interactive access reduces the risk of human error, and the potential for manual configuration or management.
+- **Enable people to perform actions at a distance**: Removing the ability for interactive access reduces the risk of human error and the potential for manual configuration or management.
   - For example, use a change management workflow to manage EC2 instances using tools such as <kbd>AWS Systems Manager</kbd> instead of allowing direct access, or via a bastion host.
-  - <kbd>AWS CloudFormation</kbd> stacks build from pipelines and can automate your infrastructure deployment and management tasks without using the AWS Management Console or APIs directly.
+  - <kbd>AWS CloudFormation stacks</kbd> build from pipelines and can automate your infrastructure deployment and management tasks without using the AWS Management Console or APIs directly.
 - **Implement managed services**: Implement services that manage resources, such as Amazon RDS, AWS Lambda, and Amazon ECS, to reduce your security maintenance tasks as part of the shared responsibility model. This means you have more free time to focus on securing your application
 - **Validate software integrity**: Implement mechanisms (e.g. code signing) to validate that the software, code, and libraries used in the workload are from trusted sources and have not been tampered with. You can use <kbd>AWS Signer</kbd>
 - **Automate compute protection**: Automate your protective compute mechanisms including vulnerability management, reduction in attack surface, and management of resources. The automation will help you invest time in securing other aspects of your workload, and reduce the risk of human error.
@@ -245,7 +247,7 @@ These methods are important because they support objectives such as preventing m
 
 #### 5.1. Data Classification
 
-- **Identify the data within your workload**: You need to understand the type and classification of data your workload is processing, the associated business processes, the data owner, applicable legal and compliance requirements, where it’s stored, and the resulting controls that are needed to be enforced.
+- **Identify the data within your workload**: You need to understand the type and classification of data your workload is processing, the associated business processes, the data owner, applicable legal and compliance requirements, where it’s stored, and the resulting controls that need to be enforced.
 - **Define data protection controls**: By using <kbd>resource tags</kbd>, separate AWS accounts per sensitivity, <kbd>IAM policies, Organizations SCPs, AWS KMS, and AWS CloudHSM</kbd>, you can define and implement your policies for data classification and protection with encryption.
 - **Define data lifecycle management**: Your defined lifecycle strategy should be based on sensitivity level as well as legal and organizational requirements. Aspects including the duration for which you retain data, data destruction processes, data access management, data transformation, and data sharing should be considered.
 - **Automate identification and classification**: Automating the identification and classification of data can help you implement the correct controls. Using automation for this instead of direct access from a person reduces the risk of human error and exposure. You should evaluate using a tool, such as <kbd>Amazon Macie</kbd>, that uses machine learning to automatically discover, classify, and protect sensitive data in AWS.
@@ -261,7 +263,7 @@ Encryption and tokenization are two important but distinct data protection schem
 
 Best practices:
 
-- **Implement secure key management**: By defining an encryption approach that includes the storage, rotation, and access control of keys, you can help provide protection for your content against unauthorized users and against unnecessary exposure to authorized users.
+- **Implement secure key management**: By defining an encryption approach that includes the storage, rotation, and access control of keys, you can help protect your content against unauthorized users and unnecessary exposure to authorized users.
   - <kbd>AWS KMS</kbd> helps you manage encryption keys and integrates with many AWS services. This service provides durable, secure, and redundant storage for your AWS KMS keys.
   - <kbd>AWS CloudHSM</kbd> is a cloud-based hardware security module (HSM) that enables you to easily generate and use your own encryption keys in the AWS Cloud.
 - **Enforce encryption at rest**: You should ensure that the only way to store data is by using encryption. You can use <kbd>AWS Managed Config Rules</kbd> to check automatically that you are using encryption, for example, for EBS volumes, RDS instances, and S3 buckets.
@@ -284,7 +286,7 @@ Data in transit is any data that is sent from one system to another. This includ
 Best practices:
 
 - **Implement secure key and certificate management**: Store encryption keys and certificates securely and rotate them at appropriate time intervals with strict access control. The best way to accomplish this is to use a managed service, such as <kbd>AWS Certificate Manager (ACM)</kbd>. It lets you easily provision, manage, and deploy public and private Transport Layer Security (TLS) certificates for use with AWS services and your internal connected resources.
-- **Enforce encryption in transit**: AWS services provides HTTPS endpoints using TLS for communication, thus providing encryption in transit when communicating with the AWS APIs.
+- **Enforce encryption in transit**: AWS services provide HTTPS endpoints using TLS for communication, thus providing encryption in transit when communicating with the AWS APIs.
   - Insecure protocols, such as HTTP, can be **audited** and blocked in a VPC through the use of security groups.
   - HTTP requests can also be automatically **redirected** to HTTPS in Amazon CloudFront or on an Application Load Balancer.
   - Additionally, you can use VPN connectivity into your VPC from an external network to facilitate the encryption of traffic. Third-party solutions are available in the AWS Marketplace if you have special requirements.

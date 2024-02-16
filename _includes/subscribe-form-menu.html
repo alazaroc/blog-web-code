@@ -1,0 +1,26 @@
+<section>
+  <div class="subscription-form-container">
+    <h2 class="panel-heading">Subscribe for monthly updates</h2>
+
+    <form id="customer-subscribe-form" method="post" action="https://www.playingaws.com/api/v1/subscription" accept-charset="UTF-8">
+      <div class="d-flex">
+        <div class="form-group width_300 margin_right_15">
+          <input type="email" id="subscribe_email" name="email" placeholder="me@gmail.com" class="form-control" required />
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="subscribe-form-submit-button" name="submit" class="btn-default btn btn-primary btn-lg custom_button">Submit</button>
+          <button id="subscribe-form-loading-submit-button" name="loading" class="btn btn-default btn-primary btn-lg form-hidden custom_button">Submitting...</button>
+        </div>
+      </div>
+
+      <div id="subscribe-form-failed-to-submit" class="alert alert-danger form-hidden" role="alert">
+        <strong>Failed to submit the form.</strong> Please, try again.
+      </div>
+
+      <div id="subscribe-form-was-submitted" class="alert alert-success form-hidden" role="alert">
+        <strong>Thank you for subscribing!</strong> I'll send you some notifications with new updates!
+      </div>
+    </form>
+
+  </div>
+</section>

@@ -1,17 +1,21 @@
 ---
 layout: post
-title: 'AWS API Gateway exposed: choosing the right endpoint strategy for your API'
+title: 'Amazon API Gateway exposed: choosing the right endpoint strategy for your API'
 date: 2024-02-04 13:42 +0100
 last_modified_at:
-description: This guide explores AWS API Gateway's endpoint exposure options, detailing their implementation, advantages, uses cases, real-world scenarios, architectural impacts, limitations, troubleshooting, costs and more.
-category:
+description: This guide explores Amazon API Gateway's endpoint exposure options, detailing their implementation, advantages, use cases, architectural impacts, limitations, troubleshooting, costs and more.
+category: Serverless
 tags:
+- serverless
+- api-gateway
+- level-300
+level: 300
 published: true
 pin: false
 featured_post: false
 comments: true
 sitemap: true
-img_path: /assets/img/posts/2024-02-04-aws-api-gateway-exposed/
+img_path: /assets/img/posts/2024-02-04-amazon-api-gateway-exposed/
 ---
 ---
 
@@ -19,7 +23,7 @@ img_path: /assets/img/posts/2024-02-04-aws-api-gateway-exposed/
 
 You already know what an API (**A**pplication **P**rogramming **I**nterface) is, [what is Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html){:target="_blank"}, [when choosing between REST and HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html){:target="_blank"}, and have experience and don't need [tutorials or workshops](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-tutorials.html){:target="_blank"}.
 
-I neither need to remind you of the `advantages` of using AWS API Gateway (scalability, security, performance, life management,...) nor what the most common `use cases` are (serverless architectures, microservices, data retrieval...).
+I neither need to remind you of the `advantages` of using Amazon API Gateway (scalability, security, performance, life management,...) nor what the most common `use cases` are (serverless architectures, microservices, data retrieval...).
 
 Then, we can just enter the details of the options for exposing API Gateway. 
 
@@ -38,7 +42,7 @@ We will compare the following options:
 > In the option of `Integration with CloudFront` I will assume we are using also our own domain.
 {: .prompt-warning }
 
-## Detailed Overview of AWS API Gateway Endpoint Exposing Options
+## Detailed Overview of Amazon API Gateway Endpoint Exposing Options
 
 1. Standard Endpoint URL
    - Description: This is the `default configuration`. There are 2 API endpoint types related to this option: regional and edge-optimized.
@@ -126,7 +130,7 @@ We will compare the following options:
    - Use Case: Ideal for `internal APIs and microservices` that should not be exposed publicly.
    - Real-World Scenario: A financial institution leverages private endpoints for secure internal communication between services, ensuring data privacy and compliance.
 
-## Implementation Details for Exposing AWS API Gateway Endpoints
+## Implementation Details for Exposing Amazon API Gateway Endpoints
 
 In this section, we will review the implementation steps of each option:
 
@@ -197,7 +201,7 @@ In this section, we will review the implementation steps of each option:
 
 ## Conclusion
 
-Utilizing AWS API Gateway, particularly with custom domains and CloudFront, offers a robust framework for deploying and managing APIs. These services not only enhance the performance and security of your APIs but also offer scalability and ease of management. The integration of custom domains provides a branded and professional touch, while CloudFront also ensures global reach and low latency.
+Utilizing Amazon API Gateway, particularly with custom domains and CloudFront, offers a robust framework for deploying and managing APIs. These services not only enhance the performance and security of your APIs but also offer scalability and ease of management. The integration of custom domains provides a branded and professional touch, while CloudFront also ensures global reach and low latency.
 
 Experimenting with these features and following the best practices can significantly optimize your API strategies. AWS provides a flexible and powerful platform, and leveraging its full potential can transform the way you manage and deploy APIs. Embrace these tools to take your API solutions to the next level.
 

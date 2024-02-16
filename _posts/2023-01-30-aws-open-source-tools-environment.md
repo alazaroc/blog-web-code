@@ -1,15 +1,17 @@
 ---
 layout: post
-title: 'Open source tools to analyze your AWS environment'
+title: 'Open-source tools to analyze your AWS environment (2/3)'
 date: 2023-01-30 18:02 +0100
 last_modified_at:
-description: This article is the second part of a series on open source tools, focusing on tools for inventory, analysis and security assessment of the AWS environment.
+description: This article is the second part of a series on open-source tools, focusing on tools for inventory, analysis and security assessment of the AWS environment.
 category:
 - General
 tags:
 - open-source
 - github
 - security
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
@@ -19,16 +21,25 @@ img_path: /assets/img/posts/2023-01-30-aws-open-source-tools-environment/
 ---
 ---
 
+> This article is part of a series about `open-source` tools and AWS, in which I will share those tools that I have tested and that I think you may find useful.
+>
+> 1/3: [Getting Started with AWS open-source tools](/posts/aws-open-source-tools/){:target="_blank"}: main open-source tools and extend AWS CLI (this article).
+> 
+> 2/3: **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment.
+> 
+> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/){:target="_blank"}: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
+{: .prompt-tip }
+
 ## Introduction
 
-This is the second part of the series `Open source tools`. If this is the first article of this series that you are reading, I recommend you to review the first one `Getting started with AWS open-source tools` [here](/posts/aws-open-source-tools/){:target="_blank"}
+In this article, we will focus on the `inventory`, `analysis` and `security assessment` of the AWS environment.
 
-> Some open source tool could appear in several categories (in this same article or among the 3 open source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
+> Some open-source tool could appear in several categories (in this same article or among the 3 open-source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
 {: .prompt-warning }
 
 ## Inventory and analyze your environment
 
-These open source tools are useful to analyze all your AWS environment:
+These open-source tools are useful to analyze all of your AWS environment:
 
 - General
   - <kbd>cloudmapper</kbd>: `Analyze` your AWS environment
@@ -62,7 +73,7 @@ Based on Python components.
 > ![cloudmapper-iam_report](cloudmapper-iam_report.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 135; Fork 759; Stars 5.3K
+**Is it popular?**: On GitHub: Watch 135; Fork 759; Stars 5.3K
 
 **Recently updated?** No. The last commit was on Jul 25, 2022 (956 commits). Also, some original functionality of this tools is now deprecated (generation of networking diagrams).
 
@@ -75,7 +86,7 @@ Based on Python components.
 
 Prowler is an Open Source security tool... and you will find all this information in the following section (this is for inventory and analysis of the environment).
 
-prowler has a functionality to perform a quick inventory check. It will give you in the console information about the number of each resource that you have, and in json/csv generated files you will find information about what is the specific resource (region, aws service, resource type, resource id and ARN)
+prowler has the functionality to perform a quick inventory check. It will give you in the console information about the number of each resource that you have, and in json/csv generated files you will find information about what is the specific resource (region, aws service, resource type, resource id and ARN)
 
 > **Why use it**: Perform a quick analysis of your AWS environment (a few seconds).
 >
@@ -87,9 +98,9 @@ prowler has a functionality to perform a quick inventory check. It will give you
 > ![prowler-inventory-csv](prowler-inventory-csv.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 122; Fork 1.1k; Stars 7.6K
+**Is it popular?**: On GitHub: Watch 122; Fork 1.1k; Stars 7.6K
 
-**Recently updated?** Last commit yesterday (in the time I am writing this post). Total commits 2271
+**Recently updated?** Last commit yesterday (at the time I am writing this post). Total commits 2271
 
 **URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}
 
@@ -97,7 +108,7 @@ prowler has a functionality to perform a quick inventory check. It will give you
 
 AirIAM scans existing IAM usage patterns and provides a simple method to migrate IAM configurations into a right-sized Terraform plan. It `identifies unused users, roles, groups, policies and policy attachments` and replaces them with a Least Privileges Terraform code modelled to manage AWS IAM.
 
-AirIAM was created to promote immutable and version-controlled IAM management to replace today's manual and error prone methods.
+AirIAM was created to promote immutable and version-controlled IAM management to replace today's manual and error-prone methods.
 
 > **Why use it**: IAM scan tool to detect unused resources (based on Amazon Access Advisor APIs) and the creation of terraform templates of your IAM resources.
 >
@@ -109,7 +120,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 >
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 15; Fork 68; Stars 673
+**Is it popular?**: On GitHub: Watch 15; Fork 68; Stars 673
 
 **Recently updated?** No. Last commit the Aug 2, 2022. In total, 426 commits
 
@@ -122,10 +133,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 
 ### Summary: Which tool should I use to analyze my environment?
 
-> This is my personal opinion. If you have a different one, let me know in the comments at the end of this article!
-{: .prompt-warning }
-
-It depends what you want to do:
+It depends on what you want to do:
 
 - Full analysis of the AWS environment: `cloudmapper`
 - Get a quick inventory of the AWS environment: `prowler`
@@ -146,7 +154,7 @@ There are many different tools to realize a security assessment of your environm
 
 ### prowler
 
-This is the second time I mention prowler in this article in two different categories.
+This is the second time I have mentioned prowler in this article in two different categories.
 
 Prowler is an Open Source security tool to perform AWS and Azure `security best practices assessments, audits, incident response, continuous monitoring, hardening and forensics readiness`.
 
@@ -186,15 +194,15 @@ severity:
 > ![prowler-report-2](prowler-report-2.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 122; Fork 1.1k; Stars 7.6K
+**Is it popular?**: On GitHub: Watch 122; Fork 1.1k; Stars 7.6K
 
-**Recently updated?** Last commit yesterday (in the time I am writing this post). Total commits 2271
+**Recently updated?** Last commit yesterday (at the time I am writing this post). Total commits 2271
 
 **URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}
 
 ### Scoutsuite
 
-Scout Suite is an open source `multi-cloud security-auditing tool`, which enables security posture assessment of cloud environments. Using the APIs exposed by cloud providers, Scout Suite gathers configuration data for manual inspection and highlights risk areas. Rather than going through dozens of pages on the web consoles, Scout Suite presents a clear view of the attack surface automatically.
+Scout Suite is an open-source `multi-cloud security-auditing` tool`, which enables security posture assessment of cloud environments. Using the APIs exposed by cloud providers, Scout Suite gathers configuration data for manual inspection and highlights risk areas. Rather than going through dozens of pages on the web consoles, Scout Suite presents a clear view of the attack surface automatically.
 
 Scout Suite was designed by security consultants/auditors. It is meant to provide a point-in-time security-oriented view of the cloud account it was run in. Once the data has been gathered, all usage may be performed offline.
 
@@ -206,7 +214,7 @@ Scout Suite was designed by security consultants/auditors. It is meant to provid
 > ![scoutsuite-2](scoutsuite-2.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 113; Fork 816; Stars 5K
+**Is it popular?**: On GitHub: Watch 113; Fork 816; Stars 5K
 
 **Recently updated?**: No. Last commit was on Sep 5, 2022 (6101 commits in total)
 
@@ -217,7 +225,7 @@ Scout Suite was designed by security consultants/auditors. It is meant to provid
 
 ### cloudsploit
 
-CloudSploit by Aqua is an open-source project designed to allow detection of security risks in cloud infrastructure accounts, including: Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), Oracle Cloud Infrastructure (OCI), and GitHub. These scripts are designed to return a series of `potential misconfigurations and security risks`.
+CloudSploit by Aqua is an open-source project designed to allow the detection of security risks in cloud infrastructure accounts, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), Oracle Cloud Infrastructure (OCI), and GitHub. These scripts are designed to return a series of `potential misconfigurations and security risks`.
 
 Compliance:
 
@@ -238,7 +246,7 @@ Compliance:
 > ![cloudsploit-3](cloudsploit-3.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 70; Fork 575; Stars 2.5k
+**Is it popular?**: On GitHub: Watch 70; Fork 575; Stars 2.5k
 
 **Recently updated?**: Yes. Last commit was 3 weeks ago (3449 commits in total)
 
@@ -249,7 +257,7 @@ Compliance:
 
 ### steampipe
 
-I mention this tool in my first article about open source, when I talked about `Extend CLI` capabilities [here](/posts/aws-open-source-tools/#steampipe){:target="_blank"}
+I mentioned this tool in my first article about open-source when I talked about `Extend CLI` capabilities [here](/posts/aws-open-source-tools/#steampipe){:target="_blank"}
 
 Steampipe is the universal interface to APIs, and we can use SQL to query cloud infrastructure, SaaS, code, logs, and more.
 
@@ -267,7 +275,7 @@ Besides, I am going to show you two new capabilities:
 > ![steampipe-4](steampipe-4.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 32; Fork 171; Stars 4.6k
+**Is it popular?**: On GitHub: Watch 32; Fork 171; Stars 4.6k
 
 **Recently updated?** Yes, last commit 2 days ago. Total commits 2007
 
@@ -287,10 +295,10 @@ The assessment identifies where resource ARN constraints are not used and identi
 
 - Privilege Escalation
 - Resource Exposure
-- Infrastructure Modificationº
+- Infrastructure Modification
 - Data Exfiltration
 
-CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using python)
+CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using Python)
 
 > **Why use it**: The tool provides you a report with some risk in IAM policies (customer/inline/AWS) and the IAM principals (IAM Users, Groups, and Roles).
 >
@@ -299,7 +307,7 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 > ![cloudsplaining-2](cloudsplaining-2.png){:class="border"}
 {: .prompt-info }
 
-**Is it popular?**: On github: Watch 29; Fork 143; Stars 1.6K
+**Is it popular?**: On GitHub: Watch 29; Fork 143; Stars 1.6K
 
 **Recently updated?** Yes. Last commit 3 days ago (347 commits in total)
 
@@ -317,6 +325,6 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 
 ## Next steps
 
-The next article related with open source tools will be:
+The next article related with open-source tools will be:
 
 - **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) - [here](/posts/aws-open-source-tools-code/){:target="_blank"}

@@ -12,6 +12,8 @@ tags:
 - iac
 - serverless
 - github
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
@@ -182,7 +184,7 @@ Resources:
   BasicAWSApiGateway:
     Type: AWS::Serverless::Api
     Properties:
-      Name: Basic AWS Api Gateway resource
+      Name: Basic Amazon API Gateway resource
       StageName: poc
       ...
 ```
@@ -347,15 +349,8 @@ sam init
   Based on your selections, the only Package type available is Zip.
   We will proceed to selecting the Package type as Zip.
 
-  Based on your selections, the only dependency manager available is npm.
-  We will proceed copying the template using npm.
-
-  Would you like to enable X-Ray tracing on the function(s) in your application?  [y/N]: > y
-
-  Would you like to enable monitoring using CloudWatch Application Insights?
-  For more info, please view https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.html [y/N]: > N
-
-  Would you like to set Structured Logging in JSON format on your Lambda functions?  [y/N]:
+Based on your selections, the only dependency manager available is npm.
+We will proceed copying the template using npm.
 
   Project name [sam-app]: > sam-app
 
@@ -801,7 +796,7 @@ The console still listens for changes and if we change our lambda code and save 
 
 ![sam-sync-lambda](sam-sync-lambda.png){:class="border"}
 
-The console will be updated automatically as follow:
+The console will be updated automatically as follows:
 
 ```shell
 Syncing Lambda Function helloFromLambdaFunction...

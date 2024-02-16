@@ -3,7 +3,7 @@ layout: post
 title: How to create infrastructure with CDK
 date: 2022-03-16 19:28 +0100
 last_modified_at:
-description: Do you want to know how to create infrastructure with CDK and review my CDK project used in this blog?
+description: Do you want to know how CDK works and how to deploy it from scratch? I will explain to you how to do it.
 category:
 - IaC
 tags:
@@ -12,12 +12,17 @@ tags:
 - cdk
 - cloudformation
 - github
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-03-16-how-to-create-infrastructure-with-cdk/
+image:
+  path: cdk-aws-img.png
+  header_post: false
 ---
 ---
 
@@ -37,7 +42,7 @@ This section contains:
 
 ### What is CDK
 
-[CDK](https://aws.amazon.com/cdk/){:target="_blank"} is an open-source software development framework to define your cloud application resources using familiar programming languages (TypeScript, JavaScript, Python, Java, C#/.Net, and Go)
+[CDK](https://aws.amazon.com/cdk/){:target="_blank"} is an open-source software development framework to define your cloud application resources using familiar programming languages (TypeScript, JavaScript, Python, Java, C#/.Net, and Go).
 
 AWS CDK provisions your resources in a safe, repeatable manner through AWS <kbd>CloudFormation</kbd>.
 
@@ -56,7 +61,7 @@ To interact with CDK apps you will need the AWS CDK Toolkit (command-line tool).
 
 ![how-cdk-works](cdk-aws-img.png)
 
-AWS CDK Toolkit commands you need to know:
+AWS CDK commands you need to know:
 
 | Command: Function   |
 | ---   |
@@ -101,7 +106,7 @@ The typescript sources need to be compiled into JavaScript.
 
 **What is the fastest way to create a new CDK project and deploy it in your AWS account?**
 
-``` console
+```shell
 # Create an empty folder
 mkdir cdk-basic-example && cd cdk-basic-example
 
@@ -131,7 +136,7 @@ Let's destroy the stack. I know this section maybe should be at the end, but whe
 > If you try to do something different and on your own, you will learn faster!
 {: .prompt-tip }
 
-``` console
+```console
 # Delete the CloudFormation stack (so it will delete all resources related)
 cdk destroy --force
 ```
@@ -146,7 +151,7 @@ Perhaps we want to check what is to be deployed before we deploy it?
 
 It makes sense to me.
 
-``` console
+```console
 # Synthesizes the CloudFormation template for the specified stack(s)
 # In the console, the template will be printed in yaml format
 # In the "cdk.out" folder, the template will be in json format
@@ -159,7 +164,7 @@ cdk synth
 
 What if we compare the local code with the stack deployed in the AWS account?
 
-``` console
+```console
 cdk diff
 ```
 
@@ -180,13 +185,13 @@ We can see all the new resources that will be created:
 
 We deploy it again:
 
-``` console
+```console
 cdk deploy --require-approval never
 ```
 
 And we run the diff command again to see the differences between the local code and the deployed stack:
 
-``` console
+```console
 cdk diff
 ```
 
@@ -200,7 +205,7 @@ This file contains the 2 AWS resources of my example, a queue (red) and a topic 
 
 ![cdk-code-2](cdk-code-2.png)
 
-``` console
+```console
 cdk diff
 ```
 
