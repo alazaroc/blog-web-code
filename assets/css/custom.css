@@ -35,8 +35,11 @@ details {
 }
 #panel-wrapper .text-truncate {
   white-space: normal !important;
-  list-style-position: inside !important;
-  list-style-type: disclosure-closed !important;
+  /* list-style-position: inside !important;
+  list-style-type: disclosure-closed !important; */
+}
+#panel-wrapper .text-truncate a {
+  padding-left: 5px;
 }
 .access>section:not(:last-child) {
   margin-bottom: 2rem;
