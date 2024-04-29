@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-10-09-aws-control-tower-deep-dive/
+image:
+  path: control-tower-icon.png
+  header_post: false
 ---
 ---
 

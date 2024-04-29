@@ -12,7 +12,7 @@ tags:
 - level-400
 level: 400
 published: true
-pin: true
+pin: false
 featured_post: false
 comments: true
 sitemap: true
@@ -20,35 +20,25 @@ img_path: /assets/img/posts/2023-10-25-challenge-data-certification-in-30-days/
 image:
   path: badge.png
   header_post: false
-important_notice: This certification will be only available until April 9, 2024.
+important_notice: The AWS Certified Data Analytics Specialty has been retired by AWS.
 ---
 ---
 
-## TLDR
-
-> Updated: The `AWS Certified Data Analytics Specialty` <kbd>is going to be retired on April 9, 2024</kbd>. You still have time to do it!
+> Updated: The `AWS Certified Data Analytics Specialty` has been retired by AWS.
 >
-> However, you have another option, AWS presented a new `Data` certification of the Associate level, `AWS Certified Data Engineer`, you have more information [here](https://aws.amazon.com/certification/certified-data-engineer-associate/){:target="_blank"}.
+> The alternative now, is a `new Data certification` of the Associate level, `AWS Certified Data Engineer`. You will find more information [here](https://aws.amazon.com/certification/certified-data-engineer-associate/){:target="_blank"}.
 {: .prompt-danger }
-
-If you are here, it's likely because you're eager to obtain the certification, or perhaps you're curious about the insights I've shared in this guide!
-
-In either case, rest assured that this guide is a first-hand account of my successful journey to achieve the AWS Certified Data Analytics Specialty certification. I conquered the exam on `October 15th`.
-
-If I could do it, you certainly can too.
-
-I didn't have experience in data analytics (not enough) and no specific knowledge, but I wanted to prepare for the certification because I wanted to get more knowledge in this area. I am a Cloud & Solutions Architect who wanted to know how to design, build, secure, and maintain analytics solutions using AWS tools and services. However, this `certification is not easy` and I had to dedicate a lot of hours to be prepared to pass the exam.
-
-> I will use in this article `[30 days]` to prepare the certification's journey. However, remember, <kbd>everyone's learning pace is different</kbd>. Adjust the suggested plan based on your comfort level and progress. You could need more or less than 30 days.
-{: .prompt-warning }
 
 ## Introduction
 
-Welcome to the challenge of achieving the `AWS Certified Data Analytics Specialty` certification in just 30 days!
+This guide is a first-hand experience of my successful journey to achieve the AWS Certified Data Analytics Specialty certification. I conquered the exam on `October 15th` (2023).
 
-In this article, we will embark on a journey together to prepare for and conquer this certification. Whether you are an AWS Solutions Architect or a data enthusiast looking to expand your knowledge and credentials, this challenge will provide you with the guidance and resources needed to succeed.
+I didn't have experience in data analytics (not enough) and no specific knowledge, but I wanted to prepare for the certification because I wanted to get more knowledge in this area. 
 
-Good luck with your certification journey!
+I am a Cloud & Solutions Architect who wanted to know how to design, build, secure, and maintain analytics solutions using AWS tools and services. However, `this certification was not easy` and I had to spend many hours preparing to pass the exam.
+
+> I will use in this article [30 days] to prepare the certification's journey. However, remember, <kbd>everyone's learning pace is different</kbd>. Everyone should adapt the suggested plan according to their knowledge level and preparation. More than 30 days may be necessary.
+{: .prompt-warning }
 
 ## Challenge: 'AWS Certified Data Analytics Specialty' in 30 days
 

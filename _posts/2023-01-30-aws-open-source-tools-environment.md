@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-01-30-aws-open-source-tools-environment/
+image:
+  path: 2_article.jpg
+  header_post: false
 ---
 ---
 

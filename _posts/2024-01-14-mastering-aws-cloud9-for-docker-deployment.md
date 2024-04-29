@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2024-01-14-mastering-aws-cloud9-for-docker-deployment/
+image:
+  path: run_app_3000_ok.png
+  header_post: false
 ---
 ---
 

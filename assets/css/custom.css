@@ -25,7 +25,7 @@
 details {
   margin-bottom: 15px;
 }
-.language-ruby{
+.language-ruby {
   margin-top: 15px;
   float: left;
   margin-bottom: 0px;
@@ -48,9 +48,9 @@ details {
   object-fit: contain;
   width: 95%;
   height: 100%;
-  max-height: 150px !important;
+  /* max-height: 150px !important; */
 }
-#sidebar #avatar{
+#sidebar #avatar {
   margin-left: 20px;
   width: 8rem;
   height: 8rem;
@@ -59,10 +59,10 @@ details {
   width: 130px;
   height: 130px;
 }
-.form-group{
+.form-group {
   margin-bottom: 10px;
 }
-.preview-img{
+.preview-img {
   text-align: center;
   /* width: auto !important; */
   /* height: auto !important; */
@@ -70,6 +70,8 @@ details {
   align-items: center;
   height: 100% !important;
   justify-content: center;
+  padding: 1rem !important;
+  aspect-ratio: 0 !important;
 }
 .preview-img:not(.no-bg) {
   background: none !important;
@@ -78,7 +80,7 @@ details {
   display: initial !important;
 }
 /* Customization of the colours of highlight text */
-html:not([data-mode]), html[data-mode=dark]{
+html:not([data-mode]), html[data-mode=dark] {
   --highlighter-rouge-color: #de6b18;
 }
 html[data-mode='light'] {
@@ -88,4 +90,41 @@ html[data-mode='light'] {
 html[data-mode=light] [class^=prompt-] {
   --inline-code-bg: #3f596f;
   --highlighter-rouge-color: white;
+}
+.card {
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color) !important;
+}
+.access, #post-list, main h1  {
+  margin-top: 1rem !important;
+}
+.access>section {
+  border-left: 1px solid rgba(0, 0, 0, 0.175) !important;
+}
+.px-md-4 {
+  padding-right: 2.5rem !important;
+  padding-left: 2.5rem !important;
+}
+.px-xxl-5 {
+  /* padding-right: 1rem !important; */
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+#sidebar, search {
+  border: 1px solid rgba(0, 0, 0, 0.175) !important;
+}
+.access {
+  margin-bottom: 0px !important;
+}
+#panel-wrapper {
+  padding-right: 1.5rem !important;
+  padding-left: 0px !important;
+}
+#post-list .card .card-body {
+  padding: 1rem !important;
+}
+#post-list .preview-img {
+  width: auto !important;
+}
+.preview-img img {
+  width: auto !important;
 }

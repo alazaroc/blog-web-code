@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-06-04-aws-security-hub-deep-dive/
+image:
+  path: security-hub-icon.png
+  header_post: false
 ---
 ---
 

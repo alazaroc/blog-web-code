@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-06-18-amazon-guardduty-deep-dive/
+image:
+  path: guardduty-icon.png
+  header_post: false
 ---
 ---
 

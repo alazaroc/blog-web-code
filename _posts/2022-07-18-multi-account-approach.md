@@ -17,6 +17,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2022-07-18-multi-account-approach/
+image:
+  path: aws-organizations.png
+  header_post: false
 ---
 ---
 

@@ -18,6 +18,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2023-05-15-aws-waf-web-application-firewall-deep-dive/
+image:
+  path: waf_icon.png
+  header_post: false
 ---
 ---
 

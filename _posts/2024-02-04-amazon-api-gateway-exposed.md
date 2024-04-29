@@ -16,6 +16,9 @@ featured_post: false
 comments: true
 sitemap: true
 img_path: /assets/img/posts/2024-02-04-amazon-api-gateway-exposed/
+image:
+  path: apigateway-default.png
+  header_post: false
 ---
 ---
 

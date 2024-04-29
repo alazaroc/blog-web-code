@@ -16,6 +16,10 @@ pin: false
 featured_post: false
 comments: true
 sitemap: true
+img_path: /assets/img/posts/2023-10-23-introduction-to-data-analytics/
+image:
+  path: basics.jpeg
+  header_post: false
 ---
 
 ## TLDR

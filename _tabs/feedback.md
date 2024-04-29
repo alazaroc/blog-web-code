@@ -12,4 +12,4 @@ Your feedback is invaluable to me. It helps me understand what I'm doing right, 
 {% include feedback-form.js %}
 {% include feedback-form.html %}
 
-Thank you for taking the time to help us improve. I truly appreciate it!
+Thank you for taking the time to help me improve. I truly appreciate it!
