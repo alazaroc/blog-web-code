@@ -88,6 +88,8 @@ There are 3 main components in a GraphQL API:
 
 We will try the simplest approach, connecting one DynamoDB table, by following the next steps:
 
+I will use the AWS Console to show you the step-by-step but if you prefer to create the AWS AppSync service using Terraform you can check the code [here](https://github.com/alazaroc/appsync-terraform-dynamodb){:target="_blank"}.
+
 1. `Create a New API`: Choose "Create API" and select the "Start with a DynamoDB table" option for this tutorial.
    ![Create API step 1](create-1.png)
 2. Specify API details: Update all the information here, including "Import from DynamoDB table". I will use my DynamoDB table in the [feedback form of my blog](https://www.playingaws.com/feedback/){:target="_blank"}.
@@ -102,7 +104,7 @@ In the `Queries` section, we can test our API. We can execute Queries, Mutation 
 
 ![Query table](query-table.png)
 
-The latest step is to connect our client with the API. [Here](https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app.html) you will find more information about it.
+The latest step is to connect our client with the API. [Here](https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app.html){:target="_blank"} you will find more information about it.
 
 ### Creating an API to only query data
 
