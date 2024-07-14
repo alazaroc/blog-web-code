@@ -10,8 +10,8 @@ tags:
 - how-to
 - appsync
 - serverless
-- level-300
-level: 300
+- level-200
+level: 200
 published: true
 pin: false
 featured_post: false
@@ -23,6 +23,13 @@ image:
   header_post: false
 ---
 ---
+
+> This article is part of a series about `appsync`, in which I will explain what is AWS AppSync and how you can use it in your architectures.
+>
+> 1/2: **Getting started: A Practical Approach to GraphQL**
+>
+> 2/2: [Building real-rime applications](/posts/building-real-time-applications-with-appsync-and-subscriptions/){:target="_blank"}
+{: .prompt-tip }
 
 ## Introduction to GraphQL and AWS AppSync
 
