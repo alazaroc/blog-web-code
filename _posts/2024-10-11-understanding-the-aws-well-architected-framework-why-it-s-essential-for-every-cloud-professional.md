@@ -3,7 +3,7 @@ layout: post
 title: 'Understanding the AWS Well-Architected Framework: Why It’s Essential for Every Cloud Professional'
 date: 2024-10-13 21:19 +0200
 last_modified_at:
-description: This article provides a comprehensive introduction to the AWS Well-Architected Framework, explaining its core design principles and the six pillars. It demonstrates how cloud professionals can apply these best practices to build secure, scalable, and cost-efficient cloud architectures while driving continuous improvement.
+description: This article provides a comprehensive introduction to the AWS Well-Architected Framework, explaining its core design principles and the six pillars. It demonstrates how cloud professionals can apply these best practices to build cloud architectures while driving continuous improvement.
 category: Architecture
 tags:
 - level-200
@@ -16,7 +16,7 @@ sitemap: true
 mermaid: true
 img_path:  /assets/img/posts/2024-10-11-understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/
 image:
-  path: waf_cover_1.png
+  path: waf_cover_why.jpg
   header_post: false
 ---
 
@@ -24,7 +24,7 @@ image:
 >
 > 1/4: **Overview of the AWS Well-Architected Framework** (this article): Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
 >
-> 2/4: Deep Dive: Six Pillars [TO BE CREATED]: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
+> 2/4: [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
 >
 > 3/4: Quick Wins for Each Pillar [TO BE CREATED]: Discover actionable quick wins for each AWS Well-Architected Pillar, helping you optimize cloud performance, security, and cost-efficiency.
 >
@@ -69,7 +69,7 @@ The `AWS Well-Architected Framework` provides the tools you need to evaluate and
 
 In this article, we’ll explore the key benefits of the AWS Well-Architected Framework and why it’s essential for anyone working with cloud technology.
 
-![waf_cover_1](waf_cover_1.png)
+![waf_cover_why](waf_cover_why.jpg)
 
 ---
 
@@ -391,5 +391,5 @@ For further reading, explore AWS’s comprehensive resources:
 
 In the next article, we’ll dive deeper into the Six Pillars, where you’ll learn the exact best practices you can start applying to your workloads today.
 
-> Deep Dive: Six Pillars [TO BE CREATED]
+> [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}
 {: .prompt-tip }
