@@ -4,10 +4,11 @@ title: 'Immediate Impact: Quick Wins for Each Pillar of the AWS Well-Architected
 date: 2024-10-15 06:12 +0200
 last_modified_at:
 description: Discover actionable quick wins for each AWS Well-Architected Pillar, helping you optimize cloud performance, security, and cost-efficiency.
-category:
+category: Architecture
 tags:
+- level-300
+level: 300
 published: true
-level:
 pin: false
 featured_post: false
 comments: true
@@ -19,22 +20,22 @@ image:
   header_post: false
 ---
 
-> This article is part of a series about `AWS Well-Architected`. As I was writing, I realized there was so much more to share that it made sense to break it into a series.
+> This is my third article in a series about `AWS Well-Architected`.
 >
-> 1/4: [Overview of the AWS Well-Architected Framework](/posts/understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/){:target="_blank"}: Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
+> Here you will discover actionable `Quick Wins for each AWS Well-Architected Pillar`, helping you optimize cloud performance, security, and cost-efficiency.
 >
-> 2/4: [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
+> More articles of the series:
 >
-> 3/4: **AWS Well-Architected Tool** (this article): A practical guide to using the AWS Well-Architected Tool to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step guidance.
->
-> 4/4: AWS Well-Architected Tool [TO BE CREATED]: A practical guide to using the AWS Well-Architected Tool to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step guidance.
+> - 1/4 - [Overview of the AWS Well-Architected Framework](/posts/understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/){:target="_blank"}: Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
+> - 2/3 - [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
+> - 4/4 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}: A practical guide to using the AWS Well-Architected Tool to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step guidance.
 {: .prompt-tip }
 
 ---
 
 ## 1. Introduction
 
-In this article, we’re focusing on quick wins—practical, actionable steps you can take right now to improve your AWS architecture by following the AWS Well-Architected Framework. Each of the Six Pillars is packed with best practices, and `while implementing the entire framework takes time, there are some small changes you can make today that will have an immediate impact`.
+In this article, we’re focusing on quick wins: practical, actionable steps you can take right now to improve your AWS architecture by following the AWS Well-Architected Framework. Each of the Six Pillars is packed with best practices, and `while implementing the entire framework takes time, there are some small changes you can make today that will have an immediate impact`.
 
 This guide provides a pillar-by-pillar breakdown of quick wins that are easy to implement and can help you move towards operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability in your AWS workloads.
 
@@ -213,14 +214,10 @@ The quick wins provided here offer a `great starting point` for applying AWS Wel
 
 However, `implementing quick wins is just the beginning`. To fully optimize your workloads and ensure you're following best practices across all pillars, `a more comprehensive review is necessary`. This is where the `AWS Well-Architected Tool` comes into play. In the next article, we'll guide you through using the AWS Well-Architected Tool, which provides a structured way to assess your workloads, identify weaknesses, and implement long-term improvements.
 
-> Remember, the AWS Well-Architected Framework is designed for continuous improvement, so `start small and iterate frequently`. Implementing these quick wins is just the first step on your path to building robust, secure, and efficient cloud architectures. 
+> Remember, the AWS Well-Architected Framework is designed for continuous improvement, so `start small and iterate frequently`. Implementing these quick wins is just the first step on your path to building robust, secure, and efficient cloud architectures.
 {: .prompt-warning }
 
-Stay tuned for the next article in the series:
-
-<!-- > [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}  -->
-> AWS Well-Architected Tool [TO BE CREATED]
-{: .prompt-info }
+Stay tuned for the next article in the series: [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}
 
 For further reading, explore AWS’s comprehensive resources:
 
