@@ -21,8 +21,14 @@ img_path: /assets/img/posts/2024-01-14-mastering-aws-cloud9-for-docker-deploymen
 image:
   path: run_app_3000_ok.png
   header_post: false
+important_notice: AWS Cloud9 is deprecated, affecting new customer access (effective July 25, 2024).
 ---
 ---
+
+> Updated: AWS Cloud9 deprecation warning.
+>
+> AWS says: "After careful consideration, we have made the decision to close new customer access to AWS Cloud9, effective July 25, 2024. AWS Cloud9 existing customers can continue to use the service as normal. AWS continues to invest in security, availability, and performance improvements for AWS Cloud9, but we do not plan to introduce new features. You will find more information" [here](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/){:target="_blank"}.
+{: .prompt-danger }
 
 ## TLDR
 
