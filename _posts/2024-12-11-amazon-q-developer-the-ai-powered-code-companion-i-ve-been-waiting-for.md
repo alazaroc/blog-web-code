@@ -5,7 +5,8 @@ date: 2024-12-11 18:27 +0100
 last_modified_at:
 description: Amazon Q Developer is an advanced AI-powered tool designed to assist AWS developers. It offers seamless code suggestions, transformations, testing, and documentation directly in IDEs. This article demonstrates its practical applications while addressing security, privacy, and ease of use.
 category: AI
-tags: AI
+tags:
+- level-300
 published: true
 level: 300
 pin: false

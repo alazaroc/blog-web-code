@@ -4,8 +4,7 @@ title: 'DeepRacer: First steps with Machine Learning'
 date: 2022-12-06 19:33 +0100
 last_modified_at:
 description: Want to know how AWS DeepRacer works? I tested it at re:Invent 2022 and tell you about my experience with this machine learning service.
-category:
-- Machine learning
+category: AI
 tags:
 - getting-started
 - deepracer

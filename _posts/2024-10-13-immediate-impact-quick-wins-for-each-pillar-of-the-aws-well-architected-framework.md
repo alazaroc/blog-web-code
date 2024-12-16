@@ -22,7 +22,7 @@ image:
 
 > This is my third article in a series about `AWS Well-Architected`.
 >
-> Here you will discover actionable `Quick Wins for each AWS Well-Architected Pillar`, helping you optimize cloud performance, security, and cost-efficiency.
+> In this article you will discover actionable `Quick Wins for each AWS Well-Architected Pillar`, helping you optimize cloud performance, security, and cost-efficiency.
 >
 > More articles of the series:
 >
@@ -79,7 +79,7 @@ Now that we've explored the six pillars in detail, here's a consolidated set of 
   - **Enable Amazon GuardDuty**: Turn on Amazon GuardDuty for threat detection and monitoring unauthorized activities in real-time.
   - **Enable MFA**: Implement multi-factor authentication across all AWS accounts.
   - **Turn on AWS Config**: Continuously evaluate the compliance of your AWS resources using AWS Config rules.
-  - **Enable EBS default encryption** for new volumes
+  - **Enable EBS default encryption** for new volumes.
 
 - **Other important recommendations**:
   - Build a layered security approach that includes identity management, encryption, and network protection.
@@ -217,7 +217,7 @@ However, `implementing quick wins is just the beginning`. To fully optimize your
 > Remember, the AWS Well-Architected Framework is designed for continuous improvement, so `start small and iterate frequently`. Implementing these quick wins is just the first step on your path to building robust, secure, and efficient cloud architectures.
 {: .prompt-warning }
 
-Stay tuned for the next article in the series: [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}
+Do you want more? Here is the next and last article of the series: [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}.
 
 For further reading, explore AWS’s comprehensive resources:
 
