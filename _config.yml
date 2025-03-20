@@ -8,6 +8,15 @@ theme: jekyll-theme-chirpy
 # otherwise, the layout language will use the default value of 'en'.
 lang: en
 
+# polyglot configuration
+languages: ["en", "es"]
+default_lang: "en"
+exclude_from_localization: ["assets"]
+parallel_localization: true
+
+sass:
+  sourcemap: never
+
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Europe/Madrid
 
@@ -16,10 +25,13 @@ timezone: Europe/Madrid
 
 title: Playing AWS # the main title
 
-tagline: Learn, remove barriers and practice # it will display as the sub-title
+# tagline: # it will display as the sub-title
+#   en: Learn, remove barriers and practice
+#   es: Aprende, elimina barreras y practica
 
-description: >- # used by seo meta and the atom feed
-  My personal blog related with AWS.
+# description: # used by seo meta and the atom feed
+#   en: My personal blog related with AWS.
+#   es: My blog personal para compartir cosas relacionadas con AWS.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://playingaws.com/"
@@ -41,17 +53,37 @@ social:
     - https://github.com/alazaroc
     - https://www.linkedin.com/in/alejandro-lazaro-chueca/
 
-google_site_verification: # fill in to your verification string
+# Site Verification Settings
+webmaster_verifications:
+  google: # fill in your Google verification code
+  bing: # fill in your Bing verification code
+  alexa: # fill in your Alexa verification code
+  yandex: # fill in your Yandex verification code
+  baidu: # fill in your Baidu verification code
+  facebook: # fill in your Facebook verification code
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-google_analytics:
-  id: G-HW1NDPDLBF # fill in your Google Analytics ID
-  # Google Analytics pageviews report settings
-  pv:
-    proxy_endpoint: # fill in the Google Analytics superProxy endpoint of Google App Engine
-    cache_path: # the local PV cache data, friendly to visitors from GFW region
+analytics:
+  google:
+    id: G-HW1NDPDLBF # fill in your Google Analytics ID
+  goatcounter:
+    id: playingaws # fill in your GoatCounter ID
+  umami:
+    id: # fill in your Umami ID
+    domain: # fill in your Umami domain
+  matomo:
+    id: # fill in your Matomo ID
+    domain: # fill in your Matomo domain
+  cloudflare:
+    id: # fill in your Cloudflare Web Analytics token
+  fathom:
+    id: # fill in your Fathom Site ID
+
+# Page views settings
+pageviews:
+  provider: goatcounter # now only supports 'goatcounter'
 
 # Prefer color scheme setting.
 #
@@ -71,7 +103,7 @@ theme_mode: # [light|dark]
 # will be added to all image (site avatar & posts' images) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-img_cdn:
+cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: /assets/img/favicons/favicon.ico
@@ -84,23 +116,25 @@ social_preview_image: # string, local or CORS resources
 toc: true
 
 comments:
-  active: giscus # The global switch for posts comments, e.g., 'disqus'.  Keep it empty means disable
+  # Global switch for the post-comment system. Keeping it empty means disabled.
+  provider: giscus  # [disqus | utterances | giscus]
   #   # The active options are as follows:
-  #   disqus:
-  #     shortname: disqus_mevkq6VSvZ # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-  #   # utterances settings › https://utteranc.es/
-  #   utterances:
-  #     repo: # <gh-username>/<repo>
-  #     issue_term: # < url | pathname | title | ...>
-  #   # Giscus options › https://giscus.app
+  disqus:
+    shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  # utterances settings › https://utteranc.es/
+  utterances:
+    repo: # <gh-username>/<repo>
+    issue_term: # < url | pathname | title | ...>
+  # Giscus options › https://giscus.app
   giscus:
     repo: alazaroc/blog-web-code
     repo_id: R_kgDOHA-hqQ
     category: Announcements
     category_id: DIC_kwDOHA-hqc4CT2E5
     mapping: # optional, default to 'pathname'
+    strict: # optional, default to '0'
     input_position: top # optional, default to 'bottom'
-    lang: # optional, default to the value of `site.lang`
+    lang: # optional, default to the value of `site.active_lang`
     reactions_enabled: # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
@@ -112,7 +146,14 @@ comments:
 #     env: # [development|production]
 
 pwa:
-  enabled: true # the option for PWA feature
+  enabled: true # The option for PWA feature (installable)
+  cache:
+    enabled: true # The option for PWA offline cache
+    # Paths defined here will be excluded from the PWA cache.
+    # Usually its value is the `baseurl` of another website that
+    # shares the same domain name as the current website.
+    deny_paths:
+      # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
 paginate: 20
 
@@ -177,8 +218,8 @@ compress_html:
     envs: [development]
 
 exclude:
-  - "*.gem"
-  - "*.gemspec"
+  # - "*.gem"
+  # - "*.gemspec"
   - docs
   - tools
   - README.md

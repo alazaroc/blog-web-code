@@ -47,8 +47,7 @@
         <li class="page-item {% if i == paginator.page %} active{% endif %}">
           <a
             class="page-link"
-            href="{% if i > 1 %}{{ site.paginate_path | replace: ':num', i | relative_url }}/{% else %}{{ '/' | relative_url }}{% endif %}"
-            data-proofer-ignore
+            href="{% if i > 1 %}{{ site.paginate_path | replace: ':num', i | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
           >
             {{- i -}}
           </a>
@@ -83,10 +82,11 @@
     {% endif %}
 
     <li class="page-item {% unless paginator.next_page_path %}disabled{% endunless %}">
-      <a class="page-link" href="{{ next_url }}/" aria-label="next-page" data-proofer-ignore>
+      <a class="page-link" href="{{ next_url }}" aria-label="next-page">
         <i class="fas fa-angle-right"></i>
       </a>
     </li>
   </ul>
 </nav>
 <!-- .pagination -->
+ 

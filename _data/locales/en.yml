@@ -15,6 +15,9 @@ tabs:
   tags: Tags
   archives: Archives
   about: About
+  lang_name: English
+  flag: 🇬🇧
+  languages: Languages
 
 # the text displayed in the search bar & search results
 search:
@@ -42,7 +45,7 @@ copyright:
     under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.
 
 # meta: Powered by :PLATFORM.
-meta: Created with AWS.
+meta: Learning & sharing AWS stuff with you
 
 not_found:
   statment: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
@@ -94,3 +97,40 @@ categories:
   post_measure:
     singular: post
     plural: posts
+
+# ----- CUSTOM LABELS -----
+
+tagline: Explore, simplify, practice
+description: Hands-on AWS. My personal space to experiment, simplify, and share.
+
+comment_form:
+  comment_paragraph: Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.
+  comment_question_1: What is your experience in this topic?
+  comment_question_2: What did you find most useful or interesting about this article?
+  comment_question_3: Do you have any suggestions for topics you would like me to cover in future articles?
+
+feedback_form:
+  choose_type: "Choose a Feedback Type"
+  general_comment: "General Comment"
+  suggestion: "Suggestion"
+  error_report: "Error Report"
+  content_request: "Content Request"
+  message_placeholder: "Your Message: Share your thoughts, and suggestions, or report an issue. Be as detailed as you like."
+  full_name_placeholder: "Full Name (Optional)"
+  email_placeholder: "Email (Optional)"
+  rating_label: "Rate your overall satisfaction with the site (Optional):"
+  submit_button: "Submit"
+  submit_failed: "Failed to submit the form"
+  submit_failed_message: "Please, try again."
+  submit_success: "Thank you!"
+  submit_success_message: "Your feedback has been received."
+
+subscription_form:
+  title: "Subscribe for monthly updates"
+  email_placeholder: "me@gmail.com"
+  submit_button: "Submit"
+  submitting_button: "Submitting..."
+  submit_failed: "Failed to submit the form."
+  submit_failed_message: "Please, try again."
+  submit_success: "Thank you for subscribing!"
+  submit_success_message: "I'll send you some notifications with new updates!"

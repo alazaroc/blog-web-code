@@ -2,7 +2,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta
     name="viewport"
@@ -20,7 +20,7 @@
 
     {% unless src contains '://' %}
       {%- capture img_url -%}
-        {% include img-url.html src=src img_path=page.img_path %}
+        {% include media-url.html src=src subpath=page.media_subpath absolute=true %}
       {%- endcapture -%}
 
       {%- capture old_url -%}{{ src | absolute_url }}{%- endcapture -%}
@@ -31,15 +31,20 @@
 
   {% elsif site.social_preview_image %}
     {%- capture img_url -%}
-      {% include img-url.html src=site.social_preview_image %}
+      {% include media-url.html src=site.social_preview_image absolute=true %}
     {%- endcapture -%}
 
     {%- capture og_image -%}
       <meta property="og:image" content="{{ img_url }}" />
     {%- endcapture -%}
 
-    {% assign old_meta_clip = '<meta name="twitter:card"' %}
-    {% assign new_meta_clip = og_image | append: old_meta_clip %}
+    {%- capture twitter_image -%}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:image" content="{{ img_url }}" />
+    {%- endcapture -%}
+
+    {% assign old_meta_clip = '<meta name="twitter:card" content="summary" />' %}
+    {% assign new_meta_clip = og_image | append: twitter_image %}
     {% assign seo_tags = seo_tags | replace: old_meta_clip, new_meta_clip %}
   {% endif %}
 
@@ -54,34 +59,30 @@
 
   {% include_cached favicons.html %}
 
-  {% if site.resources.ignore_env != jekyll.environment and site.resources.self_hosted %}
-    <link href="{{ site.data.origin[type].webfonts | relative_url }}" rel="stylesheet">
-
-  {% else %}
-    {% for cdn in site.data.origin[type].cdns %}
-      <link rel="preconnect" href="{{ cdn.url }}" {{ cdn.args }}>
-      <link rel="dns-prefetch" href="{{ cdn.url }}" {{ cdn.args }}>
+  <!-- Resource Hints -->
+  {% unless site.assets.self_host.enabled %}
+    {% for hint in site.data.origin.cors.resource_hints %}
+      {% for link in hint.links %}
+        <link rel="{{ link.rel }}" href="{{ hint.url }}" {{ link.opts | join: ' ' }}>
+      {% endfor %}
     {% endfor %}
-
-    <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}">
-  {% endif %}
-
-  <!-- GA -->
-  {% if jekyll.environment == 'production' and site.google_analytics.id != empty and site.google_analytics.id %}
-    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials">
-    <link rel="dns-prefetch" href="https://www.google-analytics.com">
-
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous">
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-  {% endif %}
+  {% endunless %}
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="{{ site.data.origin[type].bootstrap.css | relative_url}}">
+  {% unless jekyll.environment == 'production' %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  {% endunless %}
 
-  <!-- Font Awesome -->
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}">
+
+  <!-- Web Font -->
+  <link rel="stylesheet" href="{{ site.data.origin[type].webfonts | relative_url }}">
+
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ site.data.origin[type].fontawesome.css | relative_url }}">
 
-  <link rel="stylesheet" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}">
+  <!-- 3rd-party Dependencies -->
 
   {% if site.toc and page.toc %}
     <link rel="stylesheet" href="{{ site.data.origin[type].toc.css | relative_url }}">
@@ -92,8 +93,8 @@
   {% endif %}
 
   {% if page.layout == 'page' or page.layout == 'post' %}
-    <!-- Manific Popup -->
-    <link rel="stylesheet" href="{{ site.data.origin[type].magnific-popup.css | relative_url }}">
+    <!-- Image Popup -->
+    <link rel="stylesheet" href="{{ site.data.origin[type].glightbox.css | relative_url }}">
   {% endif %}
 
   <!-- Custom CSS -->
@@ -105,9 +106,47 @@
   <!-- Subscribe form -->
   <script src="{{ '/assets/js/subscribe-form.js' | relative_url }}"></script>
 
-  {% unless site.theme_mode %}
-    {% include mode-toggle.html %}
-  {% endunless %}
+  <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
+
+  {% include js-selector.html lang=lang %}
+
+  {% if jekyll.environment == 'production' %}
+    <!-- PWA -->
+    {% if site.pwa.enabled %}
+      <script
+        defer
+        src="{{ '/app.min.js' | relative_url }}?baseurl={{ site.baseurl | default: '' }}&register={{ site.pwa.cache.enabled }}"
+      ></script>
+    {% endif %}
+
+    <!-- Web Analytics -->
+    {% for analytics in site.analytics %}
+      {% capture str %}{{ analytics }}{% endcapture %}
+      {% assign platform = str | split: '{' | first %}
+      {% if site.analytics[platform].id and site.analytics[platform].id != empty %}
+        {% include analytics/{{ platform }}.html %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  <!-- Real User Monitoring with CloudWatch RUM -->
+  <script>
+    (function(n,i,v,r,s,c,x,z){x=window.AwsRumClient={q:[],n:n,i:i,v:v,r:r,c:c};window[n]=function(c,p){x.q.push({c:c,p:p});};z=document.createElement('script');z.async=true;z.src=s;document.head.insertBefore(z,document.head.getElementsByTagName('script')[0]);})(
+      'cwr',
+      '3ba075d8-e30a-41e2-a79a-82e33f3941ed',
+      '1.0.0',
+      'eu-west-1',
+      "{{ '/assets/js/cwr.min.js' | relative_url }}",
+      {
+        identityPoolId: "eu-west-1:8332d3af-db7a-4a84-9fd6-d606474dc948",
+        sessionSampleRate: 1,
+        endpoint: "https://dataplane.rum.eu-west-1.amazonaws.com",
+        telemetries: ["performance","errors","http"],
+        allowCookies: true,
+        enableXRay: false
+      }
+    );
+  </script>
 
   {% include metadata-hook.html %}
 </head>

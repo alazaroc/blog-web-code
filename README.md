@@ -78,12 +78,14 @@ blog-web-code/
 #### Installation
 
 1. Clone the repository:
+
    ```code
    git clone https://github.com/alazaroc/blog-web-code.git
    cd blog-web-code
    ```
 
 2. Install dependencies:
+
    ```code
    bundle install
    npm install

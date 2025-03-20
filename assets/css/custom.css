@@ -128,3 +128,62 @@ html[data-mode=light] [class^=prompt-] {
 .preview-img img {
   width: auto !important;
 }
+#sidebar .profile-wrapper {
+  margin-top: 1rem;
+}
+#sidebar .sidebar-bottom .lang-div {
+  margin-bottom: 0.2rem;
+  padding: 0;
+
+  .nav-item {
+    font-family: 'NotoColorEmojiLimited', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol';
+    margin-bottom: 0.15rem;
+
+    .nav-link {
+      padding: 0.8rem;
+      border-radius: 25%/75%;
+      font-size: 0.9rem;
+      color: var(--sidebar-active-color);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .disabled-lang {
+      background-color: var(--sidebar-disabled-color);
+      color: #ff0000;
+    }
+
+    .disabled-lang:hover {
+      background-color: #ffe3e5;
+    }
+
+    &.active .nav-link {
+      background-color: var(--sidebar-hover-bg);
+      font-weight: bold;
+    }
+  }
+
+  #language {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: NotoColorEmojiLimited;
+    unicode-range: U+1F1E6-1F1FF;
+    src: url(https://raw.githack.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf);
+  }
+}
+
+#sidebar ul li.nav-item a.disabled-lang {
+  opacity: 0.1;
+}
+
+#sidebar ul li.nav-item a.nav-link {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
