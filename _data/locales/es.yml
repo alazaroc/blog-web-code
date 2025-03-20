@@ -1,0 +1,136 @@
+# The layout text of site
+
+# ----- Commons label -----
+
+layout:
+  post: Artículo
+  category: Categoría
+  tag: Etiqueta
+
+# The tabs of sidebar
+tabs:
+  # format: <filename_without_extension>: <value>
+  home: Inicio
+  categories: Categorías
+  tags: Etiquetas
+  archives: Archivos
+  about: Acerca de
+  lang_name: Español
+  flag: 🇪🇸
+  languages: Lenguajes
+
+# the text displayed in the search bar & search results
+search:
+  hint: buscar
+  cancel: Cancelar
+  no_results: Oops! No hay resultados.
+
+panel:
+  featured_post: Artículos destacados
+  lastmod: Actualizado recientemente
+  trending_tags: Etiquetas
+  toc: Contenidos
+
+copyright:
+  # Shown at the bottom of the post
+  license:
+    template: This artículo está licenciado bajo :LICENSE_NAME por el autor.
+    name: CC BY 4.0
+    link: https://creativecommons.org/licenses/by/4.0/
+
+  # Displayed in the footer
+  brief: Algunos derechos reservados.
+  verbose: >-
+    Excepto donde se indique lo contrario, los artículos de este blog están licenciados
+    bajo la Creative Commons Attribution 4.0 International (CC BY 4.0).
+
+# meta: Powered by :PLATFORM.
+meta: Aprendiendo y compartiendo AWS contigo.
+
+not_found:
+  statment: Lo siento, no hemos encontrado lo que estás buscando.
+  hint_template: :HEAD_BAK para intentar la busqueda de nuevo, o busca por esto en la :ARCHIVES_PAGE.
+  head_back: Vuelta al inicio
+  archives_page: Página de archivos
+
+notification:
+  update_found: Una nueva versión del contenido está disponible.
+  update: Actualizar
+
+# ----- Posts related labels -----
+
+post:
+  written_by: By
+  posted: Posted
+  updated: Updated
+  words: words
+  pageview_measure: views
+  read_time:
+    unit: min
+    prompt: read
+  relate_posts: Further Reading
+  share: Share
+  button:
+    next: Newer
+    previous: Older
+    copy_code:
+      succeed: Copied!
+    share_link:
+      title: Copy link
+      succeed: Link copied successfully!
+
+# Date time format.
+# See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: "%b %e, %Y"
+    dayjs: "ll"
+  archives:
+    strftime: "%b"
+    dayjs: "MMM"
+
+# categories page
+categories:
+  category_measure:
+    singular: categoría
+    plural: categorías
+  post_measure:
+    singular: artículo
+    plural: artículos
+
+# ----- CUSTOM LABELS -----
+
+tagline: Explora, simplifica, practica
+description: Práctica con AWS. Mi espacio personal para experimentar, simplificar y compartir.
+
+comment_form:
+  comment_paragraph: Gracias por tomarte el tiempo para leer mi artículo. Me comprometo a ofrecer contenido valioso y relevante, y tus aportaciones juegan un papel crucial en mi mejora continua. Si tienes un momento, por favor comparte tus pensamientos.
+  comment_question_1: ¿Cuál ha sido tu experiencia en este tema?
+  comment_question_2: ¿Qué fue lo que encontraste más útil o interesante de este artículo?
+  comment_question_3: ¿Tienes alguna sugerencia sobre temas que te gustaría que tratara en futuros artículos?
+
+feedback_form:
+  choose_type: "Elige un tipo de comentario"
+  general_comment: "Comentario general"
+  suggestion: "Sugerencia"
+  error_report: "Informe de error"
+  content_request: "Solicitud de contenido"
+  message_placeholder: "Tu mensaje: Comparte tus pensamientos, sugerencias o informa un problema. Sé tan detallado como quieras."
+  full_name_placeholder: "Nombre completo (Opcional)"
+  email_placeholder: "Correo electrónico (Opcional)"
+  rating_label: "Califica tu satisfacción general con el sitio (Opcional):"
+  submit_button: "Enviar"
+  submit_failed: "No se pudo enviar el formulario"
+  submit_failed_message: "Por favor, inténtalo de nuevo."
+  submit_success: "¡Gracias!"
+  submit_success_message: "Hemos recibido tu comentario."
+
+subscription_form:
+  title: "Suscríbete para recibir actualizaciones mensuales"
+  email_placeholder: "me@gmail.com"
+  submit_button: "Enviar"
+  submitting_button: "Enviando..."
+  submit_failed: "No se pudo enviar el formulario."
+  submit_failed_message: "Por favor, inténtalo de nuevo."
+  submit_success: "¡Gracias por suscribirte!"
+  submit_success_message: "Te enviaré notificaciones con nuevas actualizaciones."
