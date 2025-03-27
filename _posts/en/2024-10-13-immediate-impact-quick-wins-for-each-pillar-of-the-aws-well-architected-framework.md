@@ -25,9 +25,9 @@ image:
 
 > This is my third article in a series about `AWS Well-Architected`.
 >
-> In this article you will discover actionable `Quick Wins for each AWS Well-Architected Pillar`, helping you optimize cloud performance, security, and cost-efficiency.
+> In this article you will discover actionable `Quick Wins for each AWS Well-Architected pillar`, helping you optimize cloud performance, security, and cost-efficiency.
 >
-> More articles of the series:
+> More articles in this series:
 >
 > - 1/4 - [Overview of the AWS Well-Architected Framework](/posts/understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/){:target="_blank"}: Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
 > - 2/3 - [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
@@ -51,9 +51,9 @@ This guide provides a pillar-by-pillar breakdown of quick wins that are easy to 
 > More Actionable Insights
 {: .prompt-info }
 
-Now that we've explored the six pillars in detail, here's a consolidated set of actionable insights you can start applying today.
+Now that we've explored the six pillars in detail, here are some actionable insights you can start applying today.
 
-`Quick wins` are essential for teams looking to get started with the AWS Well-Architected Framework because they `offer immediate, actionable improvements` without requiring a complete revision of your cloud environment. These `small but impactful changes` allow teams to improve performance, security, and cost efficiency quickly, helping build momentum toward longer-term architectural goals. By tackling quick wins first, teams can realize tangible benefits and demonstrate progress, making it easier to justify and implement more comprehensive strategies after that.
+`Quick wins` are essential for teams looking to get started with the AWS Well-Architected Framework because they `offer immediate, actionable improvements` without requiring a complete revision of your cloud environment. These `small but impactful changes` allow teams to improve performance, security, and cost efficiency quickly, helping build momentum toward longer-term architectural goals. By tackling quick wins first, teams can realize tangible benefits and demonstrate progress, making it easier to justify and implement more comprehensive strategies afterward.
 
 ### 2.1 Take action: Operational Excellence
 

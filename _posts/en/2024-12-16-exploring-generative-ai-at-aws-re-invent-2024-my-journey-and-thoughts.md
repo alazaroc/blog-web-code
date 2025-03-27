@@ -9,10 +9,10 @@ description: Explore AWS's generative AI offerings, including Amazon Q Developer
 category: Generative AI
 tags:
 - level-200
-- "Amazon Q Developer"
-- "Amazon Bedrock"
-- "Amazon SageMaker"
-- "Generative AI"
+- q-developer
+- generative-ai
+- bedrock
+- sagemaker
 published: true
 level: 200
 pin: false

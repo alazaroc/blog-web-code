@@ -24,7 +24,7 @@ image:
 
 > This is the first article in a series about the `AWS Well-Architected`.
 >
-> This is an `Overview` of the AWS Well-Architected Framework, where you will learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
+> This article provides an `overview` of the AWS Well-Architected Framework, explaining why it is essential for every cloud professional and how it can set your cloud architecture up for success.
 >
 > More articles in the series:
 >
@@ -83,7 +83,7 @@ Here are a few key reasons why this framework matters. Hopefully, they'll convin
 1. `Improve Your Cloud Skills`: Deepen your understanding of cloud architecture through hands-on evaluation and improvement.
 2. `Build Confidence with AWS Best Practices`: Become proficient in applying AWS's best practices to real-world scenarios.
 
-> Trust me, this information is pure gold!
+> This information is invaluable.
 {: .prompt-tip }
 
 ### Benefits for Your Cloud Architecture
@@ -99,7 +99,7 @@ Here are a few key reasons why this framework matters. Hopefully, they'll convin
 
 ## 3. Understanding the AWS Well-Architected Framework
 
-> This is your path to the Cloud Excellence.
+> This is your path to Cloud Excellence.
 {: .prompt-info }
 
 The `AWS Well-Architected Framework` offers a set of `best practices and design principles` for building cloud architectures that are scalable, secure, reliable, efficient, and sustainable. By following this framework, you can ensure your cloud architecture is prepared for both current demands and future growth.

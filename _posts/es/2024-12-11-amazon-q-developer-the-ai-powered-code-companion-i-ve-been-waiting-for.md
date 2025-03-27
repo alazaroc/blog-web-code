@@ -9,8 +9,8 @@ description: Amazon Q Developer es una herramienta impulsada por IA diseñada pa
 category: IA Generativa
 tags:
 - level-300
-- "Amazon Q Developer"
-- "IA Generativa"
+- q-developer
+- ia-generativa
 published: true
 level: 300
 pin: false

@@ -30,7 +30,7 @@ image:
 
 AWS Security Hub is a cloud security posture management service that:
 
-- Reduced effort to collect and prioritize findings
+- reduces effort to collect and prioritize findings
 - performs **automatic security checks** against best practices and standards
 - **aggregates your security alerts** in a consolidated view of findings across accounts and providers
 - **enables automated remediation**

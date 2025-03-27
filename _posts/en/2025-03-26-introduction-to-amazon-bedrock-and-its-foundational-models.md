@@ -30,17 +30,11 @@ image:
 > - 2/2: Designing Effective Prompts in Amazon Bedrock
 {: .prompt-tip }
 
-# Introduction to Amazon Bedrock and its Foundation Models
-
-Discover how Amazon Bedrock simplifies access to AI foundation models, their use cases, advantages, and how to integrate them into applications to generate content, analyze data, and improve processes.
-
-**Category:** Generative AI
-
 ## 1. Introduction
 
-Generative artificial intelligence has transformed the way we interact with technology, and if you're working with AWS, `you must absolutely know everything I'm going to explain in this series of articles.`
+Generative artificial intelligence has transformed the way we interact with technology, and if you're working with AWS, `you must absolutely know everything I'm going to explain in this series of articles`.
 
-Of course, you can make things as complicated as you want—for example, you could train your own models from scratch. But let's be honest, this is very, very expensive, and in 99% of cases, it's NOT what you need.
+Of course, you can make things as complicated as you want. For example, you could train your own models from scratch. But let's be honest, this is very, very expensive, and in 99% of cases, it's NOT what you need.
 
 In this first article, you will learn how to:
 
@@ -54,7 +48,7 @@ In this first article, you will learn how to:
 > Amazon Bedrock is the most important Generative AI service in AWS.
 {: .prompt-info }
 
-Amazon Bedrock `provides access to foundation models` from different providers, `without the need to manage infrastructure.`
+Amazon Bedrock `provides access to foundation models` from different providers, `without the need to manage infrastructure`.
 
 You can do many things within Amazon Bedrock, such as:
 

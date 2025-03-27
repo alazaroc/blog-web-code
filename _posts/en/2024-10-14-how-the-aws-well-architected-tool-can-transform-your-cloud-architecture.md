@@ -23,14 +23,14 @@ image:
 ---
 ---
 
-> This is my fourth and final article in a series about `AWS Well-Architected`.
+> This is the fourth and final article in a series about the `AWS Well-Architected`.
 >
-> This is a practical guide to using the `AWS Well-Architected Tool` to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step guidance.
+> This is a practical guide to using the `AWS Well-Architected Tool` to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step instructions.
 >
 > More articles of the series:
 >
 > - 1/4 - [Overview of the AWS Well-Architected Framework](/posts/understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/){:target="_blank"}: Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
-> - 2/3 - [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
+> - 2/3 - [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud architectures.
 > - 3/4 - [Quick Wins for Each Pillar](/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/){:target="_blank"}: Discover actionable quick wins for each AWS Well-Architected Pillar, helping you optimize cloud performance, security, and cost-efficiency.
 {: .prompt-tip }
 
@@ -45,7 +45,7 @@ The `AWS Well-Architected Tool` (AWS WA Tool) is an `interactive, web-based serv
 
 Using the AWS Well-Architected Tool allows your team to `self-assess your architecture and identify areas for improvement`. However, an **official review** conducted by an AWS Well-Architected Partner provides a more in-depth evaluation and often includes a comprehensive remediation plan.
 
-> While the AWS Well-Architected Framework sets the foundation for best practices, the AWS Well-Architected Tool takes it a step further by turning those principles into actionable insights for your specific workloads.
+> The AWS Well-Architected `Framework` sets the foundation for best practices, and the AWS Well-Architected `Tool` takes it a step further by turning those principles into actionable insights for your specific workloads.
 {: .prompt-info }
 
 ---
@@ -57,16 +57,16 @@ The AWS Well-Architected Tool offers a `straightforward way to assess, refine, a
 ### Benefits for You
 
 1. `Improve Your Cloud Skills`: Deepen your understanding of cloud architecture through hands-on evaluation and improvement.
-2. `Build Confidence with AWS Best Practices`: Become proficient in applying AWS's best practices to real-world scenarios.
+2. `Build Confidence with AWS Best Practices`: Become proficient in applying AWS best practices to real-world scenarios.
 3. `Lead Strategic Discussions`: Use assessment insights to guide stakeholders towards more informed architectural decisions.
 
 ### Benefits for Your Cloud Architecture
 
-1. **Identify Weaknesses and Risks**: Quickly spot issues like security gaps, underutilized resources, and performance bottlenecks.
+1. **Identify Weaknesses and Risks**: Quickly identify issues like security gaps, underutilized resources, and performance bottlenecks.
 2. **Optimize with Data-Driven Insights**: Use the tool's analysis to enhance performance, strengthen security, and boost efficiency.
 3. **Receive Tailored Recommendations**: Get customized guidance directly aligned with your specific architecture's needs.
 4. **Generate Detailed Reports**: Create reports that not only provide a clear view of current architecture but also outline strategic steps for improvement.
-5. **Align Teams Around Priorities**: Use the assessment process to unify your team's focus on key improvement areas.
+5. **Align Teams Around Priorities**: Use the assessment process to focus your team on key improvement areas.
 6. **Lower Costs**: Identify over-provisioned resources or inefficient setups, enabling cost savings without compromising performance.
 
 Regular assessments ensure that your architecture evolves with your business and continues to meet evolving best practices. Here are additional benefits of conducting regular assessments:
@@ -99,7 +99,7 @@ Provide details about your workload to begin the assessment. A workload can be a
 3. **Apply Lenses**: Use the default AWS Well-Architected Framework Lens for simplicity.
    ![2](2.4.png)
 
-> AWS definition: "The Lens Catalog is a collection of official, AWS lenses created for AWS Well-Architected Tool that offer up-to-date technology and industry-focused best practices."
+> AWS definition: "The Lens Catalog is a collection of official AWS lenses created for AWS Well-Architected Tool that offer up-to-date technology and industry-focused best practices."
 
 ### Step 3: Conduct the Assessment
 

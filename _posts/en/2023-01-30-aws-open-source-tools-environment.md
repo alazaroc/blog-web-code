@@ -39,7 +39,7 @@ image:
 
 In this article, we will focus on the `inventory`, `analysis` and `security assessment` of the AWS environment.
 
-> Some open-source tool could appear in several categories (in this same article or among the 3 open-source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
+> Some open-source tools could appear in several categories (in this same article or among the 3 open-source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
 {: .prompt-warning }
 
 ## Inventory and analyze your environment
@@ -54,7 +54,7 @@ These open-source tools are useful to analyze all of your AWS environment:
 
 ### cloudmapper
 
-CloudMapper helps you analyze your Amazon Web Services (AWS) environments.
+CloudMapper helps you analyze your Amazon Web Services (AWS) environment.
 
 Based on Python components.
 
@@ -127,7 +127,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 
 **Is it popular?**: On GitHub: Watch 15; Fork 68; Stars 673
 
-**Recently updated?** No. Last commit the Aug 2, 2022. In total, 426 commits
+**Recently updated?** No. Last commit was on Aug 2, 2022. In total, 426 commits.
 
 **URL**: [https://github.com/bridgecrewio/AirIAM](https://github.com/bridgecrewio/AirIAM){:target="_blank"}
 
@@ -230,7 +230,7 @@ Scout Suite was designed by security consultants/auditors. It is meant to provid
 
 ### cloudsploit
 
-CloudSploit by Aqua is an open-source project designed to allow the detection of security risks in cloud infrastructure accounts, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), Oracle Cloud Infrastructure (OCI), and GitHub. These scripts are designed to return a series of `potential misconfigurations and security risks`.
+CloudSploit by Aqua is an open-source project designed to detect security risks in cloud infrastructure accounts, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), Oracle Cloud Infrastructure (OCI), and GitHub. These scripts are designed to return a series of `potential misconfigurations and security risks`.
 
 Compliance:
 
@@ -264,7 +264,7 @@ Compliance:
 
 I mentioned this tool in my first article about open-source when I talked about `Extend CLI` capabilities [here](/posts/aws-open-source-tools/#steampipe){:target="_blank"}
 
-Steampipe is the universal interface to APIs, and we can use SQL to query cloud infrastructure, SaaS, code, logs, and more.
+Steampipe is the universal interface to APIs, and you can use SQL to query cloud infrastructure, SaaS, code, logs, and more.
 
 Besides, I am going to show you two new capabilities:
 

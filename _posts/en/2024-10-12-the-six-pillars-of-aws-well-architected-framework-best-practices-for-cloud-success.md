@@ -25,7 +25,7 @@ image:
 
 > This is my second article in a series about `AWS Well-Architected`.
 >
-> This is a `Deep Dive about the Six Pillars`, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
+> This is a `deep dive about the Six Pillars`, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
 >
 > More articles of the series:
 >
@@ -72,11 +72,11 @@ For the most up-to-date details, review the official AWS documentation [here](ht
 
 - **Why it's important**:
   - Operational excellence ensures that your infrastructure adapts quickly to changes and operates efficiently. Automation and continuous improvement help streamline processes, reduce manual interventions, and improve service delivery.
-  - Ignoring this pillar can lead to slow recovery times, mismanaged resources, and missed opportunities for automation, all of which increase operational overhead.
+  - Ignoring this pillar can lead to slow recovery times, mismanaged resources, and missed automation opportunities, increasing operational overhead.
 
 - **Design Principles** (8):
   - `Organize teams around business outcomes`: Ensure alignment between development and operations for clear ownership and accountability.
-  - `Implement observability for actionable insights`: Use metrics, logs, and traces for better workload visibility.
+  - `Implement observability for actionable insights`: Use metrics, logs, and traces to improve workload visibility.
   - `Safely automate where possible`: Automate tasks like patching and scaling to minimize human error and speed up operations.
   - `Make frequent, small, reversible changes`: Continuous delivery allows quick adjustments, reducing the risk of large failures.
   - `Refine operations procedures frequently`: Continuously evolve processes to adapt to new challenges.
