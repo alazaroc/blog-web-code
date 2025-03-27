@@ -187,3 +187,23 @@ html[data-mode=light] [class^=prompt-] {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+/* Table without scroll and adjusting content */
+/* table {
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: collapse !important;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left  !important;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  max-width: 300px;
+  min-width: 100px;
+} */
+
+.table-wrapper>table thead th, .table-wrapper>table tbody tr td {
+  white-space: normal !important;
+}
