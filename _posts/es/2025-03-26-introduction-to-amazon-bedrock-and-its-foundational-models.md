@@ -24,10 +24,11 @@ image:
 ---
 ---
 
-> Este artículo es parte de una serie sobre `Amazon Bedrock`:
+> Este artículo es el primero de una serie sobre `Amazon Bedrock`:
 >
-> - 1/2: Introducción a Amazon Bedrock y sus Modelos Fundacionales
-> - 2/2: Diseño de Prompts Efectivos en Amazon Bedrock
+> - 1/3: **Introducción a Amazon Bedrock y sus Modelos Fundacionales**
+> - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
+> - 3/3: Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas
 {: .prompt-tip }
 
 ## 1. Introducción

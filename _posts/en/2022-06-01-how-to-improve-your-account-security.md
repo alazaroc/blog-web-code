@@ -57,7 +57,7 @@ Multiple frameworks help you design the construction of a plan to provide securi
 
 #### How to prioritize
 
-"With so many services, security controls, and recommendations… How do I prioritize? Where do I start?"
+"With so many services, security controls, and recommendations... How do I prioritize? Where do I start?"
 
 > All Quick Win recommendations can be implemented in less than a week.
 {: .prompt-info }
@@ -176,4 +176,4 @@ The original article was written in the AWS blog [here](https://aws.amazon.com/b
    - You also need to take action when you see findings
 9. **Rotate keys**
 10. **Be involved in the dev cycle**
-    - “raise the security culture of your organization.”
+    - Raise the security culture of your organization.

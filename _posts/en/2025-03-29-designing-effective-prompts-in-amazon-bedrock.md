@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Prompts I: How to Design Effective Prompts in Amazon Bedrock"
-date: 2025-03-26 08:21 +0100
+date: 2025-03-29 08:21 +0100
 last_modified_at:
 lang: en
 lang-exclusive: ['en', 'es']
@@ -17,7 +17,7 @@ pin: false
 featured_post: false
 comments: true
 sitemap: true
-media_subpath: /assets/img/posts/2025-03-27-designing-effective-prompts-in-amazon-bedrock/
+media_subpath: /assets/img/posts/2025-03-29-designing-effective-prompts-in-amazon-bedrock/
 image:
   path: playground-1-test-models-en.png
   header_post: false
