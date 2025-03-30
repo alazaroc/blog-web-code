@@ -34,7 +34,7 @@ panel:
 copyright:
   # Shown at the bottom of the post
   license:
-    template: This artículo está licenciado bajo :LICENSE_NAME por el autor.
+    template: Este artículo está licenciado bajo :LICENSE_NAME por el autor.
     name: CC BY 4.0
     link: https://creativecommons.org/licenses/by/4.0/
 
@@ -54,30 +54,30 @@ not_found:
   archives_page: Página de archivos
 
 notification:
-  update_found: Una nueva versión del contenido está disponible.
+  update_found: Actualización disponible.
   update: Actualizar
 
 # ----- Posts related labels -----
 
 post:
-  written_by: By
-  posted: Posted
-  updated: Updated
-  words: words
-  pageview_measure: views
+  written_by: Escrito por
+  posted: Publicado
+  updated: Actualizado
+  words: palabras
+  pageview_measure: visitas
   read_time:
     unit: min
-    prompt: read
-  relate_posts: Further Reading
-  share: Share
+    prompt: " de lectura"
+  relate_posts: Post relacionados
+  share: Compartir
   button:
-    next: Newer
-    previous: Older
+    next: Siguiente
+    previous: Anterior
     copy_code:
-      succeed: Copied!
+      succeed: Copiado!
     share_link:
-      title: Copy link
-      succeed: Link copied successfully!
+      title: Copiar link
+      succeed: Link copiado correctamente!
 
 # Date time format.
 # See: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>

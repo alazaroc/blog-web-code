@@ -54,8 +54,8 @@
       giscusNode.setAttribute(key, value)
     );
 
-    const $footer = document.querySelector('footer');
-    $footer.insertAdjacentElement("beforebegin", giscusNode);
+    const $footer = document.querySelector('.content');
+    $footer.insertAdjacentElement("beforeend", giscusNode);
 
     addEventListener('message', (event) => {
       if (event.source === window && event.data && event.data.id === Theme.ID) {
