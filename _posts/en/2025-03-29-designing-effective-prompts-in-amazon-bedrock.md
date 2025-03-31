@@ -28,7 +28,8 @@ image:
 >
 > - 1/3: [Introduction to Amazon Bedrock and its Foundational Models](/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
 > - 2/3: **Prompts I: How to Design Effective Prompts in Amazon Bedrock**
-> - 3/3: Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)
+> - 3/3: [Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)](/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
+
 {: .prompt-tip }
 
 ## 1. Introduction
@@ -212,7 +213,7 @@ There are several ways to test a prompt to evaluate its quality and behavior:
         - ![Options in Bedrock Prompt Management](prompt-management.png)
         - ![Variant Comparison in Bedrock](compare-variants-models-1-en.png)
 
-    > I will explain Amazon Bedrock Prompt Management in more detail in the next article.
+    > I explain Amazon Bedrock Prompt Management in more detail in the next article [here](/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}.
     {: .prompt-info }
 
 3. **Automated Validation**

@@ -28,7 +28,7 @@ image:
 >
 > - 1/2: **Introduction to Amazon Bedrock and its Foundation Models**
 > - 2/2: [Prompts I: How to Design Effective Prompts in Amazon Bedrock](/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
-> - 3/3: Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)
+> - 3/3: [Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)](/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 {: .prompt-tip }
 
 ## 1. Introduction
@@ -74,7 +74,7 @@ Foundation models (FM) are `AI models pre-trained with large amounts of data` an
 
 These models can be used as-is or customized for specific needs, allowing them to be tailored to different use cases without incurring the costs and complexity of developing a proprietary model.
 
-> The availability of models and features in Amazon Bedrock varies by region, so it is important to check which options are enabled in your area before designing a solution.
+> The availability of models and features in Amazon Bedrock varies by region, so it is important to check which options are available in your area before designing a solution.
 {: .prompt-warning }
 
 ### 3.1. Available Providers
@@ -102,7 +102,7 @@ In the model catalog for the North Virginia region (us-east-1), as of the time o
 
 The image above shows what each model is used for. Depending on your use case, you can choose the most suitable model.
 
-Examples of models (there are many more):
+Here are examples of models (there are many more):
 
 | Provider       | Model          | Primary Use Cases                                  |
 |---------------|---------------|--------------------------------------------------|

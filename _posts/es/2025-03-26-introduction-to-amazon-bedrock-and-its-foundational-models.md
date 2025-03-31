@@ -28,7 +28,7 @@ image:
 >
 > - 1/3: **Introducción a Amazon Bedrock y sus Modelos Fundacionales**
 > - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
-> - 3/3: Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas
+> - 3/3: [Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas](/es/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 {: .prompt-tip }
 
 ## 1. Introducción

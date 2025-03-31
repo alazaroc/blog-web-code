@@ -54,7 +54,7 @@ not_found:
   archives_page: Página de archivos
 
 notification:
-  update_found: Actualización disponible.
+  update_found: Una nueva versión del contenido está disponible.
   update: Actualizar
 
 # ----- Posts related labels -----

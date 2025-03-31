@@ -28,7 +28,7 @@ image:
 >
 > - 1/3: [Introducción a Amazon Bedrock y sus Modelos Fundacionales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
 > - 2/3: **Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock**
-> - 3/3: Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas
+> - 3/3: [Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas](/es/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 {: .prompt-tip }
 
 ## 1. Introducción
@@ -212,7 +212,7 @@ Existen varias formas de probar un prompt para evaluar su calidad y comportamien
         - ![Opciones en Bedrock Prompt Management](prompt-management.png)
         - ![Comparación de variantes en Bedrock](compare-variants-models-1-es.png)
 
-    > Explicaré Amazon Bedrock Prompt Management con más detalle en el siguiente artículo.
+    > Explico Amazon Bedrock Prompt Management con más detalle en el siguiente artículo [aquí](/es/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}.
     {: .prompt-info }
 
 3. **Validación Automática**
