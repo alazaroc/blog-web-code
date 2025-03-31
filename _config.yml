@@ -14,9 +14,6 @@ default_lang: "en"
 exclude_from_localization: ["assets"]
 parallel_localization: true
 
-# Disable service worker to don't cache pages
-service_worker: false
-
 sass:
   sourcemap: never
 
@@ -149,7 +146,7 @@ comments:
 #     env: # [development|production]
 
 pwa:
-  enabled: true # The option for PWA feature (installable)
+  enabled: false # The option for PWA feature (installable)
   cache:
     enabled: true # The option for PWA offline cache
     # Paths defined here will be excluded from the PWA cache.

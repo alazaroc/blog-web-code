@@ -148,5 +148,16 @@
     );
   </script>
 
+  <!-- TODO: remove these lines after a while -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script>
+
   {% include metadata-hook.html %}
 </head>
