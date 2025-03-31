@@ -14,6 +14,9 @@ default_lang: "en"
 exclude_from_localization: ["assets"]
 parallel_localization: true
 
+# Disable service worker to don't cache pages
+service_worker: false
+
 sass:
   sourcemap: never
 
