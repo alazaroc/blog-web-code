@@ -6,10 +6,10 @@ last_modified_at:
 lang: es
 lang-exclusive: ['en', 'es']
 description: En este artículo exploramos cómo gestionar de forma efectiva los prompts en Amazon Bedrock, cubriendo funcionalidades clave como versionado, optimización y colaboración para mejorar tus proyectos basados en inteligencia artificial.
-category: Generative AI
+category: IA Generativa
 tags:
 - level-300
-- generative-ai
+- ia-generativa
 - bedrock
 published: true
 level: 300
@@ -26,7 +26,7 @@ image:
 
 > Tercer artículo de una serie sobre `Amazon Bedrock`:
 >
-> - 1/3: [Introducción a Amazon Bedrock y sus Modelos Fundacionales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
+> - 1/3: [Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
 > - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
 > - 3/3: **Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas**
 {: .prompt-tip }

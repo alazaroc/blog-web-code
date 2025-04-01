@@ -26,7 +26,7 @@ image:
 
 > Second article of a series on `Amazon Bedrock`:
 >
-> - 1/3: [Introduction to Amazon Bedrock and its Foundational Models](/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
+> - 1/3: [Amazon Bedrock 101: Understanding Its Foundational Models](/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
 > - 2/3: **Prompts I: How to Design Effective Prompts in Amazon Bedrock**
 > - 3/3: [Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)](/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 

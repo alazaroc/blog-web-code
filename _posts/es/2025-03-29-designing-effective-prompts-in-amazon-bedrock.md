@@ -6,10 +6,10 @@ last_modified_at:
 lang: es
 lang-exclusive: ['en', 'es']
 description: Descubre cómo diseñar prompts efectivos en Amazon Bedrock para mejorar la calidad de las respuestas de los modelos de IA. Aprende a estructurar tus prompts, aplicar técnicas avanzadas y validar su efectividad.
-category: Generative AI
+category: IA Generativa
 tags:
 - level-200
-- generative-ai
+- ia-generativa
 - bedrock
 published: true
 level: 200
@@ -26,7 +26,7 @@ image:
 
 > Segundo artículo de una serie sobre `Amazon Bedrock`:
 >
-> - 1/3: [Introducción a Amazon Bedrock y sus Modelos Fundacionales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
+> - 1/3: [Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
 > - 2/3: **Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock**
 > - 3/3: [Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas](/es/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 {: .prompt-tip }

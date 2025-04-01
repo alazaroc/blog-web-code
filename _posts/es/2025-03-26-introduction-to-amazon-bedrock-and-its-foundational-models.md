@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Introducción a Amazon Bedrock y sus Modelos Fundacionales
+title: "Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales"
 date: 2025-03-26 08:00 +0100
 last_modified_at:
 lang: es
 lang-exclusive: ['en','es']
 description: Descubre cómo Amazon Bedrock facilita el acceso a modelos fundacionales de IA, sus casos de uso, ventajas y cómo integrarlos en aplicaciones para generar contenido, analizar datos y mejorar procesos.
-category: Generative AI
+category: IA Generativa
 tags:
 - level-200
-- generative-ai
+- ia-generativa
 - bedrock
 published: true
 level: 200
@@ -26,7 +26,7 @@ image:
 
 > Este artículo es el primero de una serie sobre `Amazon Bedrock`:
 >
-> - 1/3: **Introducción a Amazon Bedrock y sus Modelos Fundacionales**
+> - 1/3: **Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales**
 > - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
 > - 3/3: [Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas](/es/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 {: .prompt-tip }

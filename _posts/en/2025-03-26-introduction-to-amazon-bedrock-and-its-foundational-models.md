@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction to Amazon Bedrock and its Foundation Models  
+title: "Amazon Bedrock 101: Understanding Its Foundational Models"
 date: 2025-03-26 08:00 +0100  
 last_modified_at:
 lang: en  
@@ -26,7 +26,7 @@ image:
 
 > This article is the first of a series on `Amazon Bedrock`:
 >
-> - 1/2: **Introduction to Amazon Bedrock and its Foundation Models**
+> - 1/2: **Amazon Bedrock 101: Understanding Its Foundational Models**
 > - 2/2: [Prompts I: How to Design Effective Prompts in Amazon Bedrock](/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
 > - 3/3: [Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)](/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
 {: .prompt-tip }
