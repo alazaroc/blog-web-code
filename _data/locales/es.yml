@@ -104,10 +104,12 @@ tagline: Explora, simplifica, practica
 description: Práctica con AWS. Mi espacio personal para experimentar, simplificar y compartir.
 
 comment_form:
-  comment_paragraph: Gracias por tomarte el tiempo para leer mi artículo. Me comprometo a ofrecer contenido valioso y relevante, y tus aportaciones juegan un papel crucial en mi mejora continua. Si tienes un momento, por favor comparte tus pensamientos.
-  comment_question_1: ¿Cuál ha sido tu experiencia en este tema?
-  comment_question_2: ¿Qué fue lo que encontraste más útil o interesante de este artículo?
-  comment_question_3: ¿Tienes alguna sugerencia sobre temas que te gustaría que tratara en futuros artículos?
+  comment_paragraph_1: ¿Te ha resultado útil este artículo? 😊
+  comment_paragraph_2: Me encantaría conocer tu opinión. ¡Tu feedback me ayuda mucho!
+  # comment_paragraph: Gracias por tomarte el tiempo para leer mi artículo. Me comprometo a ofrecer contenido valioso y relevante, y tus aportaciones juegan un papel crucial en mi mejora continua. Si tienes un momento, por favor comparte tus pensamientos.
+  # comment_question_1: ¿Cuál ha sido tu experiencia en este tema?
+  # comment_question_2: ¿Qué fue lo que encontraste más útil o interesante de este artículo?
+  # comment_question_3: ¿Tienes alguna sugerencia sobre temas que te gustaría que tratara en futuros artículos?
 
 feedback_form:
   choose_type: "Elige un tipo de comentario"

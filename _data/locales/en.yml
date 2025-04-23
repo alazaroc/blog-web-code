@@ -104,10 +104,12 @@ tagline: Explore, simplify, practice
 description: Hands-on AWS. My personal space to experiment, simplify, and share.
 
 comment_form:
-  comment_paragraph: Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.
-  comment_question_1: What is your experience in this topic?
-  comment_question_2: What did you find most useful or interesting about this article?
-  comment_question_3: Do you have any suggestions for topics you would like me to cover in future articles?
+  comment_paragraph_1: Did you find this article helpful? 😊  
+  comment_paragraph_2: I would love to hear your thoughts. Your feedback really helps me improve!
+  # comment_paragraph: Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.
+  # comment_question_1: What is your experience in this topic?
+  # comment_question_2: What did you find most useful or interesting about this article?
+  # comment_question_3: Do you have any suggestions for topics you would like me to cover in future articles?
 
 feedback_form:
   choose_type: "Choose a Feedback Type"
