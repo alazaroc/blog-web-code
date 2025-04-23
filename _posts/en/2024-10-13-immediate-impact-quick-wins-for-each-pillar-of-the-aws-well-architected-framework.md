@@ -1,14 +1,15 @@
 ---
 layout: post
-title: 'Immediate Impact: Quick Wins for Each Pillar of the AWS Well-Architected Framework (3/4)'
+title: 'Immediate Impact: Quick Wins for Each Pillar of the AWS Well-Architected Framework (4/5)'
 date: 2024-10-15 06:12 +0200
 last_modified_at:
 lang: en
-lang-exclusive: ['en']
+lang-exclusive: ['en','es']
 description: Discover actionable quick wins for each AWS Well-Architected Pillar, helping you optimize cloud performance, security, and cost-efficiency.
 category: Architecture
 tags:
 - level-300
+- well-architected
 level: 300
 published: true
 pin: false
@@ -19,28 +20,30 @@ mermaid: true
 media_subpath:  /assets/img/posts/2024-10-13-immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/
 image:
   path: waf_cover_3.png
-  header_post: true
+  header_post: false
 ---
 ---
 
-> This is my third article in a series about `AWS Well-Architected`.
->
-> In this article you will discover actionable `Quick Wins for each AWS Well-Architected pillar`, helping you optimize cloud performance, security, and cost-efficiency.
+> This is the **fourth article** in a series about `AWS Well-Architected Framework`.
 >
 > More articles in this series:
 >
-> - 1/4 - [Overview of the AWS Well-Architected Framework](/posts/understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/){:target="_blank"}: Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
-> - 2/3 - [Deep Dive: Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/){:target="_blank"}: Dive into the details of the Six Pillars, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
-> - 4/4 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}: A practical guide to using the AWS Well-Architected Tool to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step guidance.
-{: .prompt-tip }
+> - 1/5 - [Why the AWS Well-Architected Framework really matters](/posts/why-the-aws-well-architected-framework-really-matters/).
+> - 2/5 - [How to apply the Well-Architected Framework depending on your cloud role](/posts/how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/).
+> - 3/5 - [Deep Dive of the Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/).
+> - 5/5 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/).
+{: .prompt-info }
 
 ---
 
-## 1. Introduction
+## 1. What is a Quick Win and its Relationship to the Framework
 
-In this article, we're focusing on quick wins: practical, actionable steps you can take right now to improve your AWS architecture by following the AWS Well-Architected Framework. Each of the Six Pillars is packed with best practices, and `while implementing the entire framework takes time, there are some small changes you can make today that will have an immediate impact`.
+*Quick Wins* are those **fast and simple actions you can take today to achieve immediate improvements** in your AWS architecture.
 
-This guide provides a pillar-by-pillar breakdown of quick wins that are easy to implement and can help you move towards operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability in your AWS workloads.
+For teams starting with the AWS Well-Architected Framework, Quick Wins are crucial. They provide tangible results without the need for a complete restructuring, allowing for agile optimization of performance, security, and costs, and laying the groundwork for broader architectural initiatives.
+
+> Addressing *Quick Wins* at the beginning allows teams to demonstrate value and facilitate the justification of deeper strategies in the future.
+{: .prompt-tip }
 
 ![waf_cover_3](waf_cover_3.png)
 
@@ -51,7 +54,7 @@ This guide provides a pillar-by-pillar breakdown of quick wins that are easy to 
 > More Actionable Insights
 {: .prompt-info }
 
-Now that we've explored the six pillars in detail, here are some actionable insights you can start applying today.
+Now that we've explored the Six Pillars in detail, here are some actionable insights you can start applying today.
 
 `Quick wins` are essential for teams looking to get started with the AWS Well-Architected Framework because they `offer immediate, actionable improvements` without requiring a complete revision of your cloud environment. These `small but impactful changes` allow teams to improve performance, security, and cost efficiency quickly, helping build momentum toward longer-term architectural goals. By tackling quick wins first, teams can realize tangible benefits and demonstrate progress, making it easier to justify and implement more comprehensive strategies afterward.
 
@@ -62,7 +65,7 @@ Now that we've explored the six pillars in detail, here are some actionable insi
 
 - **Quick-Wins**:
   - **Document operational procedures**: Create a shared document for key processes.
-  - Regularly review your operational procedures and **identify opportunities where automation can enhance efficiency** and free up valuable time.
+  - Regularly review your operational procedures and **identify opportunities to automate for improved efficiency and time savings**.
   - **Set up basic alerts**: Use AWS CloudWatch to create basic monitoring alerts for critical services.
   - **Enable AWS Config**: Quickly enable AWS Config to track configuration changes and improve auditing.
   - **Use AWS Trusted Advisor** to identify operational improvements.
@@ -81,7 +84,7 @@ Now that we've explored the six pillars in detail, here are some actionable insi
   - **Enable AWS Security Hub best practice standards**: Quickly configure built-in best practice standards in Security Hub to assess compliance and detect potential security gaps.
   - **Enable Amazon GuardDuty**: Turn on Amazon GuardDuty for threat detection and monitoring unauthorized activities in real-time.
   - **Enable MFA**: Implement multi-factor authentication across all AWS accounts.
-  - **Turn on AWS Config**: Continuously evaluate the compliance of your AWS resources using AWS Config rules.
+  - **Turn on AWS Config**: Use AWS Config rules to continuously evaluate the compliance of your AWS resources.
   - **Enable EBS default encryption** for new volumes.
 
 - **Other important recommendations**:
@@ -220,11 +223,10 @@ However, `implementing quick wins is just the beginning`. To fully optimize your
 > Remember, the AWS Well-Architected Framework is designed for continuous improvement, so `start small and iterate frequently`. Implementing these quick wins is just the first step on your path to building robust, secure, and efficient cloud architectures.
 {: .prompt-warning }
 
-Do you want more? Here is the next and last article of the series: [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}.
+Do you want more? Here is the next and last article of the series: [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/).
 
-For further reading, explore AWS's comprehensive resources:
+<!-- For further reading, explore AWS's comprehensive resources:
 
 - [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html){:target="_blank"}
 - [Well-Architected Labs](https://www.wellarchitectedlabs.com/){:target="_blank"}
-- [Online map tool](https://wa.aws.amazon.com/wat.map.en.html){:target="_blank"}
-- [Labs](https://www.wellarchitectedlabs.com/){:target="_blank"}
+- [Online map tool](https://wa.aws.amazon.com/wat.map.en.html){:target="_blank"} -->

@@ -1,14 +1,15 @@
 ---
 layout: post
-title: 'The Six Pillars of AWS Well-Architected Framework: Best Practices for Cloud Success (2/4)'
+title: 'The Six Pillars of AWS Well-Architected Framework: Best Practices for Cloud Success (3/5)'
 date: 2024-10-14 11:20 +0200
 last_modified_at:
 lang: en
-lang-exclusive: ['en']
+lang-exclusive: ['en','es']
 description: Explore a deep dive into the Six Pillars of the AWS Well-Architected Framework, with best practices, key services, and role-based responsibilities for building secure, resilient, and cost-efficient cloud systems, optimized for performance and sustainability.
 category: Architecture
 tags:
 - level-300
+- well-architected
 level: 300
 published: true
 pin: false
@@ -23,34 +24,26 @@ image:
 ---
 ---
 
-> This is my second article in a series about `AWS Well-Architected`.
->
-> This is a `deep dive about the Six Pillars`, uncovering the best practices for building secure, resilient, and cost-efficient cloud systems.
+> This is the **third article** in a series about the `AWS Well-Architected Framework`.
 >
 > More articles of the series:
 >
-> - 1/4 - [Overview of the AWS Well-Architected Framework](/posts/understanding-the-aws-well-architected-framework-why-it-s-essential-for-every-cloud-professional/){:target="_blank"}: Learn why the AWS Well-Architected Framework is essential for every cloud professional and how it can set your cloud architecture up for success.
-> - 3/4 - [Quick Wins for Each Pillar](/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/){:target="_blank"}: Discover actionable quick wins for each AWS Well-Architected Pillar, helping you optimize cloud performance, security, and cost-efficiency.
-> - 4/4 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}: A practical guide to using the AWS Well-Architected Tool to assess, improve, and continuously optimize your workloads, with screenshots and step-by-step guidance.
-{: .prompt-tip }
-
----
-
-- [1. Introduction](#1-introduction)
-- [2. Exploring the Six Pillars](#2-exploring-the-six-pillars)
-  - [2.1. Pillar of Operational Excellence](#21-pillar-of-operational-excellence)
-  - [2.2. Pillar of Security](#22-pillar-of-security)
-  - [2.3. Pillar of Reliability](#23-pillar-of-reliability)
-  - [2.4. Pillar of Performance Efficiency](#24-pillar-of-performance-efficiency)
-  - [2.5. Pillar of Cost Optimization](#25-pillar-of-cost-optimization)
-  - [2.6. Pillar of Sustainability](#26-pillar-of-sustainability)
-- [3. Conclusion](#3-conclusion)
+> - 1/5 - [Why the AWS Well-Architected Framework really matters](/posts/why-the-aws-well-architected-framework-really-matters/).
+> - 2/5 - [How to apply the Well-Architected Framework depending on your cloud role](/posts/how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/).
+> - 4/5 - [Quick Wins for Each Pillar](/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/).
+> - 5/5 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/).
+{: .prompt-info }
 
 ---
 
 ## 1. Introduction
 
-In this article, we'll explore best practices for each of the Six Pillars, with practical insights into how you can implement them in your AWS environment.
+Building a successful cloud architecture on AWS requires more than just choosing services.
+
+The AWS Well-Architected Framework offers a proven path, and in this third article of this series, I will guide you through its six essential pillars. Learn the best practices that will allow you to design, operate, and optimize your workloads for maximum performance and efficiency.
+
+> It's essential reading for anyone looking to understand and improve their cloud architecture.
+{: .prompt-tip }
 
 ![waf_cover_2](waf_cover_2.png)
 
@@ -60,10 +53,10 @@ The Six Pillars are the foundation of the AWS Well-Architected Framework, offeri
 
 In this section, you'll explore each of the pillars, along with their key design principles and best practices. This deeper dive provides you with the tools to understand how to optimize your cloud workloads.
 
-> It's essential reading for anyone looking to improve their cloud architecture, but if you prefer to stay high-level, feel free to skip this section.
-{: .prompt-tip }
+> Each pillar offers a set of design principles and best practices, and by reviewing them, you can identify improvements you can make to your solutions.
+{: .prompt-warning }
 
-For the most up-to-date details, review the official AWS documentation [here](https://docs.aws.amazon.com/wellarchitected/latest/framework/the-pillars-of-the-framework.html){:target="_blank"}.
+> For the most up-to-date details, review the official AWS documentation [here](https://docs.aws.amazon.com/wellarchitected/latest/framework/the-pillars-of-the-framework.html){:target="_blank"}.
 
 ### 2.1. Pillar of Operational Excellence
 
@@ -267,9 +260,8 @@ mindmap
       Failure Management
     Teams_Involved
       DevOps
-      SRE
-      Cloud/Infrastructure Architects
       Cloud Architects
+      Operations
     Key_Services
       Amazon CloudWatch
       AWS Auto Scaling
@@ -332,8 +324,8 @@ mindmap
       Process and Culture
     Teams_Involved
       Development
+      DevOps
       Cloud/Infrastructure Architects
-      Cloud Architects
     Key_Services
       AWS Auto Scaling
       AWS Lambda
@@ -480,18 +472,19 @@ mindmap
 
 ## 3. Conclusion
 
-The AWS Well-Architected Framework is built around the Six Pillars, each of which addresses a core aspect of cloud architecture. By adopting these pillars, you ensure that your workloads are designed to meet modern standards of operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability.
+The AWS Well-Architected Framework and its six pillars are your essential guide to cloud architecture. By understanding and applying these best practices, you are building a solid foundation for success.
 
-> Each pillar offers a comprehensive set of best practices and actionable steps. Start applying these today to gain the full value of your AWS infrastructure.
-{: .prompt-tip }
+![worker_cloud](worker_cloud.jpeg)
 
-This `mindmap` diagram you can find [here](https://whimsical.com/aws-well-architected-framework-v2-0-Ph6ooHugkQ8cFW2CStAmBm){:target="_blank"} summarizes and connects all the information presented in this article and in the previous one. It's big, so I didn't try to include it here.
+The following `mindmap` diagram, you can find it [here](https://whimsical.com/aws-well-architected-framework-v2-0-Ph6ooHugkQ8cFW2CStAmBm){:target="_blank"}, summarizes and connects all the information presented in this article and in the previous ones.
 
-In the next article, we'll review [actionable Quick-Wins per Pillar](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/){:target="_blank"}. It's time to take action!
+> But enough theory, it's time to take action!
+{: .prompt-warning }
 
-For further reading, explore AWS's comprehensive resources:
+In the next article, you'll find out how to make changes in each pillar for quick and easy wins. [Access here](/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/).
+
+<!-- For further reading, explore AWS's comprehensive resources:
 
 - [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html){:target="_blank"}
 - [Well-Architected Labs](https://www.wellarchitectedlabs.com/){:target="_blank"}
-- [Online map tool](https://wa.aws.amazon.com/wat.map.en.html){:target="_blank"}
-- [Labs](https://www.wellarchitectedlabs.com/){:target="_blank"}
+- [Online map tool](https://wa.aws.amazon.com/wat.map.en.html){:target="_blank"} -->
