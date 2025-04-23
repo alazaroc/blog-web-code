@@ -33,6 +33,7 @@ I need not remind you of the `advantages` of using Amazon API Gateway (scalabili
 Then, we can just enter the details of the options for exposing API Gateway.
 
 We will compare the following options:
+
 1. Standard Endpoint URL: ```https://{api-id}.execute-api.{region}.amazonaws.com/{stage}/count```
 2. Custom Domain Names: ```https://{subdomain}.{custom-domain}.com/count```
 3. Integration with Amazon CloudFront:
@@ -170,12 +171,12 @@ In this section, we will review the implementation steps of each option:
 ### Cost
 
 1. Standard URL:
-  - Generally, the `lowest cost` as it uses the basic API Gateway pricing model.
-  - Costs are primarily based on the number of API calls and data transfers.
+   - Generally, the `lowest cost` as it uses the basic API Gateway pricing model.
+   - Costs are primarily based on the number of API calls and data transfers.
 
 2. Custom Domain:
-  - Involves additional costs for domain registration and SSL certificate (if not using AWS Certificate Manager, which offers free SSL certificates).
-  - The API Gateway pricing still applies.
+   - Involves additional costs for domain registration and SSL certificate (if not using AWS Certificate Manager, which offers free SSL certificates).
+   - The API Gateway pricing still applies.
 
 3. CloudFront Integration:
    - Additional costs for CloudFront, are primarily based on data transfer and request numbers. CloudFront can incur higher costs for heavy traffic.

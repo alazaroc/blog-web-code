@@ -29,7 +29,7 @@ image:
 >
 > 1/2: **Getting started with AWS Multi-account approach**
 >
-> 2/2: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/){:target="_blank"}
+> 2/2: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/)
 >
 {: .prompt-tip }
 
@@ -271,13 +271,13 @@ To clean up the AWS Control Tower you need to decommission it and then wait unti
 
 ## Next steps
 
-- Next post: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/){:target="_blank"}
+- Next post: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/)
 - Comment this post
 - More information
-  - [Practice: Workshop of multi-account security governance workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/d3f60827-89f2-46a8-9be7-6e7185bd7665/en-US){:target>="_blank"}
-  - [Practice: AWS Control Tower Immersion day](https://aws-experience.com/emea/smb/e/e1714/control-tower-immersion-day){:target>="_blank"}
-  - [Example of SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html){:target>="_blank"}
+  - [Practice: Workshop of multi-account security governance workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/d3f60827-89f2-46a8-9be7-6e7185bd7665/en-US){:target="_blank"}
+  - [Practice: AWS Control Tower Immersion day](https://aws-experience.com/emea/smb/e/e1714/control-tower-immersion-day){:target="_blank"}
+  - [Example of SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html){:target="_blank"}
   - [AWS blog article: migrate AWS Accounts to AWS Control Tower](https://aws.amazon.com/blogs/architecture/lets-architect-architecting-for-governance-and-management/){:target="_blank"}
-  - [AWS blog article: Migrate resources between accounts](https://aws.amazon.com/blogs/architecture/migrate-resources-between-aws-accounts/){:target>="_blank"}
-  - [Landing Zone accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/){:target>="_blank"}
+  - [AWS blog article: Migrate resources between accounts](https://aws.amazon.com/blogs/architecture/migrate-resources-between-aws-accounts/){:target="_blank"}
+  - [Landing Zone accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/){:target="_blank"}
   - [Dependency checker to migrate between AWS Organizations](https://github.com/aws-samples/check-aws-resources-for-org-conditions){:target>="_blank"}

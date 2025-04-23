@@ -57,7 +57,7 @@ In the linked articles below, you will find information about CDK and SAM.
 - CDK basics: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
 - SAM basics: [How to create serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
 
-### What do CDK and SAM have in common?
+### What CDK and SAM have in common?
 
 Both...
 

@@ -32,7 +32,7 @@ I hold 8 AWS certifications, covering the 3 Associate levels, the 2 Professional
   - I don't want to sell you anything.
   - I don't expect any income from the blog.
   - I just want to keep learning, share knowledge and make it publicly accessible.
-- The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/){:target="_blank"}.
+- The technology behind this blog is detailed [here](/posts/the-technology-behind-this-blog/).
 
 > **Playing with AWS** means <kbd>hands-on practice</kbd>, experimenting with new ideas, and <kbd>continuous learning</kbd>. That's what `PlayingAWS` is all about.
 {: .prompt-info }

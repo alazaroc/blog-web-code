@@ -5,7 +5,7 @@ order: 4
 lang: es
 ---
 
-## Mi
+## Acerca de mi
 
 ![me](/assets/img/alejandro_moncayo.jpeg){: width="972" height="589" .w-50 .right}
 
@@ -13,7 +13,7 @@ Mi nombre es`Alejandro Lázaro Chueca` y actualmente soy AWS Community Builder (
 
 Como arquitecto de cloud especializado en AWS, mi trayectoria comenzó en el mundo del desarrollo, pasando por arquitecto de software hasta, finalmente, llegar a ser arquitecto cloud.
 
-A lo largo de más de 15 años, mi carrera ha abarcado diversos clientes y etapas del desarrollo de software, incluyendo un amplio espectro de arquitecturas como monolíticas, microservicios, basadas en eventos, SOA, serverless... y por supuesto, arquitecturas nativas en la nube. Mi experiencia también incluye liderar proyectos de modernización, impulsar transformaciones DevOps, realizar auditorías de seguridad y mucho más.
+A lo largo de más de 15 años, mi carrera ha abarcado diversos clientes y etapas del desarrollo de software, incluyendo un amplio espectro de arquitecturas como monolíticas, microservicios, basadas en eventos, SOA, serverless... y por supuesto, arquitecturas cloud nativas. Mi experiencia también incluye liderar proyectos de modernización, impulsar transformaciones DevOps, realizar auditorías de seguridad y mucho más.
 
 Mi pasión gira entorno a las arquitecturas serverless y basadas en eventos, DevOps, seguridad y en asumir nuevos retos tecnológicos. Comparto activamente este entusiasmo enseñando AWS a mis compañeros, y siempre estoy dispuesto a colaborar en proyectos relacionados con AWS.
 
@@ -32,7 +32,7 @@ Poseo 8 certificaciones de AWS, que cubren los 3 niveles Associate, los 2 nivele
   - No quiero venderte nada.
   - No espero obtener ingresos del blog.
   - Solo quiero seguir aprendiendo, compartir conocimiento y hacerlo accesible públicamente.
-- La tecnología detrás de este blog está detallada [aquí](/posts/the-technology-behind-this-blog/){:target="_blank"}.
+- La tecnología detrás de este blog está detallada [aquí](/posts/the-technology-behind-this-blog/).
 
 > **Jugar con AWS (PlayingAWS)** para mi significa <kbd>prácticar</kbd>, experimentar con nuevas ideas y <kbd>seguir aprendiendo</kbd>.
 {: .prompt-info }

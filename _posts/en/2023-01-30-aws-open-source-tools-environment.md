@@ -28,11 +28,11 @@ image:
 
 > This article is part of a series about `open-source` tools and AWS, in which I will share those tools that I have tested and that I think you may find useful.
 >
-> 1/3: [Getting Started with AWS open-source tools](/posts/aws-open-source-tools/){:target="_blank"}: main open-source tools and extend AWS CLI (this article).
+> 1/3: [Getting Started with AWS open-source tools](/posts/aws-open-source-tools/): main open-source tools and extend AWS CLI (this article).
 >
 > 2/3: **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment.
 >
-> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/){:target="_blank"}: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
+> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/): to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
 {: .prompt-tip }
 
 ## Introduction
@@ -332,4 +332,4 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 
 The next article related with open-source tools will be:
 
-- **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) - [here](/posts/aws-open-source-tools-code/){:target="_blank"}
+- **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) -> [here](/posts/aws-open-source-tools-code/)

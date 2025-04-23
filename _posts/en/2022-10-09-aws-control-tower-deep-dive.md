@@ -28,7 +28,7 @@ image:
 
 > This article is part of a series about `AWS multi-account`.
 >
-> 1/2: [Getting started with AWS Multi-account approach](/posts/multi-account-approach/){:target="_blank"}
+> 1/2: [Getting started with AWS Multi-account approach](/posts/multi-account-approach/)
 >
 > 2/2: **AWS Control Tower Deep Dive**
 >

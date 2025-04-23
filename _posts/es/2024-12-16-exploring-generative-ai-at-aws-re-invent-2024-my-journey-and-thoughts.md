@@ -155,9 +155,9 @@ Por último, me gustaría compartir contigo algunos talleres sobre IA generativa
   - [Taller de Amazon Bedrock](https://catalog.workshops.aws/amazon-bedrock/en-US){:target="_blank"}: El objetivo de este taller es brindarte experiencia práctica en el uso de modelos fundacionales (FMs) a través de Amazon Bedrock.
   - [IA generativa a escala: Flujos de trabajo serverless para aplicaciones empresariales listas para producción](https://catalog.us-east-1.prod.workshops.aws/workshops/67ce9942-58f6-4caa-bf3b-c893f49b4368/en-US): En este taller, obtendrás experiencia práctica en la creación de aplicaciones de IA generativa listas para producción para casos de uso comunes, utilizando servicios serverless como AWS Step Functions, Lambda y Amazon Bedrock.
   - [Crea un chatbot serverless usando Amazon Bedrock, Amazon Kendra y tus propios datos](https://catalog.us-east-1.prod.workshops.aws/workshops/27eb3134-4f33-4689-bb73-269e4273947a/en-US){:target="_blank"}: En este taller, usarás chat general y la técnica de Recuperación Aumentada por Generación (RAG) para construir un chatbot potenciado por IA generativa. Se emplea un modelo de lenguaje grande (LLM) en Amazon Bedrock para responder preguntas a partir de contenido preindexado.
-- Operaciones en la nube
+- Operaciones cloud
   - [Construcción de resiliencia operativa en cargas de trabajo usando IA generativa](https://catalog.us-east-1.prod.workshops.aws/workshops/4696cd09-8385-4f54-9391-a96f69a3f924/en-US){:target="_blank"}: En este taller, usarás servicios administrados de IA generativa de AWS en escenarios del mundo real para aprender a evaluar la preparación, mejorar proactivamente tu arquitectura, reaccionar rápidamente ante eventos, solucionar problemas e implementar prácticas efectivas de observabilidad.
-  - [Automatización inteligente de operaciones en la nube](https://catalog.workshops.aws/intelligently-automating-cloud-operations/en-US){:target="_blank"}: Extrae información basada en buenas prácticas, seguridad, tolerancia a fallos y rendimiento con AWS Trusted Advisor, AWS Health y Amazon DevOps Guru. Únete a este taller para aprender cómo automatizar estas ideas de manera inteligente utilizando servicios de AWS y herramientas de aprendizaje automático.
+  - [Automatización inteligente de operaciones cloud](https://catalog.workshops.aws/intelligently-automating-cloud-operations/en-US){:target="_blank"}: Extrae información basada en buenas prácticas, seguridad, tolerancia a fallos y rendimiento con AWS Trusted Advisor, AWS Health y Amazon DevOps Guru. Únete a este taller para aprender cómo automatizar estas ideas de manera inteligente utilizando servicios de AWS y herramientas de aprendizaje automático.
   - [Muchos más talleres de IA aquí](https://workshops.aws/categories/AI%2FML){:target="_blank"}.
 
 ## 5. Reflexiones finales
@@ -171,8 +171,8 @@ Es cierto que ahora entiendo mucho mejor la oferta de AWS en IA generativa, `per
 
 Pero también es importante recordar que `no todos los problemas requieren IA generativa`. Como siempre, `la clave es usar la herramienta adecuada para el trabajo adecuado`.
 
-Si tienes curiosidad por conocer más sobre las soluciones de IA generativa de AWS, te animo a explorar herramientas como Amazon Q, Amazon Bedrock y Amazon SageMaker. Representan lo más avanzado de la IA en la nube hoy en día.
+Si tienes curiosidad por conocer más sobre las soluciones de IA generativa de AWS, te animo a explorar herramientas como Amazon Q, Amazon Bedrock y Amazon SageMaker. Representan lo más avanzado de la IA cloud hoy en día.
 
 ## 6. Siguientes pasos
 
-Ya he escrito sobre Amazon Q Developer [aquí](/posts/es/amazon-q-developer-the-ai-powered-code-companion-i-ve-been-waiting-for/){:target="_blank"}, por si quieres saber más al respecto.
+Ya he escrito sobre Amazon Q Developer [aquí](/posts/es/amazon-q-developer-the-ai-powered-code-companion-i-ve-been-waiting-for/), por si quieres saber más al respecto.

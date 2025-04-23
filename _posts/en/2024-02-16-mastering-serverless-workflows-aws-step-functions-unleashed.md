@@ -22,7 +22,7 @@ pin: false
 featured_post: false
 comments: true
 sitemap: true
-media_subpath:  /assets/img/posts/2024-02-16-mastering-serverless-workflows-aws-step-functions-unleashed/
+media_subpath: /assets/img/posts/2024-02-16-mastering-serverless-workflows-aws-step-functions-unleashed/
 image:
   path: step-functions.png
   header_post: false
@@ -66,6 +66,7 @@ At its core, AWS Step Functions `coordinates` the components of distributed appl
 ### Workflow Types
 
 Step Functions has two workflow types:
+
 - `Standard` workflows have exactly-once workflow execution and can run for up to one year.
   - Ideal for long-running, auditable workflows, as they show execution history and visual debugging
 - `Express` workflows, however, have at-least-once workflow execution and can run for up to five minutes
@@ -108,12 +109,14 @@ First, click the `Create state machine` button to see the following screen:
 ![Step 1](step1-template.png)
 
 If you select one of the templates, you will see the information about the flow that will be generated, and you have 2 options:
+
 - Run a demo
 - Build on it
 
 ![Step 2](step2-template-example.png)
 
 If you select `Build on it` you will see the `Workflow Studio` with 3 main sections:
+
 - Left: here are located all the tasks you can add to your workflow, just doing drag-and-drop.
 - Center: contains the visualization of your workflow
 - Right: contains the configuration of the selected task
@@ -121,6 +124,7 @@ If you select `Build on it` you will see the `Workflow Studio` with 3 main secti
 ![Step 3](step3-example-created.png)
 
 In the upper level you will see:
+
 - Name of the workflow
 - 3 buttons to change between different modes:
   - Design: this is the current mode
@@ -142,6 +146,7 @@ As you can see the code in the ASL (Amazon States Language) has been auto-genera
 Let me show you one implementation I did for my blog using AWS Step Functions, maybe the most typical use case:
 
 I was using a Lambda Function to orchestrate a few steps inside:
+
 1. Validate the input data.
 2. Add the contact information to a database.
 3. Use Amazon SES to send an email
@@ -153,6 +158,7 @@ And this was the handler of my Lambda Function:
 ![Lambda handler](lambda-handler.png)
 
 However, I wanted to migrate it to AWS Step Functions, and I made a few changes:
+
 - Create a Step Function to orchestrate the flow
 - Create a new Lambda Function to only Process the data (validate it and prepare it for the next step)
 - Integrate it directly with DynamoDB and SES in the Step Function
@@ -242,6 +248,7 @@ If you are going to use it for a few thousand executions is almost free.
 - State Transitions: $0.025 per 1,000 state transitions
 
 For example:
+
 - If you executed <kbd>one workflow with 9 steps 10,000 times</kbd>, the price will be:
   - State transitions per execution * executions of workflow = total state transitions
   - 9 * 10,000 = 90,000

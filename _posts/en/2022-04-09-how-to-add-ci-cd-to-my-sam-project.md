@@ -29,7 +29,7 @@ media_subpath: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
 
 ## TLDR
 
-> This is my second article about SAM. I have explained `how to create serverless applications using SAM` [here](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}, detailing all the essential information about SAM. It would be beneficial to review that article before proceeding with this one.
+> This is my second article about SAM. I have explained `how to create serverless applications using SAM` [here](/posts/how-to-create-serverless-applications-with-sam/), detailing all the essential information about SAM. It would be beneficial to review that article before proceeding with this one.
 {: .prompt-warning }
 
 We will use `sam pipeline` to deploy the solution.
@@ -79,78 +79,78 @@ sam pipeline bootstrap
 
 <details>
   <summary>Click to view command output</summary>
-	
+  
   {% highlight ruby %}
-	sam pipeline bootstrap generates the required AWS infrastructure resources to connect
-	to your CI/CD system. This step must be run for each deployment stage in your pipeline,
-	prior to running the sam pipeline init command.
+    sam pipeline bootstrap generates the required AWS infrastructure resources to connect
+    to your CI/CD system. This step must be run for each deployment stage in your pipeline,
+    prior to running the sam pipeline init command.
 
-	We will ask for [1] stage definition, [2] account details, and
-	[3] references to existing resources in order to bootstrap these pipeline resources.
+    We will ask for [1] stage definition, [2] account details, and
+    [3] references to existing resources in order to bootstrap these pipeline resources.
 
-	[1] Stage definition
-	Enter a configuration name for this stage. This will be referenced later when you use the sam pipeline init command:
-	Stage configuration name: > test
+    [1] Stage definition
+    Enter a configuration name for this stage. This will be referenced later when you use the sam pipeline init command:
+    Stage configuration name: > test
 
-	[2] Account details
-	The following AWS credential sources are available to use.
-	To know more about configuration AWS credentials, visit the link below:
-	https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
-		1 - Environment variables
-		2 - default (named profile)
-		3 - localstack (named profile)
-		q - Quit and configure AWS credentials
-	Select a credential source to associate with this stage: > 1
-	Associated account 00000000000 with configuration test.
+    [2] Account details
+    The following AWS credential sources are available to use.
+    To know more about configuration AWS credentials, visit the link below:
+    https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html
+        1 - Environment variables
+        2 - default (named profile)
+        3 - localstack (named profile)
+        q - Quit and configure AWS credentials
+    Select a credential source to associate with this stage: > 1
+    Associated account 00000000000 with configuration test.
 
-	Enter the region in which you want these resources to be created [eu-west-1]:
-	Select a user permissions provider:
-		1 - IAM (default)
-		2 - OpenID Connect (OIDC)
-	Choice (1, 2): 1
-	Enter the pipeline IAM user ARN if you have previously created one, or we will create one for you []:
+    Enter the region in which you want these resources to be created [eu-west-1]:
+    Select a user permissions provider:
+        1 - IAM (default)
+        2 - OpenID Connect (OIDC)
+    Choice (1, 2): 1
+    Enter the pipeline IAM user ARN if you have previously created one, or we will create one for you []:
 
-	[3] Reference application build resources
-	Enter the pipeline execution role ARN if you have previously created one, or we will create one for you []:
-	Enter the CloudFormation execution role ARN if you have previously created one, or we will create one for you []:
-	Please enter the artifact bucket ARN for your Lambda function. If you do not have a bucket, we will create one for you []:
-	Does your application contain any IMAGE type Lambda functions? [y/N]:
+    [3] Reference application build resources
+    Enter the pipeline execution role ARN if you have previously created one, or we will create one for you []:
+    Enter the CloudFormation execution role ARN if you have previously created one, or we will create one for you []:
+    Please enter the artifact bucket ARN for your Lambda function. If you do not have a bucket, we will create one for you []:
+    Does your application contain any IMAGE type Lambda functions? [y/N]:
 
-	[4] Summary
-	Below is the summary of the answers:
-		1 - Account: 00000000000
-		2 - Stage configuration name: test
-		3 - Region: eu-west-1
-		4 - Pipeline user: [to be created]
-		5 - Pipeline execution role: [to be created]
-		6 - CloudFormation execution role: [to be created]
-		7 - Artifacts bucket: [to be created]
-		8 - ECR image repository: [skipped]
-	Press enter to confirm the values above, or select an item to edit the value:
+    [4] Summary
+    Below is the summary of the answers:
+        1 - Account: 00000000000
+        2 - Stage configuration name: test
+        3 - Region: eu-west-1
+        4 - Pipeline user: [to be created]
+        5 - Pipeline execution role: [to be created]
+        6 - CloudFormation execution role: [to be created]
+        7 - Artifacts bucket: [to be created]
+        8 - ECR image repository: [skipped]
+    Press enter to confirm the values above, or select an item to edit the value:
 
-	This will create the following required resources for the 'test' configuration:
-		- Pipeline IAM user
-		- Pipeline execution role
-		- CloudFormation execution role
-		- Artifact bucket
-	Should we proceed with the creation? [y/N]: y
-		Creating the required resources...
-		Successfully created!
-	The following resources were created in your account:
-		- Pipeline execution role
-		- CloudFormation execution role
-		- Artifact bucket
-		- Pipeline IAM user
-	Pipeline IAM user credential:
-	AWS_ACCESS_KEY_ID: xxxxxxxxxx
-	AWS_SECRET_ACCESS_KEY: xxxxxxxxxx
-	View the definition in .aws-sam/pipeline/pipelineconfig.toml,
-	run sam pipeline bootstrap to generate another set of resources, or proceed to
-	sam pipeline init to create your pipeline configuration file.
+    This will create the following required resources for the 'test' configuration:
+        - Pipeline IAM user
+        - Pipeline execution role
+        - CloudFormation execution role
+        - Artifact bucket
+    Should we proceed with the creation? [y/N]: y
+        Creating the required resources...
+        Successfully created!
+    The following resources were created in your account:
+        - Pipeline execution role
+        - CloudFormation execution role
+        - Artifact bucket
+        - Pipeline IAM user
+    Pipeline IAM user credential:
+    AWS_ACCESS_KEY_ID: xxxxxxxxxx
+    AWS_SECRET_ACCESS_KEY: xxxxxxxxxx
+    View the definition in .aws-sam/pipeline/pipelineconfig.toml,
+    run sam pipeline bootstrap to generate another set of resources, or proceed to
+    sam pipeline init to create your pipeline configuration file.
 
-	Before running sam pipeline init, we recommend first setting up AWS credentials
-	in your CI/CD account. Read more about how to do so with your provider in
-	https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-generating-example-ci-cd-others.html.
+    Before running sam pipeline init, we recommend first setting up AWS credentials
+    in your CI/CD account. Read more about how to do so with your provider in
+    https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-generating-example-ci-cd-others.html.
   {% endhighlight %}
 </details>
 
@@ -179,62 +179,62 @@ sam pipeline init
   <summary>Click to view command output</summary>  
 
   {% highlight ruby %}
-	sam pipeline init generates a pipeline configuration file that your CI/CD system
-	can use to deploy serverless applications using AWS SAM.
-	We will guide you through the process to bootstrap resources for each stage,
-	then walk through the details necessary for creating the pipeline config file.
+    sam pipeline init generates a pipeline configuration file that your CI/CD system
+    can use to deploy serverless applications using AWS SAM.
+    We will guide you through the process to bootstrap resources for each stage,
+    then walk through the details necessary for creating the pipeline config file.
 
-	Please ensure you are in the root folder of your SAM application before you begin.
+    Please ensure you are in the root folder of your SAM application before you begin.
 
-	Select a pipeline template to get started:
-		1 - AWS Quick Start Pipeline Templates
-		2 - Custom Pipeline Template Location
-	Choice: > 1
+    Select a pipeline template to get started:
+        1 - AWS Quick Start Pipeline Templates
+        2 - Custom Pipeline Template Location
+    Choice: > 1
 
-	Cloning from https://github.com/aws/aws-sam-cli-pipeline-init-templates.git (process may take a moment)
-	Select CI/CD system
-	1 - Jenkins
-	2 - GitLab CI/CD
-	3 - GitHub Actions
-	4 - Bitbucket Pipelines
-	5 - AWS CodePipeline
-	Choice: > 5
-	You are using the 2-stage pipeline template.
-	_________    _________
-	|         |  |         |
-	| Stage 1 |->| Stage 2 |
-	|_________|  |_________|
+    Cloning from https://github.com/aws/aws-sam-cli-pipeline-init-templates.git (process may take a moment)
+    Select CI/CD system
+    1 - Jenkins
+    2 - GitLab CI/CD
+    3 - GitHub Actions
+    4 - Bitbucket Pipelines
+    5 - AWS CodePipeline
+    Choice: > 5
+    You are using the 2-stage pipeline template.
+    _________    _________
+    |         |  |         |
+    | Stage 1 |->| Stage 2 |
+    |_________|  |_________|
 
-		Checking for existing stages...
+        Checking for existing stages...
 
-	Only 1 stage(s) were detected, fewer than what the template requires: 2.
+    Only 1 stage(s) were detected, fewer than what the template requires: 2.
 
-		To set up stage(s), please quit the process using Ctrl+C and use one of the following commands:
-		sam pipeline init --bootstrap       To be guided through the stage and config file creation process.
-		sam pipeline bootstrap              To specify details for an individual stage.
+        To set up stage(s), please quit the process using Ctrl+C and use one of the following commands:
+        sam pipeline init --bootstrap       To be guided through the stage and config file creation process.
+        sam pipeline bootstrap              To specify details for an individual stage.
 
-	To reference stage resources bootstrapped in a different account, press enter to proceed []:
-	What is the Git provider?
-	1 - Bitbucket
-	2 - CodeCommit
-	3 - GitHub
-	4 - GitHubEnterpriseServer
-	Choice []: > 3
-	What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
-	What is the Git branch used for production deployments? [main]:
-	What is the template file path? [template.yaml]:
-	We use the stage configuration name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
+    To reference stage resources bootstrapped in a different account, press enter to proceed []:
+    What is the Git provider?
+    1 - Bitbucket
+    2 - CodeCommit
+    3 - GitHub
+    4 - GitHubEnterpriseServer
+    Choice []: > 3
+    What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
+    What is the Git branch used for production deployments? [main]:
+    What is the template file path? [template.yaml]:
+    We use the stage configuration name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
 
-		Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
-			1 - test
-		Select an index or enter the stage 1's configuration name (as provided during the bootstrapping): 1
-		What is the sam application stack name for stage 1? [sam-app]:
-		Stage 1 configured successfully, configuring stage 2.
+        Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+            1 - test
+        Select an index or enter the stage 1's configuration name (as provided during the bootstrapping): 1
+        What is the sam application stack name for stage 1? [sam-app]:
+        Stage 1 configured successfully, configuring stage 2.
 
-		Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
-			1 - test
-		Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
-		Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
+        Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+            1 - test
+        Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
+        Select an index or enter the stage 2's configuration name (as provided during the bootstrapping):
   {% endhighlight %}
 </details>
 
@@ -270,75 +270,75 @@ sam pipeline init
   <summary>Click to view command output</summary>
   
   {% highlight ruby %}
-	sam pipeline init generates a pipeline configuration file that your CI/CD system
-	can use to deploy serverless applications using AWS SAM.
-	We will guide you through the process to bootstrap resources for each stage,
-	then walk through the details necessary for creating the pipeline config file.
+    sam pipeline init generates a pipeline configuration file that your CI/CD system
+    can use to deploy serverless applications using AWS SAM.
+    We will guide you through the process to bootstrap resources for each stage,
+    then walk through the details necessary for creating the pipeline config file.
 
-	Please ensure you are in the root folder of your SAM application before you begin.
+    Please ensure you are in the root folder of your SAM application before you begin.
 
-	Select a pipeline template to get started:
-		1 - AWS Quick Start Pipeline Templates
-		2 - Custom Pipeline Template Location
-	Choice: 2
-	Template Git location: https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git
+    Select a pipeline template to get started:
+        1 - AWS Quick Start Pipeline Templates
+        2 - Custom Pipeline Template Location
+    Choice: 2
+    Template Git location: https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git
 
-	Cloning from https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git (process may take a
-	moment)
-	You are using the 1-stage pipeline template.
-	_________
-	|         |
-	| Stage 1 |
-	|_________|
+    Cloning from https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates.git (process may take a
+    moment)
+    You are using the 1-stage pipeline template.
+    _________
+    |         |
+    | Stage 1 |
+    |_________|
 
-	Checking for existing stages...
+    Checking for existing stages...
 
-	1 stage(s) were detected, matching the template requirements. If these are incorrect, delete .aws-sam/pipeline/pipelineconfig.toml and rerun
-	What is the Git provider?
-		1 - Bitbucket
-		2 - CodeCommit
-		3 - GitHub
-		4 - GitHubEnterpriseServer
-	Choice []: 3
-	What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
-	What is the Git branch used for production deployments? [main]:
-	What is the template file path? [template.yaml]:
-	We use the stage name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
+    1 stage(s) were detected, matching the template requirements. If these are incorrect, delete .aws-sam/pipeline/pipelineconfig.toml and rerun
+    What is the Git provider?
+        1 - Bitbucket
+        2 - CodeCommit
+        3 - GitHub
+        4 - GitHubEnterpriseServer
+    Choice []: 3
+    What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
+    What is the Git branch used for production deployments? [main]:
+    What is the template file path? [template.yaml]:
+    We use the stage name to automatically retrieve the bootstrapped resources created when you ran `sam pipeline bootstrap`.
 
-	Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
-		1 - test
-	What is the name of stage (as provided during the bootstrapping)?
-	Select an index or enter the stage name: 1
-	What is your sam application stack name? [sam-app]:
-	What is the S3 bucket name used for artifacts of SAM deployments? Not the ARN, the name. [aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla]: aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla
-	What is the prefix of the S3 bucket used for artifacts of SAM deployments? []:
-	Stage configured successfully (you only have one stage).
+    Here are the stage configuration names detected in .aws-sam/pipeline/pipelineconfig.toml:
+        1 - test
+    What is the name of stage (as provided during the bootstrapping)?
+    Select an index or enter the stage name: 1
+    What is your sam application stack name? [sam-app]:
+    What is the S3 bucket name used for artifacts of SAM deployments? Not the ARN, the name. [aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla]: aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla
+    What is the prefix of the S3 bucket used for artifacts of SAM deployments? []:
+    Stage configured successfully (you only have one stage).
 
-	To deploy this template and connect to the main git branch, run this against the leading account:
-	`sam deploy -t codepipeline.yaml --stack-name <stack-name> --capabilities=CAPABILITY_IAM`.
-	SUMMARY
-	We will generate a pipeline config file based on the following information:
-		What is the Git provider?: GitHub
-		What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
-		What is the Git branch used for production deployments?: main
-		What is the template file path?: template.yaml
-		What is the name of stage (as provided during the bootstrapping)?
-	Select an index or enter the stage name: 1
-		What is your sam application stack name?: sam-app
-		What is the pipeline execution role ARN for this stage?: arn:aws:iam::00000000000:role/aws-sam-cli-managed-test-pipe-PipelineExecutionRole-Fv4wReTqFrHy
-		What is the CloudFormation execution role ARN for this stage?: arn:aws:iam::00000000000ole/aws-sam-cli-managed-test--CloudFormationExecutionRo-4iXZtj3Xzch9
-		What is the S3 bucket name used for artifacts of SAM deployments? Not the ARN, the name.: aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla
-		What is the prefix of the S3 bucket used for artifacts of SAM deployments?:
-		What is the ECR repository URI for this stage?:
-		What is the AWS region?: eu-west-1
-	Successfully created the pipeline configuration file(s):
-		- codepipeline.yaml
-		- assume-role.sh
-		- pipeline/buildspec_unit_test.yml
-		- pipeline/buildspec_build_package.yml
-		- pipeline/buildspec_integration_test.yml
-		- pipeline/buildspec_feature.yml
-		- pipeline/buildspec_deploy.yml
+    To deploy this template and connect to the main git branch, run this against the leading account:
+    `sam deploy -t codepipeline.yaml --stack-name <stack-name> --capabilities=CAPABILITY_IAM`.
+    SUMMARY
+    We will generate a pipeline config file based on the following information:
+        What is the Git provider?: GitHub
+        What is the full repository id (Example: some-user/my-repo)?: alazaroc/aws-sam-app
+        What is the Git branch used for production deployments?: main
+        What is the template file path?: template.yaml
+        What is the name of stage (as provided during the bootstrapping)?
+    Select an index or enter the stage name: 1
+        What is your sam application stack name?: sam-app
+        What is the pipeline execution role ARN for this stage?: arn:aws:iam::00000000000:role/aws-sam-cli-managed-test-pipe-PipelineExecutionRole-Fv4wReTqFrHy
+        What is the CloudFormation execution role ARN for this stage?: arn:aws:iam::00000000000ole/aws-sam-cli-managed-test--CloudFormationExecutionRo-4iXZtj3Xzch9
+        What is the S3 bucket name used for artifacts of SAM deployments? Not the ARN, the name.: aws-sam-cli-managed-test-pipeline--artifactsbucket-gro48levpwla
+        What is the prefix of the S3 bucket used for artifacts of SAM deployments?:
+        What is the ECR repository URI for this stage?:
+        What is the AWS region?: eu-west-1
+    Successfully created the pipeline configuration file(s):
+        - codepipeline.yaml
+        - assume-role.sh
+        - pipeline/buildspec_unit_test.yml
+        - pipeline/buildspec_build_package.yml
+        - pipeline/buildspec_integration_test.yml
+        - pipeline/buildspec_feature.yml
+        - pipeline/buildspec_deploy.yml
   {% endhighlight %}
 </details>
 
@@ -365,115 +365,115 @@ sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAP
 
 <details>
   <summary>Click to view command output</summary>
-	
+    
   {% highlight ruby %}
-			Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-k2z3x0eqvuxq
-			A different default S3 bucket can be set in samconfig.toml
-			Or by specifying --s3-bucket explicitly.
+            Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-k2z3x0eqvuxq
+            A different default S3 bucket can be set in samconfig.toml
+            Or by specifying --s3-bucket explicitly.
 
-		Deploying with following values
-		===============================
-		Stack name                   : pipeline-sam-app
-		Region                       : eu-west-1
-		Confirm changeset            : True
-		Disable rollback             : False
-		Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-k2z3x0eqvuxq
-		Capabilities                 : ["CAPABILITY_IAM"]
-		Parameter overrides          : {}
-		Signing Profiles             : {}
+        Deploying with following values
+        ===============================
+        Stack name                   : pipeline-sam-app
+        Region                       : eu-west-1
+        Confirm changeset            : True
+        Disable rollback             : False
+        Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-k2z3x0eqvuxq
+        Capabilities                 : ["CAPABILITY_IAM"]
+        Parameter overrides          : {}
+        Signing Profiles             : {}
 
-	Initiating deployment
-	=====================
+    Initiating deployment
+    =====================
 
-		Uploading to sam-app/1ac2fdc178c63ba988480068fe211880.template  15696 / 15696  (100.00%)
+        Uploading to sam-app/1ac2fdc178c63ba988480068fe211880.template  15696 / 15696  (100.00%)
 
-	Waiting for changeset to be created..
+    Waiting for changeset to be created..
 
-	CloudFormation stack changeset
-	-----------------------------------------------------------------------------------------------------
-	Operation                 LogicalResourceId         ResourceType              Replacement
-	-----------------------------------------------------------------------------------------------------
-	+ Add                     CodeBuildProjectBuildAn   AWS::CodeBuild::Project   N/A
-							dPackage
-	+ Add                     CodeBuildProjectDeploy    AWS::CodeBuild::Project   N/A
-	+ Add                     CodeBuildServiceRole      AWS::IAM::Role            N/A
-	+ Add                     CodePipelineExecutionRo   AWS::IAM::Role            N/A
-							le
-	+ Add                     CodeStarConnection        AWS::CodeStarConnection   N/A
-														s::Connection
-	+ Add                     PipelineStackCloudForma   AWS::IAM::Role            N/A
-							tionExecutionRole
-	+ Add                     Pipeline                  AWS::CodePipeline::Pipe   N/A
-														line
-	-----------------------------------------------------------------------------------------------------
+    CloudFormation stack changeset
+    -----------------------------------------------------------------------------------------------------
+    Operation                 LogicalResourceId         ResourceType              Replacement
+    -----------------------------------------------------------------------------------------------------
+    + Add                     CodeBuildProjectBuildAn   AWS::CodeBuild::Project   N/A
+                            dPackage
+    + Add                     CodeBuildProjectDeploy    AWS::CodeBuild::Project   N/A
+    + Add                     CodeBuildServiceRole      AWS::IAM::Role            N/A
+    + Add                     CodePipelineExecutionRo   AWS::IAM::Role            N/A
+                            le
+    + Add                     CodeStarConnection        AWS::CodeStarConnection   N/A
+                                                        s::Connection
+    + Add                     PipelineStackCloudForma   AWS::IAM::Role            N/A
+                            tionExecutionRole
+    + Add                     Pipeline                  AWS::CodePipeline::Pipe   N/A
+                                                        line
+    -----------------------------------------------------------------------------------------------------
 
-	Changeset created successfully. arn:aws:cloudformation:eu-west-1:00000000000:changeSet/samcli-deploy1706135069/11d2764f-90e7-4495-b70c-513533ce61d2
+    Changeset created successfully. arn:aws:cloudformation:eu-west-1:00000000000:changeSet/samcli-deploy1706135069/11d2764f-90e7-4495-b70c-513533ce61d2
 
-	Previewing CloudFormation changeset before deployment
-	======================================================
-	Deploy this changeset? [y/N]: > y
+    Previewing CloudFormation changeset before deployment
+    ======================================================
+    Deploy this changeset? [y/N]: > y
 
-	2024-01-24 23:26:04 - Waiting for stack create/update to complete
+    2024-01-24 23:26:04 - Waiting for stack create/update to complete
 
-	CloudFormation events from stack operations (refresh every 5.0 seconds)
-	-----------------------------------------------------------------------------------------------------
-	ResourceStatus            ResourceType              LogicalResourceId         ResourceStatusReason
-	-----------------------------------------------------------------------------------------------------
-	CREATE_IN_PROGRESS        AWS::CloudFormation::St   pipeline-sam-app          User Initiated
-							ack
-	CREATE_IN_PROGRESS        AWS::IAM::Role            CodeBuildServiceRole      -
-	CREATE_IN_PROGRESS        AWS::CodeStarConnection   CodeStarConnection        -
-							s::Connection
-	CREATE_IN_PROGRESS        AWS::IAM::Role            PipelineStackCloudForma   -
-														tionExecutionRole
-	CREATE_IN_PROGRESS        AWS::CodeStarConnection   CodeStarConnection        Resource creation
-							s::Connection                                       Initiated
-	CREATE_IN_PROGRESS        AWS::IAM::Role            PipelineStackCloudForma   Resource creation
-														tionExecutionRole         Initiated
-	CREATE_COMPLETE           AWS::CodeStarConnection   CodeStarConnection        -
-							s::Connection
-	CREATE_IN_PROGRESS        AWS::IAM::Role            CodeBuildServiceRole      Resource creation
-																				Initiated
-	CREATE_COMPLETE           AWS::IAM::Role            PipelineStackCloudForma   -
-														tionExecutionRole
-	CREATE_COMPLETE           AWS::IAM::Role            CodeBuildServiceRole      -
-	CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectDeploy    -
-	CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectBuildAn   -
-														dPackage
-	CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectDeploy    Resource creation
-																				Initiated
-	CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectBuildAn   Resource creation
-														dPackage                  Initiated
-	CREATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectDeploy    -
-	CREATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectBuildAn   -
-														dPackage
-	CREATE_IN_PROGRESS        AWS::IAM::Role            CodePipelineExecutionRo   -
-														le
-	CREATE_IN_PROGRESS        AWS::IAM::Role            CodePipelineExecutionRo   Resource creation
-														le                        Initiated
-	CREATE_COMPLETE           AWS::IAM::Role            CodePipelineExecutionRo   -
-														le
-	CREATE_IN_PROGRESS        AWS::CodePipeline::Pipe   Pipeline                  -
-							line
-	CREATE_IN_PROGRESS        AWS::CodePipeline::Pipe   Pipeline                  Resource creation
-							line                                                Initiated
-	CREATE_COMPLETE           AWS::CodePipeline::Pipe   Pipeline                  -
-							line
-	CREATE_COMPLETE           AWS::CloudFormation::St   pipeline-sam-app          -
-							ack
-	-----------------------------------------------------------------------------------------------------
+    CloudFormation events from stack operations (refresh every 5.0 seconds)
+    -----------------------------------------------------------------------------------------------------
+    ResourceStatus            ResourceType              LogicalResourceId         ResourceStatusReason
+    -----------------------------------------------------------------------------------------------------
+    CREATE_IN_PROGRESS        AWS::CloudFormation::St   pipeline-sam-app          User Initiated
+                            ack
+    CREATE_IN_PROGRESS        AWS::IAM::Role            CodeBuildServiceRole      -
+    CREATE_IN_PROGRESS        AWS::CodeStarConnection   CodeStarConnection        -
+                            s::Connection
+    CREATE_IN_PROGRESS        AWS::IAM::Role            PipelineStackCloudForma   -
+                                                        tionExecutionRole
+    CREATE_IN_PROGRESS        AWS::CodeStarConnection   CodeStarConnection        Resource creation
+                            s::Connection                                       Initiated
+    CREATE_IN_PROGRESS        AWS::IAM::Role            PipelineStackCloudForma   Resource creation
+                                                        tionExecutionRole         Initiated
+    CREATE_COMPLETE           AWS::CodeStarConnection   CodeStarConnection        -
+                            s::Connection
+    CREATE_IN_PROGRESS        AWS::IAM::Role            CodeBuildServiceRole      Resource creation
+                                                                                Initiated
+    CREATE_COMPLETE           AWS::IAM::Role            PipelineStackCloudForma   -
+                                                        tionExecutionRole
+    CREATE_COMPLETE           AWS::IAM::Role            CodeBuildServiceRole      -
+    CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectDeploy    -
+    CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectBuildAn   -
+                                                        dPackage
+    CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectDeploy    Resource creation
+                                                                                Initiated
+    CREATE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectBuildAn   Resource creation
+                                                        dPackage                  Initiated
+    CREATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectDeploy    -
+    CREATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectBuildAn   -
+                                                        dPackage
+    CREATE_IN_PROGRESS        AWS::IAM::Role            CodePipelineExecutionRo   -
+                                                        le
+    CREATE_IN_PROGRESS        AWS::IAM::Role            CodePipelineExecutionRo   Resource creation
+                                                        le                        Initiated
+    CREATE_COMPLETE           AWS::IAM::Role            CodePipelineExecutionRo   -
+                                                        le
+    CREATE_IN_PROGRESS        AWS::CodePipeline::Pipe   Pipeline                  -
+                            line
+    CREATE_IN_PROGRESS        AWS::CodePipeline::Pipe   Pipeline                  Resource creation
+                            line                                                Initiated
+    CREATE_COMPLETE           AWS::CodePipeline::Pipe   Pipeline                  -
+                            line
+    CREATE_COMPLETE           AWS::CloudFormation::St   pipeline-sam-app          -
+                            ack
+    -----------------------------------------------------------------------------------------------------
 
-	CloudFormation outputs from deployed stack
-	-------------------------------------------------------------------------------------------------------
-	Outputs
-	-------------------------------------------------------------------------------------------------------
-	Key                 CodeStarConnectionArn
-	Description         The Arn of AWS CodeStar Connection used to connect to external code repositories.
-	Value               arn:aws:codestar-connections:eu-
-	west-1:00000000000:connection/0b2a540b-8af9-490f-91e7-24e26e16a313
-	-------------------------------------------------------------------------------------------------------
+    CloudFormation outputs from deployed stack
+    -------------------------------------------------------------------------------------------------------
+    Outputs
+    -------------------------------------------------------------------------------------------------------
+    Key                 CodeStarConnectionArn
+    Description         The Arn of AWS CodeStar Connection used to connect to external code repositories.
+    Value               arn:aws:codestar-connections:eu-
+    west-1:00000000000:connection/0b2a540b-8af9-490f-91e7-24e26e16a313
+    -------------------------------------------------------------------------------------------------------
 
-	Successfully created/updated stack - pipeline-sam-app in eu-west-1
+    Successfully created/updated stack - pipeline-sam-app in eu-west-1
   {% endhighlight %}
 </details>
 
@@ -564,93 +564,93 @@ sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAP
   <summary>Click to view command output</summary>
   
   {% highlight ruby %}
-		Deploying with following values
-		===============================
-		Stack name                   : pipeline-sam-app
-		Region                       : eu-west-1
-		Confirm changeset            : True
-		Disable rollback             : False
-		Deployment s3 bucket         : None
-		Capabilities                 : ["CAPABILITY_IAM"]
-		Parameter overrides          : {}
-		Signing Profiles             : {}
+        Deploying with following values
+        ===============================
+        Stack name                   : pipeline-sam-app
+        Region                       : eu-west-1
+        Confirm changeset            : True
+        Disable rollback             : False
+        Deployment s3 bucket         : None
+        Capabilities                 : ["CAPABILITY_IAM"]
+        Parameter overrides          : {}
+        Signing Profiles             : {}
 
-	Initiating deployment
-	=====================
+    Initiating deployment
+    =====================
 
-	Waiting for changeset to be created..
+    Waiting for changeset to be created..
 
-	CloudFormation stack changeset
-	-----------------------------------------------------------------------------------------------------
-	Operation                 LogicalResourceId         ResourceType              Replacement
-	-----------------------------------------------------------------------------------------------------
-	* Modify                  CodeBuildProjectBuildAn   AWS::CodeBuild::Project   Conditional
-							dPackage
-	* Modify                  CodeBuildProjectDeploy    AWS::CodeBuild::Project   Conditional
-	* Modify                  CodeBuildServiceRole      AWS::IAM::Role            False
-	* Modify                  CodePipelineExecutionRo   AWS::IAM::Role            False
-							le
-	* Modify                  CodeStarConnection        AWS::CodeStarConnection   False
-														s::Connection
-	* Modify                  PipelineStackCloudForma   AWS::IAM::Role            False
-							tionExecutionRole
-	* Modify                  Pipeline                  AWS::CodePipeline::Pipe   False
-														line
-	- Delete                  CodeBuildProjectUnitTes   AWS::CodeBuild::Project   N/A
-							t
-	-----------------------------------------------------------------------------------------------------
+    CloudFormation stack changeset
+    -----------------------------------------------------------------------------------------------------
+    Operation                 LogicalResourceId         ResourceType              Replacement
+    -----------------------------------------------------------------------------------------------------
+    * Modify                  CodeBuildProjectBuildAn   AWS::CodeBuild::Project   Conditional
+                            dPackage
+    * Modify                  CodeBuildProjectDeploy    AWS::CodeBuild::Project   Conditional
+    * Modify                  CodeBuildServiceRole      AWS::IAM::Role            False
+    * Modify                  CodePipelineExecutionRo   AWS::IAM::Role            False
+                            le
+    * Modify                  CodeStarConnection        AWS::CodeStarConnection   False
+                                                        s::Connection
+    * Modify                  PipelineStackCloudForma   AWS::IAM::Role            False
+                            tionExecutionRole
+    * Modify                  Pipeline                  AWS::CodePipeline::Pipe   False
+                                                        line
+    - Delete                  CodeBuildProjectUnitTes   AWS::CodeBuild::Project   N/A
+                            t
+    -----------------------------------------------------------------------------------------------------
 
-	Changeset created successfully. arn:aws:cloudformation:eu-west-1:00000000000:changeSet/samcli-deploy1706140589/27c840fe-922c-4232-861f-51c03d45471c
+    Changeset created successfully. arn:aws:cloudformation:eu-west-1:00000000000:changeSet/samcli-deploy1706140589/27c840fe-922c-4232-861f-51c03d45471c
 
-	Previewing CloudFormation changeset before deployment
-	======================================================
-	Deploy this changeset? [y/N]: > y
+    Previewing CloudFormation changeset before deployment
+    ======================================================
+    Deploy this changeset? [y/N]: > y
 
-	2024-01-25 00:57:26 - Waiting for stack create/update to complete
+    2024-01-25 00:57:26 - Waiting for stack create/update to complete
 
-	CloudFormation events from stack operations (refresh every 5.0 seconds)
-	-----------------------------------------------------------------------------------------------------
-	ResourceStatus            ResourceType              LogicalResourceId         ResourceStatusReason
-	-----------------------------------------------------------------------------------------------------
-	UPDATE_IN_PROGRESS        AWS::CloudFormation::St   pipeline-sam-app          User Initiated
-							ack
-	UPDATE_COMPLETE           AWS::IAM::Role            PipelineStackCloudForma   -
-														tionExecutionRole
-	UPDATE_COMPLETE           AWS::IAM::Role            CodeBuildServiceRole      -
-	UPDATE_COMPLETE           AWS::CodeStarConnection   CodeStarConnection        -
-							s::Connection
-	UPDATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectBuildAn   -
-														dPackage
-	UPDATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectDeploy    -
-	UPDATE_IN_PROGRESS        AWS::IAM::Role            CodePipelineExecutionRo   -
-														le
-	UPDATE_COMPLETE           AWS::IAM::Role            CodePipelineExecutionRo   -
-														le
-	UPDATE_IN_PROGRESS        AWS::CodePipeline::Pipe   Pipeline                  -
-							line
-	UPDATE_COMPLETE           AWS::CodePipeline::Pipe   Pipeline                  -
-							line
-	UPDATE_COMPLETE_CLEANUP   AWS::CloudFormation::St   pipeline-sam-app          -
-	_IN_PROGRESS              ack
-	DELETE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectUnitTes   -
-														t
-	DELETE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectUnitTes   -
-														t
-	UPDATE_COMPLETE           AWS::CloudFormation::St   pipeline-sam-app          -
-							ack
-	-----------------------------------------------------------------------------------------------------
+    CloudFormation events from stack operations (refresh every 5.0 seconds)
+    -----------------------------------------------------------------------------------------------------
+    ResourceStatus            ResourceType              LogicalResourceId         ResourceStatusReason
+    -----------------------------------------------------------------------------------------------------
+    UPDATE_IN_PROGRESS        AWS::CloudFormation::St   pipeline-sam-app          User Initiated
+                            ack
+    UPDATE_COMPLETE           AWS::IAM::Role            PipelineStackCloudForma   -
+                                                        tionExecutionRole
+    UPDATE_COMPLETE           AWS::IAM::Role            CodeBuildServiceRole      -
+    UPDATE_COMPLETE           AWS::CodeStarConnection   CodeStarConnection        -
+                            s::Connection
+    UPDATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectBuildAn   -
+                                                        dPackage
+    UPDATE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectDeploy    -
+    UPDATE_IN_PROGRESS        AWS::IAM::Role            CodePipelineExecutionRo   -
+                                                        le
+    UPDATE_COMPLETE           AWS::IAM::Role            CodePipelineExecutionRo   -
+                                                        le
+    UPDATE_IN_PROGRESS        AWS::CodePipeline::Pipe   Pipeline                  -
+                            line
+    UPDATE_COMPLETE           AWS::CodePipeline::Pipe   Pipeline                  -
+                            line
+    UPDATE_COMPLETE_CLEANUP   AWS::CloudFormation::St   pipeline-sam-app          -
+    _IN_PROGRESS              ack
+    DELETE_IN_PROGRESS        AWS::CodeBuild::Project   CodeBuildProjectUnitTes   -
+                                                        t
+    DELETE_COMPLETE           AWS::CodeBuild::Project   CodeBuildProjectUnitTes   -
+                                                        t
+    UPDATE_COMPLETE           AWS::CloudFormation::St   pipeline-sam-app          -
+                            ack
+    -----------------------------------------------------------------------------------------------------
 
-	CloudFormation outputs from deployed stack
-	-------------------------------------------------------------------------------------------------------
-	Outputs
-	-------------------------------------------------------------------------------------------------------
-	Key                 CodeStarConnectionArn
-	Description         The Arn of AWS CodeStar Connection used to connect to external code repositories.
-	Value               arn:aws:codestar-connections:eu-
-	west-1:00000000000:connection/0b2a540b-8af9-490f-91e7-24e26e16a313
-	-------------------------------------------------------------------------------------------------------
+    CloudFormation outputs from deployed stack
+    -------------------------------------------------------------------------------------------------------
+    Outputs
+    -------------------------------------------------------------------------------------------------------
+    Key                 CodeStarConnectionArn
+    Description         The Arn of AWS CodeStar Connection used to connect to external code repositories.
+    Value               arn:aws:codestar-connections:eu-
+    west-1:00000000000:connection/0b2a540b-8af9-490f-91e7-24e26e16a313
+    -------------------------------------------------------------------------------------------------------
 
-	Successfully created/updated stack - pipeline-sam-app in eu-west-1
+    Successfully created/updated stack - pipeline-sam-app in eu-west-1
   {% endhighlight %}
 </details>
 
@@ -714,8 +714,8 @@ That brings us to the end of our journey of integrating CI/CD into AWS SAM proje
 
 Further reading:
 
-- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
-- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
-- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/). It's a great next step for those looking to expand their serverless architecture knowledge.
+- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/)
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/)
 
 Thank you for reading, and I hope this article has been both informative and useful in setting up your CI/CD pipeline. I look forward to hearing your thoughts and experiences with AWS SAM. Feel free to share them in the comments below. Happy coding!

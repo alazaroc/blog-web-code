@@ -26,8 +26,8 @@ image:
 
 > Tercer artículo de una serie sobre `Amazon Bedrock`:
 >
-> - 1/3: [Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/){:target="_blank"}
-> - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
+> - 1/3: [Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/)
+> - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/)
 > - 3/3: **Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas**
 {: .prompt-tip }
 

@@ -19,7 +19,7 @@ pin: false
 featured_post: false
 comments: true
 sitemap: true
-media_subpath:  /assets/img/posts/2024-06-02-getting-started-with-aws-appsync-a-practical-approach-to-graphql/
+media_subpath: /assets/img/posts/2024-06-02-getting-started-with-aws-appsync-a-practical-approach-to-graphql/
 image:
   path: appsync-architecture-graphql-api.png
   header_post: false
@@ -30,7 +30,7 @@ image:
 >
 > 1/2: **Getting started: A Practical Approach to GraphQL**
 >
-> 2/2: [Building real-rime applications](/posts/building-real-time-applications-with-appsync-and-subscriptions/){:target="_blank"}
+> 2/2: [Building real-rime applications](/posts/building-real-time-applications-with-appsync-and-subscriptions/)
 {: .prompt-tip }
 
 ## Introduction to GraphQL and AWS AppSync
@@ -124,45 +124,45 @@ We can use the following schema:
 
 ```graphql
 type Query {
-	getFeedback(type: String!, date: String!): feedback
-	listFeedbacks(filter: TableFeedbackFilterInput, limit: Int, nextToken: String): feedbackConnection
+  getFeedback(type: String!, date: String!): feedback
+  listFeedbacks(filter: TableFeedbackFilterInput, limit: Int, nextToken: String): feedbackConnection
 }
 
 type feedback {
-	date: String!
-	type: String!
-	email: String
-	message: String!
-	name: String
-	rating: String
+  date: String!
+  type: String!
+  email: String
+  message: String!
+  name: String
+  rating: String
 }
 
 input TableFeedbackFilterInput {
-	date: TableStringFilterInput
-	type: TableStringFilterInput
-	email: TableStringFilterInput
-	message: TableStringFilterInput
-	name: TableStringFilterInput
-	rating: TableStringFilterInput
+  date: TableStringFilterInput
+  type: TableStringFilterInput
+  email: TableStringFilterInput
+  message: TableStringFilterInput
+  name: TableStringFilterInput
+  rating: TableStringFilterInput
 }
 
 input TableStringFilterInput {
-	ne: String
-	eq: String
-	le: String
-	lt: String
-	ge: String
-	gt: String
-	contains: String
-	notContains: String
-	between: [String]
-	beginsWith: String
-	attributeExists: Boolean
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
 }
 
 type feedbackConnection {
-	items: [feedback]
-	nextToken: String
+  items: [feedback]
+  nextToken: String
 }
 ```
 

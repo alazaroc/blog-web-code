@@ -932,9 +932,9 @@ sam delete
 
 Further reading:
 
-- Next SAM post: [How to add CI/CD to my SAM project](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"}
-- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
-- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
-- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
+- Next SAM post: [How to add CI/CD to my SAM project](/posts/how-to-add-ci-cd-to-my-sam-project/)
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/). It's a great next step for those looking to expand their serverless architecture knowledge.
+- CDK: [How to create Serverless applications with CDK](/posts/how-to-create-infrastructure-with-cdk/)
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/)
 
 I look forward to hearing your thoughts and experiences with AWS SAM. Feel free to share them in the comments below. Happy coding!

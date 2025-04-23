@@ -222,7 +222,7 @@ And that's all, keep practicing and learning!
 
 ## Bonus: My CDK blog code
 
-The source code is available [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}
+The source code is available [here](https://github.com/alazaroc/blog-backend-infrastructure/){:target="_blank"}.
 
 If you review it and think it can be improved, please let me know.
 
@@ -230,9 +230,9 @@ If you review it and think it can be improved, please let me know.
 
 Further reading:
 
-- More about CDK: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
-- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/){:target="_blank"}. It's a great next step for those looking to expand their serverless architecture knowledge.
-- SAM: [How to create Serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
-- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
+- More about CDK: [How to add CI/CD to my CDK project](/posts/how-to-add-ci-cd-to-my-cdk-project/)
+- SAM + CDK: Interested in how AWS SAM and AWS CDK can work together? I've explored this in another article: [How to create serverless applications with CDK and SAM](/posts/how-to-create-serverless-applications-with-cdk-and-sam/). It's a great next step for those looking to expand their serverless architecture knowledge.
+- SAM: [How to create Serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/)
+- Terraform: [How to create Serverless applications with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/)
 
 I look forward to hearing your thoughts and experiences with AWS CDK. Feel free to share them in the comments below. Happy coding!

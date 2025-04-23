@@ -105,7 +105,7 @@ Amazon Q Developer está disponible en varios entornos, facilitando su integraci
 
 Cuando se integra en tu IDE, Amazon Q Developer actúa como un `potente asistente, proporcionando orientación en tiempo real para el desarrollo`. Con su interfaz de chat y comandos con /, puedes interactuar directamente con el modelo y solicitar sugerencias o ejecutar comandos en lenguaje natural.
 
-> `¡IMPORTANTE!` Amazon Q Developer no solo te ayuda con el código. Puedes hacer preguntas sobre arquitectura en AWS, tus recursos en la nube, buenas prácticas, documentación, soporte y más. [Aquí](https://docs.aws.amazon.com/es_es/amazonq/latest/qdeveloper-ug/features.html){:target="_blank"} tienes la lista completa de características de Amazon Q Developer.
+> `¡IMPORTANTE!` Amazon Q Developer no solo te ayuda con el código. Puedes hacer preguntas sobre arquitectura en AWS, tus recursos cloud, buenas prácticas, documentación, soporte y más. [Aquí](https://docs.aws.amazon.com/es_es/amazonq/latest/qdeveloper-ug/features.html){:target="_blank"} tienes la lista completa de características de Amazon Q Developer.
 {: .prompt-tip }
 
 ### 2.3. ¿Es realmente gratuito?

@@ -32,13 +32,13 @@ image:
 
 In previous articles, we have discussed about `Terraform` and explored various `DevOps strategies for automating deployments on AWS`.
 
-- [How to deploy a serverless website with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/){:target="_blank"}
-- [How to Add CI/CD to my CDK Project](/posts/how-to-add-ci-cd-to-my-cdk-project/){:target="_blank"}
-- [How to Add CI/CD to my SAM Project](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"}
+- [How to deploy a serverless website with Terraform](/posts/how-to-deploy-serverless-website-with-terraform/)
+- [How to Add CI/CD to my CDK Project](/posts/how-to-add-ci-cd-to-my-cdk-project/)
+- [How to Add CI/CD to my SAM Project](/posts/how-to-add-ci-cd-to-my-sam-project/)
 
 Now, we'll automate the `deployment of Terraform projects using GitHub Actions`. Regardless of what you need to deploy, this approach enables efficient, automated Terraform-based infrastructure deployments.
 
-You can find the repository created for this article here [aws-terraform-github-actions-deployment](https://github.com/alazaroc/terraform-aws-cicd-github-actions){:target="_blank"}.
+You can find the repository created for this article here [aws-terraform-github-actions-deployment](https://github.com/alazaroc/terraform-aws-cicd-github-actions).
 
 > This same approach can be used to deploy any AWS resource!
 {: .prompt-tip }
@@ -99,7 +99,7 @@ resource "aws_budgets_budget" "zero_spend_budget" {
     threshold                  = 0
     threshold_type             = "ABSOLUTE_VALUE"
     notification_type          = "ACTUAL"
-    subscriber_email_addresses = ["alcalex@gmail.com"]
+    subscriber_email_addresses = ["your_email@domain.com"]
   }
 }
 ```

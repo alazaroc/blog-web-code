@@ -217,7 +217,7 @@ Al principio, en la versión 1, usé:
 Sinceramente, no evalué otras opciones, ya que sabía cuál elegir y quería ser lo más sencillo posible.
 
 > ¿Qué es AWS CDK? (Explicado por AWS)
-> *[CDK](https://aws.amazon.com/cdk/){:target="_blank"} es un marco de desarrollo de software de código abierto que define los recursos de las aplicaciones en la nube mediante lenguajes de programación conocidos.*
+> *[CDK](https://aws.amazon.com/cdk/){:target="_blank"} es un marco de desarrollo de software de código abierto que define los recursos de las aplicaciones cloud mediante lenguajes de programación conocidos.*
 >
 > *AWS CDK de AWS aprovisiona tus recursos de forma segura y repetible a través de **AWS CloudFormation**, pero también está disponible (en fase alfa) un CDK para **Terraform** [cdktf](https://github.com/hashicorp/terraform-cdk){:target="_blank"} y un CDK para **Kubernetes** [cdk8s](https://cdk8s.io/){:target="_blank"}. Para encontrar todos estos CDK en un solo lugar, visita [Construct Hub](https://constructs.dev/){:target="_blank"}, un sitio para descubrir y compartir bibliotecas de construcción publicadas por la comunidad de código abierto, AWS y sus socios.*
 

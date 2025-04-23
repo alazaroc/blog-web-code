@@ -19,7 +19,7 @@ pin: false
 featured_post: false
 comments: true
 sitemap: true
-media_subpath:  /assets/img/posts/2024-07-10-building-real-time-applications-with-appsync-and-subscriptions/
+media_subpath: /assets/img/posts/2024-07-10-building-real-time-applications-with-appsync-and-subscriptions/
 image:
   path: real-time-architecture-v1.png
   header_post: false
@@ -28,7 +28,7 @@ image:
 
 > This article is part of a series about `AWS AppSync`, in which I will explain what this service is and how you can use it in your architectures.
 >
-> 1/2: [Getting started: A Practical Approach to GraphQL](/posts/getting-started-with-aws-appsync-a-practical-approach-to-graphql/){:target="_blank"}
+> 1/2: [Getting started: A Practical Approach to GraphQL](/posts/getting-started-with-aws-appsync-a-practical-approach-to-graphql/)
 >
 > 2/2: **Building real-time applications**
 {: .prompt-tip }
@@ -104,7 +104,7 @@ It is very straightforward:
 3. In `GraphQL API Data Source` select `Start with a DynamoDB table`
 4. Choose an API name, and in the `Import from DynamoDB table`, select the DynamoDB table name created previously: `Messages`.
 5. Finally, in the `Configure model information`, add one new field `message` of `String` type. Optionally, you can change the type of the `id` field to `ID` instead of `String`.
-     - If you configure the type as ID, when you create a value using the editor, the `ID` type will ensure that the value is unique and is treated as an identifier. This means comparisons will be based on the unique identifier rather than a simple string value, providing a more efficient and reliable way to reference items in your database.
+   - If you configure the type as ID, when you create a value using the editor, the `ID` type will ensure that the value is unique and is treated as an identifier. This means comparisons will be based on the unique identifier rather than a simple string value, providing a more efficient and reliable way to reference items in your database.
 6. That's all
 
 Now, you can explore the created API.
@@ -115,12 +115,12 @@ This was created automatically:
 
 ```graphql
 type Subscription {
-	onCreateMessages(id: ID, message: String): Messages
-		@aws_subscribe(mutations: ["createMessages"])
-	onUpdateMessages(id: ID, message: String): Messages
-		@aws_subscribe(mutations: ["updateMessages"])
-	onDeleteMessages(id: ID, message: String): Messages
-		@aws_subscribe(mutations: ["deleteMessages"])
+  onCreateMessages(id: ID, message: String): Messages
+    @aws_subscribe(mutations: ["createMessages"])
+  onUpdateMessages(id: ID, message: String): Messages
+    @aws_subscribe(mutations: ["updateMessages"])
+  onDeleteMessages(id: ID, message: String): Messages
+    @aws_subscribe(mutations: ["deleteMessages"])
 }
 ```
 
@@ -145,21 +145,21 @@ If you use the AWS console to create a `real-time WebSocket API` where clients s
 
 ```graphql
 type Channel {
-	name: String!
-	data: AWSJSON!
+  name: String!
+  data: AWSJSON!
 }
 
 type Mutation {
-	publish(name: String!, data: AWSJSON!): Channel
+  publish(name: String!, data: AWSJSON!): Channel
 }
 
 type Query {
-	getChannel: Channel
+  getChannel: Channel
 }
 
 type Subscription {
-	subscribe(name: String!): Channel
-		@aws_subscribe(mutations: ["publish"])
+  subscribe(name: String!): Channel
+    @aws_subscribe(mutations: ["publish"])
 }
 ```
 

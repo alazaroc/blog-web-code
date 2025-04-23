@@ -29,10 +29,10 @@ image:
 > This article is part of a series about `open-source` tools and AWS, in which I will share those tools that I have tested and that I think you may find useful.
 >
 > 1/3: **Getting started**: main open-source tools and extend AWS CLI (this article).
-> 
-> 2/3: [Analyze your AWS environment](/posts/aws-open-source-tools-environment/){:target="_blank"}: focus on the inventory, analysis and security assessment of the AWS environment.
-> 
-> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/){:target="_blank"}: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
+>
+> 2/3: [Analyze your AWS environment](/posts/aws-open-source-tools-environment/): focus on the inventory, analysis and security assessment of the AWS environment.
+>
+> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/): to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
 {: .prompt-tip }
 
 ## Introduction
@@ -226,5 +226,5 @@ This plugin provides completion support for AWS CLI and a few utilities to manag
 
 As I said in the introduction, there are 2 more articles in this series of open-source tools:
 
-- **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment - [here](/posts/aws-open-source-tools-environment/){:target="_blank"}
-- **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) - [here](/posts/aws-open-source-tools-code/){:target="_blank"}
+- **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment - [here](/posts/aws-open-source-tools-environment/)
+- **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials) - [here](/posts/aws-open-source-tools-code/)

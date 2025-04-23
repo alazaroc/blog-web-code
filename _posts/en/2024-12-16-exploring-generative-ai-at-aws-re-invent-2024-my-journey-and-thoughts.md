@@ -169,4 +169,4 @@ If you are curious to learn more about AWS's generative AI offerings, I encourag
 
 ## 6. Next steps?
 
-I have already written about Amazon Q Developer [here](/posts/amazon-q-developer-the-ai-powered-code-companion-i-ve-been-waiting-for/){:target="_blank"}, in case you want to know more about it.
+I have already written about Amazon Q Developer [here](/posts/amazon-q-developer-the-ai-powered-code-companion-i-ve-been-waiting-for/), in case you want to know more about it.
