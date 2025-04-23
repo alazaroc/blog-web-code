@@ -1,18 +1,10 @@
 <!-- https://giscus.app/ -->
 {% capture comment_paragraph_1 %}{{ site.data.locales[page.lang].comment_form.comment_paragraph_1 }}{% endcapture %}
 {% capture comment_paragraph_2 %}{{ site.data.locales[page.lang].comment_form.comment_paragraph_2 }}{% endcapture %}
-<!-- {% capture comment_paragraph %}{{ site.data.locales[page.lang].comment_form.comment_paragraph }}{% endcapture %}
-{% capture comment_question_1 %}{{ site.data.locales[page.lang].comment_form.comment_question_1 }}{% endcapture %}
-{% capture comment_question_2 %}{{ site.data.locales[page.lang].comment_form.comment_question_2 }}{% endcapture %}
-{% capture comment_question_3 %}{{ site.data.locales[page.lang].comment_form.comment_question_3 }}{% endcapture %} -->
 
 <script type="text/javascript">
   let commentParagraph1 = {{ comment_paragraph_1 | jsonify }};
   let commentParagraph2 = {{ comment_paragraph_2 | jsonify }};
-  // let commentParagraph = {{ comment_paragraph | jsonify }};
-  // let commentQuestion1 = {{ comment_question_1 | jsonify }};
-  // let commentQuestion2 = {{ comment_question_2 | jsonify }};
-  // let commentQuestion3 = {{ comment_question_3 | jsonify }};
 
   document.querySelector(".content").insertAdjacentHTML('beforeend', `
     <hr>
@@ -20,12 +12,6 @@
     <p>${commentParagraph1}</p>
     <p>${commentParagraph2}</p>
   `);
-  // <p>${commentParagraph}</p>
-  // <ul>
-    //   <li>${commentQuestion1}</li>
-    //   <li>${commentQuestion2}</li>
-    //   <li>${commentQuestion3}</li>
-    // </ul>
 
   (function () {
     const themeMapper = Theme.getThemeMapper('light', 'dark_dimmed');
