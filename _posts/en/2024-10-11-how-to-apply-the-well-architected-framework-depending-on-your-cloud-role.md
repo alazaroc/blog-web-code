@@ -19,7 +19,7 @@ sitemap: true
 mermaid: true
 media_subpath: /assets/img/posts/2024-10-11-how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/
 image:
-  path: waf_cover_why.jpg
+  path: role_cover.png
   header_post: false
 ---
 ---
