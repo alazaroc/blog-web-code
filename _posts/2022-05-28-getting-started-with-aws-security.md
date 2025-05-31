@@ -15,14 +15,17 @@ tags:
 level: 100
 published: true
 pin: false
-featured_post: true
+featured_post: false
 comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2022-05-28-getting-started-with-aws-security/
+image:
+  path: well-architected-tools.png
+  header_post: false
 ---
 ---
 
-## TLDR
+## 1. Introduction
 
 You have probably read many times that <kbd>in AWS security is the TOP priority</kbd>, and as you know there are many resources on the internet. I want to share with you in this article the **security basics** to improve your AWS solutions by focusing on these `2 resources you have to know`:
 
@@ -32,9 +35,7 @@ You have probably read many times that <kbd>in AWS security is the TOP priority<
 > If you're looking to dive deeper into the broader range of learning materials available on security, including digital courses, blogs, whitepapers, and more, AWS recommends you the [Ramp-Up Guide](https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Security.pdf){:target="_blank"}
 {: .prompt-tip }
 
----
-
-## Security Pillar in AWS Well-Architected Framework
+## 2. Security Pillar in AWS Well-Architected Framework
 
 You should start here. This is the [official link](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html){:target="_blank"}. I am sure you are familiar with the Well-Architected Framework and the Security Pillar... but have you read the whole thing? I will try to compile the main points for you.
 
@@ -52,9 +53,9 @@ Security in the cloud is composed of six areas:
 
 ![well-architected-tools](well-architected-tools.png){:class="border"}
 
-### 1. Security Foundations
+### 2.1. Security Foundations
 
-#### 1.1. Design Principles
+#### 2.1.1. Design Principles
 
 The security pillar of the Well-Architected Framework captures a set of design principles that turn the security areas into **practical guidance** that can help you strengthen your workload security.
 
@@ -83,7 +84,7 @@ Where the security epics frame the overall security strategy, these Well-Archite
 >   - Run incident response simulations and use tools with automation to increase your speed for detection, investigation, and recovery
 {: .prompt-danger }
 
-#### 1.2. Shared Responsibility
+#### 2.1.2. Shared Responsibility
 
 > Security and Compliance is a shared responsibility between AWS and the customer.
 {: .prompt-info }
@@ -92,7 +93,7 @@ Where the security epics frame the overall security strategy, these Well-Archite
 
 More detailed information [here](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/shared-responsibility.html){:target="_blank"}
 
-#### 1.3. AWS Account Management and Separation
+#### 2.1.3. AWS Account Management and Separation
 
 Best practices for account management and separation:
 
@@ -105,7 +106,7 @@ Best practices for account management and separation:
   - **Set controls centrally**: allows you to use service control policies (SCPs) to apply permission guardrails at the organization, organizational unit, or account level, which apply to all AWS Identity and Access Management (IAM) users and role
   - **Configure services and resources centrally**: helps you configure AWS services that apply to all of your accounts (CloudTrail, AWS Config)
 
-### 2. Identity and Access Management
+### 2.2. Identity and Access Management
 
 > Identity and Access Management (IAM) helps customers integrate AWS into their identity management lifecycle, and sources of authentication and authorization.
 {: .prompt-info }
@@ -115,7 +116,7 @@ The best practices for these capabilities fall into two main areas.
 - Identity Management
 - Permissions Management
 
-#### 2.1. Identity Management
+#### 2.2.1. Identity Management
 
 There are two types of identities you will need to manage:
 
@@ -134,7 +135,7 @@ The following are the best practices related to the identities:
 - Audit and rotate credentials periodically
 - **Store and use secrets securely**: For credentials that are not IAM-related and cannot take advantage of temporary credentials, such as database logins, use a service that is designed to handle the management of secrets, such as <kbd>AWS Secrets Manager</kbd>
 
-#### 2.2. Permission management
+#### 2.2.2. Permission management
 
 Manage permissions to control access to human and machine identities that require access to AWS and your workloads. Permissions control who can access what, and under what conditions.
 
@@ -161,14 +162,14 @@ The following are the best practices related to permission management:
 - **Reduce permissions continuously**: Maybe in the getting started of a project you chose to grant broad access, but later you should evaluate access continuously and restrict access to only the permissions required and achieve **least privilege**
 - **Establish emergency access process**: AWS recommends having a process that allows emergency access to your workload, in particular your AWS accounts, in the unlikely event of an automated process or pipeline issue
 
-### 3. Detection
+### 2.3. Detection
 
 Detective Control provides guidance to help identify potential security incidents within the AWS environment. Detection consists of two parts:
 
 - Configure
 - Investigate
 
-#### 3.1. Configure
+#### 2.3.1. Configure
 
 - **Configure services and application logging**
   - A foundational practice is to establish a set of detection mechanisms **at the account level**. This base set of mechanisms is aimed at **recording and detecting** a wide range of actions on all resources in your account.
@@ -181,7 +182,7 @@ Detective Control provides guidance to help identify potential security incident
 - **Analyze logs, findings, and metrics centrally**: A best practice is to deeply integrate the flow of security events and findings into a notification and workflow system.
   - <kbd>GuardDuty</kbd> and <kbd>Security Hub</kbd> provides aggregation, deduplication, and analysis mechanisms for log records that are also made available to you via other AWS services.
 
-#### 3.2. Investigate
+#### 2.3.2. Investigate
 
 - **Implement actionable security events**: For each detective mechanism you have, you should also have a process, in the form of a <kbd>runbook or playbook</kbd>, to investigate
 - **Automate response to events**:
@@ -190,7 +191,7 @@ Detective Control provides guidance to help identify potential security incident
   - Detecting change and routing this information to the correct workflow can also be accomplished using <kbd>AWS Config Rules</kbd> and Conformance Packs.
     - <kbd>Conformance packs</kbd> are a collection of Config Rules and remediation actions you deploy as a single entity authored as a YAML template. A [sample conformance pack template is available for the Well-Architected Security Pillar](https://docs.aws.amazon.com/config/latest/developerguide/operational-best-practices-for-wa-Security-Pillar.html){:target="_blank"}
 
-### 4. Infrastructure Protection
+### 2.4. Infrastructure Protection
 
 > Infrastructure protection ensures that systems and resources within your workloads are protected against unintended and unauthorized access, and other potential vulnerabilities.
 {: .prompt-info }
@@ -198,7 +199,7 @@ Detective Control provides guidance to help identify potential security incident
 > You need to be familiar with Regions, Availability Zones, AWS Local Zones, and AWS Outposts.
 {: .prompt-warning }
 
-#### 4.1. Protecting Networks
+#### 2.4.1. Protecting Networks
 
 When you follow the **principle of applying security at all layers**, you employ a [Zero Trust](https://aws.amazon.com/blogs/security/zero-trust-architectures-an-aws-perspective/){:target="_blank"} approach (application components don't trust any other).
 
@@ -218,7 +219,7 @@ When you follow the **principle of applying security at all layers**, you employ
   - For example, intrusion detection and prevention tools can adapt to current threats and reduce their impact.
   - A web application firewall is an example of where you can automate network protection, for example, by using the <kbd>AWS WAF Security Automations solution</kbd> (<https://github.com/awslabs/aws-waf-security-automations> ) to automatically block requests originating from IP addresses associated with known threat actors.
 
-#### 4.2. Protecting Compute
+#### 2.4.2. Protecting Compute
 
 Compute resources include EC2 instances, containers, AWS Lambda functions, database services, IoT devices, and more. Each of these compute resource types requires different approaches to secure them. However, they do share common strategies that you need to consider:
 
@@ -237,7 +238,7 @@ Compute resources include EC2 instances, containers, AWS Lambda functions, datab
 - **Validate software integrity**: Implement mechanisms (e.g. code signing) to validate that the software, code, and libraries used in the workload are from trusted sources and have not been tampered with. You can use <kbd>AWS Signer</kbd>
 - **Automate compute protection**: Automate your protective compute mechanisms including vulnerability management, reduction in attack surface, and management of resources. The automation will help you invest time in securing other aspects of your workload, and reduce the risk of human error.
 
-### 5. Data protection
+### 2.5. Data protection
 
 > Before architecting any workload, foundational practices that influence security should be in place:
 >
@@ -247,14 +248,14 @@ Compute resources include EC2 instances, containers, AWS Lambda functions, datab
 
 These methods are important because they support objectives such as preventing mishandling or complying with regulatory obligations.
 
-#### 5.1. Data Classification
+#### 2.5.1. Data Classification
 
 - **Identify the data within your workload**: You need to understand the type and classification of data your workload is processing, the associated business processes, the data owner, applicable legal and compliance requirements, where it's stored, and the resulting controls that need to be enforced.
 - **Define data protection controls**: By using <kbd>resource tags</kbd>, separate AWS accounts per sensitivity, <kbd>IAM policies, Organizations SCPs, AWS KMS, and AWS CloudHSM</kbd>, you can define and implement your policies for data classification and protection with encryption.
 - **Define data lifecycle management**: Your defined lifecycle strategy should be based on sensitivity level as well as legal and organizational requirements. Aspects including the duration for which you retain data, data destruction processes, data access management, data transformation, and data sharing should be considered.
 - **Automate identification and classification**: Automating the identification and classification of data can help you implement the correct controls. Using automation for this instead of direct access from a person reduces the risk of human error and exposure. You should evaluate using a tool, such as <kbd>Amazon Macie</kbd>, that uses machine learning to automatically discover, classify, and protect sensitive data in AWS.
 
-#### 5.2. Protecting data at rest
+#### 2.5.2. Protecting data at rest
 
 Data at rest represents any data that you persist in non-volatile storage for any duration in your workload. This includes block storage, object storage, databases, archives, IoT devices, and any other storage medium on which data is persisted. Protecting your data at rest reduces the risk of unauthorized access when encryption and appropriate access controls are implemented.
 
@@ -281,7 +282,7 @@ Best practices:
   - You can automate validation that all EBS volumes are encrypted using <kbd>AWS Config Rules</kbd>.
   - <kbd>AWS Security Hub</kbd> can also verify several different controls through automated checks against security standards. Additionally, your AWS Config Rules can automatically remediate non-compliant resources.
 
-#### 5.3. Protecting data in transit
+#### 2.5.3. Protecting data in transit
 
 Data in transit is any data that is sent from one system to another. This includes communication between resources within your workload as well as communication between other services and your end-users. By providing the appropriate level of protection for your data in transit, you protect the confidentiality and integrity of your workload's data.
 
@@ -303,12 +304,12 @@ Best practices:
   - You also do not have to configure firewall rules, path definitions, or route tables.
   - Traffic stays on the Amazon backbone and doesn't traverse the internet, therefore your data is protected.
 
-### 6. Incident response
+### 2.6. Incident response
 
 > Incident Response helps customers define and execute a response to security incidents.
 {: .prompt-info }
 
-#### 6.1. Design Goals of Cloud Response
+#### 2.6.1. Design Goals of Cloud Response
 
 - **Establish response objectives**: Some common goals include containing and mitigating the issue, recovering the affected resources, and preserving data for forensics, and attribution.
 - **Document plans**: Create plans to help you respond to, communicate during, and recover from an incident.
@@ -337,12 +338,12 @@ In AWS, there are several different approaches you can use when addressing incid
 
 ---
 
-## AWS Security checklist
+## 3. AWS Security checklist
 
 > This is a whitepaper of AWS that provides customer recommendations that align with the Well-Architected Framework Security Pillar. It is available [here](https://d1.awsstatic.com/whitepapers/Security/AWS_Security_Checklist.pdf?did=wp_card&trk=wp_card){:target="_blank"}
 {: .prompt-info }
 
-### 1. Identity and Access Management
+### 3.1. Identity and Access Management
 
 - [ ] **Secure your AWS Account**
   - [ ] Use [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html#features){:target="_blank"}
@@ -356,7 +357,7 @@ In AWS, there are several different approaches you can use when addressing incid
 - [ ] **Store and use secrets securely**
   - [ ] Use AWS Secrets Manager if you cannot use temporary credentials
 
-### 2. Detection
+### 3.2. Detection
 
 - [ ] **Enable foundational services** for all AWS accounts
   - [ ] [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html){:target="_blank"} to log API activity
@@ -370,7 +371,7 @@ In AWS, there are several different approaches you can use when addressing incid
   - [ ] Enable Config Managed Rules to automatically alert or remediate undesired changes
   - [ ] Configure alerts for all your sources of logs and events, from AWS CloudTrail to Amazon GuardDuty and your application logs,  for high-priority events and investigate
 
-### 3. Infrastructure Protection
+### 3.3. Infrastructure Protection
 
 - [ ] **Patch your operating system, applications, and code**
   - [ ] Use [AWS Systems Manager Patch Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html){:target="_blank"} to automate the patching process of all systems and code for which you are responsible, including your OS, applications, and code dependencies
@@ -380,7 +381,7 @@ In AWS, there are several different approaches you can use when addressing incid
   - [ ] Use [security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html){:target="_blank"} for controlling inbound and outbound traffic, and automatically apply rules for both security groups and WAFs using [AWS Firewall Manager](https://aws.amazon.com/firewall-manager/){:target="_blank"}
   - [ ] Group different resources into different subnets to create routing layers, for example, database resources do not need a route to the internet
 
-### 4. Data protection
+### 3.4. Data protection
 
 - [ ] **Protect data at rest**
   - [ ] Use [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/){:target="_blank"} to protect data at rest across a wide range of AWS services and your applications
@@ -390,7 +391,7 @@ In AWS, there are several different approaches you can use when addressing incid
 - [ ] **Use mechanisms to keep people away from data**
   - [ ] Keep all users away from directly accessing sensitive data and systems. For example, provide an [Amazon QuickSight dashboard](https://aws.amazon.com/quicksight/){:target="_blank"} to business users instead of direct access to a database, and perform actions at a distance using [AWS Systems Manager automation documents](https://aws.amazon.com/systems-manager/){:target="_blank"} and [Run Command](https://docs.aws.amazon.com/systems-manager/latest/userguide/execute-remote-commands.html){:target="_blank"}
 
-### 5. Incident response
+### 3.5. Incident response
 
 - [ ] **Ensure you have an incident response (IR) plan**
   - [ ] Begin your [IR plan](https://docs.aws.amazon.com/whitepapers/latest/aws-security-incident-response-guide/welcome.html){:target="_blank"} by building runbooks to respond to unexpected events in your workload

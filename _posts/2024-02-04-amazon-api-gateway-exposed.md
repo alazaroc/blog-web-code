@@ -24,7 +24,7 @@ image:
 ---
 ---
 
-## Introduction
+## 1. Introduction
 
 You already know what an API (**A**pplication **P**rogramming **I**nterface) is, [what is Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html){:target="_blank"}, [when choosing between REST and HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html){:target="_blank"}, and have experience and don't need [tutorials or workshops](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-tutorials.html){:target="_blank"}.
 
@@ -48,31 +48,34 @@ We will compare the following options:
 > For the `Integration with CloudFront` option, I will assume we are also using our own domain.
 {: .prompt-warning }
 
-## Detailed Overview of Amazon API Gateway Endpoint Exposing Options
+## 2. Detailed Overview of Amazon API Gateway Endpoint Exposing Options
 
 1. Standard Endpoint URL
    - Description: This is the `default configuration`. There are 2 API endpoint types related to this option: regional and edge-optimized.
      - When you deploy an edge-optimized API, API Gateway sets up an `Amazon CloudFront distribution` and a DNS record to map the API domain name to the CloudFront distribution domain name. However, you can't configure it.
    - Architectural Impact: Standard endpoints are quick to implement, facilitating agile development. However, they offer limited control over network routing and performance optimizations.
-      ![apigateway-default](apigateway-default.png)
+   - Diagram:
+     - ![apigateway-default](apigateway-default.png)
 
-
-1. Custom Domain Names
+2. Custom Domain Names
    - Description: Custom domain names are `simpler and more intuitive URLs` that you can provide to your API users. A domain that is easy to remember and relevant to your API's purpose can significantly enhance user experience and API discoverability. Additionally, it simplifies the process of updating and maintaining APIs, as the endpoint remains constant even if the backend changes.
    - Architectural Impact: Requires additional DNS configuration and SSL/TLS certificates, introducing complexity in domain management but significantly enhancing API discoverability and trustworthiness. It enables a consistent entry point for APIs despite underlying changes.
-      ![apigateway-custom-domain](apigateway-custom-domain.png)
+   - Diagram:
+     - ![apigateway-custom-domain](apigateway-custom-domain.png)
 
-1. Integration with CloudFront
+3. Integration with CloudFront
    - Description: By integrating API Gateway with CloudFront, `APIs benefit from CDN capabilities`, including improved global distribution and caching.
    - Architectural Impact: This approach enhances API performance and availability by leveraging CloudFront's distributed network of edge locations. It involves a more complex setup but offers robust security features and efficient handling of high-traffic volumes.
-      ![apigateway-cloudfront](apigateway-cloudfront.png)
+   - Diagram:
+     - ![apigateway-cloudfront](apigateway-cloudfront.png)
 
-1. Private Endpoints (VPC Integration)
+4. Private Endpoints (VPC Integration)
    - Description: Private endpoints `restrict API access within an AWS Virtual Private Cloud` (VPC), enhancing security for internal APIs.
    - Architectural Impact: Requires a VPC endpoint and it is ideal for microservices architecture within a VPC, ensuring that API traffic does not traverse the public internet. This setup supports enhanced security protocols and network isolation but limits accessibility to internal users or services.
-      ![apigateway-private](apigateway-private.png)
+   - Diagram:
+     - ![apigateway-private](apigateway-private.png)
 
-## Advantages and Disadvantages
+## 3. Advantages and Disadvantages
 
 1. Standard Endpoint URL
    - Advantages:
@@ -113,7 +116,7 @@ We will compare the following options:
      - `Private`. Not accessible from outside the VPC.
      - Requires `additional setup` for VPC and endpoint configuration
 
-## Use case & real-world scenario
+## 4. Use case & real-world scenario
 
 1. Standard Endpoint URL
    - Use Case: Ideal for `quick deployments and testing purposes`.
@@ -136,7 +139,7 @@ We will compare the following options:
    - Use Case: Ideal for `internal APIs and microservices` that should not be exposed publicly.
    - Real-World Scenario: A financial institution leverages private endpoints for secure internal communication between services, ensuring data privacy and compliance.
 
-## Implementation Details for Exposing Amazon API Gateway Endpoints
+## 5. Implementation Details for Exposing Amazon API Gateway Endpoints
 
 In this section, we will review the implementation steps of each option:
 
@@ -168,7 +171,7 @@ In this section, we will review the implementation steps of each option:
    2. Set Up Private API in API Gateway: Configure your API to be private and associate it with your VPC endpoint.
    3. Control Access: Use VPC endpoint policies to manage access to the API within your VPC.
 
-### Cost
+## 6. Cost
 
 1. Standard URL:
    - Generally, the `lowest cost` as it uses the basic API Gateway pricing model.
@@ -187,7 +190,7 @@ In this section, we will review the implementation steps of each option:
    - Standard API Gateway charges.
    - Potentially lower data transfer costs within the AWS network but additional costs for VPC endpoints.
 
-## More information
+## 7. More information
 
 1. Standard Endpoint URL
    - Troubleshooting Tips: Ensure the API is deployed to the stage after any change. If experiencing latency, consider the region of deployment versus user location.
@@ -205,7 +208,7 @@ In this section, we will review the implementation steps of each option:
    - Troubleshooting Tips: Confirm VPC endpoint service configurations and network ACLs if facing connectivity issues.
    - Resources: [AWS Documentation on VPC Endpoints](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html){:target="_blank"}.
 
-## Conclusion
+## 8. Conclusion
 
 Utilizing Amazon API Gateway, particularly with custom domains and CloudFront, offers a robust framework for deploying and managing APIs. These services not only enhance the performance and security of your APIs but also offer scalability and ease of management. The integration of custom domains provides a branded and professional touch, while CloudFront also ensures global reach and low latency.
 

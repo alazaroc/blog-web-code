@@ -34,7 +34,7 @@ image:
 >
 {: .prompt-tip }
 
-## Introduction
+## 1. Introduction
 
 In this article, we will continue adding new AWS accounts to our multi-account approach and review all options in the AWS Control Tower service.
 
@@ -44,7 +44,7 @@ Once the creation of the landing zone by the AWS Control Tower is completed, it 
 
 Now, we will review all the options available in AWS Control Tower.
 
-## Single Sign-On
+## 2. Single Sign-On
 
 We have more than one account and need/want a central place to access all accounts. Fortunately, AWS Control Tower provides us with a default configuration of the AWS Single Sign-On solution (**IAM Identity Center**, previously named AWS SSO).
 
@@ -52,7 +52,7 @@ We have more than one account and need/want a central place to access all accoun
 
 The default configuration used as `identity source` is _Identity Center directory_, that is, an internal directory where we can add users directly to give them access to the organization.
 
-### Settings
+### 2.1. Settings
 
 This is the default configuration:
 
@@ -61,7 +61,7 @@ This is the default configuration:
 > You can update the identity source of the **IAM Identity Center** configuration to use your Active Directory or an external identity provider.
 {: .prompt-tip }
 
-### Users
+### 2.2. Users
 
 By default, only the email used for the root account is included as a user, but you need to confirm it and set a new password. This is a new user different from the root user of the AWS management account.
 
@@ -75,7 +75,7 @@ To add a new user with this configuration the following information is mandatory
 - Last name
 - Display name (typically the full name of the workforce user, is searchable, and appears in the user's list)
 
-### Groups
+### 2.3. Groups
 
 By default, the following groups are created:
 
@@ -88,7 +88,7 @@ By default, the following groups are created:
 - AWSAuditAccountAdmins: Admin rights to cross-account audit account
 - AWSLogArchiveViewers: Read-only access to log archive account
 
-### Use of SSO
+### 2.4. Using SSO
 
 You will access through one link similar to this "<https://xxxxxxxxxxxxx.awsapps.com/start>" and you will access to this portal:
 
@@ -102,7 +102,7 @@ Clicking on the AWS account menu (number) will display information about these a
 
 ![sso-3](sso-3.png){:class="border"}
 
-## New Organizational Units (OUs)
+## 3. New Organizational Units (OUs)
 
 Creating a new Organizational Unit (OU) is very easy from the AWS Control Tower or AWS Organizations.
 
@@ -120,7 +120,7 @@ Creating a new Organizational Unit (OU) is very easy from the AWS Control Tower 
 > So, if you are using AWS Control Tower, better use it instead of AWS Organizations to create new OUs (Organizational Units) or AWS accounts.
 {: .prompt-tip }
 
-## Account Factory
+## 4. Account Factory
 
 > With the account factory you can provision new accounts and enrols existing accounts, and you can standardize your account and network configurations for creating multiple accounts.
 
@@ -151,7 +151,7 @@ More information:
 
 - [Automate the creation of multiple accounts with Control Tower](https://aws.amazon.com/blogs/mt/how-to-automate-the-creation-of-multiple-accounts-in-aws-control-tower/){:target="_blank"}
 
-## Guardrails (Controls)
+## 5. Guardrails (Controls)
 
 AWS Control Tower applies high-level rules, called guardrails, that help enforce your policies using service control policies (SCPs), and detect policy violations using AWS Config rules.
 
@@ -199,8 +199,6 @@ Now, is also important distinct the controls by `behaviour`:
 > - Behaviour: Preventive
 {: .prompt-info }
 
-### Enable controls
-
 So, there are 23 mandatory guardrails, but there many others that you can enable. To enable one of them you select, click on <kbd>Enable control on OU</kbd> and then select one of them.
 
 ![controls-enable](controls-enable.png){:class="border"}
@@ -209,14 +207,14 @@ So, there are 23 mandatory guardrails, but there many others that you can enable
 
 ![controls-dashboard](controls-dashboard.png){:class="border"}
 
-## Infrastructure as Code (IaC)
+## 6. Infrastructure as Code (IaC)
 
 There are at least 2 solutions to define using `Infrastructure as Code` (IaC) your AWS resources or SCPs and deploy it on each account (new or existing).
 
 - Customizations for Control Tower (CfCT): use CloudFormation
 - Use the Terraform module of Control Tower Account Factory for Terraform
 
-### Customizations for Control Tower (CfCT)
+### 6.1. Customizations for Control Tower (CfCT)
 
 > [Here](<https://docs.aws.amazon.com/controltower/latest/userguide/cfct-overview.html>){:target="_blank"} is the official documentation about CfCT and [here](https://github.com/aws-solutions/aws-control-tower-customizations/blob/main/customizations-for-aws-control-tower.template){:target="_blank"} is the public template that you need to install in the CloudFormation service.
 {: .prompt-info }
@@ -250,7 +248,7 @@ To deploy CfCT:
   - ![cfct-2](cfct-2.png){:class="border"}
   - ![cfct-3](cfct-3.png){:class="border"}
 
-### Manage AWS Accounts Using Control Tower Account Factory for Terraform
+### 6.2. Manage AWS Accounts Using Control Tower Account Factory for Terraform
 
 There is a Terraform solution that makes it easy to create and customize new accounts that comply with your organization's security guidelines.
 
@@ -282,7 +280,7 @@ Related to the `cost``, there are no additional charges for AFT. You pay only fo
 > However, `be careful` if you want to use this option for your personal accounts. It is not a free option because the solution uses VPC endpoints and additional components for which you have to pay! I start using it to test purposes and at the end of the month `I had to pay more than $70` (just for have it deployed on my account...)
 {: .prompt-warning }
 
-### Comparative of Customizations for Control Tower (CfCT) with Control Tower Account Factory for Terraform
+### 6.3. Comparative of Customizations for Control Tower (CfCT) with Control Tower Account Factory for Terraform
 
 | Feature / Aspect                         | Customizations for AWS Control Tower (CfCT)                                         | Control Tower Account Factory for Terraform (AFT)                                    |
 |------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
@@ -295,7 +293,7 @@ Related to the `cost``, there are no additional charges for AFT. You pay only fo
 | **Tooling Requirement**                  | Relies on AWS-native tools and services.                                            | Requires understanding and use of Terraform.                                        |
 | **Ideal for Organizations**              | Heavily invested in AWS ecosystem and prefer AWS tools for management.             | Already using Terraform and seeking to extend its capabilities to AWS management.   |
 
-## Top 5 customizations
+## 7. Top 5 customizations
 
 These are the top 5 customizations in a multi-account approach:
 

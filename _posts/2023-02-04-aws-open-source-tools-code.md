@@ -35,7 +35,7 @@ image:
 > 3/3: **How to help you with your code**: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
 {: .prompt-tip }
 
-## Introduction
+## 1. Introduction
 
 This is the last article of a series of 3 about open-source tools and AWS. The current article is about `how open-source tools can help you with your code`: to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials)
 
@@ -46,7 +46,7 @@ I have created the following sections:
 - Policy as Code
 - Compliance
 
-## Generate IaC
+## 2. Generate IaC
 
 This section is about open-source tools that will help you to generate Infrastructure as Code directly from your existing resources.
 
@@ -54,7 +54,7 @@ This section is about open-source tools that will help you to generate Infrastru
 - <kbd>terracognita</kbd>: generates your infrastructure as code `on Terraform configuration`
 - <kbd>AirIAM</kbd>: scans existing IAM usage patterns and provides a simple method to `migrate IAM configurations into a right-sized Terraform plan`
 
-### former2
+### 2.1. former2
 
 Former2 allows you to generate Infrastructure-as-Code outputs from your existing resources within your AWS account. By making the relevant calls using the AWS JavaScript SDK, Former2 will scan across your infrastructure and present you with a list of resources for you to choose which to generate outputs.
 
@@ -83,7 +83,7 @@ Supported IaC output:
 
 **More information**: [https://former2.com/#section-dashboard](https://former2.com/#section-dashboard){:target="_blank"}
 
-### terracognita
+### 2.2. terracognita
 
 Reads from existing public and private cloud providers (reverse Terraform) and `generates your infrastructure as code on Terraform configuration`.
 
@@ -100,7 +100,7 @@ Terracognita currently imports AWS, GCP, AzureRM and VMware vSphere cloud provid
 
 **URL**: [https://github.com/cycloidio/terracognita/](https://github.com/cycloidio/terracognita/){:target="_blank"}
 
-### AirIAM
+### 2.3. AirIAM
 
 AirIAM scans existing IAM usage patterns and provides a simple method to `migrate IAM configurations into a right-sized Terraform plan`. It identifies unused users, roles, groups, policies and policy attachments and replaces them with a Least Privileges Terraform code modelled to manage AWS IAM.
 
@@ -121,13 +121,13 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 > First time I used this tool the terraform template generation functionality works fine, now now I receive an error and I was not able to use it. However, I think that this tool is useful to find this iam unused resources
 {: .prompt-warning }
 
-### Summary: Which tool should I use to generate IaC?
+### 2.4. Summary: Which tool should I use to generate IaC?
 
 - CDK, CloudFormation, Troposphere, Pulumi: **former2**
 - Terraform IaC: **former2 or terracognita**
 - Specific IAM resources: former2, terracognita or **AirIAM**
 
-## Analyze IaC code: static analysis
+## 3. Analyze IaC code: static analysis
 
 > Static Code Analysis commonly refers to the running of Static Code Analysis tools that attempt to `highlight possible vulnerabilities` within ‘static' (non-running) source code. Information extracted from [OWASP website](https://owasp.org/www-community/controls/Static_Code_Analysis){:target="_blank"}
 {: .prompt-tip }
@@ -140,7 +140,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 
 All the tools in this section allow you to create custom rules
 
-### checkov
+### 3.1. checkov
 
 Checkov is a `static code analysis tool for infrastructure as code` (IaC) and also a software composition analysis (SCA) tool for images and open-source packages.
 
@@ -183,7 +183,7 @@ You can create custom policies [here for more information](https://www.checkov.i
 
 **More information**: [https://www.checkov.io/1.Welcome/Quick%20Start.html](https://www.checkov.io/1.Welcome/Quick%20Start.html){:target="_blank"}
 
-### KICS
+### 3.2. KICS
 
 Find security vulnerabilities, compliance issues, and infrastructure misconfigurations early in the development cycle of your infrastructure-as-code.
 
@@ -203,7 +203,7 @@ KICS is 100% open-source and is written in Golang using Open Policy Agent (OPA) 
 
 **More information**: [https://www.kics.io/](https://www.kics.io/){:target="_blank"}
 
-### terrascan
+### 3.3. terrascan
 
 Terrascan is a static code analyzer for Infrastructure as Code. Terrascan allows you to:
 
@@ -234,7 +234,7 @@ Terrascan policies are written using the `Rego` policy language, and you can cre
 
 **More information**: [https://runterrascan.io/docs/](https://runterrascan.io/docs/){:target="_blank"}
 
-### tfsec
+### 3.4. tfsec
 
 The tfsec open-source tool provides a security analysis of `Terraform code` and detects potential security issues based on AWS best practices.
 
@@ -267,7 +267,7 @@ Some Features:
 
 **More information**: [https://aquasecurity.github.io/tfsec/v1.28.1/](https://aquasecurity.github.io/tfsec/v1.28.1/){:target="_blank"}
 
-### cfn-nag
+### 3.5. cfn-nag
 
 The cfn-nag tool looks for patterns in `CloudFormation templates` that may indicate insecure infrastructure. It will look for:
 
@@ -289,7 +289,7 @@ The tool contains more than 150 AWS controls.
 
 **URL**: [https://github.com/stelligent/cfn_nag](https://github.com/stelligent/cfn_nag){:target="_blank"}
 
-### Summary: Which tool should I use to perform a static analysis?
+### 3.6. Summary: Which tool should I use to perform a static analysis?
 
 - CloudFormation code: checkov, KICS terrascan, cfn-nag
 - Terraform code: checkov, KICS, terrascan or tfsec
@@ -303,7 +303,7 @@ In my blog-backend-infrastructure code [available here](https://github.com/alaza
 - tfsec: N/A (only Terraform code)
 - cfn-nag: 33
 
-## Analyze IaC code: Policy as Code
+## 4. Analyze IaC code: Policy as Code
 
 > Policy-as-code is the use of code to define and manage rules and conditions to assure that your Infrastructure will be compliance with that.
 > This is a way to apply `preventative governance and compliance (shift left)`, validating Infrastructure-as-code (IaC) against your organizational best practices for security and compliance.
@@ -313,7 +313,7 @@ In my blog-backend-infrastructure code [available here](https://github.com/alaza
 - <kbd>OPA</kbd>: general-purpose policy engine that enables unified, context-aware policy enforcement across the entire stack
 - <kbd>Regula</kbd>: evaluates infrastructure as code files for potential security and compliance violations before deployment.
 
-### CloudFormation Guard
+### 4.1. CloudFormation Guard
 
 AWS CloudFormation Guard is an open-source general-purpose policy-as-code evaluation tool. It provides developers with a `simple-to-use`, yet powerful and expressive domain-specific language (DSL) to define policies and enables developers to validate JSON or YAML formatted structured data with those policies.
 
@@ -334,7 +334,7 @@ Supported: `CloudFormation Templates, CloudFormation ChangeSets, Terraform JSON`
 > This is an official aws-cloudformation tool (yet open-source), but you have to create your own rules. I didn't find the "security best practices" included in the control AWS best practices of Security Hub as rules. However, you have here some examples: [https://github.com/aws-cloudformation/cloudformation-guard/tree/main/guard-examples](https://github.com/aws-cloudformation/cloudformation-guard/tree/main/guard-examples){:target="_blank"}
 {: .prompt-warning }
 
-### Open Policy Agent (OPA)
+### 4.2. Open Policy Agent (OPA)
 
 Open Policy Agent (OPA) is an open-source, general-purpose policy engine that enables unified, context-aware policy enforcement across the entire stack.
 
@@ -360,7 +360,7 @@ OPA is a project of the Cloud Native Computing Foundation (CNCF) landscape.
 > You have to create your own OPA rules with REGO language (easy to learn). You have an online playground to test your REGO policies [here](https://play.openpolicyagent.org/){:target="_blank"}
 {: .prompt-warning }
 
-### Regula
+### 4.3. Regula
 
 Regula is a tool that evaluates infrastructure as code files for potential AWS, Azure, Google Cloud, and Kubernetes security and compliance violations prior to deployment. `Based on Open Policy Agent` (OPA) and written in REGO
 
@@ -388,14 +388,14 @@ This is the list of rules applied (in AWS there are rules for Terraform and Clou
 
 **More information**: [https://regula.dev/](https://regula.dev/){:target="_blank"}
 
-### Summary: Which tool should I use to create my custom Policy as a Code?
+### 4.4. Summary: Which tool should I use to create my custom Policy as a Code?
 
 - AWS solution: CloudFormation Guard, OPA or regula
 - Cross-provider solution: OPA or regula (both using REGO language)
 
 Or you can use any of the tools in the `static analysis` category because all of them allow you to create custom rules.
 
-## Detect credentials in code
+## 5. Detect credentials in code
 
 These tools can be applied to any git code:
 
@@ -406,7 +406,7 @@ These tools can be applied to any git code:
   - <kbd>checkov</kbd>: a static code analysis tool for infrastructure as code (including secrets)
     - This tool has been already explained a few lines before so you can get the information from there
 
-### git-secrets
+### 5.1. git-secrets
 
 Prevents you from committing passwords and other sensitive information to a git repository.
 
@@ -420,11 +420,12 @@ Prevents you from committing passwords and other sensitive information to a git 
 
 **URL**: [https://github.com/awslabs/git-secrets](https://github.com/awslabs/git-secrets){:target="_blank"}
 
-### gitleaks
+### 5.2. gitleaks
 
 Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like passwords, API keys, and tokens in git repos. Gitleaks is an easy-to-use, all-in-one solution for detecting secrets, past or present, in your code.
 
 > **Why use it**: Analyze the code of your IaC infrastructure to detect security and compliance misconfigurations.
+>
 > ![gitleaks](gitleaks.png){:class="border"}
 {: .prompt-info }
 
@@ -434,14 +435,14 @@ Gitleaks is a SAST tool for detecting and preventing hardcoded secrets like pass
 
 **URL**: [https://github.com/zricethezav/gitleaks](https://github.com/zricethezav/gitleaks){:target="_blank"}
 
-## Others
+## 6. Others
 
 - Compliance
   - <kbd>cloud custodian</kbd>: rules engine to define policies to enable a well-managed, secure and cost-optimized cloud infrastructure
 - Cost of Terraform templates:
   - <kbd>Infracost</kbd>: estimate cost for Terraform before to deploy
 
-### Cloud custodian
+### 6.1. Cloud custodian
 
 Cloud Custodian is a rules engine to define policies to enable a well-managed, secure and cost-optimized cloud infrastructure in yaml format.
 
@@ -465,7 +466,7 @@ You can apply to AWS to [here](https://cloudcustodian.io/docs/aws/gettingstarted
 > Many examples available in [https://www.cloudcustodian.io/docs/aws/examples/index.html](https://www.cloudcustodian.io/docs/aws/examples/index.html){:target="_blank"}
 {: .prompt-info }
 
-### Infracost
+### 6.2. Infracost
 
 Infracost shows cloud cost estimates for Terraform. It lets DevOps, SRE and engineers see a cost breakdown and understand costs before making changes, either in the terminal or pull requests.
 
@@ -493,7 +494,7 @@ The CDK for Terraform is also supported as it can generate Terraform
 
 **More information**: [https://www.infracost.io/docs/](https://www.infracost.io/docs/){:target="_blank"}
 
-## Next Steps
+## 7. Next Steps
 
 - **My arsenal of security tools**: [https://github.com/toniblyx/my-arsenal-of-aws-security-tools](https://github.com/toniblyx/my-arsenal-of-aws-security-tools){:target="_blank"}
 - **Improve your handsome security skills**: [https://github.com/RhinoSecurityLabs/cloudgoat](https://github.com/RhinoSecurityLabs/cloudgoat){:target="_blank"}

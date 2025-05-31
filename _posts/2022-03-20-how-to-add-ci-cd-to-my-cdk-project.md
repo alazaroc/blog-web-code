@@ -58,7 +58,7 @@ I will explain it in detail in this post.
 > I have preferred to include all of information in the same post, although I could easily split it in 2 or 3, and this post have a lot of content and images.
 {: .prompt-info }
 
-## Introduction
+## 1. Introduction
 
 Before I start showing you how to add the CI/CD I will introduce you to the basic concepts involved:
 
@@ -98,7 +98,7 @@ For this article, we will explain what means CI/CD over 4 phases of the software
 > - and Continuos Deployment (deploy automatically in prod)
 {: .prompt-tip }
 
-## CodePipeline for CDK with AWS Console
+## 2. CodePipeline for CDK with AWS Console
 
 First, we will create the solution with the AWS Console because it helps to understand how the services involved work.
 
@@ -260,7 +260,7 @@ If you want, you can check the logs in the **CloudWatch** service to verify that
 
 ![codepipeline27](console/codepipeline-27.png){:class="border"}
 
-### Improve: Use a Buildspec file inside the code
+### 2.1. Improve: Use a Buildspec file inside the code
 
 You have done a lot of manual work, and the first improvement you can **automate** is the definition of the build process itself.
 
@@ -274,7 +274,7 @@ In the following image, you can see the VSCode IDE and the new <kbd>buildspec.ym
 
 ![codepipeline29](console/codepipeline-29.png){:class="border"}
 
-### Test it: automatic execution of the pipeline when a commit is done
+### 2.2. Test it: automatic execution of the pipeline when a commit is done
 
 If you commit the new file to your repository (buildspec.yml)
 
@@ -284,7 +284,7 @@ The **pipeline runs automatically** as expected
 
 ![codepipeline31](console/codepipeline-31.png){:class="border"}
 
-## CodePipeline for CDK with IaC
+## 3. CodePipeline for CDK with IaC
 
 Now that we have deployed the CodePipeline with the AWS Console, **we will do the same with Infrastructure as Code** with CDK.
 
@@ -295,7 +295,7 @@ To do this, I will add a CodePipeline resource to my CDK project for the blog.
 > In other words, **if you use GitHub v2 you need create the connection manually**!
 {: .prompt-warning }
 
-### Selfmutation property
+### 3.1.  Selfmutation property
 
 > I want to show you first how "selfmutation" works in CDK pipelines because this it is important to know.
 {: .prompt-info }
@@ -373,7 +373,7 @@ And if you run the `cdk deploy` command again, the pipeline will be updated:
 
 Now, there are only 2 stages in the CodePipeline, the <kbd>Source</kbd> and the <kbd>Build</kbd>, the 2 that we have configured and work perfectly.
 
-### CDK Deploy
+### 3.2. CDK Deploy
 
 We will change the code of our CodePipeline service so that instead of executing a `cdk synth` command, it will execute the `cdk deploy` command.
 
@@ -430,7 +430,7 @@ And since we have added the appropriate permissions, it doesn't fail.
 
 ![cdk-codepipeline-5](iac/cdk-codepipeline-5.png){:class="border"}
 
-### Recommended deployment of CodePipeline to CDK projects
+### 3.3. Recommended deployment of CodePipeline to CDK projects
 
 > This approach is a little different.
 {: .prompt-warning }
@@ -527,7 +527,7 @@ So as you can see, using CDK's CodePipeline constructor, the following is create
 
 ![solution-2](architecture-diagrams/solution-2.png){:class="border"}
 
-## Next steps
+## 4. Next steps
 
 Further reading:
 

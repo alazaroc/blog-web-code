@@ -20,7 +20,7 @@ comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2023-10-23-introduction-to-data-analytics/
 image:
-  path: basics.jpeg
+  path: introduction_data_analytics.png
   header_post: false
 ---
 ---
@@ -34,23 +34,25 @@ I wanted to prepare the `AWS Certified Data Analytics – Specialty` certificati
 > Let's cover the fundamentals of data analytics.
 {: .prompt-info }
 
-## Understanding Data Analytics
+## 1. Understanding Data Analytics
 
 Data analytics is the practice of `examining and interpreting raw data to discover meaningful patterns, extract valuable insights, and make informed business decisions`. It involves the use of statistical analysis, data mining techniques, and visualization tools to gain a deeper understanding of data and its significance.
 
 - For children: Data analytics means looking at lots of information very carefully to find important clues and answers to questions. It's like being a detective who uses special tools to solve mysteries by studying all the evidence and putting the pieces together.
 
-## Decoding Big Data
+![introduction](introduction_data_analytics.png)
+
+## 2. Decoding Big Data
 
 Big Data refers to `extremely large and complex datasets` (generated from various sources) that are challenging to process and analyze using traditional methods.
 
 - For children: Big Data means having so much information from lots of places that it's hard to handle and understand without special tools. It's like having a giant puzzle with many pieces that we need to put together to learn new things.
 
-## AWS Certification Evolution: From "Big Data" to "Data Analytics"
+## 3. AWS Certification Evolution: From "Big Data" to "Data Analytics"
 
 Wondering why the AWS certification transitioned from `AWS Certified Big Data - Specialty` to `AWS Certified Data Analytics - Specialty`? This change mirrors the evolving landscape of data analytics, expanding beyond big data processing to encompass a broader range of analytics techniques and services offered by AWS.
 
-## Knowing When to Use Data Analytics
+## 4. Knowing When to Use Data Analytics
 
 When to use analytics <kbd>depends on the three Vs: volume, velocity, and variety of data</kbd>.
 
@@ -69,7 +71,7 @@ Here are some examples:
 - **Fraud detection and risk assessment**: Data analytics plays a crucial role in detecting fraudulent activities, identifying anomalies, and assessing risks across various industries, such as finance, insurance, and cybersecurity.
 - **Healthcare and medical research**: Data analytics is used to analyze large volumes of medical data, patient records, and genetic information to improve diagnoses, develop new treatments, and advance medical research.
 
-## Classifying Data
+## 5. Classifying Data
 
 Understanding the type of data is essential for determining the appropriate storage, analysis, and processing methods. Each data type requires different tools and techniques to make sense of the information it contains.
 
@@ -84,7 +86,7 @@ Data can be classified into different types based on its structure and organizat
   - Unstructured data includes text documents, images, videos, social media posts, emails, and sensor data. 
   - Analyzing unstructured data requires advanced techniques like natural language processing (NLP), computer vision, and machine learning algorithms to extract valuable insights.
 
-## Types of Analytics
+## 6. Types of Analytics
 
 There are three main types of analytics:
 
@@ -92,12 +94,12 @@ There are three main types of analytics:
 - **`Predictive`** Analytics: involves using <kbd>historical and current data</kbd> to make predictions or forecasts about future events or outcomes. It leverages statistical models, machine learning algorithms, and data mining techniques to identify patterns and trends and make data-driven predictions. Predictive analytics helps organizations anticipate customer behavior, optimize operations, mitigate risks, and improve decision-making processes.
 - **`Prescriptive`** Analytics: goes beyond predicting future outcomes and <kbd>recommends actions to optimize decision-making</kbd>. It utilizes advanced analytics techniques, optimization algorithms, and simulation models to provide insights on what actions should be taken to achieve desired outcomes. Prescriptive analytics helps in making informed decisions and taking proactive measures to drive desired results.
 
-## Two Approaches to Data Processing
+## 7. Two Approaches to Data Processing
 
 - **`Batch Analytics`**: Batch analytics involves processing large volumes of historical data in batches or groups. It focuses on analyzing data accumulated over a specific period, such as hours, days, or weeks. Batch analytics allows organizations to <kbd>gain insights from past data trends and patterns</kbd>. It is commonly used for tasks like generating reports, identifying long-term trends, and performing retrospective analysis.
 - **`Real-time Analytics`**: Real-time analytics refers to the analysis of data as it is generated or received, providing immediate insights and responses. It enables businesses to <kbd>make instant decisions and take immediate actions based on incoming data</kbd>. Real-time analytics is valuable for scenarios that require timely information and quick responses.
 
-## The Data Analytics Process
+## 8. The Data Analytics Process
 
 The data analytics process involves four steps:
 

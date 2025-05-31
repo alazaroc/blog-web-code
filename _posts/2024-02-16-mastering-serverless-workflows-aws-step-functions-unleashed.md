@@ -29,11 +29,11 @@ image:
 ---
 ---
 
-## Introduction
+## 1. Introduction
 
 In the ever-evolving landscape of cloud computing, AWS Step Functions stand out as a powerful service designed to `simplify the orchestration of complex, multi-step workflows`. Understanding how to leverage Step Functions can significantly enhance our ability to design robust, scalable, and efficient applications. This article dives deep into the world of AWS Step Functions, exploring its features, benefits, and practical applications.
 
-### What is AWS Step Functions
+### 1.1. What is AWS Step Functions
 
 AWS Step Functions is a `serverless orchestration service` that lets you define an application workflow as a series of event-driven steps. Through visual workflows, you can design and run workflows that stitch together services such as AWS Lambda, Amazon SNS, Amazon DynamoDB, and more, creating rich applications without the burden of managing the underlying infrastructure.
 
@@ -44,18 +44,18 @@ This is one of the step functions I used on my blog website:
 > [This is the official link to the AWS documentation](https://docs.aws.amazon.com/step-functions/latest/dg/getting-started-with-sfn.html){:target="_blank"}
 {: .prompt-info }
 
-### Key Features
+### 1.2. Key Features
 
 - `Visual Workflow Management`: Step Functions provides a graphical console to visualize the components of your application's architecture and the real-time status of its execution.
 - `Serverless Nature`: With no infrastructure to manage, you can focus on building applications rather than managing servers.
 - `Error Handling and Retries`: Step Functions offers built-in error handling, retry logic, and catch mechanisms to manage failures gracefully.
 - `Integration with AWS Services`: Seamlessly integrates with various AWS services, enabling complex workflows with minimal coding.
 
-### How Do Step Functions Work?
+### 1.3. How Do Step Functions Work?
 
 At its core, AWS Step Functions `coordinates` the components of distributed applications and microservices using visual workflows. You define your application's workflow in JSON, specifying each step of the process, including the decisions, parallel tasks, and the sequence of tasks.
 
-### Core Concepts
+### 1.4. Core Concepts
 
 - `Workflow`: Describes a sequence of steps and often matches a business process. This is also called `state machine`.
 - `States`: Represent each step of your workflow. States can perform tasks, make decisions, and more.
@@ -63,7 +63,7 @@ At its core, AWS Step Functions `coordinates` the components of distributed appl
 - `Transitions`: Control the flow from one state to another, based on the output of the current state.
 - `Service Integrations`: Step Functions can directly invoke and coordinate AWS services as part of the workflow.
 
-### Workflow Types
+### 1.5. Workflow Types
 
 Step Functions has two workflow types:
 
@@ -74,7 +74,7 @@ Step Functions has two workflow types:
 
 Executions are instances where you run your workflow to perform tasks. 
 
-### Use Cases
+### 1.6. Use Cases
 
 AWS Step Functions can be applied to a wide range of scenarios, from simple task orchestrations to complex workflows. Here are a few examples:
 
@@ -85,9 +85,9 @@ AWS Step Functions can be applied to a wide range of scenarios, from simple task
 - Parallel processing (Parallel State)
 - Dynamic parallelism (Map State)
 
-## Creating a New Step Functions Workflow
+## 2. Creating a New Step Functions Workflow
 
-### Workflow Studio
+### 2.1. Workflow Studio
 
 `Workflow Studio` is integrated into the AWS console, inside the AWS Step Functions service.
 
@@ -100,7 +100,7 @@ You can access Workflow Studio from the Step Functions console when you create o
 
 We will use the Step Functions console.
 
-### Our first Step Function Workflow using a template
+### 2.2. Our first Step Function Workflow using a template
 
 Easily, and without any knowledge, you can create your first workflow using predefined templates.
 
@@ -125,13 +125,13 @@ If you select `Build on it` you will see the `Workflow Studio` with 3 main secti
 
 In the upper level you will see:
 
+![Upper options](upper-options.png)
+
 - Name of the workflow
 - 3 buttons to change between different modes:
   - Design: this is the current mode
   - Code: you will see the workflow code using the Amazon States Language (ASL)
   - Config: you can configure the type of workflow (standard/express), the permissions, logging and additional configuration (x-ray, versions and tags).
-
-![Upper options](upper-options.png)
 
 This is the code mode:
 ![Code mode](code_mode.png)
@@ -141,7 +141,7 @@ As you can see the code in the ASL (Amazon States Language) has been auto-genera
 > I strongly recommend you to use this low-code editor to create your workflows using the `design mode` and then use the `code mode` to copy all the ASL code and paste it in your IaC code (using AWS SAM you can do it very easy!).
 {: .prompt-tip }
 
-### Real-world Architectural Example
+### 2.3. Real-world Architectural Example
 
 Let me show you one implementation I did for my blog using AWS Step Functions, maybe the most typical use case:
 
@@ -172,9 +172,9 @@ So now, I am using Step Functions instead of having everything inside a Lambda F
 
 ![Step Functions with errors](step-functions-error.png)
 
-## Deep Dive
+## 3. Deep Dive
 
-### Best Practices
+### 3.1. Best Practices
 
 To maximize the effectiveness of AWS Step Functions, consider the following best practices:
 
@@ -197,7 +197,7 @@ The following best practices have been extracted from the official documentation
   - "*If you only have a small number of polls waiting for a response, it's possible that all requests will queue up behind the blocked request and stop*..."
   - "*For production systems, we recommend at least 100 open polls per activity ARN's at each point in time.*"
 
-### Design Patterns and Architectures
+### 3.2. Design Patterns and Architectures
 
 AWS Step Functions support various design patterns and architectures, enabling cloud architects to solve complex design challenges with elegance and efficiency. Key patterns include:
 
@@ -208,18 +208,18 @@ AWS Step Functions support various design patterns and architectures, enabling c
 - `Batch Processing`: Automate batch processing workflows by coordinating the various stages of data processing, such as extraction, transformation, and loading (ETL) tasks. Step Functions can schedule and execute these tasks in sequence or parallel, handling errors and retries, and ensuring the completion of the entire batch process.
 - `Workflow Reusability`: Design reusable workflows for common tasks across different applications or parts of an application. Step Functions' support for nesting workflows allows you to invoke one workflow from another, promoting modularity and reusability of workflow components.
 
-### Comparison with Other AWS Services
+### 3.3. Comparison with Other AWS Services
 
 While AWS Step Functions is a powerful tool for `workflow orchestration`, understanding its positioning relative to other AWS services like AWS Simple Workflow Service (SWF) and Amazon EventBridge is crucial for architects:
 
 - `AWS SWF vs Step Functions`: SWF offers more granular control over workflow execution and task distribution, making it suitable for legacy applications requiring complex decision-making processes. Step Functions, with its higher-level abstraction, is better suited for serverless applications and integrating multiple AWS services.
 - `Amazon EventBridge vs Step Functions`: EventBridge is ideal for event routing and handling, connecting applications with data streams. Step Functions excel in orchestrating these events into coherent, stateful workflows, making them complementary services in event-driven architectures.
 
-### When and why migrate from Lambda Functions to Step Functions
+### 3.4. When and why migrate from Lambda Functions to Step Functions
 
 Migrating from AWS Lambda Functions to AWS Step Functions is a strategic decision that depends on the evolving needs of your application's architecture, particularly as it grows in complexity and scale. Here's when and why such a migration becomes beneficial:
 
-#### When to Migrate
+#### 3.4.1. When to Migrate
 
 1. `Complex Workflows`: When your application logic extends beyond simple, linear executions to complex workflows involving conditional logic, parallel processing, or coordination between multiple AWS services.
 1. `State Management Needs`: As your workflows require maintaining state information across multiple steps or need to manage long-running processes that exceed Lambda's execution limits.
@@ -227,7 +227,7 @@ Migrating from AWS Lambda Functions to AWS Step Functions is a strategic decisio
 1. `Scalability and Efficiency`: If managing the orchestration logic within Lambda functions becomes cumbersome and you're looking for a more scalable and efficient way to manage workflow executions.
 1. `Cost Considerations`: For workflows that trigger a high volume of Lambda functions, where the orchestration logic itself becomes a significant part of the cost.
 
-#### Why Migrate
+#### 3.4.2. Why Migrate
 
 1. `Simplified Workflow Management` with a visual design and execution: Step Functions provide a visual interface to design, manage, and monitor workflows, making it easier to understand and optimize complex processes.
 1. `Enhanced Error Handling and Retry Logic`: Step Functions offer advanced error handling and retry mechanisms, allowing you to define robust workflows that can gracefully handle failures and exceptions without complex custom code.
@@ -238,7 +238,7 @@ Migrating from AWS Lambda Functions to AWS Step Functions is a strategic decisio
 1. `Reduced Complexity`: Migrating to Step Functions can simplify your codebase by removing the orchestration logic from your Lambda functions, making them more focused on their core responsibilities.
 1. `Easier Maintenance and Updates`: Updating workflow logic becomes more straightforward with Step Functions, as changes can often be made without modifying the code of individual Lambda functions.
 
-### Pricing
+### 3.5. Pricing
 
 This is a serverless service and `you pay only for what you use`.
 
@@ -258,7 +258,7 @@ For example:
 
 [Here](https://aws.amazon.com/step-functions/pricing/){:target="_blank"} you have the official pricing page with much more detail.
 
-## Conclusion
+## 4. Conclusion
 
 AWS Step Functions revolutionizes the way we approach cloud-based application development and workflow orchestration. By abstracting the complexities of managing stateful, multi-step processes, it empowers developers and architects to design more robust, scalable, and efficient systems. Through the practical examples and best practices outlined in this article, we've seen how Step Functions facilitate seamless integration, error handling, and workflow management, allowing teams to focus on innovation rather than infrastructure.
 

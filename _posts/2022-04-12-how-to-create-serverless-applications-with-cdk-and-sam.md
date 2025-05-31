@@ -23,10 +23,13 @@ featured_post: false
 comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2022-04-12-how-to-create-serverless-applications-with-cdk-and-sam/
+image:
+  path: simple-webservice-v1.png
+  header_post: false
 ---
 ---
 
-## TLDR
+## 1. Introduction
 
 > A **serverless application** is more than just a Lambda Function. It is a combination of Lambda functions, event sources, APIs, databases, and other resources that work together to perform tasks.
 
@@ -50,14 +53,14 @@ In this article, we will review the approach to combining both **CDK + SAM**.
 > By the way, CDK + SAM is my preferred approach: you get the best of the 2 options! What do you think? You can share your opinion in the comments!
 {: .prompt-info }
 
-## CDK vs SAM
+## 2. CDK vs SAM
 
 In the linked articles below, you will find information about CDK and SAM.
 
 - CDK basics: [How to create infrastructure with CDK](/posts/how-to-create-infrastructure-with-cdk/){:target="_blank"}
 - SAM basics: [How to create serverless applications with SAM](/posts/how-to-create-serverless-applications-with-sam/){:target="_blank"}
 
-### What CDK and SAM have in common?
+### 2.1. What CDK and SAM have in common?
 
 Both...
 
@@ -68,7 +71,7 @@ Both...
 - Are well integrated with AWS build pipelines
 - Support component reuse
 
-### What are the main differences between CDK and SAM?
+### 2.2. What are the main differences between CDK and SAM?
 
 |  | CDK | SAM |
 |---|---|---|
@@ -79,17 +82,21 @@ Both...
 | Complexity | Very low | Medium, based on CloudFormation |
 | Maintainability | Higher | Medium |
 
-## Demo: CDK + SAM
+### 2.3. Why CDK vs SAM? Let's use CDK + SAM
 
-From Jan 6, 2022, [AWS announced](https://aws.amazon.com/about-aws/whats-new/2022/01/aws-serverless-application-model-sam-cli-aws-cloud-development-kit-cdk/){:target="_blank"} the general availability of AWS SAM CLI support for local testing of AWS CDK applications. It means that **you can use SAM over your CDK project to test your resources!**. Now 2 years have passed, so this integration is mature!
+From Jan 6, 2022, [AWS announced](https://aws.amazon.com/about-aws/whats-new/2022/01/aws-serverless-application-model-sam-cli-aws-cloud-development-kit-cdk/){:target="_blank"} the general availability of AWS SAM CLI support for local testing of AWS CDK applications. It means that `you can use SAM over your CDK project to test your resources!`.
 
-So... we will use a new CDK project to show how to work the combination of CDK + SAM.
+- Now, more than 2 years have passed, so this integration is mature!
+
+## 3. Hands-on: CDK + SAM
+
+We will use a new CDK project to show how to work the combination of CDK + SAM.
 
 The source code is available [here](https://github.com/alazaroc/aws-cdk-simple-webservice){:target="_blank"}. This repository has several CDK projects but first, we will use the <kbd>v1-simple</kbd>
 
 ![simple-webservice-v1](simple-webservice-v1.png){:class="border"}
 
-### Prepare to test
+### 3.1. Prepare to test
 
 With **CDK**, when you run `cdk synth`, it will synthesize a stack defined in your app into a CloudFormation template in a `json` file in the `cdk.out` folder.
 
@@ -113,7 +120,7 @@ Therefore, we have to run `cdk synth` and store the result in one file with the 
 cdk synth --no-staging > template.yml
 ```
 
-### Testing Lambda Functions
+### 3.2. Testing Lambda Functions
 
 Now, you have a `template.yml` file and can run the SAM command to test your Lambda function.
 
@@ -132,7 +139,7 @@ REPORT RequestId: 03d4ef7d-47b4-4ad2-a491-d0e5fc797ece Init Duration: 0.39 ms Du
 
 The Lambda returns the following body: `You have connected with the Lambda!`
 
-### Testing Lambda Functions with input data
+### 3.3. Testing Lambda Functions with input data
 
 If your Lambda Functions need input data, you can generate it from **SAM CLI** with the command `generate-event`
 
@@ -155,7 +162,7 @@ Mounting /Users/alazaroc/Documents/MyProjects/github/aws/cdk/aws-cdk-simple-webs
 REPORT RequestId: 992499c1-83c4-408d-966b-2e13f5955cbc Init Duration: 0.89 ms Duration: 244.32 ms Billed Duration: 245 ms Memory Size: 512 MB Max Memory Used: 512 MB
 ```
 
-### Testing API Gateway
+### 3.4. Testing API Gateway
 
 You have to run `sam local start-api`
 
@@ -198,7 +205,7 @@ REPORT RequestId: 5759a74a-40b5-4a7e-8362-eec719ae44a7 Init Duration: 0.50 ms Du
 2022-04-23 00:11:06 127.0.0.1 - - [23/Apr/2022 00:11:06] "GET /favicon.ico HTTP/1.1" 200 -
 ```
 
-## Bonus: Testing DynamoDB
+### 3.5. Bonus: Testing DynamoDB
 
 Ok, testing a mocked Lambda Function is the "hello world" example and not very useful, but what about a Lambda Function that connects to a DynamoDB table?
 
@@ -209,7 +216,7 @@ We will update our Lambda Function to store the data in a DynamoDB table, so we 
 
 ![simple-webservice-v2](simple-webservice-v2.png){:class="border"}
 
-### Case 1: Testing cloud DynamoDB
+#### 3.5.1. Case 1: Testing cloud DynamoDB
 
 When you try to locally test a Lambda Function that stores data in a DynamoDB table, **it will automatically attempt to connect to the DynamoDB service of your AWS Account**.
 
@@ -239,7 +246,7 @@ Invoking index.handler (nodejs14.x)
 ...
 ```
 
-### Case 2: Testing local DynamoDB
+#### 3.5.2. Case 2: Testing local DynamoDB
 
 You may want to test your Lambda function locally instead of connecting to your DynamoDB account, so we will do the following:
 
@@ -249,7 +256,7 @@ You may want to test your Lambda function locally instead of connecting to your 
 - Change your Lambda Function code
 - Test DynamoDB locally
 
-#### Download the DynamoDB Docker image
+##### 3.5.2.1. Download the DynamoDB Docker image
 
 First, download the DynamoDB Docker image.
 
@@ -265,7 +272,7 @@ Status: Downloaded newer image for amazon/dynamodb-local:latest
 docker.io/amazon/dynamodb-local:latest
 ```
 
-#### Run the DynamoDB Docker image locally
+##### 3.5.2.2. Run the DynamoDB Docker image locally
 
 Next, execute the locally downloaded DynamoDB Docker image.
 
@@ -286,7 +293,7 @@ CorsParams: *
 > This command will not persist data in the local DynamoDB.
 {: .prompt-warning }
 
-#### Create a local DynamoDB table
+##### 3.5.2.3. Create a local DynamoDB table
 
 To create a local <kbd>DynamoDB table</kbd> named `hits` with a `path` partition key, execute the following command:
 
@@ -323,7 +330,7 @@ To create a local <kbd>DynamoDB table</kbd> named `hits` with a `path` partition
 }
 ```
 
-#### Add values to our local DynamoDB table
+##### 3.5.2.4. Add values to our local DynamoDB table
 
 We will add two elements:
 
@@ -336,7 +343,7 @@ aws dynamodb put-item --table-name hits --item '{ "path": {"S": "/hello"} }' --r
 ```
 {: .nolineno }
 
-#### Scan your table locally
+##### 3.5.2.5. Scan your table locally
 
 We check that our table has the created elements:
 
@@ -361,7 +368,7 @@ We check that our table has the created elements:
 }
 ```
 
-#### Change Lambda Function code
+##### 3.5.2.6. Change Lambda Function code
 
 We need to update our Lambda Function code to tell DynamoDB to read from our local DynamoDB service:
 
@@ -379,7 +386,7 @@ if (process.env.AWS_SAM_LOCAL) {
 }
 ```
 
-#### Test DynamoDB locally
+##### 3.5.2.7. Test DynamoDB locally
 
 In summary, we have:
 

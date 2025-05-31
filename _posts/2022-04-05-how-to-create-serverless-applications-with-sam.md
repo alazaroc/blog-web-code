@@ -22,25 +22,28 @@ featured_post: false
 comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2022-04-05-how-to-create-serverless-applications-with-sam/
+image:
+  path: sam-code-basic.png
+  header_post: false
 ---
 ---
 
-## Introduction
+## 1. Introduction
 
 The first thing to understand is the relationship between serverless applications and AWS SAM, followed by a review of the basics.
 
-### What is a serverless application?
+### 1.1. What is a serverless application?
 
 A **serverless application** is more than just a Lambda Function. It is a `combination of` Lambda functions, event sources, APIs, databases, and other `resources that work together to perform tasks`.
 
-### What is AWS SAM?
+### 1.2. What is AWS SAM?
 
 The AWS `Serverless Application Model` (AWS SAM) is an [open-source framework](https://github.com/aws/serverless-application-model){:target="_blank"} that you can use to build serverless applications on AWS. SAM is an `extension of AWS CloudFormation` but SAM is streamlined and specifically designed for Serverless resources.
 
 > SAM is the specific IaC solution of AWS for defining and deploying serverless applications.
 {: .prompt-info }
 
-### Benefits of SAM
+### 1.3. Benefits of SAM
 
 - **Local Testing and Debugging**
   - With the `aws sam cli` you can execute and test your serverless applications on your local environment (by mounting a docker image and running the code)
@@ -60,7 +63,7 @@ The AWS `Serverless Application Model` (AWS SAM) is an [open-source framework](h
   - CodeBuild, CodeDeploy, and CodePipeline: To build a deployment pipeline
   - AWS CodeStar: To get started with a project structure, code repository, and a CI/CD pipeline that's automatically configured for you
 
-### Basics
+### 1.4. Basics
 
 > We will use `NodeJS` as programming language. However, as AWS Says in the [FAQs](https://aws.amazon.com/serverless/sam/faqs/){:target="_blank"}, you can use AWS SAM to build serverless applications that use any runtime supported by AWS Lambda.
 {: .prompt-info }
@@ -79,8 +82,7 @@ To understand the code structure of the SAM projects, five files are particularl
   4. **__tests**\__/unit/handlers/file.test.js: `test` folder contains the unit tests for the application code.
   5. **package.json**: This file of NodeJS contains the application dependencies and is used for the `sam build`. If you are using Python language instead of NodeJS, the file will be **requirements.txt**.
 
-
-### AWS SAM template anatomy
+### 1.5. AWS SAM template anatomy
 
 This is the structure of the `template.yaml`.
 
@@ -135,14 +137,14 @@ Outputs:
 
 More information [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy.html){:target="_blank"}.
 
-### Prerequisites
+### 1.6. Prerequisites
 
 - AWS CLI
   - [how to install it](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html){:target="_blank"}
   - [how configure it](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html){:target="_blank"}
 - AWS SAM CLI ([here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html){:target="_blank"})
 
-## Example of SAM application
+## 2. Building SAM Applications
 
 Let's start reviewing one example of the SAM application to show some options about what we can do here.
 
@@ -151,7 +153,7 @@ I will show you the part of the `template.yaml` file which affects the specific 
 > It's important to remember that you can incorporate CloudFormation resources into our SAM template. However, AWS SAM offers specific resources that are specially tailored for creating Lambda Functions, API Gateway, AppSync, DynamoDB, Step Functions, among several other services. All the relevant information can be found [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html){:target="_blank"}.
 {: .prompt-info }
 
-### Example of Lambda Function
+### 2.1. Example of Lambda Function
 
 The first special type, and more important, is the `AWS::Serverless::Function`, which you should use to create Lambda Functions (more information [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html){:target="_blank"}).
 
@@ -176,7 +178,7 @@ Resources:
         - AWSLambdaBasicExecutionRole
 ```
 
-### Adding an API Gateway
+### 2.2. Adding an API Gateway
 
 To add the API Gateway resource you can use the specific type of `AWS::Serverless::Api` (more information [here](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html){:target="_blank"}).
 
@@ -215,7 +217,7 @@ And you should create in `events` folder the `json` definition of the method:
 ```
 {: .nolineno }
 
-### Adding an scheduled event to the Lambda Function
+### 2.3. Adding an scheduled event to the Lambda Function
 
 Including a scheduled event to the Lambda Function is quite similar to adding an API.
 
@@ -248,7 +250,7 @@ And you should create in `events` folder the `json` definition of the rule:
 }
 ```
 
-### Adding the SNS topic resource
+### 2.4. Adding the SNS topic resource
 
 In this case, I will include the Lambda Function as a subscriber of my SNS topic.
 
@@ -266,7 +268,7 @@ Resources:
       TracingConfig: Active
 ```
 
-### Saving one property in the SSM Parameter Store
+### 2.5. Saving one property in the SSM Parameter Store
 
 ```yaml
 Resources:
@@ -279,14 +281,14 @@ Resources:
         Value: !Ref SnsTopicAsTriggerOfLambdaFunction
 ```
 
-### More examples
+### 2.6. More examples
 
 As you can see, you can add any resource using the usual `CloudFormation code` inside the `template.yaml` file.
 
 > I recommend that you run `aws sam init` and try to create different projects from the templates.
 {: .prompt-tip }
 
-## Creating a new SAM application
+## 3. Hands-on: Creating a new SAM application
 
 To keep it simple, we will create a SAM application from a `quick start template` using the `standalone function`. However you could try a different template, the steps to follow should be the same.
 
@@ -302,7 +304,7 @@ These are all the steps that I want to show you in this article:
 - Step 5: Deploy manually your application with the CLI
 - Step 6 (Optional): AWS SAM Accelerate (Preview) - Sync
 
-### Step 1: Download a sample SAM application
+### 3.1. Step 1: Download a sample SAM application
 
 The first step is to create our application through a quick start template: `Standalone function`.
 
@@ -394,7 +396,7 @@ Note that we have 4 of the 5 files that we reviewed before:
 
 We don't have the folder `events` because we only create one simple Lambda Function with no event integrations
 
-### Step 2 (Optional): Test your application locally
+### 3.2. Step 2 (Optional): Test your application locally
 
 The AWS SAM CLI provides the `sam local` command to run your application using Docker containers that simulate the execution environment of Lambda.
 
@@ -455,7 +457,7 @@ sam local invoke "helloFromLambdaFunction"
 > You should run `sam local start-api` command, which starts up a local endpoint that replicates your REST API endpoint.
 {: .prompt-info }
 
-### Step 3 (Optional): Unit test
+### 3.3. Step 3 (Optional): Unit test
 
 Tests are defined in the **__tests\__** folder in this project. Use npm to install the **Jest test framework** and run unit tests.
 
@@ -491,7 +493,7 @@ npm run test
   {% endhighlight %}
 </details>
 
-### Step 4: Build your application
+### 3.4. Step 4: Build your application
 
 The `sam build` command builds any dependencies that your application has, and copies your application source code to folders under `.aws-sam/build` to be zipped and uploaded to Lambda.
 
@@ -537,7 +539,7 @@ These are the new files of our SAM project:
 
 ![sam-build-files](sam-build-files.png){:class="border"}
 
-### Step 5: Deploy manually your application with the CLI
+### 3.5. Step 5: Deploy manually your application with the CLI
 
 Now we want to deploy our application and We will do it manually using the CLI, although in [this other article](/posts/how-to-add-ci-cd-to-my-sam-project/){:target="_blank"} I will explain how to do it with a pipeline (automatically).
 
@@ -700,7 +702,7 @@ sam deploy
   {% endhighlight %}
 </details>
 
-### Step 6 (Optional): AWS SAM Sync
+### 3.6. Step 6 (Optional): AWS SAM Sync
 
 We already have deployed our application in the cloud and you may want to synchronize the changes, i.e. `deploy the changes in real-time when we save the changes` (without running the deploy command).
 
@@ -906,7 +908,7 @@ sam deploy
   {% endhighlight %}
 </details>
 
-### Step 7: Clean up
+### 3.7. Step 7: Clean up
 
 If you are followed this tutorial you will only have one stack in our AWS Account, so you can run the `sam delete` command (which deletes the main stack: sam-app).
 
@@ -928,7 +930,7 @@ sam delete
   {% endhighlight %}
 </details>
 
-## Next steps
+## 4. Next steps
 
 Further reading:
 

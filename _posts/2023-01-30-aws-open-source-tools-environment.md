@@ -35,14 +35,14 @@ image:
 > 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/): to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
 {: .prompt-tip }
 
-## Introduction
+## 1. Introduction
 
 In this article, we will focus on the `inventory`, `analysis` and `security assessment` of the AWS environment.
 
 > Some open-source tools could appear in several categories (in this same article or among the 3 open-source tools articles). I thought it was better not to mix information between categories when a tool could be part of several of them.
 {: .prompt-warning }
 
-## Inventory and analyze your environment
+## 2. Inventory and analyze your environment
 
 These open-source tools are useful to analyze all of your AWS environment:
 
@@ -52,7 +52,7 @@ These open-source tools are useful to analyze all of your AWS environment:
 - IAM (specific)
   - <kbd>AirIAM</kbd>: Detect `IAM unused resources`: users, access keys, roles, groups, policies and policy attachments
 
-### cloudmapper
+### 2.1. cloudmapper
 
 CloudMapper helps you analyze your Amazon Web Services (AWS) environment.
 
@@ -87,7 +87,7 @@ Based on Python components.
 > There is a CDK project to run in Fargate service the CloudMapper's collection and audit capabilities nightly, across multiple accounts, sending any audit findings to a Slack channel and keeping a copy of the collected metadata in an S3 bucket. This is the diagram of the solution [https://github.com/duo-labs/cloudmapper/blob/main/auditor/README.md](https://github.com/duo-labs/cloudmapper/blob/main/auditor/README.md){:target="_blank"}
 {: .prompt-tip }
 
-### prowler
+### 2.2. prowler
 
 Prowler is an Open Source security tool... and you will find all this information in the following section (this is for inventory and analysis of the environment).
 
@@ -109,7 +109,7 @@ prowler has the functionality to perform a quick inventory check. It will give y
 
 **URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}
 
-### AirIAM
+### 2.3. AirIAM
 
 AirIAM scans existing IAM usage patterns and provides a simple method to migrate IAM configurations into a right-sized Terraform plan. It `identifies unused users, roles, groups, policies and policy attachments` and replaces them with a Least Privileges Terraform code modelled to manage AWS IAM.
 
@@ -136,7 +136,7 @@ AirIAM was created to promote immutable and version-controlled IAM management to
 > The first time I used this tool, the Terraform template generation functionality worked fine, but now I receive an error and was not able to use it. However, I think that this tool is useful to find this iam unused resources
 {: .prompt-warning }
 
-### Summary: Which tool should I use to analyze my environment?
+### 2.4. Summary: Which tool should I use to analyze my environment?
 
 It depends on what you want to do:
 
@@ -145,7 +145,7 @@ It depends on what you want to do:
 - Fast IAM unused resources analysis: `AirIAM`
 - Apply least-privilege to IAM roles (review which permissions you are not using): `cloudmapper`
 
-## Security Assessment
+## 3. Security Assessment
 
 There are many different tools to realize a security assessment of your environment.
 
@@ -157,7 +157,7 @@ There are many different tools to realize a security assessment of your environm
 - IAM
   - <kbd>cloudsplaining</kbd>: `IAM Security Assessment tool`
 
-### prowler
+### 3.1. prowler
 
 This is the second time I have mentioned prowler in this article in two different categories.
 
@@ -205,7 +205,7 @@ severity:
 
 **URL**: [https://github.com/prowler-cloud/prowler](https://github.com/prowler-cloud/prowler){:target="_blank"}
 
-### Scoutsuite
+### 3.2. Scoutsuite
 
 Scout Suite is an open-source `multi-cloud security-auditing` tool`, which enables security posture assessment of cloud environments. Using the APIs exposed by cloud providers, Scout Suite gathers configuration data for manual inspection and highlights risk areas. Rather than going through dozens of pages on the web consoles, Scout Suite presents a clear view of the attack surface automatically.
 
@@ -228,7 +228,7 @@ Scout Suite was designed by security consultants/auditors. It is meant to provid
 > I didn't found information about what security frameworks is using or more information about the security controls. However, the findings in the audit report are useful and you have to review them!
 {: .prompt-warning }
 
-### cloudsploit
+### 3.3. cloudsploit
 
 CloudSploit by Aqua is an open-source project designed to detect security risks in cloud infrastructure accounts, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), Oracle Cloud Infrastructure (OCI), and GitHub. These scripts are designed to return a series of `potential misconfigurations and security risks`.
 
@@ -260,7 +260,7 @@ Compliance:
 > I didn't found how to scan only a few regions. In the official documentation only is included how to suppress all one region results `./index.js --suppress *:us-east-1:*`. And to exclude more than one region you can use something like this `--suppress "*:ap-*-*:*" --suppress "*:af-*-*:*" ...`
 {: .prompt-tip }
 
-### steampipe
+### 3.4. steampipe
 
 I mentioned this tool in my first article about open-source when I talked about `Extend CLI` capabilities [here](/posts/aws-open-source-tools/#steampipe){:target="_blank"}
 
@@ -292,7 +292,7 @@ More information (checks and dashboard):
 - [https://steampipe.io/docs/dashboard/overview](https://steampipe.io/docs/dashboard/overview){:target="_blank"}
 - [https://aws.amazon.com/blogs/opensource/compliance-auditing-with-steampipe-and-sql/](https://aws.amazon.com/blogs/opensource/compliance-auditing-with-steampipe-and-sql/){:target="_blank"}
 
-### cloudsplaining
+### 3.5. cloudsplaining
 
 Cloudsplaining is an AWS `IAM Security Assessment tool` that identifies violations of least privilege and generates a risk-prioritized HTML report.
 
@@ -318,7 +318,7 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 
 **URL**: [https://github.com/salesforce/cloudsplaining](https://github.com/salesforce/cloudsplaining){:target="_blank"}
 
-### Summary: Which tool should I use to perform security assessments on my account?
+### 3.6. Summary: Which tool should I use to perform security assessments on my account?
 
 > This is my personal opinion. If you have a different one, let me know in the comments at the end of this article!
 {: .prompt-warning }
@@ -328,7 +328,7 @@ CloudMapper helps you analyze your Amazon Web Services (AWS) environments (using
 - Richer tool security assessment based on frameworks: `steampipe`
 - IAM specific security assessment: `cloudsplaining`
 
-## Next steps
+## 4. Next steps
 
 The next article related with open-source tools will be:
 

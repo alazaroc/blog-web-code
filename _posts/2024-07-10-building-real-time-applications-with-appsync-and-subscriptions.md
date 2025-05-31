@@ -38,17 +38,17 @@ As I explained in the first AppSync article, real-time capabilities are becoming
 > Using subscriptions with AWS AppSync, you will set up `real-time capabilities` in your applications.
 {: .prompt-info }
 
-## What are GraphQL subscriptions?
+## 1. What are GraphQL subscriptions?
 
 GraphQL subscriptions are a powerful feature that allows clients to receive real-time updates from the server. Unlike queries and mutations, which are one-time operations, subscriptions enable a continuous stream of data between the client and the server. This is particularly useful for applications that require real-time notifications or updates.
 
-## Key benefits of using AWS AppSync subscriptions
+## 2. Key benefits of using AWS AppSync subscriptions
 
 - **Real-time Updates**: Subscriptions push data to clients as soon as changes occur, ensuring users always have the latest information.
 - **Efficiency**: Reduces the need for constant polling, saving bandwidth and improving performance.
 - **Seamless Integration**: Easily integrates with other AWS services, such as DynamoDB, Lambda, and more.
 
-## Demos: Setting up real-time subscriptions with AWS AppSync
+## 3. Demo: Setting up real-time subscriptions with AWS AppSync
 
 Let's dive into the practical aspects of setting up real-time subscriptions in AWS AppSync.
 
@@ -58,7 +58,7 @@ This is the architecture of the solution we will build:
 
 ![AWS real-time architecture v1](real-time-architecture-v1.png)
 
-### 1. Create the DynamoDB Table
+### 3.1. Create the DynamoDB Table
 
 We'll use a DynamoDB table to store message data. Here's the table schema we will create:
 
@@ -91,9 +91,9 @@ With this execution, we also have created one first element in the "Messages" ta
 
 ![DynamoDB table created with one element](dynamodb-table-created-with-one-element.png)
 
-### 2. Create and configure the AWS AppSync API
+### 3.2. Create and configure the AWS AppSync API
 
-#### Creating subscriptions
+#### 3.2.1. Creating subscriptions
 
 We will create a new AppSync API that will be connected with the DynamoDB table. In this case, we will not do it with Terraform, because we are here to learn how AppSync works for the real-time configuration. We will do it manually.
 
@@ -131,13 +131,13 @@ I want to repeat it because this is how it works.
 > By subscribing to a mutation operation, you will receive a notification each time that operation is executed. This subscription establishes a WebSocket connection that is triggered specifically by the mutation operation, not directly by the database itself. Therefore, if you modify the database outside of the AWS AppSync service, you will not receive any notification.
 {: .prompt-warning }
 
-#### Get notified if the database is modified
+#### 3.2.2. Get notified if the database is modified
 
 To be notified if the change is done directly in the database without the use of the mutation operation of the AWS AppSync, you will have to use an additional configuration. In the case you were using DynamoDB, you will have to enable DynamoDB Streams and you will have to configure a Lambda function to notify your AWS AppSync. You can see it in the following diagram:
 
 ![AWS real-time architecture v2](real-time-architecture-v2.png)
 
-#### Alternative subscription: pub/sub channel
+#### 3.2.3. Alternative subscription: pub/sub channel
 
 You can also create directly a real-time API, creating a simple pub/sub API powered by serverless WebSockets
 
@@ -165,7 +165,7 @@ type Subscription {
 
 And then you can use the mutation operation of `publish` to publish the data, and the subscription of `subscribe` to receive it in real-time. That's all.
 
-### 3. Implement real-time application
+### 3.3. Implement real-time application
 
 We will continue with our example of real-time application of messages stored in the DynamoDB table of `Messages` we had created before.
 
@@ -277,7 +277,7 @@ Let's explain how to use the connection with the subscription operation.
 
   ![app running](app-1.png)
 
-### 4. Testing the application
+### 3.4. Testing the application
 
 To test the real-time application we have to create a message using the mutation operation of `createMessages`.
 
@@ -289,7 +289,7 @@ Step 1, preparing the operation
 Step 2, running the operation and creating the message will update immediately the message in our real-time application:
 ![create message 2](create-message-2.png)
 
-## Conclusion
+## 4. Conclusion
 
 With AWS AppSync and subscriptions, building real-time applications becomes a straightforward process. By following this guide, you've set up a messaging system that notifies users in real-time whenever new messages are submitted. This approach can be extended to various use cases, making your applications more interactive and responsive.
 

@@ -35,7 +35,7 @@ image:
 > 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/): to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
 {: .prompt-tip }
 
-## Introduction
+## 1. Introduction
 
 The `Open Source Initiative` defines [here](https://opensource.org/osd){:target="_blank"} the following criteria for considering software as open-source:
 
@@ -66,7 +66,7 @@ In this post, I will try to show you some open-source projects, since you probab
 > So, let's start sharing public code!
 {: .prompt-info }
 
-## Main AWS open-source tools
+## 2. Main AWS open-source tools
 
 Let's start with the most popular AWS open-source projects.
 
@@ -91,7 +91,7 @@ You are probably already using some of them and did not realize they are open-so
 - <kbd>Firecracker</kbd>: Virtual machine monitor (VMM) to create and manage microVMs. Firecracker powers the AWS Lambda service.
   - [https://firecracker-microvm.github.io/](https://firecracker-microvm.github.io/){:target="_blank"}
 
-## Extend AWS CLI
+## 3. Extend AWS CLI
 
 My first idea was to name this section `CLI tools` but all the open-source tools listed here are CLI (Command Line Interface) tools, so this section is for the tools that you can use to improve/extend/replace your AWS CLI tool.
 
@@ -105,7 +105,7 @@ My first idea was to name this section `CLI tools` but all the open-source tools
 - Logs
   - <kbd>awslogs</kbd>: a simple command line tool for `querying` groups, streams and events `from Amazon CloudWatch logs`
 
-### aws-vault
+### 3.1. aws-vault
 
 `aws-vault` securely stores and accesses AWS credentials in a development environment.
 
@@ -127,7 +127,7 @@ AWS Vault stores IAM credentials in your operating system's secure keystore and 
 > In my opinion, this tool is a must-have for securing your credentials.
 {: .prompt-tip }
 
-### aws-shell
+### 3.2. aws-shell
 
 The interactive productivity booster for the AWS CLI
 
@@ -147,7 +147,7 @@ The interactive productivity booster for the AWS CLI
 > However, if you use the v1, the tool is worth it because it contains all the core AWS services.
 {: .prompt-warning }
 
-### awsls
+### 3.3. awsls
 
 A list command for AWS resources. More than 100 AWS resources are supported. The goal is to code-generate a list function for every AWS resource that is covered by the Terraform AWS Provider (currently over 500)
 
@@ -165,7 +165,7 @@ A list command for AWS resources. More than 100 AWS resources are supported. The
 > Although it has not been updated recently, it is worth using for its ability to search multiple accounts and filter using the GREP command.
 {: .prompt-warning }
 
-### steampipe
+### 3.4. steampipe
 
 Steampipe is the universal interface to APIs. Use SQL to query cloud infrastructure, SaaS, code, logs, and more.
 
@@ -188,7 +188,7 @@ More information (querying AWS resources):
 > I like this tool! If I want to get specific information in AWS using a CLI tool this is my first choice to do so, I recommend you to try it!
 {: .prompt-tip }
 
-### awslogs
+### 3.5. awslogs
 
 awslogs is a simple command line tool for querying groups, streams and events from Amazon CloudWatch logs.
 
@@ -206,7 +206,7 @@ awslogs is a simple command line tool for querying groups, streams and events fr
 > The tool is not updated but if you want to query the CloudWatch logs, this is your tool!
 {: .prompt-warning }
 
-### ohmyzsh with the AWS plugin
+### 3.6. ohmyzsh with the AWS plugin
 
 If you are using ohmyzsh (framework for managing your zsh configuration), you can add this `aws` plugin to extend your CLI.
 
@@ -222,7 +222,7 @@ This plugin provides completion support for AWS CLI and a few utilities to manag
 
 **URL**: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aws){:target="_blank"}
 
-## Next steps
+## 4. Next steps
 
 As I said in the introduction, there are 2 more articles in this series of open-source tools:
 

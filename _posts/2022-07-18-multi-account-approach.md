@@ -33,11 +33,11 @@ image:
 >
 {: .prompt-tip }
 
-## Introduction
+## 1. Introduction
 
 This is the first article related to the multi-account approach, and the first thing to review is to know `when and why you need a multi-account solution`.
 
-### When do you need a multi-account solution?
+### 1.1. WHEN do you need a multi-account solution?
 
 If you are using AWS for your personal projects and you have a simple solution without many resources, it is not worth it. Or maybe your solution is not so simple but you don't want to worry about the additional operational overhead to manage it. This was exactly my case but in this article, I want to show you when, why and how to deploy a multi-account solution.
 
@@ -51,14 +51,14 @@ Then, for me, it is very simple:
 - Medium/Big enterprise solution - mandatory
 
 What AWS says?
-> While you may begin your AWS journey with a single account, AWS recommends that you "*set up multiple accounts, as your workloads grow in size and complexity*". Extracted from [here](https://aws.amazon.com/organizations/getting-started/best-practices/?org_console){:target="_blank"}
+> While you may begin your AWS journey with a single account, AWS recommends that you "`set up multiple accounts, as your workloads grow in size and complexity`". Extracted from [here](https://aws.amazon.com/organizations/getting-started/best-practices/?org_console){:target="_blank"}
 >
 > Also, "*If you have a single account today and either have production workloads in place or are considering deploying production workloads, we recommend that you transition to the use of multiple accounts so that you can gain the Benefits of using multiple AWS accounts.*" Extracted from [here](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/single-aws-account.html){:target="_blank"}
 {: .prompt-info }
 
-### Why do you need a multi-account solution?
+### 1.2. WHY do you need a multi-account solution?
 
-The main reason to do it is **isolation**. An AWS account serves as a resource container and the easiest way to isolate resources is by using different accounts.
+The main reason to do it is `isolation`. An AWS account serves as a resource container and the easiest way to isolate resources is by using different accounts.
 
 There are many reasons to use isolations:
 
@@ -73,15 +73,15 @@ Some other advantages of a multi-account solution are:
 - **to simplify billing** - You can use a tagging strategy and cost allocation tags to track your AWS costs on a detailed level in the same account but is much better to use multiple accounts to do the same.
 - Promote innovation and agility
 
-### The disadvantage of a multi-account solution
+### 1.3. The disadvantage of a multi-account solution
 
 The main disadvantage if you want a multi-account solution is the `management` of all accounts (do it in the same way, create new accounts, duplicate efforts,... this is, mismanagement).
 
-## Multi-account approach: AWS Organizations
+## 2. Multi-account approach: AWS Organizations
 
 AWS provides a resource to help you centrally manage and govern your environment: [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html){:target="_blank"}
 
-### Core concepts
+### 2.1. Core concepts
 
 - **Organization**: an entity to administer accounts as a single unit
 - **Account**: standard AWS account that contains your AWS resources
@@ -90,7 +90,7 @@ AWS provides a resource to help you centrally manage and govern your environment
 
 ![aws-organizations-summary](aws-organizations-summary.png){:class="border"}
 
-### Features / Advantages
+### 2.2. Features / Advantages
 
 - Free to use
 - Centralized management of your AWS accounts
@@ -100,7 +100,7 @@ AWS provides a resource to help you centrally manage and govern your environment
 - Consolidated billing for all member accounts
 - Configure supported AWS services to perform actions in your organization.
 
-### AWS Services integration
+### 2.3. AWS Services integration
 
 This is the full list of supported service integration with AWS Organizations service. I have included all the services because is important to know that AWS Organizations can help with many integrations and automatization in the new accounts.
 
@@ -137,7 +137,7 @@ This is the full list of supported service integration with AWS Organizations se
 - **Tag policies** (help you standardize tags across resources)
 {: .prompt-info }
 
-### Recommended organization structure (best practices)
+### 2.4. Recommended organization structure (best practices)
 
 > The following recommendations need to be adapted to each Organization. Each case is different and you have to think about how grouping accounts and how many OUs you need.
 {: .prompt-warning }
@@ -171,7 +171,7 @@ More information in the official AWS links:
 - [Best practices for management account and for member accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_best-practices.html){:target="_blank"}
 - [Basic organization](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/basic-organization.html){:target="_blank"}
 
-## Get Started with AWS Organizations
+## 3. Get Started with AWS Organizations
 
 <kbd>AWS Organizations</kbd> is the service to helps us with central management for multiple AWS accounts.
 
@@ -202,7 +202,7 @@ Easy? Not really... you can do it all manually if you need heavy customization, 
 
 Fortunately, AWS has another service to help us: <kbd>AWS Control Tower</kbd>.
 
-## AWS Control Tower
+## 4. AWS Control Tower
 
 > AWS Control Tower offers the easiest way to set up and govern a new, secure, compliant, multi-account AWS environment. It establishes a **landing zone**, which is a well-architected, multi-account environment based on best-practice blueprints, and enables governance using **guardrails** you can choose. Guardrails are SCPs and AWS Config rules that implement governance for security, compliance, and operations.
 >
@@ -269,7 +269,7 @@ To clean up the AWS Control Tower you need to decommission it and then wait unti
 
 ![aws-control-tower-11](aws-control-tower-11.png){:class="border"}
 
-## Next steps
+## 5. Next steps
 
 - Next post: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/)
 - Comment this post

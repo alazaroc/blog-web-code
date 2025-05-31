@@ -28,7 +28,7 @@ image:
   header_post: false
 ---
 
-## Introduction
+## 1. Introduction
 
 In previous articles, we have discussed about `Terraform` and explored various `DevOps strategies for automating deployments on AWS`.
 
@@ -40,14 +40,14 @@ Now, we'll automate the `deployment of Terraform projects using GitHub Actions`.
 
 You can find the repository created for this article here [aws-terraform-github-actions-deployment](https://github.com/alazaroc/terraform-aws-cicd-github-actions).
 
-> This same approach can be used to deploy any AWS resource!
+> Feel free to customize the example. You can use this same approach can be used to deploy any AWS resource!
 {: .prompt-tip }
 
-### What is GitHub Actions?
+### 1.1. What is GitHub Actions?
 
 **GitHub Actions** is an automation tool within GitHub that allows you to create workflows triggered by GitHub events, such as pushes or pull requests. It's commonly used for CI/CD pipelines to automate tasks like testing, building, and deploying applications.
 
-### How GitHub Actions works with Terraform
+### 1.2. How GitHub Actions works with Terraform
 
 When using GitHub Actions to deploy Terraform resources, the typical workflow involves:
 
@@ -55,7 +55,7 @@ When using GitHub Actions to deploy Terraform resources, the typical workflow in
 - **Setting up AWS credentials** using GitHub Secrets.
 - **Running Terraform commands** (e.g., `terraform plan`, `terraform apply`) to manage infrastructure.
 
-### Prerequisites
+### 1.3. Prerequisites
 
 Before getting started, make sure you have:
 
@@ -66,7 +66,7 @@ Before getting started, make sure you have:
 - **Configure remote backend for Terraform State** (Optional): You can use an S3 bucket and DynamoDB table to manage state locking.
 - **Terraform Installed Locally** it's recommended for testing locally before committing.
 
-## Step 1: Prepare the Terraform Code
+## 2. Step 1: Prepare the Terraform Code
 
 Create your Terraform code. In this example, we will deploy a simple AWS Budget resource, but you can deploy anything using Terraform.
 
@@ -110,10 +110,7 @@ resource "aws_budgets_budget" "zero_spend_budget" {
 > If you include the backend configuration but you have not created the S3 bucket and the DynamoDB table in the first place, you will receive an error in the pipeline execution.
 {: .prompt-danger }
 
-> Feel free to customize the example, as the focus of this article is on the deployment process, not the specific resource. 
-{: .prompt-tip }
-
-## Step 2: Configure GitHub Actions for Terraform Deployment
+## 3. Step 2: Configure GitHub Actions for Terraform Deployment
 
 Now that we have the Terraform code, let's set up `GitHub Actions` to automate its deployment.
 
@@ -166,7 +163,7 @@ jobs:
       #   run: terraform destroy -auto-approve
 ```
 
-## Step 3: Configuring AWS Credentials in GitHub
+## 4. Step 3: Configuring AWS Credentials in GitHub
 
 To allow GitHub Actions to deploy resources in your AWS account, you need to store your AWS credentials in GitHub Secrets.
 
@@ -187,7 +184,7 @@ This ensures that your AWS credentials are securely available to the GitHub Acti
 > GitHub also has built-in `Secrets Detection` to prevent accidental exposure. {: .prompt-warning }
 {: .prompt-warning }
 
-## Step 4: Testing the Setup
+## 5. Step 4: Testing the Setup
 
 Push your Terraform code and GitHub Actions configuration to the main branch.
 
@@ -207,13 +204,13 @@ Now, each time you push changes to the repository, the pipeline will be triggere
 
 ![9-new-execution-without-changes](9-new-execution-without-changes.png)
 
-## Conclusion
+## 6. Conclusion
 
 By using `GitHub Actions` to deploy Terraform resources, `you can fully automate your infrastructure management processes`. The combination of Terraform and GitHub Actions creates a powerful CI/CD pipeline, allowing you to deploy infrastructure changes automatically.
 
 Although we used an AWS Budget resource in this example, you can apply the same process to any other AWS resource supported by Terraform.
 
-## Next steps
+## 7. Next steps
 
 - Manual Approval for terraform apply: Add a manual approval step to review the terraform plan output
 - Include Security Tools: Integrate tools like tflint and checkov to lint and check for security issues

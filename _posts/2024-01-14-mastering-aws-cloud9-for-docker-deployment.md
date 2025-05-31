@@ -27,7 +27,7 @@ important_notice: AWS Cloud9 is deprecated, affecting new customer access (effec
 ---
 ---
 
-> Updated: AWS Cloud9 deprecation warning.
+> Updated: <kbd>AWS Cloud9 deprecation Service WARNING</kbd>.
 >
 > AWS says: "After careful consideration, we have made the decision to close new customer access to AWS Cloud9, effective July 25, 2024. AWS Cloud9 existing customers can continue to use the service as normal. AWS continues to invest in security, availability, and performance improvements for AWS Cloud9, but we do not plan to introduce new features. You will find more information" [here](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/){:target="_blank"}.
 {: .prompt-danger }
@@ -41,7 +41,7 @@ important_notice: AWS Cloud9 is deprecated, affecting new customer access (effec
 - It includes a code editor, debugger, and terminal.
 - You already have pre-installed the main tools you will need to download and create your code (including git or docker).
 
-## Introduction to AWS Cloud9
+## 1. Introduction to AWS Cloud9
 
 `Have you ever been frustrated by the restrictions of your local development environment?` If so, you're not the only one.
 
@@ -53,22 +53,22 @@ In this article, we delve into how Cloud9 doesn't just offer convenience but bri
 
 To give you a clear picture, here are the foremost strengths and weaknesses.
 
-#### Advantages: 
+#### Advantages
 
 - `Integrated Development Environment`: Cloud9 offers a comprehensive IDE setup directly in the cloud. This means you can bypass the often tedious process of configuring your local environment, streamlining your development process significantly.
 - `Accessibility`: With its cloud-based nature, Cloud9 provides the flexibility to code from anywhere. Whether you're at home, in a café, or halfway across the world, all you need is an internet connection and you're ready to code.
 - `AWS Integration`: Cloud9's integration with AWS services is seamless, enhancing your workflow efficiency. This includes direct access to the AWS CLI, easy integration with AWS CodeCommit, and more, making it a breeze to manage AWS-related tasks within the IDE.
 - `Collaborative Features`: The platform supports real-time collaboration, allowing multiple developers to work on the same project simultaneously. This feature is invaluable for team projects and paired programming sessions.
 
-#### Limitations:
+#### Limitations
 
 - `Cost Factor`: While Cloud9 offers an abundant set of features, it's important to note that it's not entirely free. Usage beyond the AWS free tier involves costs, such as running an EC2 instance or a server. For instance, in Ireland, a t2.micro instance costs about $0.0126 per hour.
 - `Internet Dependency`: As a cloud-based IDE, Cloud9 requires a stable and continuous internet connection. This could be a drawback in environments with limited or unreliable internet access.
 - `Limited Customization`: When compared to some local IDEs, Cloud9 might have limitations in terms of customization options. While it offers a range of functionalities, developers accustomed to highly personalized local environments might find this aspect slightly restrictive.
 
-## Starting with Cloud9
+## 2. Starting with Cloud9
 
-### Initializing Your Cloud9 Environment
+### 2.1. Initializing Your Cloud9 Environment
 
 Setting up your AWS Cloud9 environment is a straightforward process. Here's how you can do it:
 
@@ -81,7 +81,7 @@ Setting up your AWS Cloud9 environment is a straightforward process. Here's how 
 
 ![environment](environment.png)
 
-### Managing Your Environment Post-Use
+### 2.2. Managing Your Environment Post-Use
 
 You have to know how to stop the environment if you want to reuse it.
 
@@ -95,18 +95,18 @@ error: unable to access
 > ![error: unable to access](error_unable_to_access.png)
 {: .prompt-info }
 
-### Sharing your environment
+### 2.3. Sharing your environment
 
 Cloud9 also allows for `collaborative work`. You can share your development environment with another IAM user within AWS:
 In the IDE, use the Share option to grant access to another user.
 
 These environments will then appear under 'My environments' or 'Shared with me' in the AWS Cloud9 service, facilitating easy collaboration.
 
-## Working with Cloud9
+## 3. Working with Cloud9
 
 Now that your Cloud9 environment is set up, let's explore some tasks you can perform within this versatile IDE.
 
-### Integration with git repositories
+### 3.1. Integration with git repositories
 
 Version control integration is a crucial first step in any development project, and Cloud9 simplifies this with its seamless Git integration.
 
@@ -134,7 +134,7 @@ With Cloud9, you can effortlessly connect with AWS CodeCommit or other Git repos
 
 After cloning, your application code is immediately accessible in the IDE, ready for the next steps.
 
-### Prepare the application for Testing
+### 3.2. Prepare the application for Testing
 
 Before diving into testing, there are a couple of essential steps we need to take to ensure our application is ready and accessible.
 
@@ -152,10 +152,9 @@ In your browser settings, ensure that third-party cookies or cross-site tracking
 
 ![environment](run_app_block_third_party_cookies.png)
 
-### Testing your application
+### 3.3. Testing your application
 
 Now, let's proceed to test two microservices – one built with `Node.js` and the other with `Python`. You can find the sample code for these microservices [here](https://github.com/alazaroc/microservices){:target="_blank"}.
-
 
 These two applications are prepared to be executed locally directly (after installation of the packages/libraries), but they also contain a Dockerfile, so they are containerized and we can use Docker to test them.
 
@@ -164,7 +163,7 @@ These two applications are prepared to be executed locally directly (after insta
 > This integration with Cloud9 enhances productivity and `reduces the 'it works on my machine' syndrome`. We'll delve into how Dockerizing our Node.js and Python applications within Cloud9 streamlines the development and deployment processes, making our applications more portable and scalable.
 {: .prompt-info }
 
-#### Node.js application
+#### 3.3.1. Node.js application
 
 ##### Installation
 
@@ -227,7 +226,7 @@ To run the application as a Docker container:
 docker run -p 3000:3000 --name ms-nodejs ms-nodejs
 ```
 
-#### Python application
+#### 3.3.2. Python application
 
 ##### Installation
 
@@ -237,7 +236,7 @@ Install the required Python packages:
 pip install Flask requests
 ```
 
-#####  Running the Application
+##### Running the Application
 
 To run the microservice, execute the following command:
 
@@ -263,12 +262,11 @@ To run the application as a Docker container:
 docker run -p 5000:5000 --name ms-python ms-python
 ```
 
-### Pushing Docker Images to Amazon ECR
+### 3.4. Pushing Docker Images to Amazon ECR
 
 The next step, after building and testing the Docker images of these 2 applications is to upload them to `Amazon Elastic Container Registry` (ECR).
 
-
-#### Create the ECR repositories
+#### 3.4.1. Create the ECR repositories
 
 ```shell
 aws ecr create-repository \
@@ -281,7 +279,7 @@ aws ecr create-repository \
     --region eu-west-1
 ```
 
-#### Get the local images
+#### 3.4.2. Get the local images
 
 ```console
 docker images 
@@ -289,7 +287,7 @@ docker images
 
 ![docker_images](docker_images.png)
 
-#### Login to ECR
+#### 3.4.3. Login to ECR
 
 ```console
 aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin xxxxxxxxxxxx.dkr.ecr.eu-west-1.amazonaws.com
@@ -298,7 +296,7 @@ aws ecr get-login-password --region eu-west-1 | docker login --username AWS --pa
 > Replace `xxxxxxxxxxxx` by your account_number
 {: .prompt-warning }
 
-#### Push images to ECR
+#### 3.4.4. Push images to ECR
 
 ```shell
 docker tag edSae8fef003 xxxxxxxxxxxx.dkr.ecr.eu-west-1.amazonaws.com/ms-python:latest
@@ -311,7 +309,7 @@ docker push xxxxxxxxxxxx.dkr.ecr.eu-west-1.amazonaws.com/ms-nodejs:latest
 > Replace `edSae8fef003` and `fa3757c48c72` by your ms_nodejs and ms_python images ids
 {: .prompt-warning }
 
-## Conclusion
+## 4. Conclusion
 
 We've journeyed through setting up AWS Cloud9, integrating it with Git repositories, testing Docker applications, and finally, pushing Docker images to Amazon ECR. This walkthrough demonstrates the seamless integration and powerful capabilities of AWS Cloud9 in managing Docker-based projects.
 
@@ -321,4 +319,4 @@ But don't let the journey end here. Your experiences, insights, and innovations 
 
 Together, let's continue to explore, innovate, and elevate the art of development with AWS Cloud9. Dive in, share your story, and let's all grow as a community of forward-thinking developers.
 
-Happy coding!
+`Happy coding!`

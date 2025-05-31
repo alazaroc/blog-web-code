@@ -21,6 +21,9 @@ featured_post: false
 comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2022-03-15-how-to-deploy-a-web-with-amplify/
+image:
+  path: amplify-1.1-new.png
+  header_post: false
 ---
 ---
 

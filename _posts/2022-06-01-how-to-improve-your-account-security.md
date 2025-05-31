@@ -16,14 +16,17 @@ tags:
 level: 200
 published: true
 pin: false
-featured_post: true
+featured_post: false
 comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2022-06-01-how-to-improve-your-account-security/
+image:
+  path: evolution-path.png
+  header_post: false
 ---
 ---
 
-## TLDR
+## 1. Introduction
 
 You already have one or multiple AWS accounts and you want to improve your security approach, the Well-Architected Framework (security pillar) contains a lot of information, [I did a full summary here](/posts/getting-started-with-aws-security/){:target="_blank"}, and you may want to learn about a plan to improve your account.
 
@@ -33,7 +36,7 @@ I will share with you two resources to do it:
   - Contains 4 phases. The first one, `quick wins`, allows you fast security improvements
 - Article in the AWS security blog: The top 10 most important cloud security tips that Stephen Schmidt, Chief Information Security Officer for AWS, laid out at AWS re:Invent 2019
 
-## AWS Security Maturity Model
+## 2. AWS Security Maturity Model
 
 It is a valuable resource for reviewing the current status and improving the security of your solutions.
 
@@ -44,9 +47,9 @@ The classification of the different recommendations into categories depends on t
 
 The official documentation is located [here](https://maturitymodel.security.aws.dev/en/){:target="_blank"}
 
-### Introduction
+### 2.1. Introduction
 
-#### Security Frameworks
+#### 2.1.1. Security Frameworks
 
 Multiple frameworks help you design the construction of a plan to provide security to your loads in the cloud.
 
@@ -55,7 +58,7 @@ Multiple frameworks help you design the construction of a plan to provide securi
 - [Center for Internet Security (CIS) AWS Foundations](https://d1.awsstatic.com/whitepapers/compliance/AWS_CIS_Foundations_Benchmark.pdf){:target="_blank"}
 - [Cloud Adoption Framework](https://aws.amazon.com/professional-services/CAF/){:target="_blank"}
 
-#### How to prioritize
+#### 2.1.2. How to prioritize
 
 "With so many services, security controls, and recommendations... How do I prioritize? Where do I start?"
 
@@ -64,11 +67,11 @@ Multiple frameworks help you design the construction of a plan to provide securi
 
 ![quick-wins](quick-wins.png){:class="border"}
 
-#### Evolutive path
+#### 2.1.3. Evolutive path
 
 ![evolution-path](evolution-path.png){:class="border"}
 
-### Phase 1. Quick Wins
+### 2.2. Phase 1. Quick Wins
 
 Quick Wins are the first thing to focus on, controls that you could implement in an organization within a maximum of one or two weeks, and will significantly improve your security standpoint.
 
@@ -86,7 +89,7 @@ Quick Wins are the first thing to focus on, controls that you could implement in
 
 [Link](https://maturitymodel.security.aws.dev/en/1.-quickwins/){:target="_blank"} to the updated content and more information on each recommendation
 
-### Phase 2. Foundational
+### 2.3. Phase 2. Foundational
 
 The controls and recommendations may take some more effort to implement but are very important.
 
@@ -104,7 +107,7 @@ The controls and recommendations may take some more effort to implement but are 
 
 [Link](https://maturitymodel.security.aws.dev/en/2.-foundational/){:target="_blank"} to the updated content and more information on each recommendation
 
-### Phase 3. Efficient
+### 2.4. Phase 3. Efficient
 
 There are some controls and recommendations that allow us to manage security efficiently.
 
@@ -122,7 +125,7 @@ There are some controls and recommendations that allow us to manage security eff
 
 [Link](https://maturitymodel.security.aws.dev/en/1.-quickwins/){:target="_blank"} to the updated content and more information on each recommendation
 
-### Phase 4. Optimized
+### 2.5. Phase 4. Optimized
 
 And finally, there are those controls and recommendations that allow you to optimize in a **continuous improvement cycle**, the security posture every day. It will be characterized by security controls that are often seen in more mature organizations, in terms of security or large organizations with very demanding requirements.
 
@@ -140,7 +143,7 @@ And finally, there are those controls and recommendations that allow you to opti
 
 [Link](https://maturitymodel.security.aws.dev/en/1.-quickwins/){:target="_blank"} to the updated content and more information on each recommendation
 
-### Complete Maturity Level
+### 2.6. Complete Maturity Level
 
 This is the complete maturity model with all the phases through all the epics.
 
@@ -149,7 +152,7 @@ This is the complete maturity model with all the phases through all the epics.
 
 ![complete-maturity-level](complete-maturity-level.png)
 
-## Top 10 recommendations
+## 3. Top 10 recommendations
 
 > These are the top 10 most important cloud security tips that Stephen Schmidt, Chief Information Security Officer for AWS, laid out at AWS re:Invent 2019.
 {: .prompt-info }

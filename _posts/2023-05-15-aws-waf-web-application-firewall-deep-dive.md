@@ -26,19 +26,19 @@ image:
 ---
 ---
 
-## Introduction
+## 1. Introduction
 
 A Web Application Firewall (WAF) is a security solution that `protects web applications` from malicious attacks, such as cross-site scripting, SQL injection, and malicious bot traffic. WAF is typically deployed as a reverse proxy, sitting between the internet and the web application, to inspect and filter incoming requests before they reach the web server.
 
 ![waf-basic](waf-basic.png){:class="border"}
 
-### How WAF Works
+### 1.1. How WAF Works
 
 WAF works by analyzing incoming `HTTP and HTTPS` requests to a web application and allows or blocks requests based on pre-defined security rules. Security rules can be based on IP addresses, headers, parameters, and other attributes of the request. WAF can also perform Deep Packet Inspection (DPI) to inspect the contents of the request payload and determine if the request contains malicious content.
 
 If a request violates a security rule, the WAF blocks the request and returns an error response to the client.
 
-### AWS WAF
+### 1.2. AWS WAF
 
 AWS WAF is a popular choice for cloud-based WAF solutions, providing a comprehensive set of security rules to protect web applications.
 
@@ -48,7 +48,7 @@ Here's a visual representation of the basic architecture of AWS WAF:
 
 ![waf-0](waf-0.png){:class="border"}
 
-### Protected resources
+### 1.3. Protected resources
 
 You can protect the following resource types:
 
@@ -60,7 +60,7 @@ You can protect the following resource types:
 - AWS App Runner service
 - AWS Verified Access instance
 
-### Main components
+### 1.4. Main components
 
 The main components of AWS WAF include the following:
 
@@ -70,7 +70,7 @@ The main components of AWS WAF include the following:
 
 - **Web ACLs**: AWS WAF uses web ACLs (Web Access Control Lists) to group together rules that you can then apply to one or more web applications. Web ACLs allow you to apply a set of rules across multiple web applications, making it easier to manage and apply security policies consistently.
 
-### Benefits and features
+### 1.5. Benefits and features
 
 AWS WAF offers a wide range of `benefits and features`, empowering you to secure your web applications effectively. Here are some key advantages of using AWS WAF:
 
@@ -86,7 +86,7 @@ AWS WAF offers a wide range of `benefits and features`, empowering you to secure
 
 - **Flexibility**: AWS WAF provides a wide range of options for creating custom rules to filter traffic, giving you greater flexibility in defining your security policies.
 
-## Hands-on with AWS WAF
+## 2. Hands-on with AWS WAF
 
 First of all, you must know that AWS WAF is a regional service. However, it seems a global service when you access it, but you have to change between regions using this option:
 
@@ -110,7 +110,7 @@ Getting started with WAF is relatively straightforward, simply log in to the AWS
     ![waf-5](waf-5.png){:class="border"}
     ![waf-6](waf-6.png){:class="border"}
 
-### Enabling logs
+### 2.1. Enabling logs
 
 Logs are disabled by default, so we have to enable it. We have to enter the Web ACL created and access to `Logging and Metrics` tab:
     ![waf-8](waf-8.png){:class="border"}
@@ -121,7 +121,7 @@ As you can check in the following image We will have 3 options as `Logging Desti
 After enabling CloudWatch logs, we can access the `CloudWatch Log Insights` tab and execute sample queries or create custom queries to analyze the logs. We can see the results as logs or in a diagram (Visualization):
     ![waf-10](waf-10.png){:class="border"}
 
-### Metrics
+### 2.2. Metrics
 
 AWS WAF reports `metrics` to CloudWatch in one-minute intervals by default, and the metrics are retained for 2 weeks.
 
@@ -136,7 +136,7 @@ These metrics provide a SUM count of web requests that hit a specific Rule or We
 
 ![waf-metrics](waf-metrics.png){:class="border"}
 
-### Create custom alarms
+### 2.3. Create custom alarms
 
 Usually is a good idea to create some alarms to be notified if some block requests appear on our web, so we can configure a `CloudWatch Alarm`.
 
@@ -148,7 +148,7 @@ After the creation, we will have something like this:
 
 ![waf-alarm-2](waf-alarm-2.png){:class="border"}
 
-### Estimating Costs
+### 2.4. Estimating Costs
 
 The cost of AWS WAF can vary depending on the scale of your deployment, ranging `from a few dollars` per month for small deployments `to several thousand dollars per month` for large-scale deployments. AWS WAF pricing is based on the number of web requests processed and the number of security rules that are used.
 
@@ -161,7 +161,7 @@ Example of cost for our example (1 Web ACL with a few managed rules):
 
 Total: **$6.70 per month**
 
-## More Information about AWS WAF
+## 3. More Information about AWS WAF
 
 For more information about AWS WAF, you can visit the following links
 

@@ -28,7 +28,7 @@ image:
 ---
 ---
 
-## Introduction
+## 1. Introduction
 
 As you already know, creating and managing infrastructure can be a complex and time-consuming process, and fortunately, tools like **Terraform** can simplify this process by allowing you to define your Infrastructure as Code (IaC). In this article, we will explore the basics of Terraform and walk through how to create infrastructure on AWS using it.
 
@@ -40,11 +40,11 @@ However, this is not my first article about Infrastructure as Code tools.
 > I have uploaded the source code used in this article in the following GitHub repository [https://github.com/alazaroc/aws-terraform-serverless-website](https://github.com/alazaroc/aws-terraform-serverless-website){:target="_blank"}
 {: .prompt-info }
 
-## What is Terraform?
+## 2. What is Terraform?
 
 [Terraform](https://www.terraform.io/){:target="_blank"} is an open-source Infrastructure as Code (IaC) software tool created by HashiCorp. It allows you to define and manage your infrastructure using human-readable configuration files that you can version, reuse, and share. You can then use a consistent workflow to provision and manage all of your infrastructure throughout its lifecycle. Terraform supports a wide range of cloud providers, including AWS, Microsoft Azure, and Google Cloud Platform.
 
-## How Terraform Works
+## 3. How Terraform Works
 
 Terraform uses a declarative configuration language called HashiCorp Configuration Language (HCL).
 
@@ -56,7 +56,7 @@ Terraform uses a declarative configuration language called HashiCorp Configurati
 - **Plan**: Terraform then uses this configuration to generate an execution plan, which outlines the changes that will be made to your infrastructure.
 - **Apply**: Once you have reviewed the execution plan, you can apply it to your infrastructure using the "`terraform apply`" command. Terraform will then provision your resources according to the configuration you defined.
 
-## Getting Started with Terraform
+## 4. Getting Started with Terraform
 
 To get started with Terraform, you will need to **install it** on your machine. You can download the latest version of Terraform from the official website [here](https://developer.hashicorp.com/terraform/downloads){:target="_blank"}, and if you want to deploy on AWS, you also need AWS CLI.
 
@@ -114,7 +114,7 @@ In this section, we will review how Terraform works creating a first example to 
 > We already know how to deploy AWS resources with Terraform, so in the following section, we will evolve the initial example to deploy three serverless websites using S3 bucket.
 {: .prompt-tip }
 
-## How to deploy a serverless website with Terraform
+## 5. Hands-on: How to deploy a serverless website with Terraform
 
 We have an AWS S3 bucket deployed, and now we are going to use it to host a serverless website. There are different ways to do it, and we are going to evolve the S3 bucket to create a serverless static website.
 
@@ -142,7 +142,7 @@ This is my serverless website
 ```
 {: .nolineno }
 
-### v1.1: public S3 bucket
+### 5.1. v1.1 - public S3 bucket
 
 In this version 1.1 we are going to expose the S3 bucket publicly so any person can access the `index.html` file using the public S3 endpoint.
 
@@ -216,7 +216,7 @@ Then, open a private window in your browser and access the `index.html` content 
 
 ![s3-website](terraform-s3-website.png)
 
-### v1.2: Static website hosting using S3
+### 5.2. v1.2 - Static website hosting using S3
 
 In this version, similar to the previous one, we still have exposed the S3 bucket publicly but we will enable the static website hosting feature of S3.
 
@@ -251,7 +251,7 @@ Then, open a private window in your browser and access through the static websit
 > If you didn't realize before, look that we are using HTTP, not HTTPS. S3 static website don't support HTTPS.
 {: .prompt-warning }
 
-### v2: CloudFront Distribution + private S3 bucket
+### 5.3. v2 - CloudFront Distribution + private S3 bucket
 
 In this version, we are going to change the bucket to private again (and also, we are going to enable again the `Block Public Access settings for this account` feature of S3), and we are going to create a CloudFront Distribution connected with the private S3 bucket. So, we are going to access the S3 bucket using the CloudFront distribution.
 
@@ -373,7 +373,7 @@ Then, open a private window in your browser and access the `index.html` content 
 > Now, the S3 bucket is private, so if you access to the public endpoint of S3 trying to get the `index.html` file you will receive an error
 {: .prompt-info }
 
-### v3: Route53 + ACM + CloudFront Distribution + private S3 bucket
+### 5.4. v3 - Route53 + ACM + CloudFront Distribution + private S3 bucket
 
 In the last example, we will use our domain (registered in Route53) and we will create a certificate using ACM.
 
@@ -487,13 +487,13 @@ These are the changes that you have to make in the previous "main.tf" file:
 
 - Finally, open a private window in your browser and access your registered domain: [https://example.com](https://example.com){:target="_blank"}
 
-## Conclusion
+## 6. Conclusion
 
 In this article, we have explored the basics of Terraform and walked through how to create infrastructure with different examples. With Terraform, you can define your infrastructure as code and automate the process of creating and updating your resources.
 
 This example is based on the code I have created to deploy my own blog [https://playingaws.com](https://playingaws.com){:target="_blank"} using `Route53 + ACM + CloudFront Distribution + private S3 bucket`.
 
-## Next steps
+## 7. Next steps
 
 Further reading (IaC):
 

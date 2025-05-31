@@ -25,7 +25,7 @@ image:
 ---
 ---
 
-## Introduction
+## 1. Introduction
 
 Yes! Now that artificial intelligence bots are here to help everyone create content (and much more)... and since I like to do just the opposite, I've written this article from a personal point of view based on my experience with DeepRacer at the last re:Invent 2022.
 
@@ -45,7 +45,7 @@ And this opportunity came early! I had the pleasure of going to re:Invent this v
 
 Learn, practice and have fun!!
 
-## Concepts
+## 2. Concepts
 
 AWS DeepRacer is a fully autonomous 1/18th scale racing car that can be used to learn about **reinforcement learning** (RL) and participate in global racing leagues.
 
@@ -78,7 +78,9 @@ This is the association with the reinforcement learning key terms in AWS DeepRac
 - Reward (number, +100) --> CORE of the reinforcement learning
 - Episode: journey
 
-## How to train your model?
+## 3. How to train your model?
+
+### 3.1. Get started with AWS DeepRacer
 
 To get started with AWS DeepRacer, you need an AWS account and access to the DeepRacer service. Once there, you can access the DeepRacer console and begin training your ML model. As always, the AWS console contains a lot of good documentation and direct links to learn much more.
 
@@ -128,7 +130,7 @@ You should test which options are best for your specific circuit, but my recomme
 > - finally, use the better model (in graph and in times) to clone it and try again with other 4 different options
 {: .prompt-tip }
 
-**How do you know if one model is better than the previous one?**
+### 3.2. How do you know if one model is better than the previous one?
 
 When a model finishes a training session, it has to be evaluated, and you can do it several times because the lap times are not always the same!
 
@@ -156,7 +158,7 @@ In any case, if you see that your graph decreases and the "best model" remains a
 > If you want to save money, you should consider train your models in your local environment and then import to the DeepRacer console to evaluate
 {: .prompt-warning }
 
-**Some of my tests**
+### 3.3. Some of my tests
 
 My option 1: The `default` training model
 
@@ -178,7 +180,7 @@ And just for participating, I received this car!
 
 ![evaluate](reward-car.png){:class="border"}
 
-## More information and the next steps
+## 4. More information and the next steps
 
 - [What is DeepRacer](https://docs.aws.amazon.com/deepracer/latest/developerguide/what-is-deepracer.html){:target="_blank"}
 - [More information about the car device](https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-prep-vehicle.html){:target="_blank"}

@@ -24,6 +24,9 @@ featured_post: false
 comments: true
 sitemap: true
 media_subpath: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
+image:
+  path: sam-pipeline-bootstrap-new-file.png
+  header_post: false
 ---
 ---
 
@@ -37,7 +40,7 @@ We will use `sam pipeline` to deploy the solution.
 > I had to create `one custom template` to be able to deploy the solution `using only 1 stage`. Using the default templates you have to use 2, and I don't want to do it for this PoC. [This is the GitHub code of my custom template](https://github.com/alazaroc/aws-sam-cli-pipeline-init-templates){:target="_blank"}
 {: .prompt-info }
 
-## Introduction
+## 1. Introduction
 
 We will add CI/CD to our SAM application through the pipeline integration of the AWS SAM CLI.
 
@@ -46,7 +49,7 @@ We will add CI/CD to our SAM application through the pipeline integration of the
 
 This is the SAM project code on [GitHub](https://github.com/alazaroc/aws-sam-app){:target="_blank"} that we will use in the article. In the [commit history](https://github.com/alazaroc/aws-sam-app/commits/main){:target="_blank"} you can find the evolution of the application through the steps explained.
 
-## Add CI/CD to a SAM project
+## 2. Add CI/CD to a SAM project
 
 We will create the CI/CD pipeline to implement continuous deployment, so when we push new code, the pipeline deploys our resources automatically.
 
@@ -65,7 +68,7 @@ To generate the pipeline for AWS CodePipeline, we have to perform the following 
 > After you've generated the starter pipeline configuration and committed it to your Git repository, whenever someone commits a code change to that repository your pipeline will be triggered to deploy the new changes automatically.
 {: .prompt-info }
 
-### Step 1: Create infrastructure resources (bootstrap)
+### 2.1. Step 1: Create infrastructure resources (bootstrap)
 
 `The Pipelines that use AWS SAM require certain AWS resources`, like an IAM user and roles with necessary permissions, an Amazon S3 bucket, and optionally an Amazon ECR repository. You must have a set of infrastructure resources for each deployment stage of the pipeline.
 
@@ -165,9 +168,9 @@ In our SAM project now we have 1 new file containing our stage information:
 
 ![sam-pipeline-bootstrap-new-file](sam-pipeline-bootstrap-new-file.png){:class="border"}
 
-### Step 2: Generate the pipeline configuration
+### 2.2. Step 2: Generate the pipeline configuration
 
-#### Two-stage pipeline template
+#### 2.2.1. Two-stage pipeline template
 
 To generate the pipeline configuration, run the command `sam pipeline init`:
 
@@ -258,7 +261,7 @@ However, `I don't want to create two stages` in my CI/CD pipeline, I am testing 
 > I had to put my custom template in the root folder because otherwise, the AWS SAM CLI doesn't work.
 {: .prompt-danger }
 
-#### One-stage pipeline template
+#### 2.2.2. One-stage pipeline template
 
 In the next execution, I will select the option `Custom Pipeline Template Location` and use my updated forked repository to create only one stage in the AWS CodePipeline service.
 
@@ -346,13 +349,13 @@ Now we have the new files in our project that CodePipeline will use to deploy ou
 
 ![sam-pipeline-init-one-stage](sam-pipeline-init-one-stage.png){:class="border"}
 
-### Step 3: Commit the pipeline configuration to Git
+### 2.3. Step 3: Commit the pipeline configuration to Git
 
 This step ensures that your CI/CD system recognizes your pipeline configuration and triggers deployments upon code commits.
 
 ![sam-pipeline-init-commit](sam-pipeline-init-commit.png){:class="border"}
 
-### Step 4: Deploy the pipeline
+### 2.4. Step 4: Deploy the pipeline
 
 For **AWS CodePipeline** you have to deploy the pipeline running `sam deploy -t codepipeline.yaml --stack-name <pipeline-stack-name> --capabilities=CAPABILITY_IAM --region <region-X>`
 
@@ -501,7 +504,7 @@ The cause of the error was that the **connection between GitHub and AWS must be 
 
 ![sam-pipeline-error-detail](sam-pipeline-error-detail.png){:class="border"}
 
-### Step 5: Connect the Git repository with the CI/CD system
+### 2.5. Step 5: Connect the Git repository with the CI/CD system
 
 > If you are using GitHub or Bitbucket, after executing the `sam deploy` command for your pipeline, you need to complete the **pending connection** in the Settings/Connection section of the Developer Tools.
 >
@@ -516,11 +519,11 @@ After activating it, we run the pipeline again (by clicking on the <kbd>Release 
 
 ![sam-pipeline-ok-execution](sam-pipeline-ok-execution.png){:class="border"}
 
-## Update the CI/CD steps in the SAM project
+## 3. Update the CI/CD steps in the SAM project
 
 Note that now we have a pipeline that first checks for changes in the pipeline itself and then checks the code and deploys the resources.
 
-### Step 1: Update the steps in the pipeline automatically
+### 3.1. Step 1: Update the steps in the pipeline automatically
 
 > With this pipeline configuration (with `UpdatePipeline` step) all the changes that we make in the pipeline will be updated automatically.
 {: .prompt-info }
@@ -547,7 +550,7 @@ As we expected, **the pipeline has updated itself** and now we have `UnitTest` s
 
 ![pipeline-sam-app-updated-execution](sam-app-pipeline-updated-execution.png){:class="border"}
 
-### Step 2: Update the steps in the pipeline manually
+### 3.2. Step 2: Update the steps in the pipeline manually
 
 > If you remove the `UpdatePipeline` step, when you push a change to the repository the pipeline won't be updated, so you have to run manually the update of the pipeline.
 {: .prompt-info }
@@ -671,7 +674,7 @@ After all the changes that we made:
     1. modify the `codepipeline.yaml` file in our SAM application
     2. manually execute the command `sam deploy -t codepipeline.yaml --stack-name pipeline-sam-app --capabilities=CAPABILITY_IAM`.
 
-## Clean up
+## 4. Clean up
 
 We have created 3 or 4 stacks in CloudFormation related to SAM, depending if you already had used AWS SAM before (then the `aws-sam-cli-managed-default` already existed):
 
@@ -702,7 +705,7 @@ And don't forget to remove the environment stack resources:
 sam delete --stack-name aws-sam-cli-managed-test-pipeline-resources
 ```
 
-## Wrapping It Up
+## 5. Wrapping It Up
 
 That brings us to the end of our journey of integrating CI/CD into AWS SAM projects. Let's recap the highlights:
 
@@ -710,7 +713,7 @@ That brings us to the end of our journey of integrating CI/CD into AWS SAM proje
 2. Customizing the Pipeline: Demonstrating AWS SAM's adaptability, we successfully used a custom template for a single-stage pipeline, allowing for tailored deployment strategies.
 3. Deployment Automation: Highlighting the power of AWS tools, we've automated our deployments, which simplifies application management and ensures our apps are always current.
 
-## What's next?
+## 6. Next steps
 
 Further reading:
 

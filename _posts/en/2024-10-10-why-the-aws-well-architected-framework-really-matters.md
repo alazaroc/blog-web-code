@@ -13,7 +13,7 @@ tags:
 level: 200
 published: true
 pin: false
-featured_post: false
+featured_post: true
 comments: true
 sitemap: true
 mermaid: true

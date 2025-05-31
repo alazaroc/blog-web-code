@@ -33,7 +33,7 @@ image:
 > 2/2: [Building real-rime applications](/posts/building-real-time-applications-with-appsync-and-subscriptions/)
 {: .prompt-tip }
 
-## Introduction to GraphQL and AWS AppSync
+## 1. Introduction to GraphQL and AWS AppSync
 
 In the ever-evolving landscape of web and mobile application development, efficiency and real-time capabilities are not just nice-to-have features, they're essential. This is where `GraphQL` and `AWS AppSync` come into play, offering developers the tools to build dynamic, scalable applications with ease.
 
@@ -41,7 +41,7 @@ In the ever-evolving landscape of web and mobile application development, effici
 
 <kbd>AWS AppSync</kbd> is the GraphQL of AWS. It is a managed service that simplifies application development by `creating serverless GraphQL and Pub/Sub APIs`. It provides a single endpoint to securely query, update, or publish data, enabling developers to build interactive, feature-rich applications.
 
-### Key Features of GraphQL
+### 1.1. Key Features of GraphQL
 
 - `Efficient data retrieval`: Clients can request exactly what they need, not more, not less. This eliminates over-fetching and under-fetching problems commonly encountered in REST APIs.
 - `Single endpoint`: GraphQL APIs use a single endpoint to handle queries, mutations (changing data), and subscriptions (real-time updates), simplifying the data fetching process.
@@ -49,7 +49,7 @@ In the ever-evolving landscape of web and mobile application development, effici
 - `Real-Time data with subscriptions`: GraphQL supports real-time updates through subscriptions, enabling live updates to the client as data changes.
 - `Declarative data fetching`: Clients describe their data requirements as what they need, rather than how to fetch it. This allows for a more declarative approach to data fetching and separation of concerns between client and server.
 
-### GraphQL operations
+### 1.2. GraphQL operations
 
 We have 3 different operations in GraphQL:
 
@@ -57,7 +57,7 @@ We have 3 different operations in GraphQL:
 - **Mutation**: Used to modify data, like CREATE, UPDATE or DELETE.
 - **Subscription**: Used to subscribe to the changes of data, and receive real-time notifications.
 
-### Why Choose AWS AppSync?
+### 1.3. Why Choose AWS AppSync?
 
 AWS AppSync goes beyond offering standard GraphQL features by integrating deeply with the AWS ecosystem, providing:
 
@@ -66,7 +66,7 @@ AWS AppSync goes beyond offering standard GraphQL features by integrating deeply
 - `Direct integration with one or more sources`: Seamlessly connects with NoSQL data stores, relational databases, HTTP APIs, and more, enabling complex data aggregation and access patterns.
 - `Fine-grained access control`: Allows for precise access controls, integrating with AWS IAM and Amazon Cognito for comprehensive authentication and authorization mechanisms.
 
-### Use cases
+### 1.4. Use cases
 
 - Creating a simple Pub/Sub API
 - Instantly create APIs for your databases
@@ -75,13 +75,13 @@ AWS AppSync goes beyond offering standard GraphQL features by integrating deeply
 - Data-Driven Mobile and Web Applications
 - IoT and Streaming Data Applications
 
-### Example: BFF AWS reference architecture
+### 1.5. Example: BFF AWS reference architecture
 
 > Original link [here](https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/backend-for-frontend-using-appsync-ra.pdf){:target="_blank"}
 
 ![BFF reference architecture](bff-reference-architecture.png)
 
-### Components of a GraphQL API
+### 1.6. Components of a GraphQL API
 
 ![Architecture GraphQL API](appsync-architecture-graphql-api.png)
 
@@ -93,9 +93,11 @@ There are 3 main components in a GraphQL API:
 
 ![Flow diagram](aws-flow-infographic.png)
 
-## Setting Up Your First GraphQL API with AWS AppSync
+## 2. Demo: Setting Up Your First GraphQL API with AWS AppSync
 
-We will try the simplest approach, connecting one DynamoDB table, by following the next steps:
+### 2.1. Creating the simplest GraphQL API
+
+We will try the `simplest approach`, connecting one DynamoDB table, by following the next steps:
 
 I will use the AWS Console to show you the step-by-step but if you prefer to create the AWS AppSync service using Terraform you can check the code [here](https://github.com/alazaroc/appsync-terraform-dynamodb){:target="_blank"}.
 
@@ -116,7 +118,7 @@ In the `Queries` section, we can test our API. We can execute Queries, Mutation 
 
 The latest step is to connect our client with the API. [Here](https://docs.aws.amazon.com/appsync/latest/devguide/building-a-client-app.html){:target="_blank"} you will find more information about it.
 
-### Creating an API to only query data
+### 2.2. Updating the API to only query data
 
 Now, we will update our Schema to only allow query data.
 
@@ -168,7 +170,7 @@ type feedbackConnection {
 
 ![Query table simplified](query-simplified.png)
 
-## Conclusion
+## 3. Conclusion
 
 AWS AppSync helps developers to create efficient, scalable, and interactive applications with ease.
 To simplify it, you can create a single endpoint that allows you to:
