@@ -4,6 +4,8 @@
 !.editorconfig
 !.nojekyll
 !.travis.yml
+!.stylelintrc.json
+!.eslintrc.json
 
 # bundler cache
 _site
@@ -15,9 +17,34 @@ vendor
 # npm dependencies
 node_modules
 package-lock.json
+npm-debug.log*
 
 # errors in Amplify
 Gemfile.lock
 
+# development files
 _drafts/*
 assets/img/drafts/*
+
+# build artifacts
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Lighthouse reports
+lighthouse-report.html
+lighthouse-ci-results/
+
+# Temporary files
+*.tmp
+*.temp

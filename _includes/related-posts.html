@@ -1,5 +1,6 @@
 <!-- Recommend the other 3 posts according to the tags and categories of the current post. -->
 
+{% assign current_lang = include.lang | default: site.lang %}
 <!-- The total size of related posts -->
 {% assign TOTAL_SIZE = 3 %}
 
@@ -28,7 +29,7 @@
 {% for i in (0..last_index) %}
   {% assign post = match_posts[i] %}
 
-  {% if post.url == page.url %}
+  {% if post.url == page.url or post.lang != current_lang %}
     {% continue %}
   {% endif %}
 

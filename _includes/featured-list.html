@@ -1,17 +1,18 @@
 <!-- Get the last 3 featured_post -->
 
+{% assign current_lang = include.lang | default: site.lang %}
 {% assign MAX_SIZE = 3 %}
 
 {% assign all_list = '' | split: '' %}
 
 {% for post in site.posts %}
-  {% if post.featured_post %}
+  {% if post.featured_post and post.lang == current_lang %}
     {% capture elem %}
       {% if post.featured_post == true %}
         {{- post.featured_post -}}::{{- forloop.index0 -}}
       {% endif %}
     {% endcapture %}
-  {% assign all_list = all_list | push: elem %}
+    {% assign all_list = all_list | push: elem %}
   {% endif %}
 {% endfor %}
 

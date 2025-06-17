@@ -1,0 +1,31 @@
+{
+    "name": "playing-aws-blog",
+    "version": "2.1.0",
+    "description": "Personal blog about AWS technologies and best practices",
+    "scripts": {
+        "build": "bundle exec jekyll build",
+        "serve": "bundle exec jekyll serve",
+        "serve:live": "bundle exec jekyll serve --livereload",
+        "serve:dev": "bundle exec jekyll serve --config _config.yml,_config_dev.yml",
+        "serve:dev-live": "bundle exec jekyll serve --config _config.yml,_config_dev.yml --livereload",
+        "serve:drafts": "bundle exec jekyll serve --drafts",
+        "lint:css": "stylelint 'assets/css/**/*.css'",
+        "lint:js": "eslint 'assets/js/**/*.js'",
+        "lint": "npm run lint:css && npm run lint:js",
+        "test": "bundle exec htmlproofer ./_site --disable-external --allow-hash-href",
+        "optimize:images": "echo 'Image optimization tools not installed'",
+        "lighthouse": "echo 'Lighthouse not installed'"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "stylelint": "^15.11.0",
+        "stylelint-config-standard": "^34.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alazaroc/blog-web-code.git"
+    },
+    "author": "Alejandro Lazaro Chueca",
+    "license": "MIT",
+    "homepage": "https://playingaws.com"
+}

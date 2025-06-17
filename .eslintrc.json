@@ -1,0 +1,39 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jquery": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "prefer-const": "error",
+        "no-var": "error",
+        "eqeqeq": "error",
+        "curly": "error",
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "globals": {
+        "jekyll": "readonly",
+        "Chirpy": "readonly"
+    },
+    "ignorePatterns": [
+        "_site/**/*",
+        "node_modules/**/*",
+        "assets/js/dist/**/*"
+    ]
+}
