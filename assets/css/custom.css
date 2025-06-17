@@ -1,27 +1,61 @@
+/*
+====================================
+CUSTOM STYLES FOR PLAYING AWS BLOG
+====================================
+
+Table of Contents:
+1. Forms and Buttons
+2. Layout and Spacing  
+3. Navigation and Sidebar
+4. Content Display
+5. Responsive Design
+6. Theme Customizations
+*/
+
+/* ====================================
+   1. FORMS AND BUTTONS
+   ==================================== */
 .form-hidden {
     display: none;
 }
-.float_100 {
-  float: left;
-  width: 100%;
+
+.form-group {
+  margin-bottom: 10px;
 }
-.width_300 {
-  width: 300px !important;
-}
-.left {
-  float:left;
-}
+
 .custom_button {
   font-size: 1rem !important;
   padding: .275rem .75rem !important;
   margin-left: 5px !important;
 }
+
+/* ====================================
+   2. LAYOUT AND SPACING
+   ==================================== */
+.float_100 {
+  float: left;
+  width: 100%;
+}
+
+.width_300 {
+  width: 300px !important;
+}
+
+.left {
+  float:left;
+}
+
 .margin_bottom_15 {
   margin-bottom: 15px;
 }
+
 .margin_right_15 {
   margin-right: 15px;
 }
+
+/* ====================================
+   3. NAVIGATION AND SIDEBAR
+   ==================================== */
 details {
   margin-bottom: 15px;
 }
@@ -58,9 +92,6 @@ details {
 #sidebar #avatar img {
   width: 130px;
   height: 130px;
-}
-.form-group {
-  margin-bottom: 10px;
 }
 .preview-img {
   text-align: center;
@@ -206,4 +237,8 @@ th, td {
 
 .table-wrapper>table thead th, .table-wrapper>table tbody tr td {
   white-space: normal !important;
+}
+
+.access>section:not(:first-child) {
+  margin-top: 3rem;
 }

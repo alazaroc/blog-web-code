@@ -16,6 +16,7 @@ parallel_localization: true
 
 sass:
   sourcemap: never
+  style: compressed
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Europe/Madrid
@@ -68,8 +69,8 @@ webmaster_verifications:
 analytics:
   google:
     id: G-HW1NDPDLBF # fill in your Google Analytics ID
-  goatcounter:
-    id: playingaws # fill in your GoatCounter ID
+  # goatcounter:
+  #   id: playingaws # fill in your GoatCounter ID
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -205,8 +206,6 @@ defaults:
     values:
       swcache: true
 
-sass:
-  style: compressed
 
 compress_html:
   clippings: all

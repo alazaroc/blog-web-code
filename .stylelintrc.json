@@ -1,0 +1,20 @@
+{
+    "extends": [
+        "stylelint-config-standard"
+    ],
+    "rules": {
+        "custom-property-pattern": null,
+        "selector-class-pattern": null,
+        "no-descending-specificity": null,
+        "declaration-block-no-redundant-longhand-properties": null,
+        "shorthand-property-no-redundant-values": null,
+        "color-function-notation": "legacy",
+        "alpha-value-notation": "number",
+        "import-notation": "string",
+        "media-feature-range-notation": "prefix"
+    },
+    "ignoreFiles": [
+        "_site/**/*.css",
+        "node_modules/**/*.css"
+    ]
+}
