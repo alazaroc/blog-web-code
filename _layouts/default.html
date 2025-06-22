@@ -35,9 +35,9 @@ layout: compress
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
             <div class="access">
-              {% include_cached update-list.html lang=lang %}
-              {% include_cached featured-list.html lang=lang %}
-              {% include_cached trending-tags.html lang=lang %}
+              {% include_cached update-list.html lang=lang max_size=1 %}
+              {% include_cached featured-list.html lang=lang max_size=3 %}
+              {% include_cached trending-tags.html lang=lang max_size=5 %}
               <!-- Subscription form -->
               {% include_cached subscribe-form-menu.html lang=lang %}
             </div>
@@ -85,5 +85,6 @@ layout: compress
     {% endfor %}
 
     {% include_cached search-loader.html lang=lang %}
+    {% include subscribe-form-popup.html lang=lang %}
   </body>
 </html>

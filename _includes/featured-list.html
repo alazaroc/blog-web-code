@@ -1,7 +1,7 @@
-<!-- Get the last 3 featured_post -->
+<!-- Get the latest {max_size} featured_post -->
 
 {% assign current_lang = include.lang | default: site.lang %}
-{% assign MAX_SIZE = 3 %}
+{% assign MAX_SIZE = include.max_size | default: 3 %}
 
 {% assign all_list = '' | split: '' %}
 

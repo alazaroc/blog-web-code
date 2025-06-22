@@ -1,5 +1,4 @@
 <!-- The Footer -->
-
 <footer
   aria-label="Site Info"
   class="
@@ -16,16 +15,6 @@
     {% else %}
       <em class="fst-normal">{{ site.social.name }}</em>.
     {% endif %}
-
-    <!-- {% if site.data.locales[include.lang].copyright.brief %}
-      <span
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="{{ site.data.locales[include.lang].copyright.verbose }}"
-      >
-        {{- site.data.locales[include.lang].copyright.brief -}}
-      </span>
-    {% endif %} -->
   </p>
 
   <p>
@@ -33,17 +22,17 @@
       <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
     {%- endcapture -%}
 
-    <!-- {%- capture _theme -%}
-      <a
-        data-bs-toggle="tooltip"
-        data-bs-placement="top"
-        title="v{{ theme.version }}"
-        href="https://github.com/cotes2020/jekyll-theme-chirpy"
-        target="_blank"
-        rel="noopener"
-      >Chirpy</a>
-    {%- endcapture -%} -->
-
     {{ site.data.locales[include.lang].meta | replace: ':PLATFORM', _platform | replace: ':THEME', _theme }}
   </p>
+
+  <!-- Legal Links -->
+  <div class="text-center text-muted">
+    <a href="{% if include.lang == 'es' %}/es/legal-notice{% else %}/legal-notice{% endif %}" class="me-2">
+      {{ site.data.locales[include.lang].legal.legal_notice }}
+    </a>
+    <span class="me-2">|</span>
+    <a href="{% if include.lang == 'es' %}/es/cookies{% else %}/cookies{% endif %}">
+      {{ site.data.locales[include.lang].legal.cookie_policy }}
+    </a>
+  </div>
 </footer>

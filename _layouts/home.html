@@ -53,13 +53,13 @@ refactor: true
       <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
         {% assign card_body_col = '12' %}
 
-        <!-- CUSTOM CODE-->
+        <!-- Important Notice -->
         {% if post.important_notice %}
-          <blockquote class="prompt-warning" style="margin-bottom:0px;"> 
+          <blockquote class="prompt-warning important-notice"> 
             <p>{{ post.important_notice }}</p>
           </blockquote>
         {% endif %}
-        <!-- END CUSTOM CODE-->
+        <!-- END Important Notice-->
 
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
@@ -87,6 +87,7 @@ refactor: true
             <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
             <div class="card-text content mt-0 mb-3">
+              <!-- <p>{% include post-description.html %}</p> -->
               <p>
                 <!-- {% include no-linenos.html content=post.content %}
                 {{ content | markdownify | strip_html | truncate: 200 | escape }} -->

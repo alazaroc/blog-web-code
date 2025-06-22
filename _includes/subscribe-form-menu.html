@@ -2,26 +2,26 @@
   <div class="subscription-form-container">
     <h2 class="panel-heading">{{ site.data.locales[page.lang].subscription_form.title }}</h2>
 
-    <form id="customer-subscribe-form" method="post" action="https://www.playingaws.com/api/v1/subscription" accept-charset="UTF-8">
+    <form class="customer-subscribe-form" method="post" action="{{ site.data.locales[page.lang].subscription_form.action }}" accept-charset="UTF-8">
       <div class="d-flex">
         <div class="form-group width_300 margin_right_15">
-          <input type="email" id="subscribe_email" name="email" placeholder="{{ site.data.locales[page.lang].subscription_form.email_placeholder }}" class="form-control" required />
+          <input type="email" name="email" placeholder="{{ site.data.locales[page.lang].subscription_form.email_placeholder }}" class="form-control subscribe_email" required />
         </div>
         <div class="form-actions">
-          <button type="submit" id="subscribe-form-submit-button" name="submit" class="btn-default btn btn-primary btn-lg custom_button">
+          <button type="submit" name="submit" class="btn-default btn btn-primary btn-lg custom_button subscribe-form-submit-button">
             {{ site.data.locales[page.lang].subscription_form.submit_button }}
           </button>
-          <button id="subscribe-form-loading-submit-button" name="loading" class="btn btn-default btn-primary btn-lg form-hidden custom_button">
+          <button name="loading" class="btn btn-default btn-primary btn-lg form-hidden custom_button subscribe-form-loading-submit-button">
             {{ site.data.locales[page.lang].subscription_form.submitting_button }}
           </button>
         </div>
       </div>
 
-      <div id="subscribe-form-failed-to-submit" class="alert alert-danger form-hidden" role="alert">
+      <div class="alert alert-danger form-hidden subscribe-form-failed-to-submit" role="alert">
         <strong>{{ site.data.locales[page.lang].subscription_form.submit_failed }}</strong> {{ site.data.locales[page.lang].subscription_form.submit_failed_message }}
       </div>
 
-      <div id="subscribe-form-was-submitted" class="alert alert-success form-hidden" role="alert">
+      <div class="alert alert-success form-hidden subscribe-form-was-submitted" role="alert">
         <strong>{{ site.data.locales[page.lang].subscription_form.submit_success }}</strong> {{ site.data.locales[page.lang].subscription_form.submit_success_message }}
       </div>
     </form>

@@ -128,11 +128,18 @@ feedback_form:
   submit_success_message: "Hemos recibido tu comentario."
 
 subscription_form:
-  title: "Suscríbete para recibir actualizaciones mensuales"
-  email_placeholder: "me@gmail.com"
-  submit_button: "Enviar"
-  submitting_button: "Enviando..."
-  submit_failed: "No se pudo enviar el formulario."
-  submit_failed_message: "Por favor, inténtalo de nuevo."
-  submit_success: "¡Gracias por suscribirte!"
-  submit_success_message: "Te enviaré notificaciones con nuevas actualizaciones."
+  title: "¡Subscríbete a mi newsletter!"
+  description: "Recibe mis últimos artículos, tutoriales y consejos sobre AWS y computación en la nube subscribiéndote a mi newsletter. ¡Sin spam, prometido!"
+  action: "https://www.playingaws.com/api/v1/subscription"
+  email_placeholder: "Introduce tu email"
+  submit_button: "Subscribirme"
+  submitting_button: "Subscribiendo..."
+  submit_success: "¡Subscrito!"
+  submit_success_message: "¡Gracias por subscribirte! Recibirás un correo para confirmar tu subscripción."
+  submit_failed: "¡Error!"
+  submit_failed_message: "Algo ha salido mal. Por favor, inténtalo de nuevo más tarde."
+
+# Legal pages
+legal:
+  legal_notice: "Aviso Legal"
+  cookie_policy: "Política de Cookies"

@@ -1,0 +1,54 @@
+<header class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ '/' | relative_url }}">
+      <img src="{{ site.logo | relative_url }}" alt="logo" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto">
+        {% for item in site.data.locales[include.lang].menu %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- Language switcher -->
+      <div class="lang-switcher">
+        {% include lang-switcher.html lang=include.lang %}
+      </div>
+    </div>
+  </div>
+</header>
+
+{%- comment -%}
+Ensures that the language selector is visible on mobile, centered between the left button and the title.
+{%- endcomment -%}
+
+<div id="topbar-wrapper" class="d-flex align-items-center justify-content-between px-3 px-md-4">
+  <button id="sidebar-trigger" class="btn btn-link d-lg-none p-0 me-2" aria-label="Open Menu">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="topbar-title" class="flex-grow-1 text-center">
+    {{ site.title | escape }}
+  </div>
+
+  <!-- Language Switcher -->
+  <div class="lang-switcher d-flex align-items-center justify-content-center ms-2">
+    {% include lang-switcher.html lang=include.lang %}
+  </div>
+
+  <button id="search-trigger" class="btn btn-link p-0 ms-2" aria-label="Search">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
+<!-- Language Switcher for mobile -->
+<div class="lang-switcher-mobile d-lg-none">
+  {% include lang-switcher.html %}
+</div> 

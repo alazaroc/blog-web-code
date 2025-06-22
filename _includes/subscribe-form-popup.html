@@ -1,0 +1,36 @@
+<!-- Subscription popup -->
+<div id="subscription-popup" class="subscription-popup">
+  <div class="subscription-popup-content" onclick="event.stopPropagation();">
+    <button type="button" class="btn-close-popup" aria-label="Close" onclick="closeSubscriptionPopup()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <h4>{{ site.data.locales[include.lang].subscription_form.title }}</h4>
+    <p>{{ site.data.locales[include.lang].subscription_form.description }}</p>
+    <form class="customer-subscribe-form" method="post" action="{{ site.data.locales[include.lang].subscription_form.action }}" accept-charset="UTF-8">
+      <div class="form-group">
+        <input type="email" name="email" class="form-control subscribe_email" placeholder="{{ site.data.locales[include.lang].subscription_form.email_placeholder }}" required>
+      </div>
+      <div class="d-grid">
+        <button type="submit" name="submit" class="btn btn-primary subscribe-form-submit-button">{{ site.data.locales[include.lang].subscription_form.submit_button }}</button>
+        <button name="loading" class="btn btn-primary form-hidden subscribe-form-loading-submit-button">
+            {{ site.data.locales[include.lang].subscription_form.submitting_button }}
+        </button>
+      </div>
+
+      <div class="alert alert-danger form-hidden mt-3 subscribe-form-failed-to-submit" role="alert">
+        <strong>{{ site.data.locales[include.lang].subscription_form.submit_failed }}</strong> {{ site.data.locales[include.lang].subscription_form.submit_failed_message }}
+      </div>
+
+      <div class="alert alert-success form-hidden mt-3 subscribe-form-was-submitted" role="alert">
+        <strong>{{ site.data.locales[include.lang].subscription_form.submit_success }}</strong> {{ site.data.locales[include.lang].subscription_form.submit_success_message }}
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Development reset button (only visible in development) -->
+{% if jekyll.environment != 'production' %}
+<div id="popup-reset-button" class="popup-reset-button">
+  Reset Popup
+</div>
+{% endif %} 

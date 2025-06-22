@@ -10,13 +10,18 @@ Table of Contents:
 4. Content Display
 5. Responsive Design
 6. Theme Customizations
+7. Language Switcher
+8. Subscription Popup
+9. Mobile Post Cards
+10. Tables and Content
+11. Font Face Declarations
 */
 
 /* ====================================
    1. FORMS AND BUTTONS
    ==================================== */
 .form-hidden {
-    display: none;
+  display: none;
 }
 
 .form-group {
@@ -25,7 +30,7 @@ Table of Contents:
 
 .custom_button {
   font-size: 1rem !important;
-  padding: .275rem .75rem !important;
+  padding: 0.275rem 0.75rem !important;
   margin-left: 5px !important;
 }
 
@@ -42,7 +47,7 @@ Table of Contents:
 }
 
 .left {
-  float:left;
+  float: left;
 }
 
 .margin_bottom_15 {
@@ -59,44 +64,48 @@ Table of Contents:
 details {
   margin-bottom: 15px;
 }
+
 .language-ruby {
   margin-top: 15px;
   float: left;
   margin-bottom: 0px;
 }
+
 #toc-wrapper ul .toc-link {
   white-space: normal !important;
 }
+
 #panel-wrapper .text-truncate {
   white-space: normal !important;
-  /* list-style-position: inside !important;
-  list-style-type: disclosure-closed !important; */
 }
+
 #panel-wrapper .text-truncate a {
   padding-left: 5px;
 }
-.access>section:not(:last-child) {
+
+.access > section:not(:last-child) {
   margin-bottom: 2rem;
 }
+
 .preview-img img {
   object-fit: contain;
   width: 95%;
   height: 100%;
-  /* max-height: 150px !important; */
 }
+
 #sidebar #avatar {
   margin-left: 20px;
   width: 8rem;
   height: 8rem;
 }
+
 #sidebar #avatar img {
   width: 130px;
   height: 130px;
 }
+
 .preview-img {
   text-align: center;
-  /* width: auto !important; */
-  /* height: auto !important; */
   display: flex;
   align-items: center;
   height: 100% !important;
@@ -104,110 +113,167 @@ details {
   padding: 1rem !important;
   aspect-ratio: 0 !important;
 }
+
 .preview-img:not(.no-bg) {
   background: none !important;
 }
-#related-posts .card h4, #post-list .card .card-body .card-text.content p, #post-list .card .card-body .card-title {
+
+#sidebar,
+search {
+  border: 1px solid rgba(0, 0, 0, 0.175) !important;
+}
+
+#sidebar .profile-wrapper {
+  margin-top: 1rem;
+}
+
+/* ====================================
+   4. CONTENT DISPLAY
+   ==================================== */
+#related-posts .card h4,
+#post-list .card .card-body .card-text.content p,
+#post-list .card .card-body .card-title {
   display: initial !important;
 }
-/* Customization of the colours of highlight text */
-html:not([data-mode]), html[data-mode=dark] {
-  --highlighter-rouge-color: #de6b18;
-}
-html[data-mode='light'] {
-  --inline-code-bg: #3f596f;
-  --highlighter-rouge-color: white;
-}
-html[data-mode=light] [class^=prompt-] {
-  --inline-code-bg: #3f596f;
-  --highlighter-rouge-color: white;
-}
+
 .card {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color) !important;
 }
-.access, #post-list, main h1  {
+
+.access,
+#post-list,
+main h1 {
   margin-top: 1rem !important;
 }
-.access>section {
+
+.access > section {
   border-left: 1px solid rgba(0, 0, 0, 0.175) !important;
 }
-.px-md-4 {
-  padding-right: 2.5rem !important;
-  padding-left: 2.5rem !important;
-}
-.px-xxl-5 {
-  /* padding-right: 1rem !important; */
-  padding-right: 0px !important;
-  padding-left: 0px !important;
-}
-#sidebar, search {
-  border: 1px solid rgba(0, 0, 0, 0.175) !important;
-}
+
 .access {
   margin-bottom: 0px !important;
 }
+
 #panel-wrapper {
   padding-right: 1.5rem !important;
   padding-left: 0px !important;
 }
+
 #post-list .card .card-body {
   padding: 1rem !important;
 }
+
 #post-list .preview-img {
   width: auto !important;
 }
+
 .preview-img img {
   width: auto !important;
 }
-#sidebar .profile-wrapper {
-  margin-top: 1rem;
+
+blockquote[class^="prompt-"] {
+  border-left: 0;
+  position: relative;
+  padding: 0.5rem 1rem 0.5rem 3rem !important;
+  color: var(--prompt-text-color);
 }
+
+.important-notice {
+  margin-bottom: 0px;
+}
+
+/* ====================================
+   5. RESPONSIVE DESIGN
+   ==================================== */
+.px-md-4 {
+  padding-right: 2.5rem !important;
+  padding-left: 2.5rem !important;
+}
+
+.px-xxl-5 {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+@media (max-width: 768px) {
+  #post-list .col-md-5 {
+    flex: auto;
+    width: 0% !important;
+  }
+  #post-list .card-title {
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+  }
+  #post-list .card-body .card-text {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: normal;
+  }
+}
+
+/* ====================================
+   6. THEME CUSTOMIZATIONS
+   ==================================== */
+/* Customization of the colours of highlight text */
+html:not([data-mode]),
+html[data-mode="dark"] {
+  --highlighter-rouge-color: #de6b18;
+}
+
+html[data-mode="light"] {
+  --inline-code-bg: #3f596f;
+  --highlighter-rouge-color: white;
+}
+
+html[data-mode="light"] [class^="prompt-"] {
+  --inline-code-bg: #3f596f;
+  --highlighter-rouge-color: white;
+}
+
+/* ====================================
+   7. LANGUAGE SWITCHER
+   ==================================== */
+/* Sidebar language switcher styles */
 #sidebar .sidebar-bottom .lang-div {
   margin-bottom: 0.2rem;
   padding: 0;
+}
 
-  .nav-item {
-    font-family: 'NotoColorEmojiLimited', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol';
-    margin-bottom: 0.15rem;
+#sidebar .sidebar-bottom .lang-div .nav-item {
+  font-family: "NotoColorEmojiLimited", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  margin-bottom: 0.15rem;
+}
 
-    .nav-link {
-      padding: 0.8rem;
-      border-radius: 25%/75%;
-      font-size: 0.9rem;
-      color: var(--sidebar-active-color);
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
+#sidebar .sidebar-bottom .lang-div .nav-item .nav-link {
+  padding: 0.8rem;
+  border-radius: 25%/75%;
+  font-size: 0.9rem;
+  color: var(--sidebar-active-color);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
 
-    .disabled-lang {
-      background-color: var(--sidebar-disabled-color);
-      color: #ff0000;
-    }
+#sidebar .sidebar-bottom .lang-div .nav-item .disabled-lang {
+  background-color: var(--sidebar-disabled-color);
+  color: #ff0000;
+}
 
-    .disabled-lang:hover {
-      background-color: #ffe3e5;
-    }
+#sidebar .sidebar-bottom .lang-div .nav-item .disabled-lang:hover {
+  background-color: #ffe3e5;
+}
 
-    &.active .nav-link {
-      background-color: var(--sidebar-hover-bg);
-      font-weight: bold;
-    }
-  }
+#sidebar .sidebar-bottom .lang-div .nav-item.active .nav-link {
+  background-color: var(--sidebar-hover-bg);
+  font-weight: bold;
+}
 
-  #language {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
-    font-weight: bold;
-  }
-
-  @font-face {
-    font-family: NotoColorEmojiLimited;
-    unicode-range: U+1F1E6-1F1FF;
-    src: url(https://raw.githack.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf);
-  }
+#sidebar .sidebar-bottom .lang-div #language {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
 }
 
 #sidebar ul li.nav-item a.disabled-lang {
@@ -218,27 +284,217 @@ html[data-mode=light] [class^=prompt-] {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-/* Table without scroll and adjusting content */
-/* table {
-  width: 100% !important;
-  table-layout: fixed !important;
-  border-collapse: collapse !important;
+
+@media (min-width: 992px) {
+  .d-lg-none {
+      display: none !important;
+  }
 }
 
-th, td {
-  padding: 8px;
-  text-align: left  !important;
-  border-bottom: 1px solid #ddd;
-  word-wrap: break-word !important;
-  white-space: normal !important;
-  max-width: 300px;
-  min-width: 100px;
-} */
+/* Mobile language switcher styles */
+@media (max-width: 991.98px) {
+  #topbar {
+    justify-content: space-between;
+  }
 
-.table-wrapper>table thead th, .table-wrapper>table tbody tr td {
+  .lang-switcher-compact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0.5rem;
+  }
+
+  .lang-switcher-compact .flag-current {
+    opacity: 0.5;
+    font-size: 1.2rem;
+  }
+
+  .lang-switcher-compact .flag-alternative {
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .lang-switcher-compact .flag-alternative:hover {
+    opacity: 0.8;
+  }
+
+  .lang-switcher-compact .flag-disabled {
+    opacity: 0.1;
+    font-size: 1.2rem;
+    cursor: not-allowed;
+  }
+}
+
+/* Language switcher additional styles */
+.lang-switcher-title {
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.current-lang {
+  font-weight: bold;
+  cursor: default;
+}
+
+.lang-flag {
+  margin-right: 1.5rem;
+}
+
+/* ====================================
+   8. HEADER AND TOPBAR STYLES
+   ==================================== */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 991.98px) {
+  .lang-switcher {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0.5rem;
+  }
+  #topbar-title {
+    font-size: 1.5rem;
+    flex: 1;
+    text-align: center;
+    color: orange;
+  }
+}
+
+.lang-switcher-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.lang-switcher-mobile .lang-switcher-block {
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.lang-switcher-mobile .nav-item {
+  margin: 0 0.5rem;
+}
+
+.lang-switcher-mobile .nav-link {
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+}
+
+.lang-switcher-mobile p {
+  display: none;
+}
+
+/* ====================================
+   9. SUBSCRIPTION POPUP
+   ==================================== */
+.subscription-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.subscription-popup.show {
+  display: flex;
+}
+
+.subscription-popup-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-close-popup {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #dc3545;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.btn-close-popup:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-close-popup i {
+  font-size: 1.2rem;
+}
+
+.subscription-form {
+  margin-top: 1rem;
+}
+
+.subscription-form .input-group {
+  margin-bottom: 1rem;
+}
+
+.subscription-form .d-grid {
+  width: 100%;
+}
+
+.popup-reset-button {
+  position: fixed;
+  top: 40px;
+  right: 10px;
+  z-index: 1001;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* ====================================
+   10. TABLES AND CONTENT
+   ==================================== */
+.table-wrapper > table thead th,
+.table-wrapper > table tbody tr td {
   white-space: normal !important;
 }
 
-.access>section:not(:first-child) {
+.access > section:not(:first-child) {
   margin-top: 3rem;
+}
+
+/* ====================================
+   11. FONT FACE DECLARATIONS
+   ==================================== */
+@font-face {
+  font-family: NotoColorEmojiLimited;
+  unicode-range: U+1F1E6-1F1FF;
+  src: url(https://raw.githack.com/googlefonts/noto-emoji/main/fonts/NotoColorEmoji.ttf);
 }

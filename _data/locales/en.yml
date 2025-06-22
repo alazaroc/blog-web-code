@@ -128,11 +128,18 @@ feedback_form:
   submit_success_message: "Your feedback has been received."
 
 subscription_form:
-  title: "Subscribe for monthly updates"
-  email_placeholder: "me@gmail.com"
-  submit_button: "Submit"
-  submitting_button: "Submitting..."
-  submit_failed: "Failed to submit the form."
-  submit_failed_message: "Please, try again."
-  submit_success: "Thank you for subscribing!"
-  submit_success_message: "I'll send you some notifications with new updates!"
+  title: Subscribe to my newsletter!
+  description: "Receive my latest articles, tutorials, and tips on AWS and cloud computing by subscribing to my newsletter. No spam, I promise!"
+  action: "https://www.playingaws.com/api/v1/subscription"
+  email_placeholder: "Enter your email"
+  submit_button: "Subscribe"
+  submitting_button: "Subscribing..."
+  submit_success: "Subscribed!"
+  submit_success_message: "Thanks for subscribing! You will receive an email to confirm your subscription."
+  submit_failed: "Error!"
+  submit_failed_message: "Something went wrong. Please try again later."
+
+# Legal pages
+legal:
+  legal_notice: "Legal Notice"
+  cookie_policy: "Cookie Policy"

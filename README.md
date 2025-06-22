@@ -4,7 +4,7 @@
   - [Description](#description)
   - [Technology used](#technology-used)
   - [Type](#type)
-  - [More information \[generated with AI\]](#more-information-generated-with-ai)
+  - [More information (generated with AI)](#more-information-generated-with-ai)
     - [Jekyll-based Blog Website for Playing AWS](#jekyll-based-blog-website-for-playing-aws)
     - [Repository Structure](#repository-structure)
       - [Key Files and Directories](#key-files-and-directories)
@@ -12,6 +12,7 @@
       - [Prerequisites](#prerequisites)
       - [Installation](#installation)
       - [Running Locally](#running-locally)
+      - [Markdown Validation (lint)](#markdown-validation-lint)
       - [Configuration](#configuration)
       - [Adding Content](#adding-content)
       - [Customization](#customization)
@@ -30,7 +31,7 @@ Static site generator with `Jekyll`.
 
 Public project.
 
-## More information [generated with AI]
+## More information (generated with AI)
 
 ### Jekyll-based Blog Website for Playing AWS
 
@@ -100,6 +101,22 @@ bundle exec jekyll serve
 ```
 
 Visit `http://localhost:4000` in your browser to view the site.
+
+#### Markdown Validation (lint)
+
+To improve the quality of your content, you can run `markdownlint` locally:
+
+```sh
+npx markdownlint "_posts/**/*.md" "_tabs/**/*.md" "README.md"
+```
+
+To see a summary of the most frequently failing rules and decide if you want to disable them, you can use:
+
+```sh
+npx markdownlint "_posts/**/*.md" "_tabs/**/*.md" "README.md" | grep -o 'MD[0-9]\\+' | sort | uniq -c | sort -nr
+```
+
+You can customize the rules by creating or modifying the `.markdownlint.json` file in the project root.
 
 #### Configuration
 

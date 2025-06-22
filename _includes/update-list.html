@@ -1,7 +1,7 @@
-<!-- Get 1 last posted/updated posts -->
+<!-- Get the latest {max_size} posted/updated posts -->
 
 {% assign current_lang = include.lang | default: site.lang %}
-{% assign MAX_SIZE = 1 %}
+{% assign MAX_SIZE = include.max_size | default: 1 %}
 
 {% assign all_list = '' | split: '' %}
 

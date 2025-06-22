@@ -1,10 +1,23 @@
 <!-- The Search results -->
-
 <div id="search-result-wrapper" class="d-flex justify-content-center d-none">
   <div class="col-11 content">
     <div id="search-hints">
-      {% include_cached trending-tags.html lang=lang %}
+      <div class="access">
+        <!--  -->
+        {% include_cached update-list.html lang=lang max_size=3 %}
+        {% include_cached featured-list.html lang=lang max_size=3 %}
+        {% include_cached trending-tags.html lang=lang max_size=10 %}
+        <!-- Subscription form -->
+        {% include_cached subscribe-form-menu.html lang=lang %}
+      </div>
+
+      {% for _include in layout.panel_includes %}
+        {% assign _include_path = _include | append: '.html' %}
+        {% include {{ _include_path }} lang=lang %}
+      {% endfor %}
     </div>
+    <!-- Search results -->
     <div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div>
   </div>
 </div>
+

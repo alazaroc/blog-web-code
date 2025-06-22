@@ -1,0 +1,78 @@
+{% assign is_compact = include.compact | default: false %}
+
+{% if is_compact %}
+  <!-- Compact mode for mobile -->
+  <div class="lang-switcher-compact">
+    {% for tongue in site.languages %}
+      {% if tongue == site.active_lang %}
+        <span class="flag-current">{{ site.data.locales[tongue].tabs.flag }}</span>
+      {% else %}
+        {% if page.lang-exclusive %}
+          {% assign is_lang_exclusive = false %}
+          {% for lang in page.lang-exclusive %}
+            {% if tongue == lang %}
+              {% assign is_lang_exclusive = true %}
+            {% endif %}
+          {% endfor %}
+          {% if is_lang_exclusive == false %}
+            <span class="flag-disabled">{{ site.data.locales[tongue].tabs.flag }}</span>
+          {% else %}
+            <a class="flag-alternative" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+              {{ site.data.locales[tongue].tabs.flag }}
+            </a>
+          {% endif %}
+        {% else %}
+          <a class="flag-alternative" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+            {{ site.data.locales[tongue].tabs.flag }}
+          </a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% else %}
+  <!-- Full version for sidebar -->
+  <nav id="language-switcher" class="flex-column flex-grow-1 w-100 ps-0 lang-switcher-block">
+    <ul class="nav">
+      <li class="nav-item">
+        <p class="lang-switcher-title">
+          {{ site.data.locales[site.active_lang].tabs.languages }}
+        </p>
+      </li>
+      {% for tongue in site.languages %}
+        <li class="nav-item{% if tongue == site.active_lang %} active{% endif %}">
+          {% if tongue == site.active_lang %}
+            <a class="nav-link current-lang">
+              <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
+              <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+            </a>
+          {% else %}
+            {% if page.lang-exclusive %}
+              {% assign is_lang_exclusive = false %}
+              {% for lang in page.lang-exclusive %}
+                {% if tongue == lang %}
+                  {% assign is_lang_exclusive = true %}
+                {% endif %}
+              {% endfor %}
+              {% if is_lang_exclusive == false %}
+                <a class="nav-link disabled-lang">
+                  <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
+                  <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+                </a>
+              {% else %}
+                <a class="nav-link" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+                  <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
+                  <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+                </a>
+              {% endif %}
+            {% else %}
+              <a class="nav-link" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+                <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
+                <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+              </a>
+            {% endif %}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %} 

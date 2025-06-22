@@ -9,6 +9,9 @@
     content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
   >
 
+  <!-- Feed Reference -->
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ '/rss.xml' | absolute_url }}">
+
   {%- capture seo_tags -%}
     {% seo title=false %}
   {%- endcapture -%}
@@ -105,6 +108,10 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <!-- Subscribe form -->
   <script src="{{ '/assets/js/subscribe-form.js' | relative_url }}"></script>
+  <!-- Contact form -->
+  <!-- <script src="{{ '/assets/js/contact-form.js' | relative_url }}"></script> -->
+  <!-- Feedback form -->
+  <!-- <script src="{{ '/assets/js/feedback-form.js' | relative_url }}"></script> -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
@@ -127,37 +134,10 @@
         {% include analytics/{{ platform }}.html %}
       {% endif %}
     {% endfor %}
+
+    <!-- Real User Monitoring with CloudWatch RUM -->
+    <script src="{{ '/assets/js/cloudwatch-rum.js' | relative_url }}"></script>
   {% endif %}
-
-  <!-- Real User Monitoring with CloudWatch RUM -->
-  <script>
-    (function(n,i,v,r,s,c,x,z){x=window.AwsRumClient={q:[],n:n,i:i,v:v,r:r,c:c};window[n]=function(c,p){x.q.push({c:c,p:p});};z=document.createElement('script');z.async=true;z.src=s;document.head.insertBefore(z,document.head.getElementsByTagName('script')[0]);})(
-      'cwr',
-      '98537d86-ca5e-4a41-a8f8-a11631692ef5',
-      '1.0.0',
-      'eu-west-1',
-      "{{ '/assets/js/cwr.min.js' | relative_url }}",
-      {
-        identityPoolId: "eu-west-1:e24933c6-470e-45cf-892d-b1d88cb8e9de",
-        sessionSampleRate: 1,
-        endpoint: "https://dataplane.rum.eu-west-1.amazonaws.com",
-        telemetries: ["performance","errors","http"],
-        allowCookies: true,
-        enableXRay: false
-      }
-    );
-  </script>
-
-  <!-- TODO: remove these lines after a while -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      });
-    }
-  </script>
 
   {% include metadata-hook.html %}
 </head>
