@@ -26,6 +26,11 @@ media_subpath: /assets/img/posts/2022-04-12-how-to-create-serverless-application
 image:
   path: simple-webservice-v1.png
   header_post: false
+series:
+  name: "AWS SAM"
+  order: 3
+  total: 3
+  description: "xxxxx"
 ---
 ---
 

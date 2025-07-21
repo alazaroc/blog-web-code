@@ -21,19 +21,12 @@ media_subpath: /assets/img/posts/2024-10-10-why-the-aws-well-architected-framewo
 image:
   path: waf_cover_why.jpg
   header_post: false
+series:
+  name: "AWS Well-Architected Framework"
+  order: 1
+  total: 5
+  description: "A comprehensive series that introduces the AWS Well-Architected Framework, its six pillars, and how to apply best practices for building secure, reliable, and efficient cloud architectures."
 ---
----
-
-> This is the **first article** in a series about the `AWS Well-Architected Framework`.
->
-> More articles in the series:
->
-> - 2/5 - [How to apply the Well-Architected Framework depending on your cloud role](/posts/how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/).
-> - 3/5 - [Deep Dive of the Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/).
-> - 4/5 - [Quick Wins for Each Pillar](/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/).
-> - 5/5 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/).
-{: .prompt-info }
-
 ---
 
 ## 1. Introduction
@@ -54,10 +47,10 @@ The Framework is a practical guide to help you **review, improve, and evolve** y
 
 ## 2. Why is this Framework important?
 
-Here’s why it’s (really) worth applying the Framework:
+Here's why it's (really) worth applying the Framework:
 
 1. AWS created it to help you **identify what a good cloud architecture looks like**.
-2. It’s **based on best practices**, not only from AWS, but applicable to any cloud environment.
+2. It's **based on best practices**, not only from AWS, but applicable to any cloud environment.
 3. It guides you toward an architecture that is `secure`, `efficient`, `resilient`, `scalable`, `cost-optimized`, and more `sustainable`.
 4. It helps you **detect risks** before they turn into problems.
 
@@ -143,7 +136,7 @@ Beyond the concepts, the Framework also provides tools and mechanisms to apply i
 - `AWS Well-Architected Tool`: A free tool in the AWS console to review your architectures, identify risks, and track improvements.
 - `Well-Architected Reviews`: Structured evaluations you can do yourself or with support.
 
-> The goal isn’t to have a perfect architecture, but to improve it continuously.
+> The goal isn't to have a perfect architecture, but to improve it continuously.
 {: .prompt-tip }
 
 ### 3.5. Visualizing the concepts
@@ -183,10 +176,10 @@ mindmap
 
 ## 4. Conclusion
 
-> The Framework doesn’t just help you build right from the beginning. It also guides you to continuously improve, detect what’s not working… and fix it in time.
+> The Framework doesn't just help you build right from the beginning. It also guides you to continuously improve, detect what's not working… and fix it in time.
 {: .prompt-info }
 
-It’s not just a set of guidelines—it's a **powerful tool that can help you design and manage cloud workloads** that are secure, reliable, efficient, and cost-effective.
+It's not just a set of guidelines, it's a **powerful tool that can help you design and manage cloud workloads** that are secure, reliable, efficient, and cost-effective.
 
 This `mindmap` diagram, also available online [here](https://whimsical.com/aws-well-architected-framework-v1-0-LMSYMqmRpZSzV1Y8cARNH8){:target="_blank"}, provides a visual summary of the key concepts discussed in this article.
 

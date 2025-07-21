@@ -1,0 +1,110 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<div class="row">
+    <h1 class="mb-4">
+      {% if lang == 'es' %}Categorías y Etiquetas{% else %}Categories & Tags{% endif %}
+    </h1>
+    
+    <!-- Categories Section -->
+    <section class="">
+      <div class="section-header">
+        <h2 class="mb-3">
+          <i class="fas fa-folder"></i>
+          {% if lang == 'es' %}Categorías{% else %}Categories{% endif %}
+          <i class="fas fa-chevron-down toggle-icon" id="categories-toggle"></i>
+        </h2>
+      </div>
+      <div class="section-content" id="categories-section" onclick="toggleCategoriesAndTags('categories-section')">
+        <div class="category-grid">
+          {% for category in site.categories %}
+            <!-- TODO: en español deberia abrirlo como /es/categories... -->
+            {% if lang == 'es' %}
+            <div class="category-card" onclick="window.location.href='/es/categories/{{ category[0] | slugify }}/'">
+            {% else %}
+            <div class="category-card" onclick="window.location.href='/categories/{{ category[0] | slugify }}/'">
+            {% endif %}
+              <div class="category-header">
+                <h3 class="category-title">
+                  {{ category[0] }}
+                </h3>
+                <span class="category-count">{{ category[1].size }} {% if lang == 'es' %}posts{% else %}posts{% endif %}</span>
+              </div>
+              <div class="category-preview">
+                {% for post in category[1] limit: 3 %}
+                  <div class="category-post-preview">
+                    <i class="fas fa-file-alt"></i>
+                    {{ post.title }}
+                  </div>
+                {% endfor %}
+                {% if category[1].size > 2 %}
+                  <div class="more-posts">
+                    <small class="text-muted">
+                      +{{ category[1].size | minus: 2 }} {% if lang == 'es' %}posts más{% else %}more posts{% endif %}
+                    </small>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tags Section -->
+    <section class="mb-4">
+      <div class="section-header">
+        <h2 class="mb-3">
+          <i class="fas fa-tags"></i>
+          {% if lang == 'es' %}Etiquetas{% else %}Tags{% endif %}
+          <i class="fas fa-chevron-down toggle-icon" id="tags-toggle"></i>
+        </h2>
+      </div>
+      <div class="section-content" id="tags-section" onclick="toggleCategoriesAndTags('tags-section')">
+        <div class="tag-cloud">
+          {% assign tags = site.tags | sort %}
+          {% for tag in tags %}
+            <a href="/tags/{{ tag[0] | slugify }}/" 
+               class="post-tag tag-cloud-item"
+               style="font-size: {{ tag[1].size | times: 100 | divided_by: site.tags.size | plus: 70 }}%">
+              {{ tag[0] }}
+              <span class="tag-count">({{ tag[1].size }})</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+</div>
+
+<script>
+function toggleCategoriesAndTags(sectionId) {
+  // const content = document.getElementById('faq-section-content');
+  // const icon = document.getElementById('faq-toggle-icon');
+  // if (content.style.display === 'none') {
+  //   content.style.display = 'block';
+  //   icon.className = 'fas fa-chevron-down toggle-icon';
+  // } else {
+  //   content.style.display = 'none';
+  //   icon.className = 'fas fa-chevron-right toggle-icon';
+  // }
+
+  const section = document.getElementById(sectionId);
+  const header = section.previousElementSibling;
+  const toggleIcon = header.querySelector('.toggle-icon');
+  
+  if (section.classList.contains('collapsed')) {
+    // Expand
+    section.classList.remove('collapsed');
+    header.classList.remove('collapsed');
+    toggleIcon.style.transform = 'rotate(0deg)';
+  } else {
+    // Collapse
+    section.classList.add('collapsed');
+    header.classList.add('collapsed');
+    toggleIcon.style.transform = 'rotate(-90deg)';
+  }
+}
+</script> 

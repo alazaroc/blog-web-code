@@ -27,13 +27,15 @@ media_subpath: /assets/img/posts/2022-04-09-how-to-add-ci-cd-to-my-sam-project/
 image:
   path: sam-pipeline-bootstrap-new-file.png
   header_post: false
+series:
+  name: "AWS SAM"
+  order: 2
+  total: 3
+  description: "xxxxx"
 ---
 ---
 
 ## TLDR
-
-> This is my second article about SAM. I have explained `how to create serverless applications using SAM` [here](/posts/how-to-create-serverless-applications-with-sam/), detailing all the essential information about SAM. It would be beneficial to review that article before proceeding with this one.
-{: .prompt-warning }
 
 We will use `sam pipeline` to deploy the solution.
 

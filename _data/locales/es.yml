@@ -1,23 +1,33 @@
-# The layout text of site
-
-# ----- Commons label -----
+# Spanish locale
+title: "Playing AWS"
+tagline: Explora, simplifica, practica
+description: Práctica con AWS. Mi espacio personal para experimentar, simplificar y compartir.
 
 layout:
   post: Artículo
   category: Categoría
   tag: Etiqueta
 
-# The tabs of sidebar
 tabs:
-  # format: <filename_without_extension>: <value>
-  home: Inicio
-  categories: Categorías
-  tags: Etiquetas
-  archives: Archivos
-  about: Acerca de
-  lang_name: Español
-  flag: 🇪🇸
-  languages: Lenguajes
+  home: "Inicio"
+  archives: "Timeline"
+  categories: "Categorías y Etiquetas"
+  tags: "Etiquetas"
+  category: "Categorías"
+  series: "Series"
+  events: "Eventos"
+  dashboard: "Panel de Control"
+  about: "Acerca de"
+  search: "Buscar"
+  languages: "Idiomas"
+  flag: "🇪🇸"
+  lang_name: "Español"
+  login: "Iniciar Sesión"
+  logout: "Cerrar Sesión"
+  # Language switcher tooltips
+  current_language: "idioma actual"
+  switch_to: "Cambiar a"
+  not_available: "No disponible para esta página"
 
 # the text displayed in the search bar & search results
 search:
@@ -25,12 +35,12 @@ search:
   cancel: Cancelar
   no_results: Oops! No hay resultados.
 
+# Panel section for sidebar content
 panel:
-  featured_post: Artículos destacados
-  lastmod: Actualizado recientemente
-  trending_tags: Etiquetas populares
-  toc: Contenidos
-
+  featured_post: "Posts Destacados"
+  trending_tags: "Etiquetas Populares"
+  subscription: "Mantente Actualizado"
+  #toc: Contenidos
 copyright:
   # Shown at the bottom of the post
   license:
@@ -97,47 +107,166 @@ categories:
   post_measure:
     singular: artículo
     plural: artículos
+  title: "Categorías"
+  tags_title: "Etiquetas"
+  categories_and_tags: "Categorías y Etiquetas"
+  tags: "Etiquetas"
 
 # ----- CUSTOM LABELS -----
 
-tagline: Explora, simplifica, practica
-description: Práctica con AWS. Mi espacio personal para experimentar, simplificar y compartir.
+# # Series configuration
+# series:
+#   # Series banner texts
+#   articles_title: "Artículos de la serie"
+#   current_article: "Actual"
+#   previous: "Anterior"
+#   next: "Siguiente"
+#   article_of: "Artículo"
+#   of: "de"
+#   aws-well-architected-framework:
+#     name: "AWS Well-Architected Framework"
+#     description: "Una guía completa para construir infraestructura segura, de alto rendimiento, resiliente y eficiente para tus aplicaciones y cargas de trabajo."
+#     posts:
+#       - title: "Por qué el AWS Well-Architected Framework realmente importa"
+#         url: "/posts/why-the-aws-well-architected-framework-really-matters/"
+#         order: 1
+#       - title: "Cómo aplicar el Well-Architected Framework según tu rol en la nube"
+#         url: "/posts/how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/"
+#         order: 2
+#       - title: "Los Seis Pilares del AWS Well-Architected Framework: Mejores Prácticas para el Éxito en la Nube"
+#         url: "/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/"
+#         order: 3
+#       - title: "Impacto Inmediato: Ganancias Rápidas para Cada Pilar del AWS Well-Architected Framework"
+#         url: "/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/"
+#         order: 4
+#       - title: "Cómo la Herramienta AWS Well-Architected Puede Transformar tu Arquitectura Cloud"
+#         url: "/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/"
+#         order: 5
 
-comment_form:
-  comment_paragraph_1: ¿Te ha resultado útil este artículo? 😊
-  comment_paragraph_2: Me encantaría conocer tu opinión. ¡Tu feedback me ayuda mucho!
-  # comment_paragraph: Gracias por tomarte el tiempo para leer mi artículo. Me comprometo a ofrecer contenido valioso y relevante, y tus aportaciones juegan un papel crucial en mi mejora continua. Si tienes un momento, por favor comparte tus pensamientos.
-  # comment_question_1: ¿Cuál ha sido tu experiencia en este tema?
-  # comment_question_2: ¿Qué fue lo que encontraste más útil o interesante de este artículo?
-  # comment_question_3: ¿Tienes alguna sugerencia sobre temas que te gustaría que tratara en futuros artículos?
+#   amazon_bedrock:
+#     name: "Amazon Bedrock"
+#     description: "Explorando el servicio completamente gestionado de Amazon para construir y escalar aplicaciones de IA generativa."
+#     posts:
+#       - title: "Introducción a Amazon Bedrock y sus Modelos Fundacionales"
+#         url: "/posts/introduction-to-amazon-bedrock-and-its-foundational-models/"
+#         order: 1
+#       - title: "Diseñando Prompts Efectivos en Amazon Bedrock"
+#         url: "/posts/designing-effective-prompts-in-amazon-bedrock/"
+#         order: 2
+#       - title: "Gestión Efectiva de Prompts en Amazon Bedrock"
+#         url: "/posts/effective-prompt-management-in-amazon-bedrock/"
+#         order: 3
 
-feedback_form:
-  choose_type: "Elige un tipo de comentario"
-  general_comment: "Comentario general"
-  suggestion: "Sugerencia"
-  error_report: "Informe de error"
-  content_request: "Solicitud de contenido"
-  message_placeholder: "Tu mensaje: Comparte tus pensamientos, sugerencias o informa un problema. Sé tan detallado como quieras."
-  full_name_placeholder: "Nombre completo (Opcional)"
-  email_placeholder: "Correo electrónico (Opcional)"
-  rating_label: "Califica tu satisfacción general con el sitio (Opcional):"
-  submit_button: "Enviar"
-  submit_failed: "No se pudo enviar el formulario"
-  submit_failed_message: "Por favor, inténtalo de nuevo."
-  submit_success: "¡Gracias!"
-  submit_success_message: "Hemos recibido tu comentario."
+#   step-functions:
+#     name: "AWS Step Functions"
+#     description: "Dominando flujos de trabajo serverless y gestión de estado con AWS Step Functions."
+#     posts:
+#       - title: "¿Por qué Step Functions?"
+#         url: "/posts/why-step-functions/"
+#         order: 1
+#       - title: "Cómo Step Functions"
+#         url: "/posts/how-step-functions/"
+#         order: 2
 
+#   aws-appsync:
+#     name: "AWS AppSync"
+#     description: "Construyendo aplicaciones en tiempo real con GraphQL y AWS AppSync."
+#     posts:
+#       - title: "Comenzando con AWS AppSync: Un Enfoque Práctico a GraphQL"
+#         url: "/posts/getting-started-with-aws-appsync-a-practical-approach-to-graphql/"
+#         order: 1
+#       - title: "Construyendo Aplicaciones en Tiempo Real con AppSync y Subscripciones"
+#         url: "/posts/building-real-time-applications-with-appsync-and-subscriptions/"
+#         order: 2
+
+#   aws-open-source-tools:
+#     name: "Herramientas Open Source de AWS"
+#     description: "Herramientas open source esenciales para desarrollo y operaciones AWS."
+#     posts:
+#       - title: "Herramientas Open Source de AWS"
+#         url: "/posts/aws-open-source-tools/"
+#         order: 1
+#       - title: "Entorno de Herramientas Open Source de AWS"
+#         url: "/posts/aws-open-source-tools-environment/"
+#         order: 2
+#       - title: "Código de Herramientas Open Source de AWS"
+#         url: "/posts/aws-open-source-tools-code/"
+#         order: 3
+
+#   aws-multi-account:
+#     name: "AWS Multi-Cuenta"
+#     description: "Mejores prácticas para gestionar múltiples cuentas y organizaciones AWS."
+#     posts:
+#       - title: "Enfoque Multi-Cuenta"
+#         url: "/posts/multi-account-approach/"
+#         order: 1
+#       - title: "Deep Dive en AWS Control Tower"
+#         url: "/posts/aws-control-tower-deep-dive/"
+#         order: 2
+
+# Subscription form configuration
 subscription_form:
-  title: "¡Subscríbete a mi newsletter!"
-  description: "Recibe mis últimos artículos, tutoriales y consejos sobre AWS y computación en la nube subscribiéndote a mi newsletter. ¡Sin spam, prometido!"
-  action: "https://www.playingaws.com/api/v1/subscription"
-  email_placeholder: "Introduce tu email"
-  submit_button: "Subscribirme"
-  submitting_button: "Subscribiendo..."
-  submit_success: "¡Subscrito!"
-  submit_success_message: "¡Gracias por subscribirte! Recibirás un correo para confirmar tu subscripción."
-  submit_failed: "¡Error!"
-  submit_failed_message: "Algo ha salido mal. Por favor, inténtalo de nuevo más tarde."
+  title: "¡Mantente actualizado!"
+  description: "Suscríbete a la newsletter para recibir las últimas novedades del blog."
+  email_placeholder: "Ingresa tu email"
+  submit_button: "Suscribirse Ahora"
+  submitting_button: "Suscribiendo..."
+  submit_success: "¡Éxito!"
+  submit_success_message: "Te has suscrito correctamente a nuestro newsletter. ¡Bienvenido!"
+  submit_failed: "¡Ups!"
+  submit_failed_message: "Algo salió mal. Por favor intenta de nuevo o contáctanos si el problema persiste."
+  action: "https://api.convertkit.com/v3/forms/1234567/subscriptions"
+  footer_text: "No spam, solo contenido valioso sobre AWS"
+
+badges:
+  first_read:
+    title: "Lector Novato"
+    description: "Leíste tu primer post"
+  knowledge_seeker:
+    title: "Buscador de Conocimiento"
+    description: "Leíste 10 posts"
+  ultimate_reader:
+    title: "Lector Definitivo"
+    description: "Leíste 50 posts"
+  series_finisher:
+    title: "Primera Serie"
+    description: "Completaste tu primera serie"
+  series_guru:
+    title: "Revisor Maestro"
+    description: "Completaste 5 series"
+  first_like:
+    title: "Primer Like"
+    description: "Diste tu primer like"
+  like_enthusiast:
+    title: "Seguidor"
+    description: "Diste 5 likes"
+  first_comment:
+    title: "Primer Comentario"
+    description: "Dejaste tu primer comentario"
+  feedback_fan:
+    title: "Feedback Fan"
+    description: "Dejaste 5 comentarios"
+  aws_hero:
+    title: "AWS Hero"
+    description: "Has desbloqueado todos los otros badges"
+  # Textos
+  unlocked: "Insignia desbloqueada!"
+  text: "🏆 Insignias"
+  more_needed: "más necesarios"
+  completed: "completado"
+
+# Gamification texts
+gamification:
+  intro_text: "¡Colecciona insignias leyendo, comentando y participando!"
+  hover_text: "Pasa el ratón sobre cada una para ver cómo conseguirla."
+  progress_text: "para"
+  remaining_text: "(Te faltan"
+  more_text: "más)"
+  celebration: "¡Felicidades!"
+  categories:
+    reading: "📖 Lectura"
+    likes: "❤️ Likes"
+    comments: "💬 Comentarios"
 
 # Legal pages
 legal:

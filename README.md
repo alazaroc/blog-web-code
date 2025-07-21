@@ -1,183 +1,215 @@
-# Blog-web-code
+# Playing AWS Blog
 
-- [Blog-web-code](#blog-web-code)
-  - [Description](#description)
-  - [Technology used](#technology-used)
-  - [Type](#type)
-  - [More information (generated with AI)](#more-information-generated-with-ai)
-    - [Jekyll-based Blog Website for Playing AWS](#jekyll-based-blog-website-for-playing-aws)
-    - [Repository Structure](#repository-structure)
-      - [Key Files and Directories](#key-files-and-directories)
-    - [Usage Instructions](#usage-instructions)
-      - [Prerequisites](#prerequisites)
-      - [Installation](#installation)
-      - [Running Locally](#running-locally)
-      - [Markdown Validation (lint)](#markdown-validation-lint)
-      - [Configuration](#configuration)
-      - [Adding Content](#adding-content)
-      - [Customization](#customization)
-    - [Data Flow](#data-flow)
-    - [Deployment](#deployment)
+A modern, feature-rich Jekyll blog focused on AWS topics with gamification, multi-language support, and advanced user engagement features.
 
-## Description
+## 🚀 Features
 
-This is the code of my blog: <https://www.playingaws.com/>
+### Core Features
 
-## Technology used
+- **Multi-language Support**: English and Spanish with complete localization
+- **Gamification System**: Badges, progress tracking, and user engagement
+- **Series Management**: Organized content with navigation and progress tracking
+- **AWS Integration**: Cognito authentication, CloudWatch RUM monitoring
+- **Responsive Design**: Mobile-first approach with touch navigation
 
-Static site generator with `Jekyll`.
+### User Engagement
 
-## Type
+- **Reading Progress Bar**: Visual progress indicator for long posts
+- **Like System**: User interaction with posts
+- **Comment Integration**: Giscus-powered discussions
+- **Newsletter Subscription**: ConvertKit integration with smart popups
+- **Feedback System**: User feedback collection and rating
 
-Public project.
+### Technical Features
 
-## More information (generated with AI)
+- **Dark Mode**: AWS-branded color scheme
+- **Search Functionality**: Full-text search across content
+- **SEO Optimized**: Meta tags, structured data, sitemap
+- **Performance**: Optimized assets, lazy loading, CDN ready
 
-### Jekyll-based Blog Website for Playing AWS
+## 🛠 Technology Stack
 
-This repository contains the source code for a Jekyll-based blog website focused on AWS topics. The site, "Playing AWS," is designed to help users learn, remove barriers, and practice AWS concepts.
+- **Static Site Generator**: Jekyll with Chirpy theme
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Styling**: Bootstrap 5, custom AWS-themed CSS
+- **Comments**: Giscus (GitHub Discussions)
+- **Analytics**: CloudWatch RUM, GoatCounter
+- **Deployment**: AWS S3 + CloudFront
 
-The blog is built using the Jekyll static site generator with the Chirpy theme. It features a responsive design, SEO optimization, and integration with various services such as Google Analytics and Giscus for comments.
-
-This code has been deployed here: <https://www.playingaws.com/>
-
-### Repository Structure
+## 📁 Project Structure
 
 ```code
 blog-web-code/
-├── _config.yml
+├── _config.yml                 # Main configuration
 ├── _data/
-├── _includes/
-├── _layouts/
-├── _plugins/
-├── _posts/
-├── _tabs/
+│   ├── locales/               # Multi-language support
+│   │   ├── en.yml            # English translations
+│   │   └── es.yml            # Spanish translations
+│   ├── contact.yml           # Contact information
+│   └── share.yml             # Social sharing config
+├── _includes/                # Reusable components
+├── _layouts/                 # Page templates
+├── _posts/                   # Blog posts (organized by language)
+├── _tabs/                    # Navigation pages
 ├── assets/
-├── CHANGELOG.md
-├── index.html
-└── README.md
+│   ├── css/                  # Stylesheets
+│   ├── js/                   # JavaScript modules
+│   └── img/                  # Images and media
+└── CHANGELOG.md              # Version history
 ```
 
-#### Key Files and Directories
+## 🚀 Quick Start
 
-- `_config.yml`: Main configuration file for the Jekyll site
-- `_data/`: Contains YAML files for contact information, localization, and sharing options
-- `_includes/`: Houses partial HTML files and JavaScript for various site components
-- `_layouts/`: Contains HTML templates for different page types
-- `_posts/`: Directory for blog post markdown files
-- `_tabs/`: Markdown files for main navigation tabs
-- `assets/`: Static assets including CSS, JavaScript, and images
+### Prerequisites
 
-### Usage Instructions
-
-#### Prerequisites
-
-- Ruby (version specified in `.ruby-version` file)
+- Ruby (see `.ruby-version`)
 - Bundler
-- Node.js and npm (for asset compilation)
+- Node.js (for asset compilation)
 
-#### Installation
+### Installation
 
-1. Clone the repository:
-
-   ```code
+```bash
    git clone https://github.com/alazaroc/blog-web-code.git
    cd blog-web-code
-   ```
-
-2. Install dependencies:
-
-   ```code
    bundle install
-   npm install
-   ```
-
-#### Running Locally
-
-To start the development server:
-
-```code
-bundle exec jekyll serve
 ```
 
-Visit `http://localhost:4000` in your browser to view the site.
+### Development
 
-#### Markdown Validation (lint)
-
-To improve the quality of your content, you can run `markdownlint` locally:
-
-```sh
-npx markdownlint "_posts/**/*.md" "_tabs/**/*.md" "README.md"
+```bash
+bundle exec jekyll serve --livereload
 ```
+Visit `http://localhost:4000`
 
-To see a summary of the most frequently failing rules and decide if you want to disable them, you can use:
+## 📝 Content Management
 
-```sh
-npx markdownlint "_posts/**/*.md" "_tabs/**/*.md" "README.md" | grep -o 'MD[0-9]\\+' | sort | uniq -c | sort -nr
-```
-
-You can customize the rules by creating or modifying the `.markdownlint.json` file in the project root.
-
-#### Configuration
-
-Edit `_config.yml` to customize site settings, including:
-
-- Site title and description
-- Social media links
-- Google Analytics ID
-- Comments system (Giscus)
-
-#### Adding Content
-
-1. Create new blog posts in the `_posts/` directory using the format `YYYY-MM-DD-title.md`.
-2. Use the front matter to set post metadata:
+### Adding Posts
 
    ```yaml
    ---
    title: "Your Post Title"
-   date: YYYY-MM-DD HH:MM:SS +/-TTTT
-   categories: [Category1, Category2]
-   tags: [tag1, tag2]
+date: 2025-01-01 12:00:00 +0000
+categories: [AWS, Cloud]
+tags: [ec2, serverless]
+series: aws-well-architected-framework  # Optional
    ---
    ```
 
-3. Write your post content in Markdown below the front matter.
+### Multi-language Posts
 
-#### Customization
+- English: `_posts/en/`
+- Spanish: `_posts/es/`
 
-- Modify `_includes/` files to change site components
-- Edit `assets/css/custom.css` for custom styles
-- Update `_data/` YAML files to change contact and sharing options
+### Series Configuration
 
-### Data Flow
+Configure series in `_data/locales/[lang].yml`:
 
-The blog follows a typical Jekyll static site generation process:
-
-1. Content is written in Markdown files (posts and pages)
-2. Jekyll processes these files along with the configuration and layout templates
-3. Static HTML files are generated
-4. These files are served to users via a web server
-
-```code
-[Markdown Files] -> [Jekyll Processing] -> [Static HTML] -> [Web Server] -> [User's Browser]
+```yaml
+series:
+  aws-well-architected-framework:
+    name: "AWS Well-Architected Framework"
+    description: "Complete guide to AWS best practices"
+    posts:
+      - title: "Part 1: Introduction"
+        url: "/posts/introduction/"
+        order: 1
 ```
 
-Jekyll handles the conversion of Markdown to HTML, applies layouts and includes, and generates the final static files that can be served by any web server.
+## 🏅 Playing AWS Gamification Badges
 
-### Deployment
+¡Desbloquea logros techies mientras exploras el blog!
 
-The deployment process is not specified in the provided files. However, given the static nature of Jekyll sites, common deployment options include:
+### Series Badges
 
-- GitHub Pages
-- AWS S3 + CloudFront
-- Netlify
-- Vercel
+- 🤓 **Series Finisher**: Completa 1 serie
+- 🏅 **Series Guru**: Completa 5 series
+- 🌟 **Series Legend**: Completa 10 series
+- 🦸 **AWS Hero**: Consigue todos los demás badges
 
-Ensure that you build the site locally (`bundle exec jekyll build`) before deploying, or set up a CI/CD pipeline to automate the build and deployment process.
+### Reading Badges
+
+- 📖 **First Read**: Lee tu primer artículo
+- ☁️ **Cloud Reader**: Lee 5 artículos
+- 🔎 **Knowledge Seeker**: Lee 10 artículos
+- 🧭 **Content Explorer**: Lee 20 artículos
+- 🏆 **Ultimate Reader**: Lee 50 artículos
+
+### Otros badges
+
+- ❤️ **First Like**: Primer like
+- 🚀 **Like Enthusiast**: 5 likes
+- 💬 **First Comment**: Primer comentario
+- 🗣️ **Feedback Fan**: 3 comentarios
+- 🤝 **Community Builder**: 5 comentarios
+
+## 🌐 Localization
+
+Complete multi-language support with:
+
+- **Content**: Posts, pages, and navigation
+- **UI Elements**: Buttons, forms, messages
+- **Gamification**: Badge titles and descriptions
+- **Series**: Names and descriptions
+
+## 🔧 Configuration
+
+### AWS Integration
+
+```yaml
+# _config.yml
+cognito:
+  region: us-east-1
+  userPoolId: your-user-pool-id
+  clientId: your-client-id
+  domain: your-domain.auth.region.amazoncognito.com
+
+cloudwatch_rum:
+  applicationId: your-app-id
+  clientToken: your-client-token
+```
+
+### Newsletter
+
+```yaml
+# _config.yml
+convertkit:
+  formId: your-form-id
+  apiKey: your-api-key
+```
+
+## 📊 Analytics & Monitoring
+
+- **CloudWatch RUM**: Real user monitoring
+- **GoatCounter**: Privacy-friendly analytics
+- **Performance Tracking**: Core Web Vitals monitoring
+
+## 🚀 Deployment
+
+The blog is optimized for deployment on:
+
+- **AWS S3 + CloudFront** (recommended)
+- **GitHub Pages**
+- **Netlify**
+- **Vercel**
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test locally
+5. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🔗 Links
+
+- **Live Site**: https://www.playingaws.com/
+- **Theme**: [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
+- **Documentation**: [Jekyll Docs](https://jekyllrb.com/docs/)
 
 ---
 
-For more information on Jekyll and the Chirpy theme, refer to their respective documentation:
-
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [Chirpy Theme Documentation](https://github.com/cotes2020/jekyll-theme-chirpy#documentation)
+Built with ❤️ and ☁️ for the AWS community.

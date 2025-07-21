@@ -7,6 +7,21 @@
         {% include_cached update-list.html lang=lang max_size=3 %}
         {% include_cached featured-list.html lang=lang max_size=3 %}
         {% include_cached trending-tags.html lang=lang max_size=10 %}
+
+        <!-- Gamification Badges in SideBar -->
+        <!--
+        <section class="mt-4">
+          <h2 class="panel-heading">{{ site.data.locales[current_lang].badges.text }}</h2>
+          <div class="header-badges-section header-badges-title">
+            <div id="header-badges" class="header-badges-container">
+            -->
+              <!-- Badges will be populated by JavaScript -->
+            <!--
+            </div>
+          </div>
+        </section>
+        -->
+
         <!-- Subscription form -->
         {% include_cached subscribe-form-menu.html lang=lang %}
       </div>

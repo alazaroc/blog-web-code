@@ -21,6 +21,11 @@ media_subpath: /assets/img/posts/2024-02-04-amazon-api-gateway-exposed/
 image:
   path: apigateway-default.png
   header_post: false
+series:
+  name: "Amazon API Gateway"
+  order: 1
+  total: 2
+  description: ""
 ---
 ---
 

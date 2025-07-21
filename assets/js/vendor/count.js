@@ -14,7 +14,7 @@
     try {
       var set = JSON.parse(s.dataset.goatcounterSettings);
     } catch (err) {
-      console.error("invalid JSON in data-goatcounter-settings: " + err);
+      // Eliminar console.error("invalid JSON in data-goatcounter-settings: " + err);
     }
     for (var k in set)
       if (
@@ -100,7 +100,7 @@
 
   // Show a warning in the console.
   var warn = function (msg) {
-    if (console && "warn" in console) console.warn("goatcounter: " + msg);
+    // Eliminar o comentar la línea: if (console && "warn" in console) console.warn("goatcounter: " + msg);
   };
 
   // Get the endpoint to send requests to.

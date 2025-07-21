@@ -23,17 +23,13 @@ media_subpath: /assets/img/posts/2023-01-30-aws-open-source-tools-environment/
 image:
   path: 2_article.jpg
   header_post: false
+series:
+  name: "Open-Source tools and AWS"
+  order: 2
+  total: 3
+  description: ""
 ---
 ---
-
-> This article is part of a series about `open-source` tools and AWS, in which I will share those tools that I have tested and that I think you may find useful.
->
-> 1/3: [Getting Started with AWS open-source tools](/posts/aws-open-source-tools/): main open-source tools and extend AWS CLI (this article).
->
-> 2/3: **Analyze your AWS environment**: focus on the inventory, analysis and security assessment of the AWS environment.
->
-> 3/3: [How to help you with your code](/posts/aws-open-source-tools-code/): to generate it (IaC), validate it (policy as code and compliance) and analyze it (static analysis/credentials).
-{: .prompt-tip }
 
 ## 1. Introduction
 

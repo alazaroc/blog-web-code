@@ -23,15 +23,13 @@ media_subpath: /assets/img/posts/2024-06-02-getting-started-with-aws-appsync-a-p
 image:
   path: appsync-architecture-graphql-api.png
   header_post: false
+series:
+  name: "AWS AppSync"
+  order: 1
+  total: 2
+  description: "I will explain what is AWS AppSync and how you can use it in your architectures."
 ---
 ---
-
-> This article is part of a series about `appsync`, in which I will explain what is AWS AppSync and how you can use it in your architectures.
->
-> 1/2: **Getting started: A Practical Approach to GraphQL**
->
-> 2/2: [Building real-rime applications](/posts/building-real-time-applications-with-appsync-and-subscriptions/)
-{: .prompt-tip }
 
 ## 1. Introduction to GraphQL and AWS AppSync
 

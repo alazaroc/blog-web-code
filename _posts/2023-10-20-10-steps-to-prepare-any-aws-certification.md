@@ -91,7 +91,7 @@ In my last exam, I skipped this step because I wanted to experiment if I could p
 
 Practice is the best way to learn and gain real experience.
 
-Avoid relying solely on studying tests or theory—you must know how to use the theory in practice! 
+Avoid relying solely on studying tests or theory. You must know how to use the theory in practice!
 
 Yes, you can pass an AWS exam without practice, but then, what is the point? You won't know how to do anything, and you'll likely forget everything...
 

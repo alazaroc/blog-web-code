@@ -1,29 +1,33 @@
 <section>
   <div class="subscription-form-container">
     <h2 class="panel-heading">{{ site.data.locales[page.lang].subscription_form.title }}</h2>
+    
+    <p class="subscription-description">
+      {{ site.data.locales[page.lang].subscription_form.description }}
+    </p>
 
     <form class="customer-subscribe-form" method="post" action="{{ site.data.locales[page.lang].subscription_form.action }}" accept-charset="UTF-8">
-      <div class="d-flex">
-        <div class="form-group width_300 margin_right_15">
-          <input type="email" name="email" placeholder="{{ site.data.locales[page.lang].subscription_form.email_placeholder }}" class="form-control subscribe_email" required />
-        </div>
-        <div class="form-actions">
-          <button type="submit" name="submit" class="btn-default btn btn-primary btn-lg custom_button subscribe-form-submit-button">
-            {{ site.data.locales[page.lang].subscription_form.submit_button }}
-          </button>
-          <button name="loading" class="btn btn-default btn-primary btn-lg form-hidden custom_button subscribe-form-loading-submit-button">
-            {{ site.data.locales[page.lang].subscription_form.submitting_button }}
-          </button>
-        </div>
+      <div class="form-group mb-2">
+        <input type="email" name="email" placeholder="{{ site.data.locales[page.lang].subscription_form.email_placeholder }}" class="form-control subscribe_email" required />
       </div>
-
-      <div class="alert alert-danger form-hidden subscribe-form-failed-to-submit" role="alert">
-        <strong>{{ site.data.locales[page.lang].subscription_form.submit_failed }}</strong> {{ site.data.locales[page.lang].subscription_form.submit_failed_message }}
-      </div>
-
-      <div class="alert alert-success form-hidden subscribe-form-was-submitted" role="alert">
-        <strong>{{ site.data.locales[page.lang].subscription_form.submit_success }}</strong> {{ site.data.locales[page.lang].subscription_form.submit_success_message }}
+      <div class="form-actions">
+        <button type="submit" name="submit" class="btn btn-primary btn-sm w-100 custom_button subscribe-form-submit-button">
+          <i class="fas fa-envelope"></i>
+          {{ site.data.locales[page.lang].subscription_form.submit_button }}
+        </button>
+        <button name="loading" class="btn btn-default btn-primary btn-sm w-100 form-hidden custom_button subscribe-form-loading-submit-button">
+          <i class="fas fa-spinner fa-spin"></i>
+          {{ site.data.locales[page.lang].subscription_form.submitting_button }}
+        </button>
       </div>
     </form>
+
+    <div class="alert alert-danger form-hidden subscribe-form-failed-to-submit" role="alert">
+      <strong>{{ site.data.locales[page.lang].subscription_form.submit_failed }}</strong> {{ site.data.locales[page.lang].subscription_form.submit_failed_message }}
+    </div>
+
+    <div class="alert alert-success form-hidden subscribe-form-was-submitted" role="alert">
+      <strong>{{ site.data.locales[page.lang].subscription_form.submit_success }}</strong> {{ site.data.locales[page.lang].subscription_form.submit_success_message }}
+    </div>
   </div>
 </section>

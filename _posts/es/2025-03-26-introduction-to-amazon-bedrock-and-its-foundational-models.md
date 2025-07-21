@@ -21,15 +21,13 @@ media_subpath: /assets/img/posts/2025-03-26-introduction-to-amazon-bedrock-and-i
 image:
   path: bedrock-testing-model.jpg
   header_post: false
+series:
+  name: "Amazon Bedrock"
+  order: 1
+  total: 3
+  description: "Descubre cómo aprovechar Amazon Bedrock para IA generativa: modelos fundacionales, diseño de prompts y buenas prácticas para soluciones efectivas en AWS."
 ---
 ---
-
-> Este artículo es el primero de una serie sobre `Amazon Bedrock`:
->
-> - 1/3: **Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales**
-> - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/)
-> - 3/3: [Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas](/es/posts/effective-prompt-management-in-amazon-bedrock/)
-{: .prompt-tip }
 
 ## 1. Introducción
 

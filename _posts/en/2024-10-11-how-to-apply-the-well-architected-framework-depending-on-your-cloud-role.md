@@ -21,19 +21,12 @@ media_subpath: /assets/img/posts/2024-10-11-how-to-apply-the-well-architected-fr
 image:
   path: role_cover.png
   header_post: false
+series:
+  name: "AWS Well-Architected Framework"
+  order: 2
+  total: 5
+  description: "A comprehensive series that introduces the AWS Well-Architected Framework, its six pillars, and how to apply best practices for building secure, reliable, and efficient cloud architectures."
 ---
----
-
-> This is the **second article** in a series about the `AWS Well-Architected Framework`.
->
-> More articles in the series:
->
-> - 1/5 - [Why the AWS Well-Architected Framework really matters](/posts/why-the-aws-well-architected-framework-really-matters/).
-> - 3/5 - [Deep Dive of the Six Pillars](/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/).
-> - 4/5 - [Quick Wins for Each Pillar](/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/).
-> - 5/5 - [AWS Well-Architected Tool](/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/).
-{: .prompt-info }
-
 ---
 
 ## 1. Introduction

@@ -21,15 +21,13 @@ media_subpath: /assets/img/posts/2025-03-31-effective-prompt-management-in-amazo
 image:
   path: compare-variants-models-1-es.png
   header_post: false
+series:
+  name: "Amazon Bedrock"
+  order: 3
+  total: 3
+  description: "Descubre cómo aprovechar Amazon Bedrock para IA generativa: modelos fundacionales, diseño de prompts y buenas prácticas para soluciones efectivas en AWS."
 ---
 ---
-
-> Tercer artículo de una serie sobre `Amazon Bedrock`:
->
-> - 1/3: [Amazon Bedrock 101: Guía para Comprender sus Modelos Fundamentales](/es/posts/introduction-to-amazon-bedrock-and-its-foundational-models/)
-> - 2/3: [Prompts I: Cómo Diseñar Prompts Efectivos en Amazon Bedrock](/es/posts/designing-effective-prompts-in-amazon-bedrock/)
-> - 3/3: **Prompts II - Domina la Gestión de Prompts en Amazon Bedrock: Versionado, Optimización y Buenas Prácticas**
-{: .prompt-tip }
 
 ## 1. Introducción
 

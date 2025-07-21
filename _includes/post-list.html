@@ -1,0 +1,57 @@
+{% for post in posts %}
+  <article class="post-entry">
+    <div class="card">
+      <div class="card-body">
+        <!-- Series Badge -->
+        {% if post.series %}
+        <div class="series-indicator">
+          <span class="series-badge">
+            <i class="fas fa-book-open"></i>
+            {{ post.series.name }} - Part {{ post.series.order }}/{{ post.series.total }}
+          </span>
+        </div>
+        {% endif %}
+        
+        <h3 class="card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        
+        <div class="card-text content">
+          <p>{{ post.description | default: post.excerpt | strip_html | truncate: 200 }}</p>
+        </div>
+        
+        <div class="post-meta">
+          <div class="post-meta-primary">
+            <span class="post-date">
+              <i class="fas fa-calendar-alt"></i>
+              {{ post.date | date: "%b %e, %Y" }}
+            </span>
+            
+            {% if post.level %}
+            <span class="difficulty-badge level-{{ post.level }}">
+              <i class="fas fa-signal"></i>
+              Level {{ post.level }}
+            </span>
+            {% endif %}
+            {% if post.category %}
+            <span class="post-category">
+              <i class="fas fa-folder"></i>
+              <a href="/categories/{{ post.category | slugify }}/">{{ post.category }}</a>
+            </span>
+            {% endif %}
+            {% if post.tags %}
+              {% for tag in post.tags %}
+                <a href="/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="post-meta-secondary">
+            <!-- (Opcional: otros metadatos) -->
+          </div>
+        </div>
+        
+        {# Eliminar la sección de post-tags del pie #}
+      </div>
+    </div>
+  </article>
+{% endfor %} 

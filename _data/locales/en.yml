@@ -1,23 +1,31 @@
-# The layout text of site
-
-# ----- Commons label -----
+# English locale
+title: "Playing AWS"
+tagline: Explore, simplify, practice
+description: Hands-on AWS. My personal space to experiment, simplify, and share.
 
 layout:
   post: Post
   category: Category
   tag: Tag
 
-# The tabs of sidebar
 tabs:
-  # format: <filename_without_extension>: <value>
-  home: Home
-  categories: Categories
-  tags: Tags
-  archives: Archives
-  about: About
-  lang_name: English
-  flag: 🇬🇧
-  languages: Languages
+  home: "Home"
+  archives: "Timeline"
+  categories: "Categories & Tags"
+  series: "Series"
+  events: "Events"
+  dashboard: "Dashboard"
+  about: "About"
+  search: "Search"
+  languages: "Languages"
+  flag: "🇬🇧"
+  lang_name: "English"
+  login: "Login"
+  logout: "Logout"
+  # Language switcher tooltips
+  current_language: "current language"
+  switch_to: "Switch to"
+  not_available: "Not available for this page"
 
 # the text displayed in the search bar & search results
 search:
@@ -25,11 +33,13 @@ search:
   cancel: Cancel
   no_results: Oops! No results found.
 
+
+# Panel section for sidebar content
 panel:
-  featured_post: Featured posts
-  lastmod: Recently Updated
-  trending_tags: Trending Tags
-  toc: Contents
+  featured_post: "Featured Posts"
+  trending_tags: "Trending Tags"
+  subscription: "Stay Updated"
+  #toc: Contents
 
 copyright:
   # Shown at the bottom of the post
@@ -100,44 +110,160 @@ categories:
 
 # ----- CUSTOM LABELS -----
 
-tagline: Explore, simplify, practice
-description: Hands-on AWS. My personal space to experiment, simplify, and share.
+# # Series configuration
+# series:
+#   # Series banner texts
+#   articles_title: "Series Articles"
+#   current_article: "Current"
+#   previous: "Previous"
+#   next: "Next"
+#   article_of: "Article"
+#   of: "of"
+#   #TODO: meter componente list para poder reutilizar
+#   aws_well_architected_framework:
+#     name: "AWS Well-Architected Framework"
+#     description: "A comprehensive guide to building secure, high-performing, resilient, and efficient infrastructure for your applications and workloads."
+#     posts:
+#       - title: "Why the AWS Well-Architected Framework Really Matters"
+#         url: "/posts/why-the-aws-well-architected-framework-really-matters/"
+#         order: 1
+#       - title: "How to Apply the Well-Architected Framework Depending on Your Cloud Role"
+#         url: "/posts/how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/"
+#         order: 2
+#       - title: "The Six Pillars of AWS Well-Architected Framework: Best Practices for Cloud Success"
+#         url: "/posts/the-six-pillars-of-aws-well-architected-framework-best-practices-for-cloud-success/"
+#         order: 3
+#       - title: "Immediate Impact: Quick Wins for Each Pillar of the AWS Well-Architected Framework"
+#         url: "/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/"
+#         order: 4
+#       - title: "How the AWS Well-Architected Tool Can Transform Your Cloud Architecture"
+#         url: "/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/"
+#         order: 5
 
-comment_form:
-  comment_paragraph_1: Did you find this article helpful? 😊  
-  comment_paragraph_2: I would love to hear your thoughts. Your feedback really helps me improve!
-  # comment_paragraph: Thank you for taking the time to read my article. I am committed to providing valuable and relevant content, and your insights play a crucial role in my continuous improvement. If you have a moment, please share your thoughts.
-  # comment_question_1: What is your experience in this topic?
-  # comment_question_2: What did you find most useful or interesting about this article?
-  # comment_question_3: Do you have any suggestions for topics you would like me to cover in future articles?
+#   amazon_bedrock:
+#     name: "Amazon Bedrock"
+#     description: "Exploring Amazon's fully managed service for building and scaling generative AI applications."
+#     posts:
+#       - title: "Introduction to Amazon Bedrock and Its Foundational Models"
+#         url: "/posts/introduction-to-amazon-bedrock-and-its-foundational-models/"
+#         order: 1
+#       - title: "Designing Effective Prompts in Amazon Bedrock"
+#         url: "/posts/designing-effective-prompts-in-amazon-bedrock/"
+#         order: 2
+#       - title: "Effective Prompt Management in Amazon Bedrock"
+#         url: "/posts/effective-prompt-management-in-amazon-bedrock/"
+#         order: 3
 
-feedback_form:
-  choose_type: "Choose a Feedback Type"
-  general_comment: "General Comment"
-  suggestion: "Suggestion"
-  error_report: "Error Report"
-  content_request: "Content Request"
-  message_placeholder: "Your Message: Share your thoughts, and suggestions, or report an issue. Be as detailed as you like."
-  full_name_placeholder: "Full Name (Optional)"
-  email_placeholder: "Email (Optional)"
-  rating_label: "Rate your overall satisfaction with the site (Optional):"
-  submit_button: "Submit"
-  submit_failed: "Failed to submit the form"
-  submit_failed_message: "Please, try again."
-  submit_success: "Thank you!"
-  submit_success_message: "Your feedback has been received."
+#   step-functions:
+#     name: "AWS Step Functions"
+#     description: "Mastering serverless workflows and state management with AWS Step Functions."
+#     posts:
+#       - title: "Why Step Functions?"
+#         url: "/posts/why-step-functions/"
+#         order: 1
+#       - title: "How Step Functions"
+#         url: "/posts/how-step-functions/"
+#         order: 2
 
+#   aws-appsync:
+#     name: "AWS AppSync"
+#     description: "Building real-time applications with GraphQL and AWS AppSync."
+#     posts:
+#       - title: "Getting Started with AWS AppSync: A Practical Approach to GraphQL"
+#         url: "/posts/getting-started-with-aws-appsync-a-practical-approach-to-graphql/"
+#         order: 1
+#       - title: "Building Real-Time Applications with AppSync and Subscriptions"
+#         url: "/posts/building-real-time-applications-with-appsync-and-subscriptions/"
+#         order: 2
+
+#   aws-open-source-tools:
+#     name: "AWS Open Source Tools"
+#     description: "Essential open-source tools for AWS development and operations."
+#     posts:
+#       - title: "AWS Open Source Tools"
+#         url: "/posts/aws-open-source-tools/"
+#         order: 1
+#       - title: "AWS Open Source Tools Environment"
+#         url: "/posts/aws-open-source-tools-environment/"
+#         order: 2
+#       - title: "AWS Open Source Tools Code"
+#         url: "/posts/aws-open-source-tools-code/"
+#         order: 3
+
+#   aws-multi-account:
+#     name: "AWS Multi-Account"
+#     description: "Best practices for managing multiple AWS accounts and organizations."
+#     posts:
+#       - title: "Multi-Account Approach"
+#         url: "/posts/multi-account-approach/"
+#         order: 1
+#       - title: "AWS Control Tower Deep Dive"
+#         url: "/posts/aws-control-tower-deep-dive/"
+#         order: 2
+
+# Subscription form configuration
 subscription_form:
-  title: Subscribe to my newsletter!
-  description: "Receive my latest articles, tutorials, and tips on AWS and cloud computing by subscribing to my newsletter. No spam, I promise!"
-  action: "https://www.playingaws.com/api/v1/subscription"
+  title: "Stay updated!"
+  description: "Subscribe to the newsletter to receive the latest blog updates."
   email_placeholder: "Enter your email"
-  submit_button: "Subscribe"
+  submit_button: "Subscribe now"
   submitting_button: "Subscribing..."
-  submit_success: "Subscribed!"
-  submit_success_message: "Thanks for subscribing! You will receive an email to confirm your subscription."
-  submit_failed: "Error!"
-  submit_failed_message: "Something went wrong. Please try again later."
+  submit_success: "Success!"
+  submit_success_message: "You've been successfully subscribed to our newsletter. Welcome!"
+  submit_failed: "Oops!"
+  submit_failed_message: "Something went wrong. Please try again or contact us if the problem persists."
+  action: "https://api.convertkit.com/v3/forms/1234567/subscriptions"
+  footer_text: "No spam, only valuable AWS content"
+
+badges:
+  first_read:
+    title: "New Reader"
+    description: "You read your first post"
+  knowledge_seeker:
+    title: "Knowledge Seeker"
+    description: "You read 10 posts"
+  ultimate_reader:
+    title: "Ultimate Reader"
+    description: "You read 50 posts"
+  series_finisher:
+    title: "First Series"
+    description: "You completed an entire series"
+  series_guru:
+    title: "Master Reviewer"
+    description: "You completed 5 series"
+  first_like:
+    title: "First Like"
+    description: "You gave your first like"
+  like_enthusiast:
+    title: "Supporter"
+    description: "You gave 5 likes"
+  first_comment:
+    title: "First Comment"
+    description: "You left your first comment"
+  feedback_fan:
+    title: "Feedback Fan"
+    description: "You left 5 comments"
+  aws_hero:
+    title: "AWS Hero"
+    description: "You are the best! You have unlocked all other badges"
+  # Textos
+  unlocked: "Unlocked badges!"
+  text: "🏆 Badges"
+  more_needed: "more needed"
+  completed: "completed"
+
+# Gamification texts
+gamification:
+  intro_text: "Collect badges by reading, commenting and participating!"
+  hover_text: "Hover over each one to see how to earn it."
+  progress_text: "for"
+  remaining_text: "(You need"
+  more_text: "more)"
+  celebration: "Congratulations!"
+  categories:
+    reading: "📖 Reading"
+    likes: "❤️ Likes"
+    comments: "💬 Comments"
 
 # Legal pages
 legal:

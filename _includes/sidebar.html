@@ -26,6 +26,7 @@
           <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
         </a>
       </li>
+      
       <!-- the real tabs -->
       {% for tab in site.tabs %}
       {% unless tab.hide %}
@@ -42,12 +43,6 @@
     </ul>
   </nav>
   <!-- END _TABS -->
-
-
-  <!-- CUSTOM CODE: Language Switcher -->
-  {% include lang-switcher.html %}
-  <!-- END CUSTOM CODE: Language Switcher -->
-
 
   <!-- SOCIAL MEDIA -->
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
@@ -90,6 +85,29 @@
   </div>
   <!-- SOCIAL MEDIA -->
 
+  <!-- AUTHENTICATION (only in development) -->
+  {% if jekyll.environment != 'production' %}
+  <div class="auth-section mt-3 mb-3 text-center">
+    <div id="user-info" class="text-center mb-2 d-none">
+      <!-- User info will be populated by JavaScript -->
+    </div>
+    <button id="auth-button" class="btn btn-primary btn-sm">
+      <i class="fas fa-sign-in-alt"></i>
+      <span class="d-none d-lg-inline">{{ site.data.locales[include.lang].tabs.login }}</span>
+    </button>
+  </div>
+  {% endif %}
+  <!-- END AUTHENTICATION -->
+
   <!-- .sidebar-bottom -->
 </aside>
 <!-- #sidebar -->
+
+<!-- Inject badges locale data for JavaScript -->
+<script>
+window.BADGES_LOCALE = {
+  es: {{ site.data.locales['es']['badges'] | jsonify }},
+  en: {{ site.data.locales['en']['badges'] | jsonify }}
+};
+window.LANG = '{{ include.lang }}';
+</script>

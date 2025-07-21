@@ -11,7 +11,6 @@
       {% if paths.size == 0 or page.layout == 'home' %}
         <!-- index page -->
         <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
-
       {% else %}
         {% for item in paths %}
           {% if forloop.first %}
@@ -20,14 +19,12 @@
                 {{- site.data.locales[include.lang].tabs.home | capitalize -}}
               </a>
             </span>
-
           {% elsif forloop.last %}
             {% if page.collection == 'tabs' %}
               <span>{{ site.data.locales[include.lang].tabs[item] | default: page.title }}</span>
             {% else %}
               <span>{{ page.title }}</span>
             {% endif %}
-
           {% elsif page.layout == 'category' or page.layout == 'tag' %}
             <span>
               <a href="{{ item | append: '/' | relative_url }}">
@@ -46,7 +43,7 @@
 
     <div id="topbar-title">
       <!-- Header image with low resolution version -->
-      <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle" style="margin-right:10px">
+      <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle ms-2">
         {%- if site.avatar != empty and site.avatar -%}
         {%- capture avatar_url -%}
         {% include media-url.html src=site.avatar %}
@@ -64,9 +61,11 @@
       {% endif %}
     </div>
 
-    <!-- Language Switcher compact for mobile -->
-    <div class="lang-switcher-compact d-lg-none">
-      {% include lang-switcher.html lang=include.lang compact=true %}
+    <!-- Language Switcher for both desktop and mobile -->
+    <div class="lang-switcher-container">
+      <div class="lang-switcher-compact">
+        {% include lang-switcher.html lang=include.lang compact=true %}
+      </div>
     </div>
 
     <button type="button" id="search-trigger" class="btn btn-link" aria-label="Search">

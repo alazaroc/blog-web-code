@@ -1,13 +1,20 @@
 source "https://rubygems.org"
 
-# gem 'jekyll-theme-chirpy', '~> 6.4.2'
+# Core Jekyll theme
 gem 'jekyll-theme-chirpy', '~> 7.2.4'
 
+# Development and testing
 group :test do
-    gem "html-proofer"
-  end
-
-group :jekyll_plugins do
-  gem 'jekyll-compose'
-  gem "jekyll-polyglot"
+  gem "html-proofer", "~> 5.0"
 end
+
+# Jekyll plugins
+group :jekyll_plugins do
+  gem 'jekyll-compose', '~> 0.12'
+  gem "jekyll-polyglot", '~> 1.9'
+  gem "jekyll-sitemap", "~> 1.4"
+  gem "jekyll-seo-tag", "~> 2.8"
+end
+
+# Webrick for Ruby 3.0+
+gem "webrick", "~> 1.8"

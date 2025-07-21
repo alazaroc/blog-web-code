@@ -1,0 +1,34 @@
+{% assign current_series = include.series_name | default: page.series.name %}
+{% assign current_lang = page.lang | default: site.lang | default: 'en' %}
+{% assign series_posts = site.posts | where: "series.name", current_series | where: "lang", current_lang | sort: "series.order" %}
+{% assign series_total = series_posts.size %}
+{% assign current_order = page.series.order %}
+{% assign series_description = include.series_description | default: page.series.description %}
+<div class="series-card">
+  <div class="series-info">
+    <h3>{{ current_series }}</h3>
+    {% if series_description %}
+      <p class="series-description">{{ series_description }}</p>
+    {% endif %}
+    {% if page.series and page.series.total %}
+      <p>{{ series_total }} articles</p>
+    {% endif %}
+    <div class="series-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: {% if current_order and series_total %}{{ current_order | times: 100 | divided_by: series_total }}{% else %}100{% endif %}%"></div>
+      </div>
+      <span>{% if current_order == series_total %}Complete{% else %}In progress{% endif %}</span>
+    </div>
+  </div>
+  <div class="series-articles">
+    {% for post in series_posts %}
+      <a href="{{ post.url }}" class="article-link{% if post.url == page.url %} active{% endif %}">
+        <span class="article-number">{{ post.series.order }}</span>
+        <span class="article-title">{{ post.title }}</span>
+        {% if post.url == page.url %}
+          <span class="series-article-current"><i class="fas fa-map-marker-alt"></i> Current</span>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</div> 

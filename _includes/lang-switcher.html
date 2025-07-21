@@ -5,7 +5,11 @@
   <div class="lang-switcher-compact">
     {% for tongue in site.languages %}
       {% if tongue == site.active_lang %}
-        <span class="flag-current">{{ site.data.locales[tongue].tabs.flag }}</span>
+        <span class="flag-current" 
+              data-tooltip="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.current_language }}"
+              title="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.current_language }}">
+          {{ site.data.locales[tongue].tabs.flag }}
+        </span>
       {% else %}
         {% if page.lang-exclusive %}
           {% assign is_lang_exclusive = false %}
@@ -15,14 +19,24 @@
             {% endif %}
           {% endfor %}
           {% if is_lang_exclusive == false %}
-            <span class="flag-disabled">{{ site.data.locales[tongue].tabs.flag }}</span>
+            <span class="flag-disabled" 
+                  data-tooltip="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.not_available }}"
+                  title="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.not_available }}">
+              {{ site.data.locales[tongue].tabs.flag }}
+            </span>
           {% else %}
-            <a class="flag-alternative" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+            <a class="flag-alternative" 
+               data-tooltip="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+               title="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+               {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
               {{ site.data.locales[tongue].tabs.flag }}
             </a>
           {% endif %}
         {% else %}
-          <a class="flag-alternative" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+          <a class="flag-alternative" 
+             data-tooltip="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+             title="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+             {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
             {{ site.data.locales[tongue].tabs.flag }}
           </a>
         {% endif %}
@@ -35,15 +49,19 @@
     <ul class="nav">
       <li class="nav-item">
         <p class="lang-switcher-title">
+          <i class="fas fa-globe"></i>
           {{ site.data.locales[site.active_lang].tabs.languages }}
         </p>
       </li>
       {% for tongue in site.languages %}
         <li class="nav-item{% if tongue == site.active_lang %} active{% endif %}">
           {% if tongue == site.active_lang %}
-            <a class="nav-link current-lang">
+            <a class="nav-link current-lang" 
+               data-tooltip="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.current_language }}"
+               title="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.current_language }}">
               <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
               <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+              <i class="fas fa-check text-success ms-auto"></i>
             </a>
           {% else %}
             {% if page.lang-exclusive %}
@@ -54,20 +72,31 @@
                 {% endif %}
               {% endfor %}
               {% if is_lang_exclusive == false %}
-                <a class="nav-link disabled-lang">
+                <a class="nav-link disabled-lang" 
+                   data-tooltip="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.not_available }}"
+                   title="{{ site.data.locales[tongue].tabs.lang_name }} - {{ site.data.locales[site.active_lang].tabs.not_available }}">
                   <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
                   <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+                  <i class="fas fa-lock text-muted ms-auto"></i>
                 </a>
               {% else %}
-                <a class="nav-link" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+                <a class="nav-link" 
+                   data-tooltip="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+                   title="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+                   {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
                   <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
                   <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+                  <i class="fas fa-arrow-right text-muted ms-auto"></i>
                 </a>
               {% endif %}
             {% else %}
-              <a class="nav-link" {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
+              <a class="nav-link" 
+                 data-tooltip="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+                 title="{{ site.data.locales[site.active_lang].tabs.switch_to }} {{ site.data.locales[tongue].tabs.lang_name | downcase }}"
+                 {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>
                 <span class="lang-flag">{{ site.data.locales[tongue].tabs.flag }}</span>
                 <span>{{ site.data.locales[tongue].tabs.lang_name | upcase }}</span>
+                <i class="fas fa-arrow-right text-muted ms-auto"></i>
               </a>
             {% endif %}
           {% endif %}

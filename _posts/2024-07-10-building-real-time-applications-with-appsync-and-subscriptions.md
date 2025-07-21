@@ -23,15 +23,13 @@ media_subpath: /assets/img/posts/2024-07-10-building-real-time-applications-with
 image:
   path: real-time-architecture-v1.png
   header_post: false
+series:
+  name: "AWS AppSync"
+  order: 2
+  total: 2
+  description: "I will explain what is AWS AppSync and how you can use it in your architectures."
 ---
 ---
-
-> This article is part of a series about `AWS AppSync`, in which I will explain what this service is and how you can use it in your architectures.
->
-> 1/2: [Getting started: A Practical Approach to GraphQL](/posts/getting-started-with-aws-appsync-a-practical-approach-to-graphql/)
->
-> 2/2: **Building real-time applications**
-{: .prompt-tip }
 
 As I explained in the first AppSync article, real-time capabilities are becoming increasingly crucial. Users now expect immediate updates without the need for manual refreshing or constant polling. This is where AWS AppSync and its powerful GraphQL subscriptions come into play, enabling developers to build real-time applications effortlessly.
 

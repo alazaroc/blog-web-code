@@ -4,33 +4,54 @@
     <button type="button" class="btn-close-popup" aria-label="Close" onclick="closeSubscriptionPopup()">
       <i class="fa-solid fa-xmark"></i>
     </button>
-    <h4>{{ site.data.locales[include.lang].subscription_form.title }}</h4>
-    <p>{{ site.data.locales[include.lang].subscription_form.description }}</p>
+    
+    <div class="popup-header">
+      <div class="popup-icon">
+        <i class="fas fa-cloud"></i>
+      </div>
+      <h4>{{ site.data.locales[include.lang].subscription_form.title }}</h4>
+      <p>{{ site.data.locales[include.lang].subscription_form.description }}</p>
+    </div>
+
     <form class="customer-subscribe-form" method="post" action="{{ site.data.locales[include.lang].subscription_form.action }}" accept-charset="UTF-8">
       <div class="form-group">
-        <input type="email" name="email" class="form-control subscribe_email" placeholder="{{ site.data.locales[include.lang].subscription_form.email_placeholder }}" required>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="fas fa-envelope"></i>
+          </span>
+          <input type="email" name="email" class="form-control subscribe_email" placeholder="{{ site.data.locales[include.lang].subscription_form.email_placeholder }}" required>
+        </div>
       </div>
+      
       <div class="d-grid">
-        <button type="submit" name="submit" class="btn btn-primary subscribe-form-submit-button">{{ site.data.locales[include.lang].subscription_form.submit_button }}</button>
+        <button type="submit" name="submit" class="btn btn-primary subscribe-form-submit-button">
+          <i class="fas fa-paper-plane"></i>
+          {{ site.data.locales[include.lang].subscription_form.submit_button }}
+        </button>
         <button name="loading" class="btn btn-primary form-hidden subscribe-form-loading-submit-button">
-            {{ site.data.locales[include.lang].subscription_form.submitting_button }}
+          <i class="fas fa-spinner fa-spin"></i>
+          {{ site.data.locales[include.lang].subscription_form.submitting_button }}
         </button>
       </div>
 
       <div class="alert alert-danger form-hidden mt-3 subscribe-form-failed-to-submit" role="alert">
+        <i class="fas fa-exclamation-triangle"></i>
         <strong>{{ site.data.locales[include.lang].subscription_form.submit_failed }}</strong> {{ site.data.locales[include.lang].subscription_form.submit_failed_message }}
       </div>
 
       <div class="alert alert-success form-hidden mt-3 subscribe-form-was-submitted" role="alert">
+        <i class="fas fa-check-circle"></i>
         <strong>{{ site.data.locales[include.lang].subscription_form.submit_success }}</strong> {{ site.data.locales[include.lang].subscription_form.submit_success_message }}
       </div>
     </form>
+
+    <div class="popup-footer">
+      <small class="text-muted">
+        <i class="fas fa-shield-alt"></i>
+        {{ site.data.locales[include.lang].subscription_form.footer_text }}
+      </small>
+    </div>
   </div>
 </div>
 
-<!-- Development reset button (only visible in development) -->
-{% if jekyll.environment != 'production' %}
-<div id="popup-reset-button" class="popup-reset-button">
-  Reset Popup
-</div>
-{% endif %} 
+<!-- Development reset button removed --> 

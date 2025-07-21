@@ -275,5 +275,5 @@ Tengo muchos próximos pasos identificados, pero pondré aquí los relacionados 
 
 - [x] Actualizar formulario de comentarios --> 17 de marzo de 2022 --> Había un formulario disponible y los comentarios se registraban en una base de datos
 - [x] Mostrar comentarios en las publicaciones --> 27 de enero de 2023 --> El complemento `giscus` se ha integrado en mi web
-- [x] Migrar AWS Amplify Hosting a S3 + CloudFront + AWS Certificate Manager + Herramientas de desarrollo —> 5 de marzo de 2023
+- [x] Migrar AWS Amplify Hosting a S3 + CloudFront + AWS Certificate Manager + Herramientas de desarrollo --> 5 de marzo de 2023
 - [] Automatizar la suscripción por correo electrónico

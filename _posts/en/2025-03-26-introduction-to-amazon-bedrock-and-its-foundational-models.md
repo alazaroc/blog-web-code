@@ -21,15 +21,21 @@ media_subpath: /assets/img/posts/2025-03-26-introduction-to-amazon-bedrock-and-i
 image:
   path: bedrock-testing-model.jpg
   header_post: false
+series:
+  name: "Amazon Bedrock"
+  order: 1
+  total: 3
+  description: "Discover how to leverage Amazon Bedrock for generative AI, including foundational models, prompt engineering, and best practices for effective AI solutions on AWS."
 ---
 ---
 
-> This article is the first of a series on `Amazon Bedrock`:
+> This is the **first article** in a series about `Amazon Bedrock`.
 >
-> - 1/2: **Amazon Bedrock 101: Understanding Its Foundational Models**
-> - 2/2: [Prompts I: How to Design Effective Prompts in Amazon Bedrock](/posts/designing-effective-prompts-in-amazon-bedrock/){:target="_blank"}
-> - 3/3: [Prompts II: Mastering Prompt Management in Amazon Bedrock (Versioning, Optimization, and Best Practices)](/posts/effective-prompt-management-in-amazon-bedrock/){:target="_blank"}
-{: .prompt-tip }
+> More articles in the series:
+>
+> - 2/3 - [Designing Effective Prompts in Amazon Bedrock](/posts/designing-effective-prompts-in-amazon-bedrock/).
+> - 3/3 - [Effective Prompt Management in Amazon Bedrock](/posts/effective-prompt-management-in-amazon-bedrock/).
+{: .prompt-info }
 
 ## 1. Introduction
 
@@ -179,9 +185,9 @@ From my experience, I recommend:
 - If you need a chatbot: Use Claude by Anthropic.
 - For long-form content generation: AI21 Jurassic is a good choice.
 - If you need summarization: Cohere Command is very efficient.
-- For image generation: Stability AI’s Stable Diffusion is widely used.
+- For image generation: Stability AI's Stable Diffusion is widely used.
 - If efficiency is key: Mistral models are lightweight and fast.
-- If you want something cheap or covered by AWS credits: Use Amazon’s models.
+- If you want something cheap or covered by AWS credits: Use Amazon's models.
 
 ## 6. Conclusion
 

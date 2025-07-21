@@ -171,7 +171,7 @@ The key pricing factors are:
 
 > Pricing example extracted from the AWS website:
 >
-> If your application has `500,000 visits in a month`, and you're collecting CloudWatch RUM events at 100% sampling for page load performance and errors `with 20 data events` — including one start event, one page view event, and 10 performance events (three web vitals, one paint, one navigation, five resource loads), and eight errors per visit — your charges would be as follows:
+> If your application has `500,000 visits in a month`, and you're collecting CloudWatch RUM events at 100% sampling for page load performance and errors `with 20 data events`, including one start event, one page view event, and 10 performance events (three web vitals, one paint, one navigation, five resource loads), and eight errors per visit, your charges would be as follows:
 >
 > Total number of RUM data events = 20 data events/visit * 500,000 visits = 10,000,000 data events
 >

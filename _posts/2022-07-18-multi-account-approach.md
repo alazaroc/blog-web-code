@@ -22,16 +22,13 @@ media_subpath: /assets/img/posts/2022-07-18-multi-account-approach/
 image:
   path: aws-organizations.png
   header_post: false
+series:
+  name: "AWS Multi-Account"
+  order: 1
+  total: 2
+  description: "xxxxx"
 ---
 ---
-
-> This article is part of a series about `AWS multi-account`.
->
-> 1/2: **Getting started with AWS Multi-account approach**
->
-> 2/2: [AWS Control Tower Deep Dive](/posts/aws-control-tower-deep-dive/)
->
-{: .prompt-tip }
 
 ## 1. Introduction
 

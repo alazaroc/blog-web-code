@@ -22,13 +22,13 @@ media_subpath: /assets/img/posts/2024-02-10-comprehensive-guide-to-amazon-api-ga
 image:
   path: rest-api-gateway-integrations.png
   header_post: false
+series:
+  name: "Amazon API Gateway"
+  order: 2
+  total: 2
+  description: ""
 ---
 ---
-
-> This is my second article about `Amazon API Gateway`. You can find the other one here: [Amazon API Gateway exposed: choosing the right endpoint strategy for your API](/posts/amazon-api-gateway-exposed/).
->
-> These articles are not intended to serve as an introduction to Amazon API Gateway.
-{: .prompt-info }
 
 ## 1. Introduction
 

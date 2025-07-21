@@ -23,16 +23,13 @@ media_subpath: /assets/img/posts/2022-10-09-aws-control-tower-deep-dive/
 image:
   path: control-tower-icon.png
   header_post: false
+series:
+  name: "AWS Multi-Account"
+  order: 2
+  total: 2
+  description: "xxxxx"
 ---
 ---
-
-> This article is part of a series about `AWS multi-account`.
->
-> 1/2: [Getting started with AWS Multi-account approach](/posts/multi-account-approach/)
->
-> 2/2: **AWS Control Tower Deep Dive**
->
-{: .prompt-tip }
 
 ## 1. Introduction
 

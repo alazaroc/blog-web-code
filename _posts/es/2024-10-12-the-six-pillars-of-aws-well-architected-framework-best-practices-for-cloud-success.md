@@ -21,18 +21,13 @@ media_subpath:  /assets/img/posts/2024-10-12-the-six-pillars-of-aws-well-archite
 image:
   path: waf_cover_2.png
   header_post: false
+series:
+  name: "AWS Well-Architected Framework"
+  order: 3
+  total: 5
+  description: "Serie completa sobre el AWS Well-Architected Framework, o en español, el marco de las <strong>buenas prácticas de arquitectura de AWS</strong>, sus seis pilares y cómo aplicarlos para construir arquitecturas cloud seguras, fiables y eficientes."
 ---
 ---
-
-> Continuando con la serie, este es el **tercer artículo** de la serie sobre el `AWS Well-Architected Framework`, o en español, el marco de las **buenas prácticas de arquitectura de AWS**.
->
-> Los otros artículos de la serie son:
->
-> - 1/5 - [Por qué el AWS Well-Architected Framework importa (de verdad)](/es/posts/why-the-aws-well-architected-framework-really-matters/).
-> - 2/5 - [Cómo aplicar el Well-Architected Framework según tu rol](/es/posts/how-to-apply-the-well-architected-framework-depending-on-your-cloud-role/).
-> - 4/5 - [Quick-wins para cada Pilar](/es/posts/immediate-impact-quick-wins-for-each-pillar-of-the-aws-well-architected-framework/): Descubre qué cambios puedes hacer en cada pilar para obtener resultados inmediatos y sin esfuerzo.
-> - 5/5 - [AWS Well-Architected Tool](/es/posts/how-the-aws-well-architected-tool-can-transform-your-cloud-architecture/): una guía práctica sobre el uso de la Tool, para evaluar, mejorar y optimizar continuamente las cargas de trabajo.
-{: .prompt-info }
 
 En todos los artículos utilizaré los términos en inglés *AWS Well-Architected* y *AWS Well-Architected Framework*, porque en el ámbito profesional están más extendidos.
 

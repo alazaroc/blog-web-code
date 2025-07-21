@@ -25,6 +25,11 @@ media_subpath: /assets/img/posts/2023-05-05-how-to-deploy-serverless-website-wit
 image:
   path: terraform-website.png
   header_post: false
+series:
+  name: "Terraform & AWS"
+  order: 1
+  total: 2
+  description: "Series about Terraform and AWS"
 ---
 ---
 

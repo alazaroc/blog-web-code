@@ -15,7 +15,7 @@
   "98537d86-ca5e-4a41-a8f8-a11631692ef5",
   "1.0.0",
   "eu-west-1",
-  "/assets/js/cwr.min.js",
+  "/assets/js/vendor/cwr.min.js",
   {
     identityPoolId: "eu-west-1:e24933c6-470e-45cf-892d-b1d88cb8e9de",
     sessionSampleRate: 1,

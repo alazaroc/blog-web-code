@@ -10,13 +10,15 @@ layout: compress
 
 {% if site.theme_mode %}
   {% capture prefer_mode %}data-mode="{{ site.theme_mode }}"{% endcapture %}
+  {{site.theme_mode}}
 {% endif %}
+{% assign current_lang = include.lang | default: site.lang %}
 
 <!-- `site.alt_lang` can specify a language different from the UI -->
 <html lang="{{ page.lang | default: site.alt_lang | default: site.active_lang }}" {{ prefer_mode }}>
   {% include head.html %}
 
-  <body>
+  <body class="{% if page.layout == 'home' or page.url == '/' %}home-layout{% endif %}">
     {% include sidebar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
@@ -35,11 +37,27 @@ layout: compress
           <!-- panel -->
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
             <div class="access">
-              {% include_cached update-list.html lang=lang max_size=1 %}
               {% include_cached featured-list.html lang=lang max_size=3 %}
-              {% include_cached trending-tags.html lang=lang max_size=5 %}
+              
+              <!-- Trending Tags with better spacing -->
+              <section class="mt-4">
+                {% include_cached trending-tags.html lang=lang max_size=5 %}
+              </section>
+              
+              <!-- Gamification Badges in SideBar -->
+              <section class="mt-4">
+                <h2 class="panel-heading">{{ site.data.locales[current_lang].badges.text }}</h2>
+                <div class="header-badges-section header-badges-title">
+                  <div id="header-badges" class="header-badges-container">
+                    <!-- Badges will be populated by JavaScript -->
+                  </div>
+                </div>
+              </section>
+              
               <!-- Subscription form -->
-              {% include_cached subscribe-form-menu.html lang=lang %}
+              <section class="mt-4">
+                {% include_cached subscribe-form-menu.html lang=lang %}
+              </section>
             </div>
 
             {% for _include in layout.panel_includes %}
@@ -86,5 +104,32 @@ layout: compress
 
     {% include_cached search-loader.html lang=lang %}
     {% include subscribe-form-popup.html lang=lang %}
+    
+    <script>
+      window.GAMIFICATION_LOCALE = {
+        "en": {{ site.data.locales.en.gamification | jsonify }},
+        "es": {{ site.data.locales.es.gamification | jsonify }}
+      };
+      window.localeSeriesData = {
+        "en": {{ site.data.locales.en.series | jsonify }},
+        "es": {{ site.data.locales.es.series | jsonify }}
+      };
+      window.locales = {{ site.data.locales | jsonify }};
+    </script>
+    <!-- Core JavaScript -->
+    <script src="{{ '/assets/js/utils.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/reading-progress.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/touch-navigation.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/cognito-auth.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/subscribe-form.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/contact-form.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/feedback-form.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/series.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/gamification.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/dashboard.js' | relative_url }}"></script>
+    
+    <!-- Vendor Scripts -->
+    <script src="{{ '/assets/js/vendor/cloudwatch-rum.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/vendor/count.js' | relative_url }}"></script>
   </body>
 </html>

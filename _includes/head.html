@@ -101,17 +101,11 @@
   {% endif %}
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=2.1' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=2.2' | relative_url }}">
 
   <!-- JavaScript -->
   <!-- Load Jquery -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <!-- Subscribe form -->
-  <script src="{{ '/assets/js/subscribe-form.js' | relative_url }}"></script>
-  <!-- Contact form -->
-  <!-- <script src="{{ '/assets/js/contact-form.js' | relative_url }}"></script> -->
-  <!-- Feedback form -->
-  <!-- <script src="{{ '/assets/js/feedback-form.js' | relative_url }}"></script> -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
@@ -136,7 +130,7 @@
     {% endfor %}
 
     <!-- Real User Monitoring with CloudWatch RUM -->
-    <script src="{{ '/assets/js/cloudwatch-rum.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/vendor/cloudwatch-rum.js' | relative_url }}"></script>
   {% endif %}
 
   {% include metadata-hook.html %}

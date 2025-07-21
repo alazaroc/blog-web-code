@@ -67,7 +67,6 @@ $(document).ready(function () {
           toggleVisibility(formContent, false);
         })
         .fail((err) => {
-          console.error("Failed to submit:", err);
           toggleVisibility(formFailed, true);
           toggleVisibility(submitBtn, true);
         })
