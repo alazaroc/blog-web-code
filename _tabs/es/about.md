@@ -9,15 +9,21 @@ lang: es
 
 ![me](/assets/img/alejandro_moncayo.jpeg){: width="972" height="589" .w-50 .right}
 
-Mi nombre es`Alejandro Lázaro Chueca` y actualmente soy AWS Community Builder (Seguridad) y también AWS Ambassador en mi empresa.
+Soy `Alejandro Lázaro Chueca`, arquitecto de soluciones cloud, **AWS Community Builder** y **AWS Ambassador**. Me apasiona la tecnología, el aprendizaje continuo y compartir conocimiento con la comunidad.
 
-Como arquitecto de cloud especializado en AWS, mi trayectoria comenzó en el mundo del desarrollo, pasando por arquitecto de software hasta, finalmente, llegar a ser arquitecto cloud.
+En este blog publico artículos en **español e inglés** sobre el ecosistema AWS: buenas prácticas, arquitecturas cloud, automatización y experiencias reales de mi trabajo como arquitecto cloud.
 
-A lo largo de más de 15 años, mi carrera ha abarcado diversos clientes y etapas del desarrollo de software, incluyendo un amplio espectro de arquitecturas como monolíticas, microservicios, basadas en eventos, SOA, serverless... y por supuesto, arquitecturas cloud nativas. Mi experiencia también incluye liderar proyectos de modernización, impulsar transformaciones DevOps, realizar auditorías de seguridad y mucho más.
+Además de escribir, también desarrollo proyectos personales como [playingpadel.es](https://playingpadel.es), una plataforma gratuita donde los jugadores de pádel pueden registrar partidos y consultar estadísticas.
 
-Mi pasión gira entorno a las arquitecturas serverless y basadas en eventos, DevOps, seguridad y en asumir nuevos retos tecnológicos. Comparto activamente este entusiasmo enseñando AWS a mis compañeros, y siempre estoy dispuesto a colaborar en proyectos relacionados con AWS.
+Dedico gran parte de mi tiempo libre a crear contenido, proyectos y recursos que espero aporten valor a la comunidad.
 
-Poseo 8 certificaciones de AWS, que cubren los 3 niveles Associate, los 2 niveles Professional, especializaciones en Seguridad y Análisis de Datos y la nueva certificación básica de IA (AI Practitioner). Para conocer más sobre mi trayectoria profesional, puedes visitar mi perfil de [LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/){:target="_blank"}. Estoy encantado de conectar con personas afines o con aquellos interesados en explorar AWS.
+👉 Si quieres conocer más detalles sobre mi trayectoria profesional, puedes visitar mi [perfil en LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/).
+
+👉 Y si disfrutas de mis artículos o proyectos y quieres apoyarme, puedes hacerlo aquí:
+
+- ☕ [Invítame a un café](https://buymeacoffee.com/alazaroc)
+- 💖 [Patrocíname en GitHub Sponsors](https://github.com/sponsors/alazaroc)
+- 💳 [Donar por PayPal](https://paypal.me/alazaroc1)
 
 ---
 

@@ -9,15 +9,21 @@ lang: en
 
 ![me](/assets/img/alejandro_moncayo.jpeg){: width="972" height="589" .w-50 .right}
 
-My name is `Alejandro Lázaro Chueca` and currently, I am an AWS Community Builder (Security) & also an AWS Ambassador in my company.
+I’m `Alejandro Lázaro Chueca`, a Cloud Solutions Architect, **AWS Community Builder**, and **AWS Ambassador**. I’m passionate about cloud technology, continuous learning, and sharing knowledge with the community.
 
-As a Cloud Architect specializing in AWS, my journey began in development before advancing to software architecture, and ultimately, cloud architecture.
+On this blog, I publish articles in **English and Spanish** about the AWS ecosystem: best practices, cloud architectures, automation, and real-world experiences from my work as a cloud architect.
 
-Over 15 years, my career has spanned various clients and stages of software development, encompassing a broad spectrum of architectures including monolithic, microservices, event-driven, SOA, serverless,... and also cloud-native. My experience extends to leading modernization projects, spearheading DevOps transformations, conducting security assessments and much more.
+Besides writing, I also develop personal projects such as [playingpadel.es](https://playingpadel.es), a free platform where padel players can record matches and track their stats.
 
-My passion lies in serverless and event-driven architectures, DevOps, security, and embracing new technological challenges. I actively share this enthusiasm by teaching AWS to my colleagues, and I am always eager to collaborate on AWS-related projects.
+I dedicate much of my free time to creating content, projects, and resources that I hope bring value to the community.
 
-I hold 8 AWS certifications, covering the 3 Associate levels, the 2 Professional levels; the specializations in Security and Data Analytics and finally the AI Practitioner. For a deeper dive into my professional journey, visit my [LinkedIn](https://www.linkedin.com/in/alejandro-lazaro-chueca/){:target="_blank"} profile. I welcome the opportunity to connect with like-minded individuals or anyone interested in exploring AWS.
+👉 For more details about my professional background, you can visit my [LinkedIn profile](https://www.linkedin.com/in/alejandro-lazaro-chueca/).
+
+👉 If you enjoy my articles or projects and would like to support me, you can do so here:
+
+- ☕ [Buy me a coffee](https://buymeacoffee.com/alazaroc)
+- 💖 [Sponsor me on GitHub](https://github.com/sponsors/alazaroc)
+- 💳 [Donate via PayPal](https://paypal.me/alazaroc1)
 
 ---
 
