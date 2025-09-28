@@ -1,0 +1,105 @@
+# Pre-commit hooks configuration
+# Install with: pip install pre-commit && pre-commit install
+
+repos:
+  # Local hooks for project-specific validations
+  - repo: local
+    hooks:
+      # JavaScript linting with ESLint
+      - id: eslint
+        name: ESLint JavaScript Linting
+        entry: npm run lint:js
+        language: system
+        files: \.(js)$
+        pass_filenames: false
+
+      # CSS linting with Stylelint
+      - id: stylelint
+        name: Stylelint CSS Linting
+        entry: npm run lint:css
+        language: system
+        files: \.(css)$
+        pass_filenames: false
+
+      # # Markdown linting
+      # - id: markdownlint
+      #   name: Markdown Linting
+      #   entry: npm run lint:md
+      #   language: system
+      #   files: \.(md)$
+      #   pass_filenames: false
+
+      # # Validate post front matter
+      # - id: validate-frontmatter
+      #   name: Validate Post Front Matter
+      #   entry: npm run validate:frontmatter
+      #   language: system
+      #   files: ^_posts/.*\.md$
+      #   pass_filenames: false
+
+      # # Validate image references
+      # - id: validate-images
+      #   name: Validate Image References
+      #   entry: npm run validate:images
+      #   language: system
+      #   files: \.(md)$
+      #   pass_filenames: false
+
+      # Jekyll build test (lightweight check)
+      - id: jekyll-build-check
+        name: Jekyll Build Check
+        entry: bundle exec jekyll build
+        language: system
+        files: ^(_config\.yml|_data/.*|_includes/.*|_layouts/.*|_posts/.*|_tabs/.*)$
+        pass_filenames: false
+
+  # Built-in hooks for common validations
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      # Check for files that would conflict in case-insensitive filesystems
+      - id: check-case-conflict
+
+      # Check for files that contain merge conflict strings
+      - id: check-merge-conflict
+
+      # Check for debugger imports and py37+ breakpoint() calls in python
+      - id: debug-statements
+
+      # Check for files with names that would conflict on a case-insensitive filesystem
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+
+      # Check that files parse as valid yaml
+      - id: check-yaml
+        files: \.(yml|yaml)$
+
+      # Check that files parse as valid json
+      - id: check-json
+        files: \.json$
+
+      # Trim trailing whitespace
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+
+      # Ensure files end with a newline
+      - id: end-of-file-fixer
+
+      # Check that scripts with shebangs are executable
+      - id: check-executables-have-shebangs
+
+      # Check for private key files
+      - id: detect-private-key
+
+# Configuration for specific hooks
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ""
+  autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false

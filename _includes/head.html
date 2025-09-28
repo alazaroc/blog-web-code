@@ -102,6 +102,19 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ '/assets/css/custom.css?v=2.2' | relative_url }}">
+    <!-- Homepage CSS -->
+    {% if page.layout == 'homepage' %}
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/homepage.css' | relative_url }}"
+    />
+    {% endif %}
+
+    <!-- Feedback CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ '/assets/css/feedback.css' | relative_url }}"
+    />
 
   <!-- JavaScript -->
   <!-- Load Jquery -->

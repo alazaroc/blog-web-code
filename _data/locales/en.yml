@@ -269,3 +269,45 @@ gamification:
 legal:
   legal_notice: "Legal Notice"
   cookie_policy: "Cookie Policy"
+
+# Homepage content
+homepage:
+  hero:
+    title: "Hi, I'm Alejandro Moncayo"
+    subtitle: "AWS Solutions Architect & Cloud Enthusiast sharing knowledge and experiences"
+    blog_button: "Read My Blog"
+    about_button: "About Me"
+  about:
+    title: "About Me"
+    description: "I'm passionate about cloud technologies, especially AWS. I love sharing my knowledge and helping others learn about cloud computing, serverless architectures, and best practices."
+  latest_posts:
+    title: "Latest Posts"
+    read_more: "Read More"
+    view_all: "View All Posts"
+  contact:
+    title: "Get In Touch"
+    description: "Let's connect and discuss cloud technologies, AWS, or any tech topics!"
+    email_button: "Send Email"
+
+# Feedback form
+feedback_form:
+  title: "Share Your Feedback"
+  description: "Help us improve by sharing your thoughts, suggestions, or reporting issues."
+  type_label: "Feedback Type"
+  choose_type: "Select feedback type"
+  general_comment: "General Comment"
+  suggestion: "Suggestion"
+  error_report: "Error Report"
+  content_request: "Content Request"
+  message_label: "Message"
+  message_placeholder: "Tell us what you think..."
+  name_label: "Name (Optional)"
+  full_name_placeholder: "Your name"
+  email_label: "Email (Optional)"
+  email_placeholder: "your.email@example.com"
+  rating_label: "Rating"
+  submit_button: "Send Feedback"
+  submit_success: "Thank you!"
+  submit_success_message: "Your feedback has been submitted successfully."
+  submit_failed: "Oops!"
+  submit_failed_message: "Something went wrong. Please try again later."

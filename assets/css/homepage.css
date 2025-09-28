@@ -1,0 +1,218 @@
+/* Homepage Styles */
+
+.homepage-container {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons .btn-primary {
+  background-color: #fff;
+  color: #667eea;
+  border: 2px solid #fff;
+}
+
+.hero-buttons .btn-primary:hover {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.hero-buttons .btn-outline-primary {
+  color: #fff;
+  border-color: #fff;
+}
+
+.hero-buttons .btn-outline-primary:hover {
+  background-color: #fff;
+  color: #667eea;
+}
+
+.hero-image {
+  text-align: center;
+}
+
+.hero-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Latest Posts Section */
+.latest-posts-section {
+  padding: 80px 0;
+}
+
+.latest-posts-section .section-title {
+  color: #333;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  border-radius: 15px 15px 0 0;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.contact-buttons .btn {
+  padding: 12px 25px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.contact-buttons .btn i {
+  margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero-image img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .about-section,
+  .latest-posts-section,
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+}

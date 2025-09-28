@@ -272,3 +272,45 @@ gamification:
 legal:
   legal_notice: "Aviso Legal"
   cookie_policy: "Política de Cookies"
+
+# Homepage content
+homepage:
+  hero:
+    title: "Hola, soy Alejandro Moncayo"
+    subtitle: "Arquitecto de Soluciones AWS y entusiasta de la nube compartiendo conocimiento y experiencias"
+    blog_button: "Lee Mi Blog"
+    about_button: "Sobre Mí"
+  about:
+    title: "Sobre Mí"
+    description: "Soy apasionado de las tecnologías cloud, especialmente AWS. Me encanta compartir mi conocimiento y ayudar a otros a aprender sobre computación en la nube, arquitecturas serverless y mejores prácticas."
+  latest_posts:
+    title: "Últimos Posts"
+    read_more: "Leer Más"
+    view_all: "Ver Todos los Posts"
+  contact:
+    title: "Ponte en Contacto"
+    description: "¡Conectemos y hablemos de tecnologías cloud, AWS o cualquier tema tecnológico!"
+    email_button: "Enviar Email"
+
+# Feedback form
+feedback_form:
+  title: "Comparte tu Opinión"
+  description: "Ayúdanos a mejorar compartiendo tus pensamientos, sugerencias o reportando problemas."
+  type_label: "Tipo de Feedback"
+  choose_type: "Selecciona el tipo de feedback"
+  general_comment: "Comentario General"
+  suggestion: "Sugerencia"
+  error_report: "Reporte de Error"
+  content_request: "Solicitud de Contenido"
+  message_label: "Mensaje"
+  message_placeholder: "Cuéntanos qué piensas..."
+  name_label: "Nombre (Opcional)"
+  full_name_placeholder: "Tu nombre"
+  email_label: "Email (Opcional)"
+  email_placeholder: "tu.email@ejemplo.com"
+  rating_label: "Calificación"
+  submit_button: "Enviar Feedback"
+  submit_success: "¡Gracias!"
+  submit_success_message: "Tu feedback ha sido enviado exitosamente."
+  submit_failed: "¡Ups!"
+  submit_failed_message: "Algo salió mal. Por favor intenta de nuevo más tarde."

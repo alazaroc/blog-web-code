@@ -1,0 +1,143 @@
+---
+layout: default
+---
+
+<div class="homepage-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              {{ site.data.locales[page.lang].homepage.hero.title }}
+            </h1>
+            <p class="hero-subtitle">
+              {{ site.data.locales[page.lang].homepage.hero.subtitle }}
+            </p>
+            <div class="hero-buttons">
+              <a
+                href="{{ site.baseurl }}/{{ page.lang }}/blog"
+                class="btn btn-primary btn-lg"
+              >
+                {{ site.data.locales[page.lang].homepage.hero.blog_button }}
+              </a>
+              <a
+                href="{{ site.baseurl }}/{{ page.lang }}/about"
+                class="btn btn-outline-primary btn-lg"
+              >
+                {{ site.data.locales[page.lang].homepage.hero.about_button }}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="hero-image">
+            <img
+              src="{{ site.baseurl }}/assets/img/alejandro_moncayo.jpeg"
+              alt="Alejandro Moncayo"
+              class="img-fluid rounded-circle"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-title">
+            {{ site.data.locales[page.lang].homepage.about.title }}
+          </h2>
+          <p class="section-description">
+            {{ site.data.locales[page.lang].homepage.about.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Posts Section -->
+  <section class="latest-posts-section py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="section-title text-center mb-5">
+            {{ site.data.locales[page.lang].homepage.latest_posts.title }}
+          </h2>
+          <div class="row">
+            {% for post in site.posts limit:3 %} {% if post.lang == page.lang %}
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                {% if post.image %}
+                <img
+                  src="{{ post.image }}"
+                  class="card-img-top"
+                  alt="{{ post.title }}"
+                />
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ post.title }}</h5>
+                  <p class="card-text">{{ post.excerpt | truncate: 100 }}</p>
+                  <a href="{{ post.url }}" class="btn btn-primary"
+                    >{{
+                    site.data.locales[page.lang].homepage.latest_posts.read_more
+                    }}</a
+                  >
+                </div>
+              </div>
+            </div>
+            {% endif %} {% endfor %}
+          </div>
+          <div class="text-center mt-4">
+            <a
+              href="{{ site.baseurl }}/{{ page.lang }}/blog"
+              class="btn btn-outline-primary"
+            >
+              {{ site.data.locales[page.lang].homepage.latest_posts.view_all }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-title">
+            {{ site.data.locales[page.lang].homepage.contact.title }}
+          </h2>
+          <p class="section-description">
+            {{ site.data.locales[page.lang].homepage.contact.description }}
+          </p>
+          <div class="contact-buttons">
+            <a href="mailto:{{ site.email }}" class="btn btn-primary me-3">
+              <i class="fas fa-envelope"></i> {{
+              site.data.locales[page.lang].homepage.contact.email_button }}
+            </a>
+            <a
+              href="{{ site.linkedin }}"
+              class="btn btn-outline-primary me-3"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a
+              href="{{ site.github }}"
+              class="btn btn-outline-primary"
+              target="_blank"
+            >
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

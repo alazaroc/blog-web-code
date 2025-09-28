@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<div class="news-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="news-header text-center mb-5">
+          <h1 class="news-title">
+            {{ site.data.locales[page.lang].news.title }}
+          </h1>
+          <p class="news-subtitle">
+            {{ site.data.locales[page.lang].news.subtitle }}
+          </p>
+        </div>
+
+        <div class="news-content">
+          {% for news in site.news %} {% if news.lang == page.lang %}
+          <article class="news-item">
+            <div class="news-meta">
+              <span class="news-date">
+                <i class="fas fa-calendar-alt"></i>
+                {{ news.date | date: "%B %d, %Y" }}
+              </span>
+              {% if news.category %}
+              <span class="news-category">
+                <i class="fas fa-tag"></i>
+                {{ news.category }}
+              </span>
+              {% endif %}
+            </div>
+
+            <h2 class="news-item-title">
+              <a href="{{ news.url }}">{{ news.title }}</a>
+            </h2>
+
+            {% if news.excerpt %}
+            <p class="news-excerpt">{{ news.excerpt }}</p>
+            {% endif %}
+
+            <div class="news-actions">
+              <a href="{{ news.url }}" class="btn btn-primary">
+                {{ site.data.locales[page.lang].news.read_more }}
+              </a>
+            </div>
+          </article>
+          {% endif %} {% endfor %} {% if site.news.size == 0 %}
+          <div class="no-news text-center py-5">
+            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+            <h3>{{ site.data.locales[page.lang].news.no_news_title }}</h3>
+            <p class="text-muted">
+              {{ site.data.locales[page.lang].news.no_news_message }}
+            </p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

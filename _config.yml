@@ -18,7 +18,7 @@ lang: en
 languages: ["en", "es"]
 default_lang: "en"
 exclude_from_localization: ["assets"]
-parallel_localization: true
+parallel_localization: false
 
 sass:
   sourcemap: never
@@ -248,7 +248,7 @@ jekyll_compose:
   default_front_matter:
     drafts:
       last_modified_at:
-      lang: en  
+      lang: en
       lang-exclusive: ['en', 'es']
       description:
       category:
@@ -265,7 +265,7 @@ jekyll_compose:
         header_post: false
     posts:
       last_modified_at:
-      lang: en  
+      lang: en
       lang-exclusive: ['en', 'es']
       description:
       category:

@@ -1,15 +1,7 @@
-# hidden files
-.*
-!.git*
-!.editorconfig
-!.nojekyll
-!.travis.yml
-!.stylelintrc.json
-!.eslintrc.json
-
 # bundler cache
+.bundle/
 _site
-#vendor
+vendor/
 
 # rubygem
 *.gem
@@ -32,7 +24,7 @@ assets/img/drafts/*
 .sass-cache/
 
 # IDE files
-.vscode/
+!.vscode/
 .idea/
 *.swp
 *.swo
@@ -40,10 +32,6 @@ assets/img/drafts/*
 # OS files
 .DS_Store
 Thumbs.db
-
-# Lighthouse reports
-lighthouse-report.html
-lighthouse-ci-results/
 
 # Temporary files
 *.tmp

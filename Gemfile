@@ -18,3 +18,7 @@ end
 
 # Webrick for Ruby 3.0+
 gem "webrick", "~> 1.8"
+
+# Zona horaria en Windows
+gem "tzinfo", "~> 2.0"
+gem "tzinfo-data", "~> 1.2024", platforms: [:mingw, :x64_mingw, :mswin]
