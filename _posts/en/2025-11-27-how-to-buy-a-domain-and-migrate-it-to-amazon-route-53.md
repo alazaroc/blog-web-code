@@ -1,44 +1,45 @@
 ---
 layout: post
-title: How to Buy a Domain and Migrate it to AWS Route 53
+title: How to Buy a Domain and Migrate it to Amazon Route 53
 date: 2025-11-27 09:30 +0200
 last_modified_at:
 lang: en
 lang-exclusive:
-- en
-- es
-description: Learn how to buy a domain anywhere and manage it in AWS with Route 53 step by step.
+  - en
+  - es
+description: Learn how to buy a domain anywhere and manage it in AWS with Amazon Route 53 step by step.
 category:
-- General
+  - General
 tags:
-- level-300
-- how-to
+  - level-300
+  - how-to
 level: 300
 published: true
 pin: false
 featured_post: false
 comments: true
 sitemap: true
-media_subpath: /assets/img/posts/2025-11-27-how-to-buy-a-domain-and-migrate-it-to-aws-route-53/
+media_subpath: /assets/img/posts/2025-11-27-how-to-buy-a-domain-and-migrate-it-to-amazon-route-53/
 image:
   path: 3-acm-request-public-certificate-b.png
   header_post: false
 ---
+
 ---
 
 If you want to use your own domain with AWS services (websites, APIs, internal applications), you have three main options:
 
-1. Buy it directly from AWS using **Route 53 Registered Domains**
+1. Buy it directly from AWS using **Amazon Route 53 Registered Domains**
 2. Buy it from an external provider and **migrate it to AWS** to manage it from there
 3. Buy it from an external provider and **keep DNS management outside AWS**, pointing records from the provider to your AWS resources
 
 In this article we will focus on the second option, which is very useful when you find a good domain offer outside AWS but still want to manage DNS, certificates, and services from AWS.
 
-In my case, I will use my own website [https://playingpadel.es](https://playingpadel.es){:target="_blank"} as an example. I purchased the domain at `Hostalia` and then migrated it to AWS.
+In my case, I will use my own website [https://playingpadel.es](https://playingpadel.es){:target="\_blank"} as an example. I purchased the domain at `Hostalia` and then migrated it to AWS.
 
 **What will you achieve by the end of this tutorial?**
 
-- Your domain hosted in Route 53
+- Your domain hosted in Amazon Route 53
 - A valid TLS certificate in ACM
 - Your domain working with HTTPS on an AWS service (in my case, CloudFront + S3)
 
@@ -62,24 +63,24 @@ Once you buy the domain, you’ll be able to manage it from the provider’s adm
 ![hostalia gestion de dominios.png](1-hostalia-gestion-dominios.png)
 
 > Tip: look for offers. Many domains are very cheap during the first year. In my case it was `FREE`!
-{: .prompt-tip }
+> {: .prompt-tip }
 
 ---
 
-## 2. Create the Hosted Zone in Route 53
+## 2. Create the Hosted Zone in Amazon Route 53
 
 Once you have your domain, it’s time to configure it in AWS:
 
-1. Go to the Route **53 console** → *Hosted zones*.
+1. Go to the Route **53 console** → _Hosted zones_.
 2. Create a P**ublic hosted zone** with your domain name, for example:
 
    ```code
    playingpadel.es
    ```
 
-3. Route 53 will give you **4 name servers (NS)**. You’ll use these later in your domain registrar.
+3. Amazon Route 53 will give you **4 name servers (NS)**. You’ll use these later in your domain registrar.
 
-![2-aws-route53-dns.png](2-aws-route53-dns.png)
+![2-amazon-route53-dns.png](2-amazon-route53-dns.png)
 
 ---
 
@@ -97,13 +98,13 @@ To use HTTPS you need a TLS certificate:
 > Note: if you’re going to use this certificate with **CloudFront**, you must request the ACM certificate in the **us-east-1 (N. Virginia) region.**
 >
 > For other services like ALB or Regional API Gateway, you can use different regions.
-{: .prompt-info }
+> {: .prompt-info }
 
 ![3-acm-request-public-certificate-a.png](3-acm-request-public-certificate-a.png){: width="500" }
 
 ![3-acm-request-public-certificate-b.png](3-acm-request-public-certificate-b.png){: width="500" }
 
-ACM will generate a **CNAME** record that you must add to your Route 53 Hosted Zone. Once validated, your certificate will be ready.
+ACM will generate a **CNAME** record that you must add to your Amazon Route 53 Hosted Zone. Once validated, your certificate will be ready.
 
 ---
 
@@ -113,12 +114,12 @@ This is the key step.
 
 1. Open the administration panel of your domain (Hostalia, in my case).
 2. Look for the option to update the **DNS servers (Name Servers)**.
-3. Replace the existing values with the **4 NS from Route 53**.
+3. Replace the existing values with the **4 NS from Amazon Route 53**.
 
 ![4-hostalia-cambiar-dns-a.png](4-hostalia-cambiar-dns-a.png)
 
 > Important: don’t try to add these as DNS records inside your registrar’s DNS zone. You must update them in the domain configuration section called “Name Servers”.
-{: .prompt-warning }
+> {: .prompt-warning }
 
 ![4-hostalia-cambiar-dns-b.png](4-hostalia-cambiar-dns-b.png){: width="500" }
 
@@ -130,7 +131,7 @@ This is the key step.
 dig NS playingpadel.es
 ```
 
-What matters is that the NS returned by the command match the ones in your Route 53 Hosted Zone. If you still see your provider’s NS, propagation hasn’t finished yet.
+What matters is that the NS returned by the command match the ones in your Amazon Route 53 Hosted Zone. If you still see your provider’s NS, propagation hasn’t finished yet.
 
 ![4-validar-dns.png](4-validar-dns.png){: width="600" }
 
@@ -143,7 +144,7 @@ Once propagation is complete, your domain now points to AWS 🎉.
 To make everything work, you need two things:
 
 - A CloudFront distribution configured with your domain and certificate.
-- A Route 53 DNS record pointing to that distribution.
+- A Amazon Route 53 DNS record pointing to that distribution.
 
 In my case, I used:
 
@@ -165,9 +166,9 @@ Inside your CloudFront distribution:
 
 ![5-asociar-dominio-cloudfront-4.png](5-asociar-dominio-cloudfront-4.png){: width="650" }
 
-### 5.2 Create the DNS record in Route 53
+### 5.2 Create the DNS record in Amazon Route 53
 
-In your **Route 53 Hosted Zone**, create a record:
+In your **Amazon Route 53 Hosted Zone**, create a record:
 
 - Type: `A`
 - Name: `playingpadel.es`
@@ -188,7 +189,7 @@ If you also want to use www.playingpadel.es, create another record:
 
 Finally, access your domain from a browser:
 
-[https://playingpadel.es](https://playingpadel.es){:target="_blank"}
+[https://playingpadel.es](https://playingpadel.es){:target="\_blank"}
 
 If everything is correct, your site should load over HTTPS.
 
@@ -198,7 +199,7 @@ If everything is correct, your site should load over HTTPS.
 
 ## Conclusion
 
-Once you have your domain managed in Route 53 and a valid ACM certificate, connecting AWS services to your custom domain becomes very straightforward.
+Once you have your domain managed in Amazon Route 53 and a valid ACM certificate, connecting AWS services to your custom domain becomes very straightforward.
 
 In this guide we used a static site in S3 and a CloudFront distribution, but you can reuse the same domain and certificate for many other services:
 
