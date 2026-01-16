@@ -204,7 +204,7 @@ Security teams protect data and applications from threats by implementing strong
 | FinOps          | Cost Optimization, Sustainability                            | Cloud spending control with a focus on financial and environmental efficiency.     | DevOps, Architecture, Sustainability                                                |
 | Sustainability  | Sustainability                                                | Reduces environmental impact and promotes efficient resource usage.                | Architecture, FinOps                                                                 |
 
-### 3.2. Telationship between roles and the pillars
+### 3.2. Relationship between roles and the pillars
 
 ```mermaid
 mindmap
