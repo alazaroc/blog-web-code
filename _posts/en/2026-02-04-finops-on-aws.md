@@ -115,31 +115,31 @@ You can find them [here](https://www.finops.org/framework/principles/){:target="
 The framework groups outcomes into 4 domains. These are the results you are aiming for.
 
 - **Understand usage and cost**: collect and normalize usage and spend data, define how it will be allocated (for example by project), and make it accessible to everyone. Capabilities:
-	- Data ingestion
-	- Allocation
-	- Reporting and analytics
-	- Anomaly management
+  - Data ingestion
+  - Allocation
+  - Reporting and analytics
+  - Anomaly management
 - **Quantify business value**: connect spend to outcomes, budgets, forecasts, and KPIs to validate whether it is “worth it”. Capabilities:
-	- Planning and estimation
-	- Forecasting
-	- Budgeting
-	- Benchmarking
-	- Unit economics
+  - Planning and estimation
+  - Forecasting
+  - Budgeting
+  - Benchmarking
+  - Unit economics
 - **Optimize usage and cost**: reduce waste, choose better purchasing options, and design/operate systems efficiently. Capabilities:
-	- Cloud architecture
-	- Rate optimization
-	- Workload optimization
-	- Cloud sustainability
-	- Licensing and SaaS
+  - Cloud architecture
+  - Rate optimization
+  - Workload optimization
+  - Cloud sustainability
+  - Licensing and SaaS
 - **Operate the FinOps practice**: turn it into a routine that improves over time (people, process, and governance). Capabilities:
-	- FinOps practice operations
-	- Policy and governance
-	- FinOps assessment
-	- FinOps tools and services
-	- FinOps education and enablement
-	- Chargeback and billing
-	- Workload onboarding
-	- Related disciplines
+  - FinOps practice operations
+  - Policy and governance
+  - FinOps assessment
+  - FinOps tools and services
+  - FinOps education and enablement
+  - Chargeback and billing
+  - Workload onboarding
+  - Related disciplines
 
 You can find the domains [here](https://www.finops.org/framework/domains/){:target="_blank"} and the capabilities [here](https://www.finops.org/framework/capabilities/){:target="_blank"}.
 
@@ -170,11 +170,11 @@ Goal: understand **what is being spent, by whom, and why**, using consistent dat
 
 On AWS, you can use:
 
-- `Cost Explorer` for analysis
-- `tags` and `cost allocation tags` to group spend
-- `Cost Categories` to map spend to a team
-- `Budgets` and `Anomaly Detection` to get alerts before it is too late
-- if you need more detail: CUR (Cost and Usage Report) and analytics (`Athena/QuickSight`)
+- `AWS Cost Explorer` for analysis
+- `AWS resource tags` and `cost allocation tags` to group spend
+- `AWS Cost Categories` to map spend to a team
+- `AWS Budgets` and `AWS Cost Anomaly Detection` to get alerts before it is too late
+- if you need more detail: `AWS Cost and Usage Report (CUR)` and analytics with `Amazon Athena` or `Amazon QuickSight`
 
 ### Optimize
 
@@ -182,8 +182,8 @@ Goal: reduce cost without losing value. Usually via two levers: **waste less** (
 
 On AWS, you can use:
 
-- `Cost Optimization Hub`, `Trusted Advisor`, and `Compute Optimizer` to get optimization recommendations
-- advanced dashboards like **CID (Cloud Intelligence Dashboards)** if you need deeper analysis and richer reporting
+- `AWS Cost Optimization Hub`, `AWS Trusted Advisor`, and `AWS Compute Optimizer` to get optimization recommendations
+- advanced dashboards like **Cloud Intelligence Dashboards (CID)** if you need deeper analysis and richer reporting
 
 > Optimizing is not just “turning things off”. It also includes *rightsizing*, choosing better purchasing options, modernizing, and improving architecture.
 {: .prompt-tip }
@@ -194,15 +194,15 @@ Goal: make sure it is not a one-off effort, but a repeatable routine. In other w
 
 On AWS, you can use:
 
-- `Budgets` + alerts
-- tag governance (`Tag Policies`, `Config rules`, controls)
-- traceability (`CloudTrail`/`CloudWatch`) if you want to audit changes
+- `AWS Budgets` plus alerts
+- tag governance with `AWS Organizations Tag Policies`, `AWS Config rules`, and other controls
+- traceability with `AWS CloudTrail` and `Amazon CloudWatch` if you want to audit changes
 
 ---
 
 ## My tool to operate FinOps on AWS: aws-finops-toolkit
 
-> AWS already provides most of the building blocks for FinOps. **What I was missing was automation** (and a routine that actually sticks).
+> AWS already provides most of the building blocks for FinOps. **What I was missing was automation** and a routine that actually sticks.
 {: .prompt-tip }
 
 The project is open source, serverless, and available on GitHub: [https://github.com/alazaroc/aws-finops-toolkit](https://github.com/alazaroc/aws-finops-toolkit){:target="_blank"}
@@ -218,6 +218,8 @@ My context was very common:
 > I did not want another dashboard. I wanted clear project-level signals delivered automatically, so I would actually act on them.
 {: .prompt-info }
 
+This article is based on my hands-on experience applying FinOps practices across AWS accounts and building a simple way to make cost visibility and governance easier to maintain over time.
+
 So I built **aws-finops-toolkit**: a serverless toolkit to automate visibility, governance, and reporting.
 
 ### What it includes
@@ -231,38 +233,38 @@ It has 6 main features:
 5) **finops-optimization-insights**: consolidates optimization recommendations into a monthly report  
 6) **finops-historical-cost-analyzer**: historical cost analysis and month-over-month comparisons  
 
-For features 2, 3, 4, and 5, an HTML report is sent by email (and stored in S3).
+For features 2, 3, 4, and 5, an HTML report is sent by email (and stored in Amazon S3).
 
 ### Architecture
 
 The architecture is simple and built on native AWS services.
 
-It is a serverless design based on `Lambda` + `EventBridge` + `S3` + `SES` + `CloudWatch Logs`.
+It is a serverless design based on `AWS Lambda`, `Amazon EventBridge`, `Amazon S3`, `Amazon Simple Email Service (Amazon SES)`, and `Amazon CloudWatch Logs`.
 
 ![aws-finops-toolkit architecture](architecture_diagram.png)
 
-> The project is built with AWS SAM.
+> The project is built with AWS Serverless Application Model (AWS SAM).
 {: .prompt-info }
 
 ### How my tool maps to the 3 FinOps phases
 
 I put together this table to make it clearer:
 
-| Phase   | Objective             | Component                                | What it delivers                                  | What it does NOT do (by design)        | How to cover it if needed                                 |
-| ------- | --------------------- | ----------------------------------------- | ------------------------------------------------- | -------------------------------------- | --------------------------------------------------------- |
-| Inform  | Project visibility    | finops-cost-analyzer                      | Top services by project, anomalies, HTML reports   | Advanced BI / full dashboards          | CID (QuickSight) or CUR + Athena                          |
-| Inform  | Allocation            | finops-compliance-checker + finops-tag-inventory | Required-tag control + tag inventory/hygiene | Does not “fix tags” automatically      | Internal policy + manual normalization or a dedicated job  |
-| Inform  | On-demand history     | finops-historical-cost-analyzer           | On-demand requests                                | Does not generate emails/reports       | Integration into internal portals or pipelines            |
-| Optimize| Savings backlog       | finops-optimization-insights              | Consolidated and prioritized recommendations       | Does not apply changes automatically   | Runbooks + tickets (Jira/GitHub Issues)                   |
-| Operate | Continuous governance | finops-compliance-checker + EventBridge rules (schedules) | Recurring execution + reports         | Does not block deployments             | AWS Config / SCPs / IaC guardrails                        |
+| Phase    | Objective             | Component                                        | What it delivers                                  | What it does NOT do (by design)      | How to cover it if needed                                     |
+| -------- | --------------------- | ------------------------------------------------ | ------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------- |
+| Inform   | Project visibility    | finops-cost-analyzer                             | Top services by project, anomalies, HTML reports  | Advanced BI / full dashboards        | CID (Amazon QuickSight) or CUR + Amazon Athena                |
+| Inform   | Allocation            | finops-compliance-checker + finops-tag-inventory | Required-tag control + tag inventory/hygiene      | Does not “fix tags” automatically    | Internal policy + manual normalization or a dedicated job     |
+| Inform   | On-demand history     | finops-historical-cost-analyzer                  | On-demand requests                                | Does not generate emails/reports     | Integration into internal portals or pipelines                |
+| Optimize | Savings backlog       | finops-optimization-insights                     | Consolidated and prioritized recommendations       | Does not apply changes automatically | Runbooks + tickets (Jira/GitHub Issues)                       |
+| Operate  | Continuous governance | finops-compliance-checker + EventBridge rules (schedules) | Recurring execution + reports         | Does not block deployments           | AWS Config / AWS Service Control Policies (SCPs) / IaC guardrails |
 
 ### An MVP in a few hours (if you already have the basics)
 
-If you already have the basics (a tag on your resources, for example `project`, Billing access, and permissions to deploy), you can have it running in a few hours:
+If you already have the basics (a tag on your resources, for example `project`, billing access, and permissions to deploy), you can have it running in a few hours:
 
 1. enable the tag you use (for example `project`) as a `cost allocation tag`
 2. deploy aws-finops-toolkit and configure it with your values
-3. test it with a manual run to confirm reports arrive (check `docs/operations.md` for (1) SES email verification and (2) how to run the Lambdas manually)
+3. test it with a manual run to confirm reports arrive (check `docs/operations.md` for (1) Amazon SES email verification and (2) how to run the AWS Lambda functions manually)
 4. start tracking:
    - % of spend allocated to your tag
    - unallocated spend (resources missing the `project` tag) and its main drivers
@@ -306,7 +308,7 @@ AWS has powerful tools for FinOps. The problem is not that “a service does not
 
 If I were starting today from scratch in an AWS account, I would:
 
-1. add alerts (Budgets and Anomaly Detection)
+1. add alerts (`AWS Budgets` and `AWS Cost Anomaly Detection`)
 2. tag everything with `project`
 3. enable `cost allocation tags`
 4. define 3 simple metrics and a weekly ritual:

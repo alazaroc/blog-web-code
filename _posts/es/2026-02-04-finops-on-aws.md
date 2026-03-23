@@ -7,7 +7,7 @@ lang: es
 lang-exclusive:
   - en
   - es
-description: "FinOps aplicado a AWS: qué es esto y como encaja con AWS, con servicios relacionados y la herramienta que yo he creado para ayudarme."
+description: "FinOps aplicado a AWS: qué es esto y cómo encaja con AWS, con servicios relacionados y la herramienta que yo he creado para ayudarme."
 category:
   - FinOps
 tags:
@@ -31,7 +31,7 @@ image:
 
 Me he metido a fondo en <kbd>FinOps</kbd> por un motivo muy simple: quería **aplicarlo de verdad en mis cuentas AWS y en mi forma de trabajar**. FinOps está de moda, o lo estuvo... y yo lo tenía pendiente. Y era el momento.
 
-¿Y dónde puedo buscar información de FinOps? 
+¿Y dónde puedo buscar información de FinOps?
 
 En la [Fundación FinOps](https://www.finops.org/){:target="_blank"}. Tienen mucho material, incluyendo cursos ([este de introducción es gratuito](https://learn.finops.org/introduction-to-finops){:target="_blank"}) y certificaciones.
 
@@ -115,31 +115,31 @@ Los tienes [aquí](https://www.finops.org/framework/principles/){:target="_blank
 El framework lo resume en 4 dominios. Estos son los resultados que buscas.
 
 - **Entender el uso y el coste**: recopilar y normalizar los datos de uso y gasto, definir cómo se asignan (por ejemplo por proyecto) y hacerlos accesibles para todos. Las capacidades son:
-	- Ingestión de datos
-	- Asignación
-	- Informes y análisis
-	- Gestión de anomalías
+  - Ingestión de datos
+  - Asignación
+  - Informes y análisis
+  - Gestión de anomalías
 - **Cuantificar el valor de negocio**: conectar el gasto con resultados, presupuestos, previsiones y KPIs para saber si "merece la pena". Las capacidades son:
-	- Planificación y estimación
-	- Pronóstico
-	- Presupuesto
-	- Evaluación comparativa
-	- Economía unitaria
+  - Planificación y estimación
+  - Pronóstico
+  - Presupuesto
+  - Evaluación comparativa
+  - Economía unitaria
 - **Optimizar el uso y el coste**: reducir desperdicio, elegir mejor modelo de compra y diseñar/operar sistemas de forma eficiente. Las capacidades son:
-	- Arquitectura para la nube
-	- Optimización de las tarifas
-	- Optimización de la carga de trabajo
-	- Sostenibilidad de la nube
-	- Licencias y SaaS
+  - Arquitectura para la nube
+  - Optimización de las tarifas
+  - Optimización de la carga de trabajo
+  - Sostenibilidad de la nube
+  - Licencias y SaaS
 - **Operar la práctica FinOps**: convertirlo en una rutina que mejora con el tiempo (personas, procesos y gobernanza). Las capacidades son:
-	- Operaciones de práctica de FinOps
-	- Política y gobernanza
-	- Evaluación de FinOps
-	- Herramientas y servicios de FinOps
-	- Educación y capacitación en FinOps
-	- Facturación y contracargos
-	- Cargas de trabajo de incorporación
-	- Disciplinas relacionadas
+  - Operaciones de práctica de FinOps
+  - Política y gobernanza
+  - Evaluación de FinOps
+  - Herramientas y servicios de FinOps
+  - Educación y capacitación en FinOps
+  - Facturación y contracargos
+  - Cargas de trabajo de incorporación
+  - Disciplinas relacionadas
 
 [Aquí](https://www.finops.org/framework/domains/){:target="_blank"} tienes los dominios, y [aquí](https://www.finops.org/framework/capabilities/){:target="_blank"} las capacidades.
 
@@ -170,11 +170,11 @@ Objetivo: saber **qué se gasta, por quién y por qué**, con datos consistentes
 
 En AWS, puedes usar:
 
-- `Cost Explorer` para análisis
-- `tags` y `cost allocation tags` para agrupar gastos
-- `Cost Categories` para mapear gasto a un equipo
-- `Budgets` y `Anomaly Detection` para recibir alertas antes de que sea tarde
-- si quieres detalle fino: CUR (Cost and Usage Report) y analítica (`Athena/QuickSight`)
+- `AWS Cost Explorer` para análisis
+- `etiquetas de recursos de AWS` y `cost allocation tags` para agrupar gastos
+- `AWS Cost Categories` para mapear gasto a un equipo
+- `AWS Budgets` y `AWS Cost Anomaly Detection` para recibir alertas antes de que sea tarde
+- si quieres detalle fino: `AWS Cost and Usage Report (CUR)` y analítica con `Amazon Athena` o `Amazon QuickSight`
 
 ### Optimizar
 
@@ -182,8 +182,8 @@ Objetivo: reducir coste sin perder valor. Normalmente por dos vías: **usar mejo
 
 En AWS, puedes usar:
 
-- `Cost Optimization Hub`, `Trusted Advisor` y `Compute Optimizer` para obtener recomendaciones de optimización de costes
-- dashboards avanzados tipo **CID (Cloud Intelligence Dashboards)** si necesitas análisis y reporting más completo
+- `AWS Cost Optimization Hub`, `AWS Trusted Advisor` y `AWS Compute Optimizer` para obtener recomendaciones de optimización de costes
+- dashboards avanzados tipo **Cloud Intelligence Dashboards (CID)** si necesitas análisis y reporting más completo
 
 > Optimizar no es solo "apagar cosas". También es *rightsizing*, elegir mejor modelo de compra, modernizar y mejorar arquitectura.
 {: .prompt-tip }
@@ -194,15 +194,15 @@ Objetivo: que no sea algo puntual, sino que se mantenga con una pequeña rutina.
 
 En AWS, puedes usar:
 
-- `Budgets` + alertas
-- gobernanza de tags (`Tag Policies`, `Config rules`, controles)
-- trazabilidad (`CloudTrail`/`CloudWatch`) si quieres auditar cambios
+- `AWS Budgets` + alertas
+- gobernanza de etiquetas con `AWS Organizations Tag Policies`, `AWS Config rules` y otros controles
+- trazabilidad con `AWS CloudTrail` y `Amazon CloudWatch` si quieres auditar cambios
 
 ---
 
 ## Mi herramienta para operar FinOps en AWS: aws-finops-toolkit
 
-> AWS ya trae casi todas las piezas para hacer FinOps. **Lo que a mí me faltaba era convertirlo en algo automático** (y rutinario).
+> AWS ya trae casi todas las piezas para hacer FinOps. **Lo que a mí me faltaba era convertirlo en algo automático** y rutinario.
 {: .prompt-tip }
 
 El proyecto es open-source, serverless, y está disponible en GitHub: [https://github.com/alazaroc/aws-finops-toolkit](https://github.com/alazaroc/aws-finops-toolkit){:target="_blank"}
@@ -218,51 +218,53 @@ Mi contexto era muy común:
 > No quería otro dashboard: quería datos claros por proyecto, que me llegaran solos y me obligaran a actuar.
 {: .prompt-info }
 
+Este artículo está basado en mi experiencia real aplicando prácticas FinOps en cuentas AWS y construyendo una forma sencilla de hacer más sostenible la visibilidad y la gobernanza de costes en el tiempo.
+
 Así que construí **aws-finops-toolkit**: un toolkit serverless para automatizar visibilidad, gobernanza y reportes.
 
 ### Qué incluye
 
 Tiene 6 funcionalidades principales:
 
-1) Creación de Budgets para recibir alertas de gasto
-2) **finops-cost-analyzer**: análisis de coste del mes actual, configurable por etiqueta / región / servicio
-3) **finops-tag-inventory**: inventario de recursos por región y etiquetas; detecta etiquetas similares a las obligatorias
-4) **finops-compliance-checker**: auditoría de tags obligatorios (configurable) y resumen de tags más usados
-5) **finops-optimization-insights**: consolida recomendaciones de optimización en un reporte mensual
+1) Creación de presupuestos con **AWS Budgets** para recibir alertas de gasto  
+2) **finops-cost-analyzer**: análisis de coste del mes actual, configurable por etiqueta / región / servicio  
+3) **finops-tag-inventory**: inventario de recursos por región y etiquetas; detecta etiquetas similares a las obligatorias  
+4) **finops-compliance-checker**: auditoría de tags obligatorios (configurable) y resumen de tags más usados  
+5) **finops-optimization-insights**: consolida recomendaciones de optimización en un reporte mensual  
 6) **finops-historical-cost-analyzer**: análisis de coste histórico y comparativas con meses anteriores
 
-Para las funciones 2, 3, 4 y 5 se envía un reporte HTML por email (y se guarda en S3).
+Para las funciones 2, 3, 4 y 5 se envía un reporte HTML por email y se guarda en `Amazon S3`.
 
 ### Arquitectura
 
 La arquitectura es simple y está basada en servicios nativos de AWS.
 
-Es una arquitectura serverless basada en `Lambda` + `EventBridge` + `S3` + `SES` + `CloudWatch Logs`.
+Es una arquitectura serverless basada en `AWS Lambda`, `Amazon EventBridge`, `Amazon S3`, `Amazon Simple Email Service (Amazon SES)` y `Amazon CloudWatch Logs`.
 
 ![Arquitectura de aws-finops-toolkit](architecture_diagram.png)
 
-> El proyecto está creado con AWS SAM.
+> El proyecto está creado con AWS Serverless Application Model (AWS SAM).
 {: .prompt-info }
 
 ### Cómo mapea mi herramienta con las 3 fases de FinOps
 
 He creado esta tabla para explicarlo mejor:
 
-| Fase      | Objetivo                 | Componente                         | Qué entrega                                             | Qué NO hace (a propósito)          | Cómo cubrirlo si lo necesitas                          |
-| --------- | ------------------------ | ---------------------------------- | ------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------ |
-| Informar  | Visibilidad por proyecto | finops-cost-analyzer               | Top servicios por proyecto, anomalías, reportes HTML    | BI avanzado o dashboards completos | CID (QuickSight) o CUR + Athena                        |
-| Informar  | Asignación               | finops-compliance-checker + finops-tag-inventory | Control de tag obligatorio + inventario/higiene de tags | No "arregla tags" automáticamente  | Política interna + normalización manual o job dedicado |
-| Informar  | Histórico programable    | finops-historical-cost-analyzer    | Peticiones bajo demanda                        | No genera emails/reportes          | Integración en portales internos o pipelines           |
-| Optimizar | Backlog de ahorro        | finops-optimization-insights       | Recomendaciones consolidadas y priorizadas              | No aplica cambios automáticamente  | Runbooks + tickets (Jira/GitHub Issues)                |
-| Operar    | Gobernanza continua      | finops-compliance-checker + reglas de EventBridge (schedules)     | Ejecución recurrente + reportes                         | No bloquea despliegues             | AWS Config / SCPs / guardrails en IaC                  |
+| Fase      | Objetivo                 | Componente                                               | Qué entrega                                             | Qué NO hace (a propósito)          | Cómo cubrirlo si lo necesitas                                 |
+| --------- | ------------------------ | -------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------- |
+| Informar  | Visibilidad por proyecto | finops-cost-analyzer                                     | Top servicios por proyecto, anomalías, reportes HTML    | BI avanzado o dashboards completos | CID (Amazon QuickSight) o CUR + Amazon Athena                 |
+| Informar  | Asignación               | finops-compliance-checker + finops-tag-inventory         | Control de tag obligatorio + inventario/higiene de tags | No "arregla tags" automáticamente  | Política interna + normalización manual o job dedicado        |
+| Informar  | Histórico programable    | finops-historical-cost-analyzer                          | Peticiones bajo demanda                                 | No genera emails/reportes          | Integración en portales internos o pipelines                  |
+| Optimizar | Backlog de ahorro        | finops-optimization-insights                             | Recomendaciones consolidadas y priorizadas              | No aplica cambios automáticamente  | Runbooks + tickets (Jira/GitHub Issues)                       |
+| Operar    | Gobernanza continua      | finops-compliance-checker + reglas de EventBridge (schedules) | Ejecución recurrente + reportes                    | No bloquea despliegues             | AWS Config / AWS Service Control Policies (SCPs) / guardrails en IaC |
 
 ### Un MVP en pocas horas (si ya tienes lo básico)
 
-Si ya tienes lo básico (una etiqueta en tus recursos, por ejemplo `project`, acceso a Billing, y permisos para desplegar), puedes dejarlo funcionando en pocas horas:
+Si ya tienes lo básico (una etiqueta en tus recursos, por ejemplo `project`, acceso a billing, y permisos para desplegar), puedes dejarlo funcionando en pocas horas:
 
 1. activa la etiqueta que uses (por ejemplo `project`) como `cost allocation tag`
-2. desplega aws-finops-toolkit, configurándolo con tus valores
-3. pruébalo haciendo una ejecución a mano, para asegurar que te llegan los reportes (revisa el fichero `docs/operations.md` y busca (1) cómo confirmar tu email en SES y (2) cómo ejecutar las lambdas a mano)
+2. despliega aws-finops-toolkit, configurándolo con tus valores
+3. pruébalo haciendo una ejecución a mano, para asegurar que te llegan los reportes (revisa el fichero `docs/operations.md` y busca (1) cómo confirmar tu email en `Amazon SES` y (2) cómo ejecutar las funciones `AWS Lambda` a mano)
 4. empieza a medir:
    - % gasto asignado a tu etiqueta
    - gasto sin asignar (recursos sin la etiqueta `project`) y sus principales drivers
@@ -278,7 +280,7 @@ Luego, en 2 semanas, lo conviertes en práctica:
 
 ## La certificación (FinOps Certified Practitioner)
 
-La parte útil de la certificación de **FinOps Certified Practitioner (FOCP)**, es que te obliga a ordenar:
+La parte útil de la certificación de **FinOps Certified Practitioner (FOCP)** es que te obliga a ordenar:
 
 - conceptos y vocabulario
 - principios, roles y colaboración
@@ -288,9 +290,9 @@ La descripción oficial del FOCP lo deja claro: cubre fundamentos y conceptos cl
 
 [Este es el enlace a la certificación](https://learn.finops.org/finops-certified-practitioner-certification-exam){:target="_blank"}
 
-El examen no es lo importante. Lo importante es lo que te obliga a practicar mientras lo preparas. Con la información que te he dejado en este artículo tienes el acceso a todo lo importante.
+El examen no es lo importante. Lo importante es lo que te obliga a practicar mientras lo preparas. Con la información que te he dejado en este artículo tienes acceso a todo lo importante.
 
-> Mi recomendación es que hagas como yo, y a la vez que te lo preparas, revisa qué estas haciendo ahora con los costes en el cloud y cómo puedes hacerlo mejor a partir de ahora.
+> Mi recomendación es que hagas como yo, y a la vez que te lo preparas, revises qué estás haciendo ahora con los costes en el cloud y cómo puedes hacerlo mejor a partir de ahora.
 {: .prompt-tip }
 
 ---
@@ -306,14 +308,14 @@ AWS tiene herramientas muy potentes para FinOps. El problema no es que "no exist
 
 Si yo empezara hoy desde cero en una cuenta AWS:
 
-1. añadiría alertas (Budgets y Anomaly Detection)
+1. añadiría alertas (`AWS Budgets` y `AWS Cost Anomaly Detection`)
 2. añadiría el tag `project` en todos mis recursos
 3. activaría `cost allocation tags`
 4. definiría 3 métricas simples y un ritual semanal:
    - % de gasto asignado a `project`
    - gasto sin asignar (sin `project`) y sus top servicios
    - top proyectos por coste y la variación (para detectar cambios)
-5. y automatizaría reportes para no depender de "ya lo miraré"
+5. automatizaría reportes para no depender de "ya lo miraré"
 
 Yo lo aterricé con mi toolkit [aws-finops-toolkit](https://github.com/alazaroc/aws-finops-toolkit){:target="_blank"}. ¿Tú cómo lo estás operando ahora?
 
